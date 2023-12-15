@@ -1,0 +1,7 @@
+#chatbot {
+    position: fixed;
+    bottom: 0%;
+    right: -500px;
+    width: 500px;
+    transition: right 0.4s ease-in-out;
+}

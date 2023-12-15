@@ -1,0 +1,16 @@
+#navTab_rounded .nav-link, .dropdown-item {
+    color: #000000 !important;
+}
+
+#navTab_rounded .nav-link.active, .dropdown-item.active, .dropdown-item.focus{
+    background-color: #007205 !important;
+    color: #ffffff !important;
+}
+
+#content .content_sidenav{
+    padding-top: 5rem !important;
+}
+
+#content .content_details{
+    margin-top: 5rem !important;
+}
