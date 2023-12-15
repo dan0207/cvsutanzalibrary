@@ -5,19 +5,7 @@ session_start();
 if (!empty($_POST['username'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Database connection parameters
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "tanza_campus_library";
-
-        // Create a new MySQLi connection
-        $db = new mysqli($servername, $username, $password, $database);
-
-        // Check the connection
-        if ($db->connect_error) {
-            die("Connection failed: " . $d->connect_error);
-        }
+        require_once('db_connection.php');
 
         $username = $_POST['username'];
         $password = $_POST['password'];

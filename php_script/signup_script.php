@@ -4,26 +4,11 @@ session_start();
 // FOR INPUT LOGIN
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Database connection parameters
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "tanza_campus_library";
-
-    // Create a new MySQLi connection
-    $db = new mysqli($servername, $username, $password, $database);
-
-    // Check the connection
-    if ($db->connect_error) {
-        die("Connection failed: " . $d->connect_error);
-    }
+    require_once('db_connection.php');
 
     $_SESSION['user_token'] = $_SESSION['temp_token'];
     unset($_SESSION['temp_token']);
 
-    $token = $_SESSION['user_token'];
-    $fullname = $_SESSION['user_fullname'];
-    $picture = $_SESSION['user_picture'];
 
     $_SESSION['user_username'] = $_POST['user_username'];
     $_SESSION['user_password'] = $_POST['user_password'];
@@ -38,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['user_member_type'] = $_POST['user_member_type'];
     $_SESSION['user_status'] = 'Online';
 
+    $token = $_SESSION['user_token'];
+    $fullname = $_SESSION['user_fullname'];
+    $picture = $_SESSION['user_picture'];
+    
     $username = $_SESSION['user_username'];
     $password = $_SESSION['user_password'];
     $name = $_SESSION['user_name'];

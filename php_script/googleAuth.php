@@ -1,19 +1,7 @@
 <?php
 session_start();
 
-//  Database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "tanza_campus_library";
-
-// Create a new MySQLi connection
-$db = new mysqli($servername, $username, $password, $database);
-
-// Check the connection
-if ($db->connect_error) {
-    die("Connection failed: " . $d->connect_error);
-}
+require_once('db_connection.php');
 
 // Retrieve JSON from POST body
 $jsonStr = file_get_contents('php://input');
