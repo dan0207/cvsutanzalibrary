@@ -69,7 +69,7 @@ session_start();
                     <h1 class="opac_title display-1" style="font-family:Impact">TANZA CAMPUS LIBRARY</h1>
                     <h4 class="opac_label fs-6 fs-sm-5 fs-md-4 w-65 mx-auto bg-primary px-1 py-1 rounded-pill border border-onPrimary border-2">Online Public Access Catalog</h4>
                     <div class="opac_search input-group m-auto w-90">
-                        <input type="text" class="opac_search_input form-control rounded-start-pill py-2 px-3" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
+                        <input id="opac_search_input" type="text" class="opac_search_input form-control rounded-start-pill py-2 px-3" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
                         <button class="opac_search_btn btn btn-outline-primary border-2 border-onPrimary text-onPrimary rounded-end-pill py-2 px-3" type="button">
                             <i class="">Search</i>
                         </button>

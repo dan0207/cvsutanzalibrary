@@ -9,10 +9,12 @@ $(document).ready(function () {
     var opac_search_top_collapse = document.getElementById("opac_search_top_collapse");
     var book_search = document.getElementById("book_search");
 
-    window.addEventListener("scroll", function () {
-        var current_offset = window.pageYOffset || document.documentElement.current_offset;
 
-        if (current_offset >= book_search.offsetTop) {
+    window.addEventListener("scroll", function () {
+        var current_offset = window.pageYOffset;
+        var newOffset = book_search.offsetTop - book_search.offsetHeight;
+
+        if (current_offset >= newOffset) {
             opac_search_top.style.visibility = "visible";
             opac_search_top_icon.style.visibility = "visible";
             opac_search_top_collapse.style.visibility = "visible";
@@ -29,10 +31,9 @@ $(document).ready(function () {
 // Function for books datatables
 $(document).ready(function () {
     let books_table = new DataTable('#books_table', {
-        // ajax: '../../../php_script/server_processing.php', // DO NOT REMOVE
+        ajax: '../../../php_script/server_processing.php', // DO NOT REMOVE
         processing: true, // DO NOT REMOVE
-        // serverSide: true, // DO NOT REMOVE
-        ajax: '../../../ajax/data/books.txt',
+        serverSide: true, // DO NOT REMOVE
         responsive: true,
         iDisplayLength: 20,
         columnDefs: [
@@ -79,9 +80,26 @@ $(document).ready(function () {
         books_table.page.len(newPageLength).draw();
     });
 
-    $('#search_books_input').keyup(function () {
-        books_table.search($(this).val()).draw();
-    })
+
+    var $opac_search_input = $('#opac_search_input');
+    var $opac_search_top_input = $('#opac_search_top_input');
+    var $opac_search_top_collapse_input = $('#opac_search_top_collapse_input');
+
+    $opac_search_input.on('keyup', function () {
+            books_table.search($(this).val()).draw();
+            $opac_search_top_input.val($opac_search_input.val());
+            $opac_search_top_collapse_input.val($opac_search_input.val());
+    });
+    $opac_search_top_input.on('keyup', function () {
+            books_table.search($(this).val()).draw();
+            $opac_search_input.val($opac_search_top_input.val());
+            $opac_search_top_collapse_input.val($opac_search_top_input.val());
+    });
+    $opac_search_top_collapse_input.on('keyup', function () {
+            books_table.search($(this).val()).draw();
+            $opac_search_input.val($opac_search_top_collapse_input.val());
+            $opac_search_top_input.val($opac_search_top_collapse_input.val());
+    });
 
 });
 // Function for books datatables
@@ -99,10 +117,21 @@ $(function () {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // $('#books_table tbody').on('click', 'tr', function () {
 //     alert($(this).find('td:first').text());
 // });
-
-
-// "<h4 id='availability_label' class='available fst-italic text-primary'>Available to Borrow</h4>",
-// "<button id='availability_btn' class='btn fs-5 px-3 py-1 my-2' onclick='myFunction()'>REQUEST</button>"

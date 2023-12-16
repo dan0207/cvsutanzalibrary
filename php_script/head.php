@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../assets/vendor/css/profile.css">
 <link rel="stylesheet" href="../../assets/vendor/css/events_calendar.css">
 <link rel="stylesheet" href="../../assets/vendor/css/feedback.css">
-<link rel="stylesheet" href="../../assets/vendor/css/chatbot.css">
+<link rel="stylesheet" href="../../assets/vendor/css/chat.css">
 <link rel="stylesheet" href="../../assets/vendor/css/offcanvas.css">
 <!-- Vendor CSS Files -->
 

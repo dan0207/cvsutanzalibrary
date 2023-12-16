@@ -28,6 +28,28 @@ CREATE TABLE `events` (
 );
 
 
+CREATE TABLE `books` (
+  `book_id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `book_title` VARCHAR(255) NOT NULL,
+  `book_author` VARCHAR(255) NOT NULL,
+  `book_access_number` VARCHAR(255) NOT NULL,
+  `book_call_number` VARCHAR(255) NOT NULL,
+  `book_material_type` VARCHAR(255) NOT NULL,
+  `book_language` VARCHAR(255) NOT NULL,
+  `book_publication_details` VARCHAR(255) NOT NULL,
+  `book_description` TEXT NOT NULL,
+  `book_content_type` VARCHAR(255) NOT NULL,
+  `book_media_type` VARCHAR(255) NOT NULL,
+  `book_carrier_type` VARCHAR(255) NOT NULL,
+  `book_isbn` VARCHAR(255) NOT NULL,
+  `book_subject` VARCHAR(255) NOT NULL,
+  `book_classification` VARCHAR(255) NOT NULL,
+  `book_availability` VARCHAR(255) NOT NULL,
+  `book_btn` VARCHAR(255) NOT NULL
+);
+
+
+
     
 
     

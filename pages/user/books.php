@@ -26,7 +26,7 @@ session_start();
 
             <!-- OPAC SEARCH FOR HEADER -->
             <div class="opac_search_top input-group d-none d-sm-flex d-lg-none w-50" id="opac_search_top" style="visibility: hidden;">
-                <input type="text" class="opac_search_input form-control rounded-start-2 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
+                <input id="opac_search_top_input" type="text" class="opac_search_input form-control rounded-start-2 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
                 <button class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
             </div>
             <!-- OPAC SEARCH FOR HEADER -->
@@ -45,7 +45,7 @@ session_start();
 
             <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
             <div class="opac_search_top_collapse collapse navbar-collapse input-group w-30 px-2 d-sm-none py-3 py-lg-0" id="opac_search_top_collapse" style="visibility: hidden;">
-                <input type="text" class="opac_search_input form-control rounded-start-2 px-3 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
+                <input id="opac_search_top_collapse_input" type="text" class="opac_search_input form-control rounded-start-2 px-3 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
                 <button class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
             </div>
             <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
@@ -90,7 +90,7 @@ session_start();
                             <div id="book_search" class="book_search my-3">
                                 <div class="input-group">
                                     <span class="input-group-text rounded-start-2 text-onPrimary bg-primary d-none d-md-flex">Library Catalog</span>
-                                    <input id="search_books_input" type="text" class="rounded-start-2 form-control" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
+                                    <input id="opac_search_input" type="text" class="rounded-start-2 form-control" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
                                     <button class="btn btn-outline-primary rounded-end-2 px-3" type="button">Search</button>
                                 </div>
                             </div>

@@ -14,14 +14,14 @@ const profile_qr_code_image = document.getElementById('profile_qr_code_image');
 fetch('../../../php_script/db_getData.php')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        generateQRCode(data.active.user_token, profile_qr_code_image.id, 500);
-        library_id.textContent = data.active.user_token;
-        document.getElementById('profile_picture').src = data.active.user_picture;
-        document.getElementById('profile_name').innerHTML = data.active.user_fullname;
-        document.getElementById('profile_student_number').innerHTML = data.active.user_student_number;
-        document.getElementById('profile_email').innerHTML = data.active.user_email;
-        document.getElementById('profile_type').innerHTML = data.active.user_member_type;
+        console.log(data.users.active);
+        generateQRCode(data.users.active.user_token, profile_qr_code_image.id, 500);
+        library_id.textContent = data.users.active.user_token;
+        document.getElementById('profile_picture').src = data.users.active.user_picture;
+        document.getElementById('profile_name').innerHTML = data.users.active.user_fullname;
+        document.getElementById('profile_student_number').innerHTML = data.users.active.user_student_number;
+        document.getElementById('profile_email').innerHTML = data.users.active.user_email;
+        document.getElementById('profile_type').innerHTML = data.users.active.user_member_type;
     })
     .catch(error => console.error('Error:', error));
 
