@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode } from '../../js/main.js';
+import { setupFormValidation, showModal, generateQRCode } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 // Initialize Library ID ////////////////////////////////////////////////////////
@@ -10,30 +10,45 @@ const library_id = document.getElementById('library_id');
 const profile_qr_code_image = document.getElementById('profile_qr_code_image');
 // Initialize Image ////////////////////////////////////////////////////////
 
-updateSession()
-    .then(() => {
-        var sessionData = JSON.parse(sessionStorage.getItem('sessionData'));
-        if (sessionData) {
-            // generateQRCode(sessionData.user_token, profile_qr_code_image.id, 500);
-            generateQRCode(sessionData.user_token, profile_qr_code_image.id, 500);
-            library_id.textContent = sessionData.user_token;
-            document.getElementById('profile_picture').src = sessionData.user_picture;
-            document.getElementById('profile_name').innerHTML = sessionData.user_fullname;
-            document.getElementById('profile_student_number').innerHTML = sessionData.user_student_number;
-            document.getElementById('profile_email').innerHTML = sessionData.user_email;
-            document.getElementById('profile_type').innerHTML = sessionData.user_member_type;
-        } else {
-            console.error("No session data");
-        }
+
+fetch('../../../php_script/db_getData.php')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        generateQRCode(data.active.user_token, profile_qr_code_image.id, 500);
+        library_id.textContent = data.active.user_token;
+        document.getElementById('profile_picture').src = data.active.user_picture;
+        document.getElementById('profile_name').innerHTML = data.active.user_fullname;
+        document.getElementById('profile_student_number').innerHTML = data.active.user_student_number;
+        document.getElementById('profile_email').innerHTML = data.active.user_email;
+        document.getElementById('profile_type').innerHTML = data.active.user_member_type;
     })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    .catch(error => console.error('Error:', error));
+
+// updateSession()
+//     .then(() => {
+//         var sessionData = JSON.parse(sessionStorage.getItem('sessionData'));
+//         if (sessionData) {
+//             // generateQRCode(sessionData.user_token, profile_qr_code_image.id, 500);
+//             generateQRCode(sessionData.user_token, profile_qr_code_image.id, 500);
+//             library_id.textContent = sessionData.user_token;
+//             document.getElementById('profile_picture').src = sessionData.user_picture;
+//             document.getElementById('profile_name').innerHTML = sessionData.user_fullname;
+//             document.getElementById('profile_student_number').innerHTML = sessionData.user_student_number;
+//             document.getElementById('profile_email').innerHTML = sessionData.user_email;
+//             document.getElementById('profile_type').innerHTML = sessionData.user_member_type;
+//         } else {
+//             console.error("No session data");
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
 
 
 let logout_btn = document.getElementById("logout_btn");
 
-userBookTransaction();
+// userBookTransaction();
 
 function userBookTransaction() {
     let user_book_request_table = new DataTable('#user_book_request_table', {

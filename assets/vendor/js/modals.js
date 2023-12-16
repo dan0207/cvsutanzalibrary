@@ -100,18 +100,19 @@ function middleIRestriction() {
 
 function studentNumberRestriction(event) {
     user_student_number_input.value = user_student_number_input.value.replace(/[^0-9:]/g, "");
-    if (event === 'onInput') {
-        if (user_student_number_input.value.length > 9) {
-            user_student_number_input.value = user_student_number_input.value.slice(0, 9);
-        } else if (user_student_number_input.value.length < 9) {
-            user_student_number_input.setCustomValidity('Invalid');
-        } else {
-            user_student_number_input.setCustomValidity('');
-        }
+    if (user_student_number_input.value.length > 9) {
+        user_student_number_input.value = user_student_number_input.value.slice(0, 9);
+    } else if (user_student_number_input.value.length < 9) {
+        user_student_number_input.setCustomValidity('Invalid');
+    } else {
+        user_student_number_input.setCustomValidity('');
     }
 }
 
 
+function checkUsernameAvailability() {
+
+}
 
 
 function checkPasswordStrength() {
@@ -230,9 +231,8 @@ show_re_password_toggle.addEventListener("click", function () {
 
 // // Events for Input ////////////////////////////////////////////////////////
 user_middlename_input.addEventListener("input", middleIRestriction);
-user_student_number_input.addEventListener("input", function () {
-    studentNumberRestriction('onInput');
-});
+user_student_number_input.addEventListener("input", studentNumberRestriction);
+user_password_input.addEventListener('input', checkPasswordStrength);
 user_password_input.addEventListener('input', checkPasswordStrength);
 user_password_input.addEventListener('input', checkPasswordMatch);
 user_re_password_input.addEventListener('input', checkPasswordMatch);

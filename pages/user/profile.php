@@ -190,7 +190,7 @@ if (!isset($_SESSION["user_token"])) {
     <!-- Footer -->
 
     <!-- Script -->
-    <script async src="../../assets/vendor/js/profile.js" type="module"></script>
+    <script defer src="../../assets/vendor/js/profile.js" type="module"></script>
     <!-- Script -->
 </body>
 

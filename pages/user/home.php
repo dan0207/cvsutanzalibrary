@@ -90,7 +90,7 @@ session_start();
                         <div id="post_id" class="post mx-5 my-2 px-1 pt-2 pb-4 border rounded-3 shadow bg-body-surfaces">
                             <div class="post-head d-flex align-items-center mx-2 my-2">
                                 <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/AI-librarian-icon.png" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
+                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
                                 </div>
                                 <div class="post-details">
                                     <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>
@@ -115,7 +115,7 @@ session_start();
                         <div id="post_2" class="post border rounded-3 my-5 mx-5 px-1 pt-2 pb-4 shadow bg-body-surfaces">
                             <div class="post-head d-flex align-items-center mx-2 my-2">
                                 <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/AI-librarian-icon.png" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
+                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
                                 </div>
                                 <div class="post-details">
                                     <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>
@@ -140,7 +140,7 @@ session_start();
                         <div id="post_3" class="post border rounded-3 my-5 mx-5 px-1 pt-2 pb-4 shadow bg-body-surfaces">
                             <div class="post-head d-flex align-items-center mx-2 my-2">
                                 <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/cvsu-logo.png" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
+                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
                                 </div>
                                 <div class="post-details">
                                     <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>

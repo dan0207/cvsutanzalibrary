@@ -1,5 +1,5 @@
 <div id="feedback" class="feedback bg-background h-80 border border-primary border-end-0 border-5 rounded-start-5 z-2 my-5">
-    <div class="feedback-header h-10 text-center rounded-top-2 pt-3 px-3">
+    <div class="feedback-header h-10 text-center rounded-top-5 pt-3 px-3 bg-background">
         <h4 class="p-0 m-0">Library Feedback Form</h4>
         <p class=" p-0 m-0 fs-7">We welcome your comments and suggestions.</p>
     </div>

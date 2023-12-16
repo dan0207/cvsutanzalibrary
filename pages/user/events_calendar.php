@@ -114,7 +114,7 @@ session_start();
                                             <div>Sat</div>
                                         </div>
                                         <div class="days"></div>
-                                        <!-- <button id="add_new_event_btn" class="btn btn-outline-primary rounded-2 w-80 py-2 mb-2">Add New Event</button> -->
+                                        <button id="add_new_event_btn" class="btn btn-outline-primary rounded-2 w-80 py-2 mb-2">Add New Event</button>
                                     </div>
                                 </div>
                                 <div id="organizerContainer" class="organizerContainer border shadow bg-body-surfaces rounded-3">

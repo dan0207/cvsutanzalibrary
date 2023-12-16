@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal } from '../../js/main.js';
+import { setupFormValidation, showModal } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 

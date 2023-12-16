@@ -1,23 +1,33 @@
 CREATE TABLE `users` (
-  `user_id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `user_fullname` varchar(100) NOT NULL,
-  `user_username` varchar(50) NOT NULL,
-  `user_password` varchar(50) NOT NULL,
-  `user_givenName` varchar(100) NOT NULL,
-  `user_middleI` varchar(100) NOT NULL,
-  `user_familyName` varchar(100) NOT NULL,
-  `user_email` varchar(100) NOT NULL,
-  `user_student_number` varchar(9) NOT NULL,
-  `user_course` varchar(50) NOT NULL,
-  `user_section` varchar(50) NOT NULL,
-  `user_year` varchar(50) NOT NULL,
-  `user_picture` varchar(255) NOT NULL,
-  `user_created` datetime NOT NULL,
-  `user_modified` datetime NOT NULL,
-  `user_status` varchar(50) NOT NULL,
-  `user_member_type` varchar(50) NOT NULL,
-  `user_token` varchar(21) NOT NULL
-)
+  `user_id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `user_fullname` VARCHAR(100) NOT NULL,
+  `user_username` VARCHAR(50) NOT NULL,
+  `user_password` VARCHAR(255) NOT NULL,
+  `user_givenName` VARCHAR(100) NOT NULL,
+  `user_middleI` VARCHAR(100) NOT NULL,
+  `user_familyName` VARCHAR(100) NOT NULL,
+  `user_email` VARCHAR(100) NOT NULL,
+  `user_student_number` VARCHAR(9) NOT NULL,
+  `user_course` VARCHAR(50) NOT NULL,
+  `user_section` VARCHAR(50) NOT NULL,
+  `user_year` VARCHAR(50) NOT NULL,
+  `user_picture` VARCHAR(255) NOT NULL,
+  `user_created` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `user_modified` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+  `user_status` VARCHAR(50) NOT NULL,
+  `user_member_type` VARCHAR(50) NOT NULL,
+  `user_token` VARCHAR(21) NOT NULL
+);
+
+CREATE TABLE `events` (
+  `event_id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `event_title` varchar(255) NOT NULL,
+  `event_timeFrom` time NOT NULL,  
+  `event_timeTo` time NOT NULL,     
+  `event_date` date NOT NULL     
+);
+
+
     
 
     

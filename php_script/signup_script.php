@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($db, $sql);
 
     if ($result && $result->num_rows == 0) {
-        $insert = " INSERT INTO users (user_username, user_password, user_givenName, user_familyName, user_middleI, user_fullname, user_email, user_student_number, user_course, user_section, user_year, user_picture, user_created, user_modified, user_member_type, user_status, user_token)
-                            VALUES ('$username', '$password', '$name', '$surname', '$middle_I', '$fullname', '$email', '$student_number', '$course', '$section', '$year', '$picture', NOW(), NOW(), '$member_type', '$status', '$token')";
+        $insert = " INSERT INTO users (user_username, user_password, user_givenName, user_familyName, user_middleI, user_fullname, user_email, user_student_number, user_course, user_section, user_year, user_picture, user_member_type, user_status, user_token)
+                            VALUES ('$username', '$password', '$name', '$surname', '$middle_I', '$fullname', '$email', '$student_number', '$course', '$section', '$year', '$picture', '$member_type', '$status', '$token')";
         mysqli_query($db, $insert);
         mysqli_close($db);
         header("Location: ../../pages/user/profile.php");

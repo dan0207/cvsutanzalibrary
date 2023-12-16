@@ -1,6 +1,6 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal , generateQRCode} from '../../js/main.js';
+import { setupFormValidation, showModal , generateQRCode} from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
