@@ -36,22 +36,18 @@ session_start();
                     <div class="form-outline text-start mb-2">
                         <label class="form-label mb-0">Username</label>
                         <input type="text" name="username" class="form-control form-control-md" required />
-                        <div class="invalid-feedback">
-                            Please enter username.
-                        </div>
+                        <div id="username_feedback" class="text-secondary fs-8"></div>
                     </div>
 
                     <div class="form-outline text-start">
                         <label class="form-label mb-0">Password</label>
                         <input type="password" name="password" class="form-control form-control-md" required />
-                        <div class="invalid-feedback">
-                            Please enter password.
-                        </div>
+                        <div id="password_feedback" class="text-secondary fs-8"></div>
                     </div>
 
                     <!-- Checkbox -->
                     <div class="form-check d-flex justify-content-start mb-2">
-                        <input class="form-check-input" type="checkbox"/>
+                        <input class="form-check-input" type="checkbox" />
                         <label class="form-check-label ms-2"> Remember password </label>
                     </div>
 
@@ -59,7 +55,7 @@ session_start();
                 </form>
 
                 <div class="d-flex align-items-center">
-                    <button id="back_login_form_btn" class="btn btn-secondary text-onSecondary fs-7"  onclick="handle_BackLoginFormBtn()">Cancel</button>
+                    <button id="back_login_form_btn" class="btn btn-secondary text-onSecondary fs-7" onclick="handle_BackLoginFormBtn()">Cancel</button>
                     <a class="text-black  ms-auto fs-7" type="button">Forgot password?</a>
                 </div>
             </div>

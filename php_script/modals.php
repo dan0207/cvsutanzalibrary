@@ -307,11 +307,11 @@
                             <input type="text" class="form-control" id="create_post_embed_input" placeholder="Paste URL here">
                         </div>
                     </div>
-                    <button id="create_post_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button>
+                    <!-- <button id="create_post_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button> -->
                 </form>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <!-- <button id="create_post_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button> -->
+                <button id="create_post_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Post</button>
             </div>
         </div>
     </div>

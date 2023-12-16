@@ -50,7 +50,7 @@
 // $sql_details = array(
 //     'user' => 'root',
 //     'pass' => '',
-//     'db'   => 'if0_35625284_cvsutanzalib_db',
+//     'db'   => 'cvsutanzalib_db',
 //     'host' => 'localhost'
 //     // ,'charset' => 'utf8' // Depending on your PHP and MySQL config, you may need this
 // );
