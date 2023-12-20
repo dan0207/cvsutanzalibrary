@@ -1,11 +1,11 @@
-<div id="feedback" class="feedback bg-background h-80 border border-primary border-end-0 border-5 rounded-start-5 z-2 my-5">
+<div id="feedback" class="feedback h-70 rounded-start-5 z-2 my-5 shadow bg-body-tertiary border">
     <div class="feedback-header h-10 text-center rounded-top-5 pt-3 px-3 bg-background">
         <h4 class="p-0 m-0">Library Feedback Form</h4>
         <p class=" p-0 m-0 fs-7">We welcome your comments and suggestions.</p>
     </div>
-    <div class="feedback-body px-4 h-90">
-        <form class="feedback-form h-85 pt-2 overflow-auto">
-            <div id="feedback_ratings" class="feedback-ratings my-2 bg-surface w-80 mx-auto border border-primary border-5 rounded-pill d-flex justify-content-center align-items-center">
+    <div class="feedback-body px-5 py-3 h-75">
+        <form class="feedback-form h-100 pt-2 overflow-auto">
+            <div id="feedback_ratings" class="feedback-ratings mb-2 bg-surface w-80 mx-auto border border-primary border-1 rounded-pill d-flex justify-content-center align-items-center">
                 <h6 class="pt-2">Rate:</h6>
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" />
@@ -58,9 +58,8 @@
                 <textarea type="text" class="form-control" name="feedback_answer3" id="feedback_comment_input" rows="8"></textarea>
             </div>
         </form>
-        <div class="feedback-footer h-15 d-flex justify-content-center align-items-center ">
-            <button class="btn btn-primary rounded-pill h-60 w-100">SUBMIT</button>
-        </div>
+    </div>
+    <div class="feedback-footer h-15 d-flex justify-content-center align-items-center py-2">
+        <button class="btn btn-primary rounded-pill h-60 w-75">SUBMIT</button>
     </div>
 </div>
-

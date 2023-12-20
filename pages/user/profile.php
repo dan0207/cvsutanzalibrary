@@ -109,10 +109,10 @@ if (!isset($_SESSION["user_token"])) {
                 <div class="content_details container-fluid h-100 rounded-2 mb-5 ms-2 col-8 border shadow bg-body-tertiary p-3">
                     <div class="tab-content">
                         <!-- ACOUNT SETTINGS TAB -->
-                        <div class="tab-pane show active fade px-3" id="profile_account_settings">
+                        <div class="tab-pane show active fade border rounded-2" id="profile_account_settings">
 
-                            <div class="row border rounded-top-2">
-                                <div class="col-9 p-0">
+                            <div class="row border-bottom w-100 mx-auto">
+                                <div class="col-9">
                                     <div class="bg-primary text-onPrimary d-flex align-items-center mt-3 py-1 px-4">
                                         <div class="fs-4 ">
                                             Profile
@@ -131,8 +131,58 @@ if (!isset($_SESSION["user_token"])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row border rounded-bottom-2">
-                                <p class="text-center fs-1">USER INFO</p>
+                            <div class="row border-bottom w-100 mx-auto py-3 px-3">
+                                <label class="form-label mb-1 ms-1 fs-4 text-center">About Me</label>
+                                <div class="col-8">
+                                    <label for="" class="form-label">Bio</label>
+                                    <textarea type="text" class="form-control" rows="4"></textarea>
+                                </div>
+                                <div class="row col-4">
+                                    <div class="col-6">
+                                        <label for="" class="form-label">Age</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="" class="form-label">Gender</label>
+                                        <select class="form-select" required>
+                                            <option value="" selected hidden></option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="" class="form-label">Birth</label>
+                                        <input type="date" class="form-control" value="02/07/2001">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100 mx-auto py-3 px-3">
+                                <div class="form-outline row">
+                                    <label class="form-label mb-1 ms-1 fs-4 text-center">Login Credentials</label>
+                                    <div class="col-5">
+                                        <label for="profile_username_input" class="form-label">Username</label>
+                                        <input type="text" class="form-control" name="profile_username" id="profile_username_input" required>
+                                        <div id="profile_username_feedback" class="text-secondary fs-8"></div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="profile_password_input" class="form-label">Old Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="profile_password" id="profile_password_input" required>
+                                            <span class="input-group-text"><i id="show_password_toggle" class="fa fa-eye-slash"></i></span>
+                                        </div>
+                                        <div id="profile_password_Strength_feedback" class="text-secondary fs-8"></div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="profile_re_password_input" class="form-label">New Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="profilere_password" id="profile_re_password_input" required>
+                                            <span class="input-group-text"><i id="show_re_password_toggle" class="fa fa-eye-slash"></i></span>
+                                        </div>
+                                        <div id="profile_password_checkMatch_feedback" class="text-secondary fs-8"></div>
+                                    </div>
+
+                                    <button id="profile_form_btn" class="btn btn-primary rounded-pill w-50 mx-auto fs-6 mt-3">Update Information</button>
+                                </div>
                             </div>
                         </div>
                         <!-- ACOUNT SETTINGS TAB -->

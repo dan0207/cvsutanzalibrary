@@ -1,5 +1,5 @@
 <div class="container pt-5 sticky-top z-1">
-    <div class="accordion pt-5" id="accordionPanelsStayOpenExample">
+    <div class="accordion pt-5 w-80 ms-auto" id="accordionPanelsStayOpenExample">
 
         <div class="accordion-item border border-0 mb-2">
             <h2 class="accordion-header">

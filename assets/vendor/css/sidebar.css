@@ -8,12 +8,12 @@
 
 @media screen and (min-width: 1200px) {
     .accordion-button .sidebar_header {
-        font-size: 1rem !important;
+        font-size: 0.7rem !important;
     }
 }
 
 @media screen and (min-width: 1400px) {
     .accordion-button .sidebar_header {
-        font-size: 1.2rem !important;
+        font-size: 0.9rem !important;
     }
 }

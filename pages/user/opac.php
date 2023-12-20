@@ -9,13 +9,10 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../../php_script/head.php'; ?>
-
-</html>
-<title>OPAC • Tanza Campus Library</title>
+    <title>OPAC • Tanza Campus Library</title>
 </head>
 
 <body>
-
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-onSurface bg-surface border-bottom fixed-top">
         <div class="container-fluid d-flex">
@@ -67,20 +64,20 @@ session_start();
             <div class="opac_page vh-100 d-flex align-items-center justify-content-center text-center p-2 text-onPrimary">
                 <div class="opac_content">
                     <h1 class="opac_title display-1" style="font-family:Impact">TANZA CAMPUS LIBRARY</h1>
-                    <h4 class="opac_label fs-6 fs-sm-5 fs-md-4 w-65 mx-auto bg-primary px-1 py-1 rounded-pill border border-onPrimary border-2">Online Public Access Catalog</h4>
-                    <div class="opac_search input-group m-auto w-90">
-                        <input id="opac_search_input" type="text" class="opac_search_input form-control rounded-start-pill py-2 px-3" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
-                        <button class="opac_search_btn btn btn-outline-primary border-2 border-onPrimary text-onPrimary rounded-end-pill py-2 px-3" type="button">
-                            <i class="">Search</i>
-                        </button>
-                    </div>
+                    <form id="opac_search_form" method="POST">
+                        <label for="opac_search_input" class="opac_label fs-6 fs-sm-5 fs-md-4 w-65 mx-auto bg-primary px-1 my-2 rounded-pill border border-onPrimary border-2">Online Public Access Catalog</label>
+                        <div class="opac_search input-group m-auto w-90">
+                            <input id="opac_search_input" name="opac_search" type="text" class="opac-search-input form-control rounded-start-pill py-2 px-3" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
+                            <button id="opac_search_btn" class="opac_search_btn btn btn-outline-primary border-2 border-onPrimary text-onPrimary rounded-end-pill py-2 px-3" type="submit">Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- Main -->
 
-    
+
     <!-- Footer -->
     <?php include '../../php_script/footer.php';
     ?>
@@ -90,5 +87,6 @@ session_start();
     <!-- Script -->
     <script src="../../assets/vendor/js/opac.js" type="module"></script>
     <!-- Script -->
-
 </body>
+
+</html>

@@ -236,7 +236,7 @@
 
 <!-- User Info Review Modal  -->
 <div class="modal fade" id="user_review_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
                 <img src="../../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
@@ -246,7 +246,7 @@
                 <p>Sample Only!!</p>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#user_form_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back</button>
+                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#user_form_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to user information</button>
                 <button id="user_review_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-dismiss="modal">Confirm</button>
             </div>
         </div>
@@ -255,24 +255,240 @@
 <!-- User Info Review Modal  -->
 
 
-<!-- User Info Review Modal  -->
-<div class="modal fade" id="book_request_form_modal" data-bs-keyboard="false" data-bs-keyboard="false" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+<!-- Book Reservation Request Review Modal  -->
+<div class="modal fade" id="book_request_review_modal" data-bs-keyboard="false" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
-                <img src="../../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
+            <div class="modal-header d-flex justify-content-center bg-tertiary">
+                <i class="fa-solid fa-book fa-xl mx-2"></i>
+                <h1 class="modal-title fs-3">Book Reservation Form</h1>
             </div>
-            <div class="modal-body text-center">
-                <h1 class="modal-title">Book Request Form</h1>
-                <p>Sample Only!!</p>
+            <div class="modal-body">
+                <p class="text-center fs-6">🔔Please review the details you entered and click the Continue button if you wish to proceed🔔</p>
+                <div class="container border rounded-3 w-80 mx-auto p-4">
+                    <div class="row">
+                        <h4 class="fw-bold text-primary">PERSONAL INFORMATION</h4>
+                    </div>
+                    <div class="row my-2 fs-7">
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">First Name: </label>
+                                <p id="book_reservation_firstName" class="text-muted">Danilo Jr.</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Last Name: </label>
+                                <p id="book_reservation_lastName" class="text-muted">Abancia</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Student No.: </label>
+                                <p id="book_reservation_studentNumber" class="text-muted">201910150</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">CvSU Mail: </label>
+                                <p id="book_reservation_email" class="text-muted">danilojr.abancia@cvsu.edu.ph</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Course: </label>
+                                <p id="book_reservation_studentNumber" class="text-muted">BSIT</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Year: </label>
+                                <p id="book_reservation_studentNumber" class="text-muted">FOUTH</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Section: </label>
+                                <p id="book_reservation_studentNumber" class="text-muted">ONE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h4 class="fw-bold text-primary">BOOK RESERVATION DETAILS</h4>
+                    </div>
+                    <div class="row my-2 fs-7">
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Book Title: </label>
+                                <p id="book_reservation_firstName" class="text-muted">Organic Chemistry</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Pickup Date: </label>
+                                <p id="book_reservation_lastName" class="text-muted">12/25/23</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_reservation_firstName" class="form-label me-3 fw-bold">Due Date: </label>
+                                <p id="book_reservation_studentNumber" class="text-muted">01/01/24</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button>
+                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-dismiss="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back</button>
+                <button class="btn btn-primary rounded-pill px-5 ms-auto" data-bs-target="#book_request_privacyStatement_modal" data-bs-toggle="modal">Continue</button>
             </div>
         </div>
     </div>
 </div>
-<!-- User Info Review Modal  -->
+<!-- Book Reservation Request Review Modal  -->
+
+<!-- Book Reservation Request Library Privary Notice Modal  -->
+<div class="modal fade" id="book_request_privacyStatement_modal" data-bs-keyboard="false" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center bg-tertiary">
+                <i class="fa-solid fa-book fa-xl mx-2"></i>
+                <h1 class="modal-title fs-3">Book Reservation Form</h1>
+            </div>
+            <div class="modal-body">
+                <div class="container border rounded-3 w-80 mx-auto p-4">
+                    <div class="row text-center">
+                        <h4 class="fw-bold text-primary">LIBRARY PRIVACY NOTICE(SAMPLE ONLY)</h4>
+                    </div>
+                    <div class="row my-2">
+                        <h6>LIBRARY RULES AND REGULATIONS</h6>
+                        <ul class="px-5">
+                            <li>Always present your ID as you enter the library.</li>
+                            <li>Always leave your belongings, except your valuables at the Baggage Counter Area. The library is not responsible for any loss or damage to your property.</li>
+                            <li>Always present to the student assistant on duty any duly borrowed library property you may wish to bring outside the library for inspection.</li>
+                        </ul>
+
+                        <h6>BORROWING PRIVILEGES</h6>
+                        <ul class="px-5">
+                            <li>Reading Room Use only.</li>
+                            <li>Two (2) non reserved books can be borrowed at a time by library user.</li>
+                            <li>Posters, maps and globes may be borrowed for classroom use and should be returned on the same day.</li>
+                            <li>Reference books such as encyclopedias, yearbooks, dictionaries, newly acquired books, reserved books, thesis, special project, dissertation, periodicals, newspapers, audio-visual materials and vertical file clippings are for LIBRARY USE ONLY.</li>
+                            <li>Overnight and Home Reading Loans.</li>
+                            <li>Overnight and Home Reading loans of two (2) non-reserved books are issued from 3:00 – 4:30pm.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-check text-primary d-flex justify-content-center mb-3">
+                <input class="form-check-input me-1 border border-primary" type="checkbox" value="" id="book_request_privacyStatement_checkbox" required>
+                <label class="form-check-label" for="book_request_privacyStatement_checkbox">
+                    I have read and agreed to the Privacy Statement
+                </label>
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#book_request_review_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to review</button>
+                <button class="btn btn-primary rounded-pill px-5 ms-auto" data-bs-target="#book_request_receipt_modal" data-bs-toggle="modal">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Book Reservation Request Library Privary Notice Modal  -->
+
+<!-- Book Reservation Request Library Receipt Modal  -->
+<div class="modal fade" id="book_request_receipt_modal" data-bs-keyboard="false" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center bg-tertiary">
+                <i class="fa-solid fa-xl fa-receipt mx-2"></i>
+                <h1 class="modal-title fs-3">Book Reservation Receipt</h1>
+            </div>
+            <div class="modal-body">
+                <div class="container border rounded-3 w-80 mx-auto p-5">
+                    <div class="row py-2">
+                        <div class="col-8">
+                            <h5 class="fw-bold mb-3">RECEIVED FROM</h5>
+                            <div class="d-flex">
+                                <label for="book_receipt_name" class="form-label me-3">Name: </label>
+                                <p id="book_receipt_name" class="text-muted my-0">Danilo Jr. Abancia D</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_receipt_courseSection" class="form-label me-3">Course & Section: </label>
+                                <p id="book_receipt_courseSection" class="text-muted my-0">Danilo Jr. Abancia D</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_receipt_studentNumber" class="form-label me-3">Student No.: </label>
+                                <p id="book_receipt_studentNumber" class="text-muted my-0">201910150</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_receipt_email" class="form-label me-3">CvSU Mail: </label>
+                                <p id="book_receipt_email" class="text-muted my-0">danilojr.abancia@cvsu.edu.ph</p>
+                            </div>
+
+                            <h5 class="fw-bold my-3">BORROW DETAILS</h5>
+                            <div class="d-flex">
+                                <label for="book_receipt_barrow_book_title" class="form-label me-3">Book Title: </label>
+                                <p id="book_receipt_barrow_book_title" class="text-muted my-0">Organic Chemistry</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_receipt_barrow_pickupDate" class="form-label me-3">Pickup Date: </label>
+                                <p id="book_receipt_barrow_pickupDate" class="text-muted my-0">12/25/23</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="book_receipt_barrow_dueDate" class="form-label me-3">Due Date: </label>
+                                <p id="book_receipt_barrow_dueDate" class="text-muted my-0">01/01/24</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div id="book_receipt_qr_code_container" class="text-center">
+                                <img id="book_receipt_qr_Code_image" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
+                                <p id="book_receipt_library_id" class="text-center m-0 p-0 mx-auto fs-8"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-8">
+                            <h5 class="fw-bold my-3">BOOK DETAILS</h5>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Title: </label>
+                                <p id="" class="text-muted my-0">Organic Chemistry</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Author: </label>
+                                <p id="" class="text-muted my-0">Carney, Dorothy</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Accession No.: </label>
+                                <p id="" class="text-muted my-0">TCL000379</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Call No. </label>
+                                <p id="" class="text-muted my-0">QD251.2 C21</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Copyright Date: </label>
+                                <p id="" class="text-muted my-0">2020</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Subject: </label>
+                                <p id="" class="text-muted my-0">Chemistry, Organic, Organic chemistry</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">ISBN: </label>
+                                <p id="" class="text-muted my-0">978-1-7996-9914-9</p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="form-label me-3">Barcode: </label>
+                                <div id="book_receipt_barcode_container" class="text-center">
+                                    <img id="book_receipt_barcode_image" alt="" class="img-responsive ms-auto w-90 mb-2 shadow bg-body-surface">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div id="book_receipt_image_container" class="text-center">
+                                <img id="book_receipt_image" src="../../assets/img/sample-book-photo.png" class="img-responsive ms-auto w-90 my-3 shadow bg-body-surface">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#book_request_privacyStatement_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to privacy statement</button>
+                <button class="btn btn-primary rounded-pill px-5 ms-auto">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Book Reservation Request Library Receipt Modal  -->
 
 <!-- Create Post Modal -->
 <div class="modal fade" id="create_post_modal" tabindex="-1">

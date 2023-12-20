@@ -1,15 +1,19 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode } from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
 // Initialize Library ID ////////////////////////////////////////////////////////
 const library_id = document.getElementById('library_id');
+const book_receipt_library_id = document.getElementById('book_receipt_library_id');
+const book_receipt_barcode_image = document.getElementById('book_receipt_barcode_image');
 // Initialize Library ID ////////////////////////////////////////////////////////
 
 // Initialize Image ////////////////////////////////////////////////////////
+const user_avatarPreview = document.getElementById("user_avatarPreview");
 const signup_qr_code_image = document.getElementById('signup_qr_code_image');
+const book_receipt_qr_Code_image = document.getElementById('book_receipt_qr_Code_image'); // For Troubleshooting
 // Initialize Image ////////////////////////////////////////////////////////
 
 // Initialize Modal ////////////////////////////////////////////////////////
@@ -35,11 +39,6 @@ const user_form_modal_btn = document.getElementById("user_form_modal_btn");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 // Initialize Button ////////////////////////////////////////////////////////
-
-
-// Initialize Image ////////////////////////////////////////////////////////
-const user_avatarPreview = document.getElementById("user_avatarPreview");
-// Initialize Image ////////////////////////////////////////////////////////
 
 
 // Initialize Input ////////////////////////////////////////////////////////
@@ -83,9 +82,17 @@ const show_re_password_toggle = document.getElementById("show_re_password_toggle
 // Initialize Toggle Button ////////////////////////////////////////////////////////
 
 
+// var sessionData = JSON.parse(sessionStorage.getItem('sessionData')); // For Troubleshooting
+// generateQRCode(sessionData.temp_token, book_receipt_qr_Code_image.id, 500); // For Troubleshooting
+// generateBarCode("123456789", book_receipt_barcode_image.id, 500); // For Troubleshooting
+// book_receipt_library_id.textContent = sessionData.temp_token;
+
 // $('#user_form_modal').modal('show'); // For Troubleshooting
 // $('#user_review_modal').modal('show'); // For Troubleshooting
 // $('#create_post_modal').modal('show'); // For Troubleshooting
+// $('#book_request_review_modal').modal('show'); // For Troubleshooting
+// $('#book_request_privacyStatement_modal').modal('show'); // For Troubleshooting
+// $('#book_request_receipt_modal').modal('show'); // For Troubleshooting
 
 
 
