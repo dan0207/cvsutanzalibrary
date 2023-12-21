@@ -24,7 +24,7 @@ if (!isset($_SESSION["user_token"])) {
         <div class="container-fluid d-flex">
 
             <!-- CVSU LIBRARY LOGO -->
-            <a class="navbar-brand p-0" href="opac.php" type="button">
+            <a class="navbar-brand p-0" type="button">
                 <img src="../../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="210" class="img-responsive">
             </a>
             <!-- CVSU LIBRARY LOGO -->

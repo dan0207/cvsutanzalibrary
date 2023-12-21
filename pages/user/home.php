@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../../php_script/head.php'; ?>
-    <title>Home • Tanza Campus Library</title>
+    <title>OPAC • Tanza Campus Library</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@ session_start();
         <div class="container-fluid d-flex">
 
             <!-- CVSU LIBRARY LOGO -->
-            <a class="navbar-brand p-0" href="opac.php" type="button">
+            <a class="navbar-brand p-0" type="button">
                 <img src="../../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="210" class="img-responsive">
             </a>
             <!-- CVSU LIBRARY LOGO -->
@@ -78,96 +78,19 @@ session_start();
     </nav>
     <!-- Header -->
 
-
     <!-- Main -->
-    <div class="background container-fluid bg-background">
-        <div class="main container bg-surface">
-            <div class="row border rounded-3">
-                <div class="content col-sm-12 col-lg-8 my-5">
-                    <div class="container-fluid my-5 px-5">
-                        <?php //include '../../php_script/create_post_script.php'; ?>
-
-                        <div id="post_id" class="post mx-5 my-2 px-1 pt-2 pb-4 border rounded-3 shadow bg-body-surfaces">
-                            <div class="post-head d-flex align-items-center mx-2 my-2">
-                                <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
-                                </div>
-                                <div class="post-details">
-                                    <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>
-                                    <div class="d-flex align-items-center">
-                                        <div id="post_user_type" class="post-memberType fs-9">Campus Librarian</div>
-                                        <mark id="post_create_at" class="rounded-3 mx-2 px-2 fs-10">2 hours ago</mark>
-                                    </div>
-                                </div>
-                                <div class="post-menu ms-auto">
-                                    <button id="post_menu_btn" class="post-menu-btn px-3 py-2 border-0 border rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="dropdown"><i class="fs-5 fa-solid fa-ellipsis-vertical"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-end text-center">
-                                        <li><a class="dropdown-item" href="#">Hide post</a></li>
-                                        <li><a class="dropdown-item" href="#">Report post</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post-content container d-flex justify-content-center rounded-3">
-                                <iframe class="w-100 rounded-3" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCvSU.TanzaCampusLibrary%2Fposts%2Fpfbid02cAye9JDEGoC4sUvBRzsMMGrWFvX9v9zXzJBKwwxXiiSwYw5ticR9oXR1SqXeH31El&show_text=true&width=500" width="500" height="654" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                            </div>
+    <div class="opac_background rounded-bottom-5">
+        <div class="opac_mask rounded-bottom-5" style="background-color: rgb(0,114,5,0.60);">
+            <div class="opac_page vh-80 d-flex align-items-center justify-content-center text-center p-2 text-onPrimary">
+                <div class="opac_content">
+                    <h4 class="opac_title display-2" style="font-family:Impact">TANZA CAMPUS LIBRARY</h4>
+                    <form id="opac_search_form" method="POST">
+                        <label for="opac_search_input" class="opac_label fs-6 fs-sm-5 fs-md-4 w-65 mx-auto bg-primary px-1 my-2 rounded-pill border border-onPrimary border-2">Online Public Access Catalog</label>
+                        <div class="opac_search input-group m-auto w-90">
+                            <input id="opac_search_input" name="opac_search" type="text" class="opac-search-input form-control rounded-start-pill py-2 px-3" placeholder=" Search library collection here..">
+                            <button id="opac_search_btn" class="opac_search_btn btn btn-outline-primary border-2 border-onPrimary text-onPrimary rounded-end-pill py-2 px-3" type="submit">Search</button>
                         </div>
-
-                        <div id="post_2" class="post border rounded-3 my-5 mx-5 px-1 pt-2 pb-4 shadow bg-body-surfaces">
-                            <div class="post-head d-flex align-items-center mx-2 my-2">
-                                <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
-                                </div>
-                                <div class="post-details">
-                                    <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>
-                                    <div class="d-flex align-items-center">
-                                        <div id="post_user_type" class="post-memberType fs-9">Campus Librarian</div>
-                                        <mark id="post_create_at" class="rounded-3 mx-2 px-2 fs-10">1 day ago</mark>
-                                    </div>
-                                </div>
-                                <div class="post-menu ms-auto">
-                                    <button id="post_menu_btn" class="post-menu-btn px-3 py-2 border-0 border rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="dropdown"><i class="fs-5 fa-solid fa-ellipsis-vertical"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-end text-center">
-                                        <li><a class="dropdown-item" href="#">Hide post</a></li>
-                                        <li><a class="dropdown-item" href="#">Report post</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post-content container d-flex justify-content-center rounded-3">
-                                <iframe class="w-100 rounded-3" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCvSU.TanzaCampusLibrary%2Fposts%2Fpfbid05RaSQxHjS3oRAkhHudktjVrzwmSDXCWsZ9Ja5xir3GJoDE9tZEkzYiWKDAw2LYTvl&show_text=true&width=500" width="500" height="687" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                            </div>
-                        </div>
-
-                        <div id="post_3" class="post border rounded-3 my-5 mx-5 px-1 pt-2 pb-4 shadow bg-body-surfaces">
-                            <div class="post-head d-flex align-items-center mx-2 my-2">
-                                <div class="post-photo px-2 d-flex align-items-center">
-                                    <img src="../../assets/img/sample-librarian-picture.jpg" alt="" class="img-responsive border border-3 border-surface rounded-circle shadow bg-body-surface" width="50">
-                                </div>
-                                <div class="post-details">
-                                    <div id="post_user_name" class="post-name fw-medium">Recelyn Cea Baltar (Sample Only)</div>
-                                    <div class="d-flex align-items-center">
-                                        <div id="post_user_type" class="post-memberType fs-9">Campus Librarian</div>
-                                        <mark id="post_create_at" class="rounded-3 mx-2 px-2 fs-10">3 days ago</mark>
-                                    </div>
-                                </div>
-                                <div class="post-menu ms-auto">
-                                    <button id="post_menu_btn" class="post-menu-btn px-3 py-2 border-0 border rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="dropdown"><i class="fs-5 fa-solid fa-ellipsis-vertical"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-end text-center">
-                                        <li><a class="dropdown-item" href="#">Hide post</a></li>
-                                        <li><a class="dropdown-item" href="#">Report post</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post-content container d-flex justify-content-center rounded-3">
-                                <iframe class="w-100 rounded-3" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCvSU.TanzaCampusLibrary%2Fposts%2Fpfbid0eBqJecKLu9jGJ51HHkBCjpZP4X59FoRbE4L5Q9kAdRcfMBE2XydtuvdLqSPmSMg2l&show_text=true&width=500" width="500" height="687" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar col-sm-12 col-lg-4 px-5 pe-lg-5 ps-lg-0">
-                    <?php
-                    include '../../php_script/sidebar.php';
-                    ?>
+                    </form>
                 </div>
             </div>
         </div>
@@ -176,14 +99,14 @@ session_start();
 
 
     <!-- Footer -->
-    <?php include '../../php_script/footer.php'; ?>
+    <?php include '../../php_script/footer.php';
+    ?>
     <!-- Footer -->
 
 
     <!-- Script -->
     <script src="../../assets/vendor/js/home.js" type="module"></script>
     <!-- Script -->
-
 </body>
 
 </html>

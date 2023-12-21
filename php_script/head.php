@@ -1,6 +1,5 @@
 <!-- Vendor CSS Files -->
 <link rel="stylesheet" href="../../assets/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="../../assets/vendor/css/opac.css"> <!--for Opac -->
 <link rel="stylesheet" href="../../assets/vendor/css/header.css">
 <link rel="stylesheet" href="../../assets/vendor/css/home.css">
 <link rel="stylesheet" href="../../assets/vendor/css/sidebar.css">

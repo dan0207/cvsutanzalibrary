@@ -1,7 +1,10 @@
-.post-menu-btn{
-    background-color: #ffffff !important;
+/* OPAC PAGE !!!*/
+
+.opac_background {
+    background-image: url('../../img/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.post-menu-btn:hover{
-    background-color: #e4e7ea !important;
-}
+/* OPAC PAGE !!!*/
