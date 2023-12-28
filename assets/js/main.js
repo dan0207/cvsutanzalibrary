@@ -1,5 +1,4 @@
-
-
+AOS.init();
 
 // Status Checker Authentication
 // setInterval(updateSession, 3000)
@@ -16,12 +15,6 @@ export function updateSession() {
             throw error;
         });
 }
-
-
-// Status Checker Authentication 
-
-
-
 
 export function showModal(show_id, hide_id) {
     if (show_id) {
@@ -64,30 +57,3 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
         });
     }
 }
-
-
-
-// export function setupFormValidation(form_id, handleValidFunction) {
-//     'use strict';
-
-//     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-//     const forms = document.querySelectorAll('.needs-validation');
-
-//     // Loop over them and prevent submission
-//     Array.from(forms).forEach(form => {
-//         if (form.id === form_id) {
-//             console.log(form.id);
-//             form.addEventListener('submit', event => {
-//                 if (!form.checkValidity()) {
-//                     event.preventDefault();
-//                     event.stopPropagation();
-//                     console.log("Invalid Input");
-//                 } else {
-//                     handleValidFunction();
-//                 }
-
-//                 form.classList.add('was-validated');
-//             }, false);
-//         }
-//     });
-// }

@@ -14,83 +14,27 @@ session_start();
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-onSurface bg-surface border-bottom fixed-top">
-        <div class="container-fluid d-flex">
-
-            <!-- CVSU LIBRARY LOGO -->
-            <a class="navbar-brand p-0" type="button">
-                <img src="../../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="210" class="img-responsive">
-            </a>
-            <!-- CVSU LIBRARY LOGO -->
-
-            <!-- OPAC SEARCH FOR HEADER -->
-            <div class="opac_search_top input-group d-none d-sm-flex d-lg-none w-50" id="">
-                <input type="text" class="opac_search_input form-control rounded-start-2 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
-                <button class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
-            </div>
-            <!-- OPAC SEARCH FOR HEADER -->
-
-            <!-- SEARCH ICON FOR ANDROID RESOLUTION -->
-            <button class="opac_search_top_icon navbar-toggler ms-auto d-sm-none fs-6 py-2 mx-1" type="button" data-bs-toggle="collapse" data-bs-target="#opac_search_top_collapse" id="opac_search_top_icon">
-                <i class="fa fa-search"></i>
-            </button>
-            <!-- SEARCH ICON FOR ANDROID RESOLUTION -->
-
-            <!-- NAVBAR TOGGLER ICON FOR ANDROIND RESOLUTION -->
-            <button class="navbar-toggler fs-6 py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <!-- NAVBAR TOGGLER ICON FOR ANDROIND RESOLUTION -->
-
-            <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
-            <div class="opac_search_top_collapse collapse navbar-collapse input-group w-30 px-2 d-sm-none py-3 py-lg-0" id="opac_search_top_collapse">
-                <input type="text" class="opac_search_input form-control rounded-start-2 px-3 fs-7" placeholder="Title, Author, Subject, Series, Call Number, ISBN or ISSN">
-                <button class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
-            </div>
-            <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
-
-            <div class="collapse navbar-collapse w-60 px-3" id="navbarSupportedContent">
-
-                <ul class="navbar-nav nav-pills text-center d-flex ms-auto" id="navTab_pill">
-                    <li class="nav-item"><a class="nav-link" href="../../pages/user/opac.php" hidden>OPAC</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../../pages/user/home.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../pages/user/books.php">Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../pages/user/services.php">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../pages/user/acquisitions.php">Acquisitions</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
-                        <ul class="dropdown-menu text-center">
-                            <li><a class="dropdown-item" href="../../pages/user/tutorials.php">Tutorials</a></li>
-                            <li><a class="dropdown-item" href="../../pages/user/events_calendar.php">Events Calendar</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="../../pages/user/about.php">About Us</a></li>
-                        </ul>
-                    </li>
-                    <?php
-                    if (!isset($_SESSION['user_token'])) echo "<li id='login_tab' class='nav-item'><a class='nav-link' href='../../pages/user/login.php'>Login</a></li>";
-                    else echo "<li id='profile_tab' class='nav-item'><a class='nav-link' href='../../pages/user/profile.php'>Profile</a></li>";
-                    ?>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
+    <?php include '../../web_contents/header.php'; ?>
     <!-- Header -->
 
     <!-- Main -->
-    <div class="opac_background rounded-bottom-5">
-        <div class="opac_mask rounded-bottom-5" style="background-color: rgb(0,114,5,0.60);">
-            <div class="opac_page vh-80 d-flex align-items-center justify-content-center text-center p-2 text-onPrimary">
-                <div class="opac_content">
-                    <h4 class="opac_title display-2" style="font-family:Impact">TANZA CAMPUS LIBRARY</h4>
-                    <form id="opac_search_form" method="POST">
-                        <label for="opac_search_input" class="opac_label fs-6 fs-sm-5 fs-md-4 w-65 mx-auto bg-primary px-1 my-2 rounded-pill border border-onPrimary border-2">Online Public Access Catalog</label>
-                        <div class="opac_search input-group m-auto w-90">
-                            <input id="opac_search_input" name="opac_search" type="text" class="opac-search-input form-control rounded-start-pill py-2 px-3" placeholder=" Search library collection here..">
-                            <button id="opac_search_btn" class="opac_search_btn btn btn-outline-primary border-2 border-onPrimary text-onPrimary rounded-end-pill py-2 px-3" type="submit">Search</button>
-                        </div>
-                    </form>
+    <div class="pt-5">
+        <div class="opac">
+            <?php include '../../web_contents/opac.php'; ?>
+        </div>
+
+        <div class="main-contents">
+            <div class="container" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row">
+                    <div class="col-12 col-lg-3 order-2 order-lg-1">
+                        <?php include '../../web_contents/left-sidebar.php'; ?>
+                    </div>
+                    <div class="col-12 col-lg-6 order-1 order-lg-2 px-0">
+                        <?php include '../../web_contents/about.php'; ?>
+                    </div>
+                    <div class="col-12 col-lg-3 ms-auto order-3 order-lg-3">
+                        <?php include '../../web_contents/right-sidebar.php'; ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,8 +43,7 @@ session_start();
 
 
     <!-- Footer -->
-    <?php include '../../php_script/footer.php';
-    ?>
+    <?php include '../../web_contents/footer.php'; ?>
     <!-- Footer -->
 
 

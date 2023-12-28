@@ -29,9 +29,9 @@ $primaryKey = 'book_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array( 'db' => 'book_title',                'dt' => 0 ),
-    array( 'db' => 'book_author',               'dt' => 1 ),
-    array( 'db' => 'book_access_number',        'dt' => 2 ),
+    array( 'db' => 'book_access_number',        'dt' => 0 ),
+    array( 'db' => 'book_title',                'dt' => 1 ),
+    array( 'db' => 'book_author',               'dt' => 2 ),
     array( 'db' => 'book_call_number',          'dt' => 3 ),
     array( 'db' => 'book_material_type',        'dt' => 4 ),
     array( 'db' => 'book_language',             'dt' => 5 ),

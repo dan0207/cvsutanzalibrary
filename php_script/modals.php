@@ -10,27 +10,24 @@
                 </div>
                 <div class="modal-body">
                     <div class="add-event-body">
-                        <div class="add-event-input input-group px-5 mb-2">
-                            <span class="input-group-text">Event Name: </span>
-                            <input type="text" class="event-name form-control" placeholder="New Year" required>
+                        <div class="add-event-input input-group mb-2">
+                            <span class="input-group-text">Event Date: </span>
+                            <input id="event_date" type="text" class="event-date form-control" readonly>
+                        </div>
+
+                        <div class="add-event-input input-group mb-2">
+                            <span class="input-group-text">Event Title: </span>
+                            <input id="event_name" type="text" class="event-name form-control" placeholder="New Year" required>
                             <div class="invalid-feedback">
                                 Please choose an Event Name.
                             </div>
                         </div>
 
-                        <div class="add-event-input input-group px-5 mb-2">
-                            <span class="input-group-text">Event Time From: </span>
-                            <input type="text" class="event-time-from form-control" placeholder="24:00" required>
+                        <div class="add-event-input input-group mb-2">
+                            <span class="input-group-text">Event Time: </span>
+                            <input id="event_time" type="text" class="event-time form-control" placeholder="24:00" required>
                             <div class="invalid-feedback">
                                 Please choose a Time From.
-                            </div>
-                        </div>
-
-                        <div class="add-event-input input-group px-5 mb-2">
-                            <span class="input-group-text">Event Time To: </span>
-                            <input type="text" class="event-time-to form-control" placeholder="24:00" required>
-                            <div class="invalid-feedback">
-                                Please choose a Time To.
                             </div>
                         </div>
                     </div>
@@ -386,23 +383,24 @@
 <!-- Book Reservation Request Library Receipt Modal  -->
 <div class="modal fade" id="book_request_receipt_modal" data-bs-keyboard="false" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
+        <div class="modal-content d-print-inline-block" id="tryPrint">
             <div class="modal-header d-flex justify-content-center bg-tertiary">
                 <i class="fa-solid fa-xl fa-receipt mx-2"></i>
                 <h1 class="modal-title fs-3">Book Reservation Receipt</h1>
+                <button type="button" class="btn-close z-3 position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="container border rounded-3 w-80 mx-auto p-5">
-                    <div class="row py-2">
+                <div class="container border rounded-3 w-80 mx-auto p-5 fs-7">
+                    <div class="row">
                         <div class="col-8">
-                            <h5 class="fw-bold mb-3">RECEIVED FROM</h5>
+                            <h5 class="fw-bold mb-2">RECEIVED FROM</h5>
                             <div class="d-flex">
                                 <label for="book_receipt_name" class="form-label me-3">Name: </label>
                                 <p id="book_receipt_name" class="text-muted my-0">Danilo Jr. Abancia D</p>
                             </div>
                             <div class="d-flex">
                                 <label for="book_receipt_courseSection" class="form-label me-3">Course & Section: </label>
-                                <p id="book_receipt_courseSection" class="text-muted my-0">Danilo Jr. Abancia D</p>
+                                <p id="book_receipt_courseSection" class="text-muted my-0">BSIT 4-1</p>
                             </div>
                             <div class="d-flex">
                                 <label for="book_receipt_studentNumber" class="form-label me-3">Student No.: </label>
@@ -413,7 +411,7 @@
                                 <p id="book_receipt_email" class="text-muted my-0">danilojr.abancia@cvsu.edu.ph</p>
                             </div>
 
-                            <h5 class="fw-bold my-3">BORROW DETAILS</h5>
+                            <h5 class="fw-bold mt-2 mb-2">BORROW DETAILS</h5>
                             <div class="d-flex">
                                 <label for="book_receipt_barrow_book_title" class="form-label me-3">Book Title: </label>
                                 <p id="book_receipt_barrow_book_title" class="text-muted my-0">Organic Chemistry</p>
@@ -437,7 +435,7 @@
                     </div>
                     <div class="row py-2">
                         <div class="col-8">
-                            <h5 class="fw-bold my-3">BOOK DETAILS</h5>
+                            <h5 class="fw-bold my-2">BOOK DETAILS</h5>
                             <div class="d-flex">
                                 <label for="" class="form-label me-3">Title: </label>
                                 <p id="" class="text-muted my-0">Organic Chemistry</p>
@@ -448,7 +446,7 @@
                             </div>
                             <div class="d-flex">
                                 <label for="" class="form-label me-3">Accession No.: </label>
-                                <p id="" class="text-muted my-0">TCL000379</p>
+                                <p id="accessNo" class="text-muted my-0">TCL000379</p>
                             </div>
                             <div class="d-flex">
                                 <label for="" class="form-label me-3">Call No. </label>
@@ -463,13 +461,9 @@
                                 <p id="" class="text-muted my-0">Chemistry, Organic, Organic chemistry</p>
                             </div>
                             <div class="d-flex">
-                                <label for="" class="form-label me-3">ISBN: </label>
-                                <p id="" class="text-muted my-0">978-1-7996-9914-9</p>
-                            </div>
-                            <div class="d-flex">
                                 <label for="" class="form-label me-3">Barcode: </label>
                                 <div id="book_receipt_barcode_container" class="text-center">
-                                    <img id="book_receipt_barcode_image" alt="" class="img-responsive ms-auto w-90 mb-2 shadow bg-body-surface">
+                                    <svg id="barcode" class="img-responsive ms-auto mb-2 h-75"></svg>
                                 </div>
                             </div>
                         </div>
@@ -480,10 +474,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill my-2 px-5 mx-auto border w-40">SUBMIT</button>
+                </div>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#book_request_privacyStatement_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to privacy statement</button>
-                <button class="btn btn-primary rounded-pill px-5 ms-auto">SUBMIT</button>
+                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary fs-7 me-auto" data-bs-target="#book_request_privacyStatement_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to privacy statement</button>
+                <button class="btn btn-primary rounded-pill px-5" disabled>Download</button>
+                <button class="btn btn-primary rounded-pill px-5" disabled>Print</button>
             </div>
         </div>
     </div>

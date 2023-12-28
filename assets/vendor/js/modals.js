@@ -50,6 +50,9 @@ const user_student_number_input = document.getElementById("user_student_number_i
 const user_username_input = document.getElementById("user_username_input");
 const user_password_input = document.getElementById("user_password_input");
 const user_re_password_input = document.getElementById("user_re_password_input");
+export const event_date = document.getElementById("event_date");
+const event_name = document.getElementById("event_name");
+const event_time = document.getElementById("event_time");
 // Initialize Input ////////////////////////////////////////////////////////
 
 
@@ -87,6 +90,11 @@ const show_re_password_toggle = document.getElementById("show_re_password_toggle
 // generateBarCode("123456789", book_receipt_barcode_image.id, 500); // For Troubleshooting
 // book_receipt_library_id.textContent = sessionData.temp_token;
 
+
+// const accessNo = document.getElementById("accessNo").textContent;
+// JsBarcode("#barcode", accessNo);
+
+// $('#add_new_event_modal').modal('show'); // For Troubleshooting
 // $('#user_form_modal').modal('show'); // For Troubleshooting
 // $('#user_review_modal').modal('show'); // For Troubleshooting
 // $('#create_post_modal').modal('show'); // For Troubleshooting
@@ -117,9 +125,9 @@ function studentNumberRestriction(event) {
 }
 
 
-function checkUsernameAvailability() {
+// function checkUsernameAvailability() {
 
-}
+// }
 
 
 function checkPasswordStrength() {
@@ -206,7 +214,6 @@ function handle_UserFormModalBtn() {
 }
 
 function handle_addNewEventModalBtn() {
-    // add_new_event_form
 }
 
 function handle_UserReviewModalBtn() {

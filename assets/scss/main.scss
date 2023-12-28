@@ -9,10 +9,12 @@ $theme-colors: map-merge($theme-colors,
             "primary": #007205,
             "secondary": #FF0000,
             "tertiary": #f0f2f5,
+            "highlight": #70359f,
             "onBackground": #000000,
             "onSurface": #000000,
             "onPrimary": #FFFFFF,
-            "onSecondary": #FFFFFF));
+            "onSecondary": #FFFFFF,
+            "border": #b3b3b3));
 // ADD CUSTOM COLOR DEPENDS ON CVSU THEME
 
 
