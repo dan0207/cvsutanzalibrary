@@ -1,0 +1,3 @@
+// Import Javascript Files ////////////////////////////////////////////////////////
+import { updateSession, setupFormValidation, showModal, generateQRCode, activateTopSearch } from '../../js/main.js';
+// Import Javascript Files ////////////////////////////////////////////////////////

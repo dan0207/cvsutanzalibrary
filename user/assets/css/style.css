@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+  --primary-clr: #007205;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+}
+
+.form-control:focus, .form-select:focus, .btn-close:focus {
+  border-color: rgb(0, 114, 5, 0.25) !important;
+  box-shadow: 0 0 0 0.2rem rgb(0, 114, 5, 0.1) !important;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-clr);
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .sticky-top{
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
+
+#header_book_search_top, #header_book_search_top_collapse, #header_book_search_collapse_icon{
+  visibility: hidden;
+}
+
