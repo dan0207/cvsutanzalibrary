@@ -8,6 +8,7 @@ const active_date = document.getElementById("active_date");
 const days_container = document.getElementById("days_container");
 const event_day = document.getElementById("event_day");
 const event_date = document.getElementById("event_date");
+const event_month = document.getElementById("event_month");
 const events_container = document.getElementById("events_container");
 const prev_btn = document.getElementById("prev_btn");
 const next_btn = document.getElementById("next_btn");
@@ -143,6 +144,7 @@ function prevMonth() {
         month = 11;
         year--;
     }
+    getActiveMonth(month);
     initCalendar();
 }
 
@@ -152,6 +154,7 @@ function nextMonth() {
         month = 0;
         year++;
     }
+    getActiveMonth(month);
     initCalendar();
 }
 

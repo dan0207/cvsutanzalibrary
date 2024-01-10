@@ -1,8 +1,8 @@
 
 <?php
-session_start(); // Make sure to start the session
+session_start();
 
-require_once('db_connection.php');
+require_once('db_local_connection.php');
 
 $user_token = $_SESSION['user_token'];
 

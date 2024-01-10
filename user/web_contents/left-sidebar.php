@@ -18,13 +18,14 @@
         <div class="card text-center mb-3 rounded-3">
             <div class="card-header text-bg-primary rounded-top-3 fs-6">TUTORIALS</div>
             <div class="card-body">
-                <!-- <ul>
-            <li>Tutorial 1</li>
-            <li>Tutorial 2</li>
-            <li>Tutorial 3</li>
-        </ul> -->
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <div class="nav-link text-onSurface" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab">Home</div>
+                    <div class="nav-link text-onSurface" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab">How to request books</div>
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="nav-link text-onSurface" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab">How to login</div>
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="nav-link text-onSurface" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab">How to ask librarian</div>
                 </div>
             </div>
         </div>

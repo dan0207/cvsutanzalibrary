@@ -2,28 +2,26 @@
     color: #000000 !important;
 }
 
-.nav-link.active, .dropdown-item.active, .dropdown-item.focus{
+.nav-link.active, .dropdown-item.active, .dropdown-item.focus {
     background-color: #007205 !important;
     color: #ffffff !important;
 }
 
-.content_sidenav{
-    padding-top: 5rem !important;
-}
-
-.content_details{
-    margin-top: 5rem !important;
-}
-
-
-.card-img-top{
-    height:150px;
+.card-img-top {
+    height: 150px;
 }
 
 .profile-picture {
-    margin-top: -90px;
+    margin-top: -85px;
 }
 
 .profile-picture #profile_picture {
-    width: 150px;
+    width: 130px;
+}
+
+
+@media screen and (min-width: 992px) {
+    #profile_sidebar .card {
+        height: 80vh;
+    }
 }

@@ -1,5 +1,5 @@
 
-function handleCredentialResponse(response) {
+globalThis.handleCredentialResponse = async (response) => {
 
     fetch('../php_script/googleAuth_script.php', {
         method: 'POST',

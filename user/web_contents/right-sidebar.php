@@ -1,5 +1,5 @@
 <div class="sticky-top py-lg-5 z-1 overflow-y-auto vh-100">
-    <div id="right_sidebar" class="container py-lg-5">
+    <div id="right_sidebar" class="container my-lg-5">
         <div class="accordion" id="accordionPanelsStayOpenExample">
 
             <div class="accordion-item border border-0 mb-2">
@@ -7,7 +7,7 @@
                     <button class="accordion-button bg-surface shadow-none p-0" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne">
                         <img src="../assets/img/drop-shape-open.png" class="w-100">
                         <div class="position-absolute top-50 start-55 translate-middle ps-0 ps-md-3 pb-md-2 pt-lg-3 ps-lg-1 pt-xl-2 w-100">
-                            <p class="sidebar_header fw-semibold text-white fs-sm-5 fs-md-1 fs-lg-7">RECENT POSTS</p>
+                            <p class="sidebar_header fw-semibold text-white fs-sm-5 fs-md-1 fs-lg-7">RECENT ANNOUNCEMENTS</p>
                         </div>
                     </button>
                 </div>
@@ -15,7 +15,7 @@
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                     <div class="accordion-body">
                         <ul class="list-group">
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_1"><i class="fa-solid fa-circle fa-2xs me-2"></i>Library Hours</a></li>
+                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_1"><i class="fa-solid fa-circle fa-2xs me-2"></i>Newly Books</a></li>
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_2"><i class="fa-solid fa-circle fa-2xs me-2"></i>Login per Program</a></li>
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_3"><i class="fa-solid fa-circle fa-2xs me-2"></i>Training Presentation</a></li>
                         </ul>
@@ -28,7 +28,7 @@
                     <button class="accordion-button bg-surface shadow-none p-0" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsetwo">
                         <img src="../assets/img/drop-shape-open.png" class="w-100">
                         <div class="position-absolute top-50 start-55 translate-middle ps-0 ps-md-3 pb-md-2 pt-lg-3 ps-lg-1 pt-xl-2 w-100">
-                            <p class="sidebar_header fw-semibold text-white fs-sm-5 fs-md-1 fs-lg-7">OPEN ACCESS</p>
+                            <p class="sidebar_header fw-semibold text-white fs-sm-5 fs-md-1 fs-lg-7">OPEN ACCESS LINKS</p>
                         </div>
                     </button>
                 </div>

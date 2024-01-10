@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="../assets/vendor/css/feedback.css">
 <link rel="stylesheet" href="../assets/vendor/css/chat.css">
 <link rel="stylesheet" href="../assets/vendor/css/offcanvas.css">
+<link rel="stylesheet" href="../assets/vendor/css/receipt.css">
+<link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">
+<link rel="stylesheet" href="../assets/fontawesome/css/brands.css">
+<link rel="stylesheet" href="../assets/fontawesome/css/solid.css">
 <!-- Vendor CSS Files -->
 
 <!-- SASS -->
@@ -27,11 +31,12 @@
 <!-- CSS -->
 
 <!-- SCRIPT FOR GOOGLE IDENTITY -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
 <!-- SCRIPT FOR GOOGLE IDENTITY -->
 
-<!-- SCRIPT FOR FONT AWESOME -->
-<script defer src="https://kit.fontawesome.com/08c073e355.js" crossorigin="anonymous"></script>
+<!-- SCRIPT FOR CODE GENERATORS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
 <!-- SCRIPT FOR FONT AWESOME -->
 
 <!-- SCRIPT -->
@@ -44,11 +49,14 @@
 <script defer src="https://cdn.jsdelivr.net/npm/zxcvbn/dist/zxcvbn.js" type="text/javascript"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer src="https://smtpjs.com/v3/smtp.js"></script>
+<!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> -->
+
 <!-- SCRIPT -->
 
 <!-- SCRIPT -->
 <script defer src="../assets/vendor/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-<script src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
-<script src="../assets/vendor/js/feedback.js" type="text/javascript"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
+<script defer src="../assets/vendor/js/html2canvas.js" type="text/javascript"></script>
 <!-- SCRIPT -->

@@ -15,22 +15,23 @@
                 <div class="tab-pane fade show active" id="personal_details">
                     <div class="user-details d-none d-lg-block">
                         <div class="row m-0 border-bottom mb-3 border rounded-3 shadow bg-body-tertiary">
-                            <div class="col-12 col-lg-9 px-0">
+                            <div class="col-12 col-lg-9 px-0 pb-3">
                                 <div class="bg-primary text-onPrimary d-flex align-items-center mt-3 px-4">
                                     <div class="fs-4">
                                         Profile
                                     </div>
-                                    <div id="profile_type" class="fs-6 ms-auto">Student</div>
+                                    <div class="profile-type fs-6 ms-auto">Member Type</div>
                                 </div>
-                                <p class="fs-2 px-4 pt-2" id="profile_name">Danilo D. Abancia Jr.</p>
-                                <p class="px-4 py-0" id="profile_student_number"> 20190150</p>
-                                <p class="px-4 py-0" id="profile_email">danilojr.abancia@cvsu.edu.ph</p>
+                                <p class="profile-name fs-2 px-4 py-2 mt-3 mb-0">Name</p>
+                                <p class="profile-student-courseSection px-4 py-0  mt-0 mb-1">Course & Section</p>
+                                <p class="profile-student-number px-4 py-0 mb-1">Student Number</p>
+                                <p class="profile-email px-4 py-0 mb-1">CvSU Mail</p>
                             </div>
                             <div class="col-12 col-lg-3 p-3">
-                                <div id="profile_qr_code_container" class="text-center">
-                                    <img src="../assets/img/sample-qr-code.png" id="profile_qr_code_image" alt="QR Code" class="img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                <div id="profile_qr_code_container" class="text-center w-100 w-xl-80 mx-auto">
+                                    <img src="../assets/img/sample-qr-code.png" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                     <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
-                                    <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8">Sample QR Code</p>
+                                    <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8">Sample QR Code</p>
                                 </div>
                             </div>
                         </div>
@@ -56,8 +57,8 @@
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <label for="" class="form-label">Birth</label>
-                                    <input type="date" class="form-control" value="2001-02-07">
+                                    <label for="" class="form-label">Birthday</label>
+                                    <input type="date" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -93,27 +94,12 @@
                             </div>
                         </div>
 
-                        <div class="border rounded-3 shadow bg-body-tertiary my-3 p-3 d-flex justify-content-center align-items-center">
-                            <a class="logout-btn btn btn-primary fs-7 rounded-0 d-lg-none w-100 rounded-3" href="../pages/home.php" type="button">Logout</a>
+                        <div class="border d-lg-none rounded-3 shadow bg-body-tertiary my-3 p-3 d-flex justify-content-center align-items-center">
+                            <a class="logout-btn btn btn-primary fs-7 rounded-0 w-100 rounded-3" href="../pages/home.php" type="button">Logout</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>

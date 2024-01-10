@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode, activateTopSearch } from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal, generateQRCode, getFormatCourseSection, getformatDate } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -67,37 +67,101 @@ $('.pageLengthSelect').on('change', function () {
 
 
 let opac_search_input = document.getElementById('opac_search_input');
-
+let opac_search_btn = document.getElementById('opac_search_btn');
+let opac_search_btn_icon = document.getElementById('opac_search_btn_icon');
 
 opac_search_input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        searchBooks(this);
+        searchBooks(this.value);
     }
 });
 
-function searchBooks(input) {
-    books_table.search(input.value).draw();
+opac_search_btn.addEventListener('click', searchBooks(opac_search_input.value));
+
+
+if (opac_search_input.value) {
+    searchBooks(opac_search_input.value);
 }
-// Function for books datatables
+
+function searchBooks(query) {
+    books_table.search(query).draw();
+}
+
+
 $(function () {
     $('#books_table tbody').on('click', '[id*=request_btn]', function () {
+
         let currentDate = new Date();
+
+        // let bookPickupDate = getformatDate(currentDate)
+        let bookPickupDate = currentDate;
+        let bookReturnDate = new Date(currentDate);
+        bookReturnDate.setDate(currentDate.getDate() + 7);
+
+        // bookReturnDate = getformatDate(bookReturnDate);
+        bookReturnDate = bookReturnDate;
 
         let clickedRow = $(this).closest('tr');
 
-        let accessNumber = clickedRow.find('td:eq(0)').text(); 
-        let bookTitle = clickedRow.find('td:eq(1)').text(); 
-        let bookAuthor = clickedRow.find('td:eq(2)').text(); 
+        let bookAccessionNumber = clickedRow.find('td:eq(0)').text();
+        let bookTitle = clickedRow.find('td:eq(1)').text();
+        let bookAuthor = clickedRow.find('td:eq(2)').text();
+        let bookCallNumber = clickedRow.find('td:eq(3)').text();
+        let bookMaterial_type = clickedRow.find('td:eq(4)').text();
+        let bookLanguage = clickedRow.find('td:eq(5)').text();
+        let bookPublication = clickedRow.find('td:eq(6)').text();
+        let bookDescription = clickedRow.find('td:eq(7)').text();
+        let bookContent_type = clickedRow.find('td:eq(8)').text();
+        let bookMedia_type = clickedRow.find('td:eq(9)').text();
+        let bookCarrier_type = clickedRow.find('td:eq(10)').text();
+        let bookIsbn = clickedRow.find('td:eq(11)').text();
+        let bookSubject = clickedRow.find('td:eq(12)').text();
+        let bookClassification = clickedRow.find('td:eq(13)').text();
 
-        $('#book_reservation_accession_number').text(accessNumber);
-        $('#book_reservation_title').text(bookTitle);
-        $('#book_reservation_author').text(bookAuthor);
+        let bookRequest = { 
+            "book_accession_number": bookAccessionNumber, 
+            "book_title": bookTitle, 
+            "book_author": bookAuthor, 
+            "book_call_number": bookCallNumber,
+            "book_material_type": bookMaterial_type,
+            "book_language": bookLanguage,
+            "book_publication": bookPublication,
+            "book_description": bookDescription,
+            "book_content_type": bookContent_type,
+            "book_media_type": bookMedia_type,
+            "book_carrier_type": bookCarrier_type,
+            "book_isbn": bookIsbn,
+            "book_subject": bookSubject,
+            "book_classification": bookClassification,
+            "book_pickup_date": bookPickupDate, 
+            "book_return_date": bookReturnDate,
+        };
 
-        // Your existing code to update session and show the appropriate modal
+        sessionStorage.setItem('sessionBookRequest', JSON.stringify(bookRequest));
+
         updateSession()
             .then(() => {
                 let sessionData = JSON.parse(sessionStorage.getItem('sessionData'));
+                let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest'));
                 if (sessionData && sessionData.user_token) {
+
+                    $('#book_reservation_name').text(sessionData.user_fullname);
+                    $('#book_reservation_student_number').text(sessionData.user_student_number);
+                    $('#book_reservation_student_course').text(getFormatCourseSection(sessionData.user_student_course, sessionData.user_student_year, sessionData.user_student_section));
+                    $('#book_reservation_email').text(sessionData.user_email);
+
+                    user_email_input.value = sessionData.user_email;
+                    user_username_input.value = sessionData.user_email;
+                    user_name_input.value = sessionData.user_givenName;
+                    user_surname_input.value = sessionData.user_familyName;
+                    library_id.textContent = sessionData.temp_token;
+
+                    $('#book_reservation_accession_number').text(sessionBookRequest.book_accession_number);
+                    $('#book_reservation_title').text(sessionBookRequest.book_title);
+                    $('#book_reservation_author').text(sessionBookRequest.book_author);
+                    $('#book_reservation_pickup_date').val(new Date(sessionBookRequest.book_pickup_date).toISOString().split('T')[0]);
+                    $('#book_reservation_due_date').val(new Date(sessionBookRequest.book_return_date).toISOString().split('T')[0]);
+
                     $('#book_request_review_modal').modal('show');
                 } else {
                     $('#login_reminder_modal').modal('show');

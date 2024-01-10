@@ -1,7 +1,26 @@
+<?php
+
+function callData($maintext)
+{
+    require('../php_script/db_local_connection.php');
+    $select_sql = "SELECT subText FROM librarypages WHERE mainText = '" . $maintext . "'";
+    $select_sql1 = mysqli_query($db, $select_sql);
+    while ($vision = mysqli_fetch_array($select_sql1)) {
+        echo $vision['subText'];
+    }
+}
+
+?>
+
 <div id="about" class="py-lg-5">
     <div class="container-fluid py-3">
         <div class="container text-center">
-            <h4 data-aos="fade-in" class="fs-4">UNIVERSITY VISION AND MISSION STATEMENTS</h4>
+            <h4 class="fs-3">ANNOUNCEMENT</h4>
+            <div class=" mb-5">
+                <img src="../assets/img/sample-announcement.jpg" class="img-responsive w-90 rounded-4" alt="">
+            </div>
+
+            <h4 class="fs-4">UNIVERSITY VISION AND MISSION STATEMENTS</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">
 
                 <div data-aos="fade-in" class="accordion-item border border-0 mb-1">
@@ -12,7 +31,8 @@
                     </h2>
                     <div id="vision-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <p><em>The premier university in historic Cavite globally recognized for excellence in character development, academics, research, innovation and sustainable community engagement.</em></p>
+                            <em><?php callData('vision') ?></em>
+                            <!-- <p><em>The premier university in historic Cavite globally recognized for excellence in character development, academics, research, innovation and sustainable community engagement.</em></p> -->
                         </div>
                     </div>
                 </div>
@@ -25,7 +45,8 @@
                     </h2>
                     <div id="mission-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <p><em>Cavite State University shall provide excellent, equitable and relevant educational opportunities in the arts, sciences and technology through quality instruction and responsive research and development activities. It shall produce professional, skilled and morally upright individuals for global competitiveness.</em></p>
+                            <em><?php callData('mission') ?></em>
+                            <!-- <p><em>Cavite State University shall provide excellent, equitable and relevant educational opportunities in the arts, sciences and technology through quality instruction and responsive research and development activities. It shall produce professional, skilled and morally upright individuals for global competitiveness.</em></p> -->
                         </div>
                     </div>
                 </div>

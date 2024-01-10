@@ -1,7 +1,8 @@
 
 const chat = document.getElementById('chat');
+const chat_btn = document.getElementById('chat_btn');
 const feedback_btn = document.getElementById('feedback_btn');
-const right_offcanvas_btn = document.getElementById('right_offcanvas_btn');
+const right_offcanvas_btn = document.getElementById('offcanvas_btn');
 const chat_emoji_btn = document.querySelector('#chat_emoji_btn');
 const chat_messege_input = document.querySelector('#chat_messege_input');
 const chatContainer = document.querySelector('#chat');
@@ -34,15 +35,19 @@ function togglechatForm() {
     // });
 }
 
-const picker = new EmojiButton({
-    position: 'bottom',
-    rootElement: chatContainer,
-});
+// const picker = new EmojiButton({
+//     position: 'bottom',
+//     rootElement: chatContainer,
+// });
 
-chat_emoji_btn.addEventListener('click', () => {
-    picker.togglePicker(chat_emoji_btn);
-});
+// chat_emoji_btn.addEventListener('click', () => {
+//     picker.togglePicker(chat_emoji_btn);
+// });
 
-picker.on('emoji', emoji => {
-    chat_messege_input.value += emoji;
-});
+// picker.on('emoji', emoji => {
+//     chat_messege_input.value += emoji;
+// });
+
+
+
+chat_btn.addEventListener("click", togglechatForm);

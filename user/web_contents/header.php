@@ -1,8 +1,7 @@
 <?php
-// Get the current page filename
+
 $current_page = trim(ucfirst(basename($_SERVER['PHP_SELF'])), '.php');
 
-// Define an array with page names and their corresponding URLs
 $pages = array(
     'Home' => '../pages/home.php',
     'Books' => '../pages/books.php',
@@ -12,7 +11,29 @@ $pages = array(
     'Login' => '../pages/login.php'
 );
 
+function displayNavPages($pages, $current_page)
+{
+    foreach ($pages as $page_name => $page_url) {
+        $class = ($current_page === $page_name) ? 'nav-link active' : 'nav-link';
+        if (!isset($_SESSION['user_token'])) {
+            if ($page_name != 'Profile') echo "<li class='nav-item'><a class='$class' href='$page_url'>$page_name</a></li>";
+        } else {
+            if ($page_name != 'Login') echo "<li class='nav-item'><a class='$class' href='$page_url'>$page_name</a></li>";
+        }
+    }
+}
+
+function hideShowSearch($current_page)
+{
+    if ($current_page === 'Home' || $current_page === 'Books') {
+        echo "style='visibility: hidden;'";
+    } else {
+        echo "style='visibility: visible;'";
+    }
+}
+
 ?>
+
 
 <!-- Header -->
 <nav id="navbar" class="navbar navbar-expand-lg navbar-onSurface bg-surface border-bottom fixed-top shadow bg-body-surface">
@@ -25,22 +46,16 @@ $pages = array(
         <!-- CVSU LIBRARY LOGO -->
 
         <!-- OPAC SEARCH FOR HEADER -->
-        <div id="header_book_search_top" class="input-group d-none d-sm-flex d-lg-none w-50" 
-        <?php
-            if ($current_page === 'Home' || $current_page === 'Books') echo "style='visibility: hidden;'";
-            else echo "style='visibility: visible;'"
-        ?>>
-            <input id="header_book_search_input" type="text" class="opac-search-input form-control rounded-start-2 fs-7" placeholder=" Search library collection here..">
-            <button id="header_book_search_btn" class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
-        </div>
+        <form id="header_book_search_top" class="d-none d-sm-flex d-lg-none w-50" action="../pages/books.php" method="GET" <?php hideShowSearch($current_page); ?>>
+            <div class="input-group">
+                <input id="header_book_search_input" type="text" name="header_book_search" class="opac-search-input form-control rounded-start-2 fs-7" placeholder=" Search library collection here..">
+                <button id="header_book_search_btn" class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
+            </div>
+        </form>
         <!-- OPAC SEARCH FOR HEADER -->
 
         <!-- SEARCH ICON FOR ANDROID RESOLUTION -->
-        <button id="header_book_search_collapse_icon" class="navbar-toggler ms-auto d-sm-none fs-6 py-2 mx-1 border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#header_book_search_top_collapse" 
-        <?php
-            if ($current_page === 'Home' || $current_page === 'Books') echo "style='visibility: hidden;'";
-            else echo "style='visibility: visible;'"
-        ?>>
+        <button id="header_book_search_collapse_icon" class="navbar-toggler ms-auto d-sm-none fs-6 py-2 mx-1 border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#header_book_search_top_collapse" <?php hideShowSearch($current_page); ?>>
             <i class="fa fa-search"></i>
         </button>
         <!-- SEARCH ICON FOR ANDROID RESOLUTION -->
@@ -52,28 +67,17 @@ $pages = array(
         <!-- NAVBAR TOGGLER ICON FOR ANDROIND RESOLUTION -->
 
         <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
-        <div id="header_book_search_top_collapse" class="collapse navbar-collapse input-group w-30 px-2 d-sm-none py-3 py-lg-0" 
-        <?php
-            if ($current_page === 'Home' || $current_page === 'Books') echo "style='visibility: hidden;'";
-            else echo "style='visibility: visible;'"
-        ?>>
-            <input id="header_book_search_collapse_input" type="text" class="opac-search-input form-control rounded-start-2 px-3 fs-7" placeholder=" Search library collection here..">
-            <button id="header_book_search_collapse_btn" class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7" type="button">Search</button>
-        </div>
+        <form id="header_book_search_top_collapse" class="collapse navbar-collapse w-30 px-2 d-sm-none py-3 py-lg-0" action="../pages/books.php" method="GET" <?php hideShowSearch($current_page); ?>>
+            <div class="input-group">
+                <input id="header_book_search_collapse_input" type="text" name="opac_search" class="opac-search-input form-control rounded-start-2 px-3 fs-7" placeholder=" Search library collection here..">
+                <button id="header_book_search_collapse_btn" class="opac_search_btn btn btn-outline-primary rounded-end-2 px-3 fs-7">Search</button>
+            </div>
+        </form>
         <!-- OPAC SEARCH FOR HEADER WITH COLLAPSE -->
 
         <div class="collapse navbar-collapse w-60 px-3" id="navbarSupportedContent">
             <ul class="navbar-nav nav-pills text-center ms-auto mt-3 my-lg-auto" id="navTab_pill">
-                <?php
-                foreach ($pages as $page_name => $page_url) {
-                    $class = ($current_page === $page_name) ? 'nav-link active' : 'nav-link';
-                    if (!isset($_SESSION['user_token'])) {
-                        if ($page_name != 'Profile') echo "<li class='nav-item'><a class='$class' href='$page_url'>$page_name</a></li>";
-                    } else {
-                        if ($page_name != 'Login') echo "<li class='nav-item'><a class='$class' href='$page_url'>$page_name</a></li>";
-                    }
-                }
-                ?>
+                <?php displayNavPages($pages, $current_page); ?>
             </ul>
         </div>
 

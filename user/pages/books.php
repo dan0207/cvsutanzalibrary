@@ -19,7 +19,7 @@ session_start();
     <!-- Header -->
 
     <!-- Main -->
-    <div class="contents">
+    <div class="contents d-print-none">
 
         <div id="book_contents" class="main-contents" data-aos="fade-in" data-aos-duration="1000">
             <div class="container">

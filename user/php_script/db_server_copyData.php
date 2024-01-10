@@ -1,6 +1,6 @@
 <?php
 
-require_once('db_connection.php');
+require_once('db_local_connection.php');
 require_once('db_server_connection.php');
 
 $remoteBookTable = 'books';

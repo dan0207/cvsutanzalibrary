@@ -25,14 +25,23 @@ export function showModal(show_id, hide_id) {
     }
 }
 
-export function generateQRCode(qr_text, qr_img, qr_size) {
+export function generateQRCode(qr_text, qr_size) {
     var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + qr_size + "x" + qr_size + "&cht=qr&chl=" + qr_text + "&choe=UTF-8";
-    document.getElementById(qr_img).src = googleChartApiUrl;
+    return googleChartApiUrl;
 }
 
+// export function generateBarCode(barcode_container, barcode_text, barcode_size, barcode_fontSize) {
+//     JsBarcode(barcode_container.id, barcode_text, {
+//         format: "EAN13",
+//         displayValue: true,
+//         fontSize: barcode_fontSize,
+//         height: barcode_size
+//     });
+// }
+
 export function generateBarCode(barcode_text, barcode_img, barcode_size) {
-    var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + barcode_size + "x" + barcode_size + "&cht=code128&chl=" + barcode_text + "&choe=UTF-8";
-    document.getElementById(barcode_img).src = googleChartApiUrl;
+    let text = document.getElementById("text").value;
+    JsBarcode("#barcode", text);
 }
 
 
@@ -60,7 +69,7 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
 
 export function activateTopSearch() {
     function isIntersect(div1, div2) {
-        if(div2 === '') return true;
+        if (div2 === '') return true;
         const rect1 = div1.getBoundingClientRect();
         const rect2 = div2.getBoundingClientRect();
         return rect1.bottom >= rect2.bottom;
@@ -71,7 +80,7 @@ export function activateTopSearch() {
     const header_book_search_collapse_icon = document.getElementById('header_book_search_collapse_icon');
     const header_book_search_top_collapse = document.getElementById('header_book_search_top_collapse');
 
-    
+
     const opac_search_input = document.getElementById('opac_search_input') ?? '';
 
     window.addEventListener('scroll', function () {
@@ -85,6 +94,33 @@ export function activateTopSearch() {
             header_book_search_top_collapse.style.visibility = 'hidden';
         }
     });
+}
+
+export function getFormatCourseSection(course, year, section) {
+    const yearToNumber = {
+        'FISRT': 1,
+        'SECOND': 2,
+        'THIRD': 3,
+        'FOURTH': 4
+    };
+
+    const sectionToNumber = {
+        'ONE': 1,
+        'TWO': 2,
+        'THREE': 3,
+        'FOUR': 4
+    };
+
+    return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
+}
+
+export function getformatDate(date) {
+    let formattedDate = date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
+    return formattedDate;
 }
 
 activateTopSearch();

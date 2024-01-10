@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { setupFormValidation, showModal, generateQRCode } from '../../js/main.js';
+import { setupFormValidation, showModal, generateQRCode, getFormatCourseSection, } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 // Initialize Library ID ////////////////////////////////////////////////////////
@@ -11,17 +11,31 @@ const profile_qr_code_image = document.getElementById('profile_qr_code_image');
 // Initialize Image ////////////////////////////////////////////////////////
 
 
-fetch('../php_script/db_getData.php')
+
+fetch('../php_script/db_getAllData.php')
     .then(response => response.json())
     .then(data => {
-        console.log(data.users.active);
-        // generateQRCode(data.users.active.user_token, profile_qr_code_image.id, 500);
-        // library_id.textContent = data.users.active.user_token;
-        document.getElementById('profile_picture').src = data.users.active.user_picture;
-        // document.getElementById('profile_name').innerHTML = data.users.active.user_fullname;
-        // document.getElementById('profile_student_number').innerHTML = data.users.active.user_student_number;
-        // document.getElementById('profile_email').innerHTML = data.users.active.user_email;
-        // document.getElementById('profile_type').innerHTML = data.users.active.user_member_type;
+        let profile_picture = data.users.active.user_picture;
+        let profile_name = data.users.active.user_fullname;
+        let profile_student_courseSection = getFormatCourseSection(data.users.active.user_student_course, data.users.active.user_student_year, data.users.active.user_student_section);
+        let profile_student_number = data.users.active.user_student_number;
+        let profile_email = data.users.active.user_email;
+        let profile_type = data.users.active.user_member_type;
+
+
+        let library_id = data.users.active.user_token;
+        let profile_qr_code_img = generateQRCode(data.users.active.user_token, 500);
+
+
+        document.querySelectorAll('.profile-img').forEach(element => {element.src = profile_picture;});
+        document.querySelectorAll('.profile-name').forEach(element => {element.innerHTML = profile_name;});
+        document.querySelectorAll('.profile-student-courseSection').forEach(element => {element.innerHTML = profile_student_courseSection;});
+        document.querySelectorAll('.profile-student-number').forEach(element => {element.innerHTML = profile_student_number;});
+        document.querySelectorAll('.profile-email').forEach(element => {element.innerHTML = profile_email;});
+        document.querySelectorAll('.profile-type').forEach(element => {element.innerHTML = profile_type;});
+
+        document.querySelectorAll('.profile-qr-code-img').forEach(element => {element.src = profile_qr_code_img;});
+        document.querySelectorAll('.library-id').forEach(element => {element.innerHTML = library_id;});
     })
     .catch(error => console.error('Error:', error));
     

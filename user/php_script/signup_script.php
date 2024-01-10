@@ -4,7 +4,7 @@ session_start();
 // FOR INPUT LOGIN
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    require_once('db_connection.php');
+    require_once('db_local_connection.php');
 
     $_SESSION['user_token'] = $_SESSION['temp_token'];
     unset($_SESSION['temp_token']);

@@ -27,10 +27,10 @@ if (!isset($_SESSION["user_token"])) {
         <div id="services_contents" class="main-contents" data-aos="fade-in" data-aos-duration="1000">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-3">
                         <?php include '../web_contents/profile-sidebar.php'; ?>
                     </div>
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-9">
                         <?php include '../web_contents/profile-info.php'; ?>
                     </div>
                 </div>
