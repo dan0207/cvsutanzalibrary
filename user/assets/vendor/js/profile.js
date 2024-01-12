@@ -27,34 +27,53 @@ fetch('../php_script/db_getAllData.php')
         let profile_qr_code_img = generateQRCode(data.users.active.user_token, 500);
 
 
-        document.querySelectorAll('.profile-img').forEach(element => {element.src = profile_picture;});
-        document.querySelectorAll('.profile-name').forEach(element => {element.innerHTML = profile_name;});
-        document.querySelectorAll('.profile-student-courseSection').forEach(element => {element.innerHTML = profile_student_courseSection;});
-        document.querySelectorAll('.profile-student-number').forEach(element => {element.innerHTML = profile_student_number;});
-        document.querySelectorAll('.profile-email').forEach(element => {element.innerHTML = profile_email;});
-        document.querySelectorAll('.profile-type').forEach(element => {element.innerHTML = profile_type;});
+        document.querySelectorAll('.profile-img').forEach(element => { element.src = profile_picture; });
+        document.querySelectorAll('.profile-name').forEach(element => { element.innerHTML = profile_name; });
+        document.querySelectorAll('.profile-student-courseSection').forEach(element => { element.innerHTML = profile_student_courseSection; });
+        document.querySelectorAll('.profile-student-number').forEach(element => { element.innerHTML = profile_student_number; });
+        document.querySelectorAll('.profile-email').forEach(element => { element.innerHTML = profile_email; });
+        document.querySelectorAll('.profile-type').forEach(element => { element.innerHTML = profile_type; });
 
-        document.querySelectorAll('.profile-qr-code-img').forEach(element => {element.src = profile_qr_code_img;});
-        document.querySelectorAll('.library-id').forEach(element => {element.innerHTML = library_id;});
+        document.querySelectorAll('.profile-qr-code-img').forEach(element => { element.src = profile_qr_code_img; });
+        document.querySelectorAll('.library-id').forEach(element => { element.innerHTML = library_id; });
     })
     .catch(error => console.error('Error:', error));
-    
+
+let user_book_request_table = new DataTable('#user_book_request_table', {
+    ajax: '../php_script/book_request_server_script.php', // DO NOT REMOVE
+    processing: true, // DO NOT REMOVE
+    serverSide: true, // DO NOT REMOVE
+    iDisplayLength: 10,
+    responsive: true,
+    columnDefs: [
+        {
+            targets: -1,
+            data: null,
+            render: function (data, type, row) {
+                return "<button id='cancel_btn' class='btn btn-outline-danger fs-8 py-1 mx-1'>CANCEL</button>";
+            }
+        },
+        {
+            responsivePriority: 1, targets: 0
+        },
+        {
+            responsivePriority: 2, targets: -1
+        },
+    ]
+});
+
+// let user_book_request_table = new DataTable('#user_book_request_table', {
+//     responsive: true,
+// });
+let user_book_transaction_table = new DataTable('#user_book_transaction_table', {
+    responsive: true,
+});
+let user_handled_book_table = new DataTable('#user_handled_book_table', {
+    responsive: true,
+});
+
+
 let logout_btn = document.querySelectorAll("logout-btn");
-
-userBookTransaction();
-
-function userBookTransaction() {
-    let user_book_request_table = new DataTable('#user_book_request_table', {
-        responsive: true,
-    });
-    let user_book_transaction_table = new DataTable('#user_book_transaction_table', {
-        responsive: true,
-    });
-    let user_handled_book_table = new DataTable('#user_handled_book_table', {
-        responsive: true,
-    });
-}
-
 logout_btn.forEach(function (e) {
     e.addEventListener("click", function () {
         sessionStorage.clear();

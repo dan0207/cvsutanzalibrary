@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"/>
 <link rel="stylesheet" href="../assets/css/style.css">
 <!-- CSS -->
 
@@ -51,8 +52,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
 <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script defer src="https://smtpjs.com/v3/smtp.js"></script>
-<!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> -->
-
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
 <!-- SCRIPT -->
 
 <!-- SCRIPT -->

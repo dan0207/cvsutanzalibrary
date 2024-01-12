@@ -25,7 +25,7 @@
                         <div class="on-pc-profile d-none d-lg-block py-4 px-4 px-xl-5">
                             <ul class="nav nav-pills nav-fill mb-3 flex-column" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="fs-7 nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#personal_details" type="button" role="tab">Personal Details</button>
+                                    <button class="fs-7 nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#personal_details_tab" type="button" role="tab">Personal Details</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="fs-7 nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#book_transaction_tab" type="button" role="tab">Book Transaction</button>

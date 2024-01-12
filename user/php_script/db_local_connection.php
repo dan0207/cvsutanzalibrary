@@ -6,6 +6,12 @@ $password = "";
 $database = "cvsutanzalib_db";
 
 
+// $servername = "sql12.freesqldatabase.com";
+// $username = "sql12676046";
+// $password = "yfBL7dwnGM";
+// $database = "sql12676046";
+
+
 // Create a new MySQLi connection
 $db = new mysqli($servername, $username, $password, $database);
 

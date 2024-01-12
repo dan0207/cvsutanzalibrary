@@ -12,7 +12,7 @@
                 </ul>
             </div>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="personal_details">
+                <div class="tab-pane fade " id="personal_details_tab">
                     <div class="user-details d-none d-lg-block">
                         <div class="row m-0 border-bottom mb-3 border rounded-3 shadow bg-body-tertiary">
                             <div class="col-12 col-lg-9 px-0 pb-3">
@@ -96,6 +96,48 @@
 
                         <div class="border d-lg-none rounded-3 shadow bg-body-tertiary my-3 p-3 d-flex justify-content-center align-items-center">
                             <a class="logout-btn btn btn-primary fs-7 rounded-0 w-100 rounded-3" href="../pages/home.php" type="button">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade active show" id="book_transaction_tab">
+                    <div class="border text-center bg-primary text-onPrimary rounded-2 fs-1">
+                        Book Transactions
+                    </div>
+                    <div class="book_transactions_tab">
+                        <ul class="nav nav-pills nav-justified text-center m-2" id="navTab_rounded">
+                            <li class="nav-item"><a class="py-2 nav-link active" data-bs-toggle="tab" data-bs-target="#book_request_tabpane" type="button">Book Request</a></li>
+                            <li class="nav-item"><a class="py-2 nav-link" data-bs-toggle="tab" data-bs-target="#handled_book_tabpane" type="button">Handled Book</a></li>
+                            <li class="nav-item"><a class="py-2 nav-link" data-bs-toggle="tab" data-bs-target="#transaction_history_tabpane" type="button">Transactions History</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content m-2" id="book_transactions_tabpane">
+                        <div class="tab-pane show active fade" id="book_request_tabpane">
+
+                            <div class="book-request-container w-100 overflow-hidden">
+                                <div id="book_request_table" class="book-request-table">
+                                    <?php include '../tables/user_book_request_table.php'; ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="handled_book_tabpane">
+
+                            <div class="handled-book-container w-100 overflow-hidden">
+                                <div id="handled_book_table" class="handled-book-table">
+                                    <?php include '../tables/user_hanled_book_table.php'; ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="transaction_history_tabpane">
+
+                            <div class="transaction-history-container w-100 overflow-hidden">
+                                <div id="transaction_history_table" class="transaction-history-table">
+                                    <?php include '../tables/user_book_transaction_table.php'; ?>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

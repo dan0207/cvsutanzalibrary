@@ -347,21 +347,20 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <h6 class="fw-bold">Select your Borrow dates:</h6>
                                 <div class="col-6">
-                                    <div class="d-flex">
-                                        <div class="input-group">
+                                    <div class="checkin-picker"></div>
+                                    <!-- <div class="input-group">
                                             <span class="input-group-text fs-7 border-0 fw-bold p-0">Pickup Date: </span>
                                             <input id="book_reservation_pickup_date" type="date" class="form-control fs-7 text-muted rounded-3 mx-2" name="pickup_date">
-                                        </div>
-                                    </div>
+                                        </div> -->
                                 </div>
                                 <div class="col-6">
-                                    <div class="d-flex">
-                                        <div class="input-group">
+                                    <div class="checkout-picker"></div>
+                                    <!-- <div class="input-group">
                                             <span class="input-group-text fs-7 border-0 fw-bold p-0">Return Date: </span>
                                             <input id="book_reservation_due_date" type="date" class="form-control fs-7 text-muted rounded-3 mx-2" name="due_date">
-                                        </div>
-                                    </div>
+                                        </div> -->
                                 </div>
                             </div>
                         </div>

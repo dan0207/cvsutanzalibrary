@@ -1,22 +1,4 @@
 <?php
-/*
- * DataTables example server-side processing script.
- *
- * Please note that this script is intentionally extremely simple to show how
- * server-side processing can be implemented, and probably shouldn't be used as
- * the basis for a large complex system. It is suitable for simple use cases as
- * for learning.
- *
- * See https://datatables.net/usage/server-side for full details on the server-
- * side processing requirements of DataTables.
- *
- * @license MIT - https://datatables.net/license_mit
- */
- 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Easy set variables
- */
- 
 // DB table to use
 $table = 'books';
  

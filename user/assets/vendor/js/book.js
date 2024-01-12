@@ -5,7 +5,7 @@ import { updateSession, setupFormValidation, showModal, generateQRCode, getForma
 
 // Function for books datatables
 let books_table = new DataTable('#books_table', {
-    ajax: '../php_script/server_processing.php', // DO NOT REMOVE
+    ajax: '../php_script/books_server_script.php', // DO NOT REMOVE
     processing: true, // DO NOT REMOVE
     serverSide: true, // DO NOT REMOVE
     iDisplayLength: 10,

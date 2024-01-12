@@ -13,6 +13,7 @@ if (!isset($_SESSION["user_token"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../web_contents/head.php'; ?>
+    <link rel="stylesheet" href="../assets/vendor/css/tables.css">
     <title>Profile • Tanza Campus Library</title>
 </head>
 

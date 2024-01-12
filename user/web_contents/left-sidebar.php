@@ -1,5 +1,5 @@
 <div class="sticky-top py-lg-5 z-1 overflow-y-auto vh-100">
-    <div id="left_sidebar" class="container py-lg-5">
+    <div id="left_sidebar" class="container py-lg-5 mb-3">
         <div class="card text-center mb-3 rounded-3">
             <div class="card-header text-bg-primary rounded-top-3 fs-6">LIBRARY HOURS</div>
             <div class="card-body">

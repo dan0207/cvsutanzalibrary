@@ -141,7 +141,7 @@ const book_request_privacy_checkbox = document.getElementById("book_request_priv
 // $('#user_form_modal').modal('show'); // For Troubleshooting
 // $('#user_review_modal').modal('show'); // For Troubleshooting
 // $('#create_post_modal').modal('show'); // For Troubleshooting
-// $('#book_request_review_modal').modal('show'); // For Troubleshooting
+$('#book_request_review_modal').modal('show'); // For Troubleshooting
 // $('#book_request_privacyStatement_modal').modal('show'); // For Troubleshooting
 // $('#book_request_receipt_modal').modal('show'); // For Troubleshooting
 
@@ -426,6 +426,152 @@ function handle_bookRequestPrivacyCheckbox() {
     }
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var checkin_date, checkin_div, checkin_dp,
+        checkout_date, checkout_div, checkout_dp;
+
+    var reserve_start = new Date('2024-01-1');
+    var reserve_end = new Date('2024-01-3');
+    console.log(reserve_start);
+    console.log(reserve_end);
+
+    function update() {
+        if (checkin_date !== undefined) {
+            document.getElementById('display-checkin').textContent = checkin_date.toLocaleDateString();
+        }
+        if (checkout_date !== undefined) {
+            document.getElementById('display-checkout').textContent = checkout_date.toLocaleDateString();
+        }
+    }
+
+    // create checkin datepicker
+    checkin_div = $('.checkin-picker').datepicker({
+        autoclose: false,
+        beforeShowDay: function (date) {
+            if (reserve_start !== undefined && reserve_end !== undefined) {
+                if (date >= reserve_start && date <= reserve_end) {
+                    return {
+                        classes: 'reserved disabled',
+                    };
+                }
+            }
+
+            if (checkout_date !== undefined) {
+                // disabled date selection for day after checkout date
+                if (date > checkout_date || date < new Date(checkout_date.getTime() - 7 * 24 * 60 * 60 * 1000)) {
+                    return {
+                        classes: 'disabled',
+                        tooltip: 'Unavailable',
+                    };
+                }
+                // display checkout date in checkin datepicker
+                if (date.getDate() === checkout_date.getDate() &&
+                    date.getMonth() === checkout_date.getMonth() &&
+                    date.getFullYear() === checkout_date.getFullYear()) {
+                    return {
+                        classes: 'is-selected'
+                    };
+                }
+            }
+            // display range dates in checkin datepicker
+            if (checkin_date !== undefined && checkout_date !== undefined) {
+                if (date > checkin_date && date < checkout_date) {
+                    return {
+                        classes: 'is-between'
+                    };
+                }
+            }
+            // display checkin date
+            if (checkin_date !== undefined) {
+                if (date.getDate() === checkin_date.getDate() &&
+                    date.getMonth() === checkin_date.getMonth() &&
+                    date.getFullYear() === checkin_date.getFullYear()) {
+                    return {
+                        classes: 'active'
+                    };
+                }
+            }
+            return true;
+        }
+    });
+
+    // save checkin datepicker for later
+    checkin_dp = checkin_div.data('datepicker');
+
+    // update datepickers on checkin date change
+    checkin_div.on('changeDate', (event) => {
+        // save checkin date
+        checkin_date = event.date;
+        // update checkout datepicker so range dates are displayed
+        checkout_dp.update();
+        checkin_dp.update();
+        update();
+    });
+
+    // create checkout datepicker
+    checkout_div = $('.checkout-picker').datepicker({
+        autoclose: false,
+        beforeShowDay: function (date) {
+            if (checkin_date !== undefined) {
+
+                // disabled date selection for unnessesary date
+                if (checkin_date !== undefined) {
+                    if (date < checkin_date || date > new Date(checkin_date.getTime() + 7 * 24 * 60 * 60 * 1000)) {
+                        return {
+                            classes: 'disabled',
+                            tooltip: 'Unavailable',
+                        };
+                    }
+                }
+
+                // display checkin date in checkout datepicker
+                if (date.getDate() === checkin_date.getDate() &&
+                    date.getMonth() === checkin_date.getMonth() &&
+                    date.getFullYear() === checkin_date.getFullYear()) {
+                    return {
+                        classes: 'is-selected'
+                    };
+                    // return false;
+                }
+            }
+            // display range dates in checkout datepicker
+            if (checkin_date !== undefined && checkout_date !== undefined) {
+                if (date > checkin_date && date < checkout_date) {
+                    return {
+                        classes: 'is-between'
+                    };
+                }
+            }
+            // display checkout date
+            if (checkout_date !== undefined) {
+                if (date.getDate() === checkout_date.getDate() &&
+                    date.getMonth() === checkout_date.getMonth() &&
+                    date.getFullYear() === checkout_date.getFullYear()) {
+                    return {
+                        classes: 'active'
+                    };
+                }
+            }
+            return true;
+        }
+    });
+
+    // save checkout datepicker for later
+    checkout_dp = checkout_div.data('datepicker');
+
+    // update datepickers on checkout date change
+    checkout_div.on('changeDate', (event) => {
+        // save checkout date
+        checkout_date = event.date;
+        // update checkin datepicker so range dates are displayed
+        checkin_dp.update();
+        checkout_dp.update();
+        update();
+    });
+
+});
 
 
 
