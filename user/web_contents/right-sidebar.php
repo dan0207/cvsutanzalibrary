@@ -1,4 +1,4 @@
-<div class="sticky-top py-lg-5 z-1 overflow-y-auto vh-100">
+<div class="sticky-top py-lg-5 z-1 overflow-y-auto vh-100 mb-4 mb-lg-0">
     <div id="right_sidebar" class="container my-lg-5">
         <div class="accordion" id="accordionPanelsStayOpenExample">
 
@@ -74,5 +74,5 @@
 
 
 <!-- Scripts -->
-<script defer src="../assets/vendor/js/sidebar.js" type="text/javascript"></script>
+<script defer src="../assets/vendor/js/right_sidebar.js" type="text/javascript"></script>
 <!-- Scripts -->

@@ -291,8 +291,7 @@
                 <h1 class="modal-title fs-3">Book Reservation Form</h1>
             </div>
             <div class="modal-body">
-                <p class="text-center fs-6">🔔Please review the details you entered and click the Continue button if you wish to proceed🔔</p>
-                <div class="container border rounded-3 w-80 mx-auto p-4">
+                <form id="book_request_review_form" class="container border rounded-3 w-80 mx-auto p-4 shadow bg-body-tertiary" class="needs-validation m-0" method="POST" novalidate>
                     <div class="row">
                         <h4 class="fw-bold text-primary">PERSONAL INFORMATION</h4>
                     </div>
@@ -341,35 +340,41 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="d-flex">
-                                        <label for="book_reservation_author" class="form-label me-3 fw-bold">Book Author: </label>
-                                        <p id="book_reservation_author" class="text-muted"></p>
+                                        <label for="book_reservation_author" class="form-label me-3 fw-bold">Book Call No.: </label>
+                                        <p id="book_reservation_call_number" class="text-muted"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <h6 class="fw-bold">Select your Borrow dates:</h6>
+                            <div id="borrow_period" class="row borrow-period text-center mt-3">
+                                <h6 class="fw-bold mb-3">SELECT YOUR BORROW PERIOD:</h6>
                                 <div class="col-6">
-                                    <div class="checkin-picker"></div>
-                                    <!-- <div class="input-group">
-                                            <span class="input-group-text fs-7 border-0 fw-bold p-0">Pickup Date: </span>
-                                            <input id="book_reservation_pickup_date" type="date" class="form-control fs-7 text-muted rounded-3 mx-2" name="pickup_date">
-                                        </div> -->
+                                    <h6 class="">Available Pickup Dates</h6>
+                                    <div id="pickup_date_container" class="date-container w-85 mx-auto border rounded-3 shadow bg-body-tertiary">
+                                        <div id="pickup_date" type="text" class="borrow-date-range mx-1"></div>
+                                        <div id="pickup_date_label" type="text" placeholder="MM dd, yyyy" class="form-control w-90 mx-auto my-2 text-center fs-6 border rounded-3 py-1 shadow bg-body-tertiary">Pickup Date</div>
+                                        <input id="pickup_date_input" class="form-control d-none" required>
+                                        <div class="invalid-feedback text-secondary fs-7 my-2">Please Select Pickup Date</div>
+                                    </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="checkout-picker"></div>
-                                    <!-- <div class="input-group">
-                                            <span class="input-group-text fs-7 border-0 fw-bold p-0">Return Date: </span>
-                                            <input id="book_reservation_due_date" type="date" class="form-control fs-7 text-muted rounded-3 mx-2" name="due_date">
-                                        </div> -->
+                                    <h6 class="">Available Return Dates</h6>
+                                    <div id="return_date_container" class="date-container w-85 mx-auto border rounded-3 shadow bg-body-tertiary">
+                                        <div id="return_date" type="text" class="borrow-date-range mx-1"></div>
+                                        <div id="return_date_label" type="text" placeholder="MM dd, yyyy" class="form-control w-90 mx-auto my-2 text-center fs-6 border rounded-3 py-1 shadow bg-body-tertiary">Return Date</div>
+                                        <input id="return_date_input" class="form-control d-none" required>
+                                        <div class="invalid-feedback text-secondary fs-7 my-2">Please Select Return Date</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <p class="text-center fs-8 mt-4">🔔Please review the details you request and click the Continue button if you wish to proceed🔔</p>
+                </form>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
                 <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-dismiss="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back</button>
-                <button class="btn btn-primary rounded-pill px-5 ms-auto" data-bs-target="#book_request_privacy_modal" data-bs-toggle="modal">Continue</button>
+                <button id="book_request_review_modal_btn" class="btn btn-primary rounded-pill px-5 ms-auto">Continue</button>
             </div>
         </div>
     </div>
@@ -385,7 +390,7 @@
                 <h1 class="modal-title fs-3">Book Reservation Form</h1>
             </div>
             <div class="modal-body">
-                <div class="container border rounded-3 w-80 mx-auto p-4">
+                <div class="container border rounded-3 w-80 mx-auto p-4 shadow bg-body-tertiary">
                     <div class="row text-center">
                         <h4 class="fw-bold text-primary">LIBRARY PRIVACY NOTICE</h4>
                     </div>
@@ -430,7 +435,7 @@
     </div>
 </div>
 <!-- Book Reservation Request Library Privary Notice Modal  -->
-
+f
 <!-- Book Reservation Request Library Receipt Modal  -->
 <div class="modal fade " id="book_request_receipt_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -441,8 +446,11 @@
             </div>
             <div class="modal-body px-5 mx-4">
                 <a id="receipt" class="text-reset text-decoration-none">
-                    <form id="receipt_form" action="../php_script/receipt_script.php" class="container border rounded-3 w-100 mx-auto p-5 fs-7" method="POST">
+                    <form id="receipt_form" action="../php_script/receipt_script.php" class="container border rounded-3 w-100 mx-auto p-5 fs-7 shadow bg-body-tertiary" method="POST">
                         <div class="row">
+                            <div class="col-12">
+                                <h1 class="fs-3 fw-bold text-center border rounded-4 shadow-sm bg-body-tertiary py-2 mb-4">BOOK RESERVATION</h1>
+                            </div>
                             <div class="col-7">
                                 <h5 class="fw-bold mb-2">RECEIVED FROM</h5>
                                 <div class="d-flex">
@@ -479,14 +487,14 @@
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Book Title: </span>
-                                        <input id="book_receipt_barrow_book_title" type="text" class="form-control fs-7 text-muted" name="book_title" readonly>
+                                        <span class="input-group-text fs-7 border-0">Book Call Number: </span>
+                                        <input id="book_receipt_barrow_book_call_number" type="text" class="form-control fs-7 text-muted" name="book_call_number" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Book Author: </span>
-                                        <input id="book_receipt_barrow_book_author" type="text" class="form-control fs-7 text-muted" name="book_author" readonly>
+                                        <span class="input-group-text fs-7 border-0">Book Title: </span>
+                                        <input id="book_receipt_barrow_book_title" type="text" class="form-control fs-7 text-muted" name="book_title" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
@@ -512,7 +520,7 @@
 
                             </div>
                         </div>
-                        <div class="row pt-2">
+                        <!-- <div class="row pt-2">
                             <div class="col-12">
                                 <h5 class="fw-bold my-2">BOOK DETAILS</h5>
                                 <div class="row ps-3">
@@ -585,14 +593,14 @@
                                         </div>
                                         <div class="d-flex">
                                             <label for="" class="form-label me-3">Barcode: </label>
-                                            <!-- <div id="book_receipt_barcode_container" class="text-center">
+                                            <div id="book_receipt_barcode_container" class="text-center">
                                     <svg id="barcode" class="img-responsive ms-auto"></svg>
-                                </div> -->
+                                </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row text-center pt-4">
                             <p class="fs-7 m-0 p-0">Receipt No:</p>

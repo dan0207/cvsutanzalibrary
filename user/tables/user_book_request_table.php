@@ -1,13 +1,12 @@
-<table id="user_book_request_table" class="hover row-border border border-2 rounded-3 nowrap text-center" style="width:100%">
+<table id="user_book_request_table" class="hover row-border border border-2 rounded-3 compact text-center shadow-sm bg-body-tertiary" style="width:100%">
     <thead>
         <tr>
-            <th class="fs-8">Transaction ID</th>
-            <th class="fs-8">Access No.</th>
-            <th>Book Title</th>
-            <th>Book Author</th>
-            <th>Pickup Date</th>
-            <th>Return Date</th>
-            <th>Action</th>
+            <th class="fs-8">Trans ID</th>
+            <th class="fs-8">Status</th>
+            <th class="fs-8">Pickup Date</th>
+            <th class="fs-8">Return Date</th>
+            <th class="fs-6">Book Title</th>
+            <th class="fs-7">Action</th>
         </tr>
     </thead>
 </table>

@@ -39,27 +39,50 @@ fetch('../php_script/db_getAllData.php')
     })
     .catch(error => console.error('Error:', error));
 
-let user_book_request_table = new DataTable('#user_book_request_table', {
-    ajax: '../php_script/book_request_server_script.php', // DO NOT REMOVE
-    processing: true, // DO NOT REMOVE
-    serverSide: true, // DO NOT REMOVE
-    iDisplayLength: 10,
-    responsive: true,
-    columnDefs: [
-        {
-            targets: -1,
-            data: null,
-            render: function (data, type, row) {
-                return "<button id='cancel_btn' class='btn btn-outline-danger fs-8 py-1 mx-1'>CANCEL</button>";
-            }
-        },
-        {
-            responsivePriority: 1, targets: 0
-        },
-        {
-            responsivePriority: 2, targets: -1
-        },
-    ]
+$(document).ready(function () {
+    $('#user_book_request_table').DataTable({
+        ajax: '../php_script/book_request_server_script.php', // DO NOT REMOVE
+        processing: true, // DO NOT REMOVE
+        serverSide: true, // DO NOT REMOVE
+        iDisplayLength: 10,
+        responsive: true,
+        // dom: 'Bfrtip',
+        // buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        columnDefs: [
+            {
+                targets: -1,
+                data: null,
+                render: function (data, type, row) {
+                    let value = row[1];
+                    if (value === "pending") {
+                        return "<button id='cancel_btn' class='btn btn-outline-secondary fs-8 py-1'>CANCEL</button>";
+                    } else {
+                        return "<button id='cancel_btn' class='btn btn-outline-secondary fs-8 py-1 disabled'>CANCEL</button>";
+                    }
+                }
+            },
+            {
+                targets: 1,
+                render: function (data, type, row) {
+                    let value = row[1];
+                    if (value === "pending") {
+                        return "<p class='fw-semibold fs-7 m-0 fst-italic text-warning'>" + data + "</p>";
+                    } else {
+                        return "<p class='fw-semibold fs-7 m-0 fst-italic text-primary'>" + data + "</p>";
+                    }
+                }
+            },
+            {
+                responsivePriority: 1, targets: 0
+            },
+            {
+                responsivePriority: 2, targets: -1
+            },
+            {
+                responsivePriority: 3, targets: -2
+            },
+        ],
+    });
 });
 
 // let user_book_request_table = new DataTable('#user_book_request_table', {

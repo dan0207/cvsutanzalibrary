@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../assets/vendor/css/sidebars.css">
 <link rel="stylesheet" href="../assets/vendor/css/login.css">
 <link rel="stylesheet" href="../assets/vendor/css/profile.css">
+<link rel="stylesheet" href="../assets/vendor/css/datepicker.css">
 <link rel="stylesheet" href="../assets/vendor/css/calendar.css">
 <link rel="stylesheet" href="../assets/vendor/css/feedback.css">
 <link rel="stylesheet" href="../assets/vendor/css/chat.css">
@@ -27,7 +28,9 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.7.0/css/colReorder.dataTables.min.css"/>
 <link rel="stylesheet" href="../assets/css/style.css">
 <!-- CSS -->
 
@@ -53,6 +56,13 @@
 <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script defer src="https://smtpjs.com/v3/smtp.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+<script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+<script defer src="https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReorder.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <!-- SCRIPT -->
 
 <!-- SCRIPT -->

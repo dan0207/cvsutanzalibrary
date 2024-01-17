@@ -1,6 +1,6 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection } from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection, sendEmail } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -20,7 +20,7 @@ const book_receipt_email = document.getElementById("book_receipt_email");
 
 const book_receipt_barrow_book_accession_number = document.getElementById("book_receipt_barrow_book_accession_number");
 const book_receipt_barrow_book_title = document.getElementById("book_receipt_barrow_book_title");
-const book_receipt_barrow_book_author = document.getElementById("book_receipt_barrow_book_author");
+const book_receipt_barrow_book_call_number = document.getElementById("book_receipt_barrow_book_call_number");
 const book_receipt_barrow_pickupDate = document.getElementById("book_receipt_barrow_pickupDate");
 const book_receipt_barrow_returnDate = document.getElementById("book_receipt_barrow_returnDate");
 
@@ -57,6 +57,7 @@ const user_review_modal = document.getElementById('user_review_modal');
 const book_request_form_modal = document.getElementById('book_request_form_modal');
 const book_request_privacy_modal = document.getElementById('book_request_privacy_modal');
 const book_request_receipt_modal = document.getElementById('book_request_receipt_modal');
+const book_request_review_modal = document.getElementById('book_request_review_modal');
 // Initialize Modal ////////////////////////////////////////////////////////
 
 
@@ -65,6 +66,7 @@ const user_form = document.getElementById('user_form');
 const add_new_event_form = document.getElementById('add_new_event_form');
 const book_request_privacyForm = document.getElementById('book_request_privacyForm');
 const receipt_form = document.getElementById('receipt_form');
+const book_request_review_form = document.getElementById('book_request_review_form');
 // Initialize Form ////////////////////////////////////////////////////////
 
 
@@ -80,6 +82,8 @@ const user_form_modal_btn = document.getElementById("user_form_modal_btn");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 const book_request_privacy_btn = document.getElementById("book_request_privacy_btn");
+const book_request_review_modal_btn = document.getElementById("book_request_review_modal_btn");
+
 // Initialize Button ////////////////////////////////////////////////////////
 
 
@@ -141,7 +145,7 @@ const book_request_privacy_checkbox = document.getElementById("book_request_priv
 // $('#user_form_modal').modal('show'); // For Troubleshooting
 // $('#user_review_modal').modal('show'); // For Troubleshooting
 // $('#create_post_modal').modal('show'); // For Troubleshooting
-$('#book_request_review_modal').modal('show'); // For Troubleshooting
+// $('#book_request_review_modal').modal('show'); // For Troubleshooting
 // $('#book_request_privacyStatement_modal').modal('show'); // For Troubleshooting
 // $('#book_request_receipt_modal').modal('show'); // For Troubleshooting
 
@@ -233,17 +237,6 @@ function passwordToggle(password, toggle) {
     }
 }
 
-// function sendEmail(){
-//     Email.send({
-//         SecureToken : "d4a41c9a-511b-4299-af7d-b30984ce71d4",
-//         To: 'iamerikanavarro09@gmail.com',
-//         From: "abanciadanilo0207@gmail.com",
-//         Subject: "This is the subject",
-//         Body: "And this is the body"
-//     }).then(
-//         message => alert(message)
-//     );
-// }
 
 function handle_receiptSubmitBtn() {
     receipt_form.submit();
@@ -272,7 +265,7 @@ function handle_receiptDownloadBtn() {
 function handle_signupReminderModalBtn() {
     updateSession()
         .then(() => {
-            let sessionData = JSON.parse(sessionStorage.getItem('sessionData'));
+            let sessionData = JSON.parse(sessionStorage.getItem('sessionData')) || {};
             if (sessionData) {
 
                 let signup_qr_code_image = generateQRCode(sessionData.user_token, 500);
@@ -346,7 +339,6 @@ function handle_membertype() {
 }
 
 function handle_bookRequestReviewModal() {
-
 }
 
 
@@ -354,8 +346,8 @@ function handle_bookRequestPrivacyStatementBtn() {
     if (book_request_privacy_checkbox.checked) {
         updateSession()
             .then(() => {
-                let sessionData = JSON.parse(sessionStorage.getItem('sessionData'));
-                let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest'));
+                let sessionData = JSON.parse(sessionStorage.getItem('sessionData')) || {};
+                let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
                 if (sessionData) {
                     //PERSONAL DETAILS                    
                     book_receipt_library_id.value = sessionData.user_token;
@@ -368,26 +360,10 @@ function handle_bookRequestPrivacyStatementBtn() {
                     //BORROW DETAILS
                     book_receipt_barrow_book_accession_number.value = sessionBookRequest.book_accession_number;
                     book_receipt_barrow_book_title.value = sessionBookRequest.book_title;
-                    book_receipt_barrow_book_author.value = sessionBookRequest.book_author;
+                    book_receipt_barrow_book_call_number.value = sessionBookRequest.book_call_number;
+
                     book_receipt_barrow_pickupDate.value = getformatDate(new Date(sessionBookRequest.book_pickup_date));
                     book_receipt_barrow_returnDate.value = getformatDate(new Date(sessionBookRequest.book_return_date));
-
-
-                    //BOOK DETAILS
-                    book_receipt_details_accession_number.innerHTML = sessionBookRequest.book_accession_number;
-                    book_receipt_details_title.innerHTML = sessionBookRequest.book_title;
-                    book_receipt_details_author.innerHTML = sessionBookRequest.book_author;
-                    book_receipt_details_call_number.innerHTML = sessionBookRequest.book_call_number;
-                    book_receipt_details_material_type.innerHTML = sessionBookRequest.book_material_type;
-                    book_receipt_details_language.innerHTML = sessionBookRequest.book_language;
-                    book_receipt_details_publication.innerHTML = sessionBookRequest.book_publication;
-                    book_receipt_details_description.innerHTML = sessionBookRequest.book_description;
-                    book_receipt_details_content_type.innerHTML = sessionBookRequest.book_content_type;
-                    book_receipt_details_media_type.innerHTML = sessionBookRequest.book_media_type;
-                    book_receipt_details_carrier_type.innerHTML = sessionBookRequest.book_carrier_type;
-                    book_receipt_details_isbn.innerHTML = sessionBookRequest.book_isbn;
-                    book_receipt_details_subject.innerHTML = sessionBookRequest.book_subject;
-                    book_receipt_details_classification.innerHTML = sessionBookRequest.book_classification;
 
                     // book_receipt_barcode_image.src = generateQRCode(sessionData.user_token, 500);
                 } else {
@@ -426,152 +402,16 @@ function handle_bookRequestPrivacyCheckbox() {
     }
 }
 
+function handle_bookRequestReviewModalBtn() {
+    showModal(book_request_privacy_modal.id, book_request_review_modal.id);
+    let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
 
+    sessionBookRequest['book_pickup_date'] = $('#pickup_date_input').val();
+    sessionBookRequest['book_return_date'] = $('#return_date_input').val();
 
-document.addEventListener('DOMContentLoaded', function() {
-    var checkin_date, checkin_div, checkin_dp,
-        checkout_date, checkout_div, checkout_dp;
-
-    var reserve_start = new Date('2024-01-1');
-    var reserve_end = new Date('2024-01-3');
-    console.log(reserve_start);
-    console.log(reserve_end);
-
-    function update() {
-        if (checkin_date !== undefined) {
-            document.getElementById('display-checkin').textContent = checkin_date.toLocaleDateString();
-        }
-        if (checkout_date !== undefined) {
-            document.getElementById('display-checkout').textContent = checkout_date.toLocaleDateString();
-        }
-    }
-
-    // create checkin datepicker
-    checkin_div = $('.checkin-picker').datepicker({
-        autoclose: false,
-        beforeShowDay: function (date) {
-            if (reserve_start !== undefined && reserve_end !== undefined) {
-                if (date >= reserve_start && date <= reserve_end) {
-                    return {
-                        classes: 'reserved disabled',
-                    };
-                }
-            }
-
-            if (checkout_date !== undefined) {
-                // disabled date selection for day after checkout date
-                if (date > checkout_date || date < new Date(checkout_date.getTime() - 7 * 24 * 60 * 60 * 1000)) {
-                    return {
-                        classes: 'disabled',
-                        tooltip: 'Unavailable',
-                    };
-                }
-                // display checkout date in checkin datepicker
-                if (date.getDate() === checkout_date.getDate() &&
-                    date.getMonth() === checkout_date.getMonth() &&
-                    date.getFullYear() === checkout_date.getFullYear()) {
-                    return {
-                        classes: 'is-selected'
-                    };
-                }
-            }
-            // display range dates in checkin datepicker
-            if (checkin_date !== undefined && checkout_date !== undefined) {
-                if (date > checkin_date && date < checkout_date) {
-                    return {
-                        classes: 'is-between'
-                    };
-                }
-            }
-            // display checkin date
-            if (checkin_date !== undefined) {
-                if (date.getDate() === checkin_date.getDate() &&
-                    date.getMonth() === checkin_date.getMonth() &&
-                    date.getFullYear() === checkin_date.getFullYear()) {
-                    return {
-                        classes: 'active'
-                    };
-                }
-            }
-            return true;
-        }
-    });
-
-    // save checkin datepicker for later
-    checkin_dp = checkin_div.data('datepicker');
-
-    // update datepickers on checkin date change
-    checkin_div.on('changeDate', (event) => {
-        // save checkin date
-        checkin_date = event.date;
-        // update checkout datepicker so range dates are displayed
-        checkout_dp.update();
-        checkin_dp.update();
-        update();
-    });
-
-    // create checkout datepicker
-    checkout_div = $('.checkout-picker').datepicker({
-        autoclose: false,
-        beforeShowDay: function (date) {
-            if (checkin_date !== undefined) {
-
-                // disabled date selection for unnessesary date
-                if (checkin_date !== undefined) {
-                    if (date < checkin_date || date > new Date(checkin_date.getTime() + 7 * 24 * 60 * 60 * 1000)) {
-                        return {
-                            classes: 'disabled',
-                            tooltip: 'Unavailable',
-                        };
-                    }
-                }
-
-                // display checkin date in checkout datepicker
-                if (date.getDate() === checkin_date.getDate() &&
-                    date.getMonth() === checkin_date.getMonth() &&
-                    date.getFullYear() === checkin_date.getFullYear()) {
-                    return {
-                        classes: 'is-selected'
-                    };
-                    // return false;
-                }
-            }
-            // display range dates in checkout datepicker
-            if (checkin_date !== undefined && checkout_date !== undefined) {
-                if (date > checkin_date && date < checkout_date) {
-                    return {
-                        classes: 'is-between'
-                    };
-                }
-            }
-            // display checkout date
-            if (checkout_date !== undefined) {
-                if (date.getDate() === checkout_date.getDate() &&
-                    date.getMonth() === checkout_date.getMonth() &&
-                    date.getFullYear() === checkout_date.getFullYear()) {
-                    return {
-                        classes: 'active'
-                    };
-                }
-            }
-            return true;
-        }
-    });
-
-    // save checkout datepicker for later
-    checkout_dp = checkout_div.data('datepicker');
-
-    // update datepickers on checkout date change
-    checkout_div.on('changeDate', (event) => {
-        // save checkout date
-        checkout_date = event.date;
-        // update checkin datepicker so range dates are displayed
-        checkin_dp.update();
-        checkout_dp.update();
-        update();
-    });
-
-});
+    sessionStorage.setItem('sessionBookRequest', JSON.stringify(sessionBookRequest));
+    console.log(sessionBookRequest)
+}
 
 
 
@@ -613,5 +453,6 @@ book_request_privacy_checkbox.addEventListener("change", handle_bookRequestPriva
 // // Call Functions /////////////////////////////////////////////////////////
 
 setupFormValidation(user_form.id, user_form_modal_btn.id, handle_UserFormModalBtn);
+setupFormValidation(book_request_review_form.id, book_request_review_modal_btn.id, handle_bookRequestReviewModalBtn);
 // // Call Functions /////////////////////////////////////////////////////////
 
