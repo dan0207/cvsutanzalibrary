@@ -41,7 +41,13 @@ fetch('../php_script/db_getAllData.php')
 
 $(document).ready(function () {
     $('#user_book_request_table').DataTable({
-        ajax: '../php_script/book_request_server_script.php', // DO NOT REMOVE
+        ajax: {
+            type: 'GET',
+            url: '../php_script/datatable_server_script.php',
+            data: {
+                table: 'bookreserve'
+            }
+        },
         processing: true, // DO NOT REMOVE
         serverSide: true, // DO NOT REMOVE
         iDisplayLength: 10,
@@ -83,16 +89,34 @@ $(document).ready(function () {
             },
         ],
     });
-});
 
-// let user_book_request_table = new DataTable('#user_book_request_table', {
-//     responsive: true,
-// });
-let user_book_transaction_table = new DataTable('#user_book_transaction_table', {
-    responsive: true,
-});
-let user_handled_book_table = new DataTable('#user_handled_book_table', {
-    responsive: true,
+    $('#user_handled_book_table').DataTable({
+        ajax: {
+            type: 'GET',
+            url: '../php_script/datatable_server_script.php',
+            data: {
+                table: 'bookborrowed'
+            }
+        },
+        processing: true, // DO NOT REMOVE
+        serverSide: true, // DO NOT REMOVE
+        iDisplayLength: 10,
+        responsive: true,
+    });
+
+    $('#user_book_transaction_table').DataTable({
+        ajax: {
+            type: 'GET',
+            url: '../php_script/datatable_server_script.php',
+            data: {
+                table: 'booktransaction'
+            }
+        },
+        processing: true, // DO NOT REMOVE
+        serverSide: true, // DO NOT REMOVE
+        iDisplayLength: 10,
+        responsive: true,
+    });
 });
 
 

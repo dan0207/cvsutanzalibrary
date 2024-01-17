@@ -4,7 +4,13 @@ import { updateSession, setupFormValidation, showModal, generateQRCode, getForma
 
 // Function for books datatables
 let books_table = new DataTable('#books_table', {
-    ajax: '../php_script/books_server_script.php', // DO NOT REMOVE
+    ajax: {
+        type: 'GET',
+        url: '../php_script/datatable_server_script.php',
+        data: {
+            table: 'books'
+        }
+    },
     processing: true, // DO NOT REMOVE
     serverSide: true, // DO NOT REMOVE
     iDisplayLength: 10,
