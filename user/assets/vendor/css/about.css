@@ -1,0 +1,27 @@
+#announcements_carousel .carousel-item img {
+    height: 200px !important;
+}
+
+@media only screen and (min-width: 576px) {
+    #announcements_carousel .carousel-item img {
+        height: 300px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #announcements_carousel .carousel-item img {
+        height: 400px !important;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #announcements_carousel .carousel-item img {
+        height: 300px !important;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    #announcements_carousel .carousel-item img {
+        height: 400px !important;
+    }
+}

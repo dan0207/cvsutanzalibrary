@@ -1,9 +1,9 @@
 <div id="feedback" class="feedback d-none d-lg-block rounded-start-5 z-2 my-5 px-2 shadow bg-body-tertiary border">
-    <div class="feedback-header h-10 text-center rounded-top-5 pt-3 px-3 bg-background">
-        <h4 class="p-0 m-0 h-60">Library Feedback Form</h4>
+    <div class="feedback-header h-15 text-center rounded-top-5 pt-3 px-3 bg-background">
+        <h5 class="p-0 m-0 h-60">Library Feedback Form</h5>
         <p class=" p-0 m-0 fs-7 h-40">We welcome your comments and suggestions.</p>
     </div>
-    <div class="feedback-body mx-4 px-1 py-3 h-80 rounded-5 border bg-surface">
+    <div class="feedback-body mx-4 px-1 py-3 h-70 rounded-5 border bg-surface">
         <form id="feedback_form" action="../php_script/feedback_script.php" class="feedback-form needs-validation h-100 pt-2 overflow-auto px-3" method="POST">
             <div id="feedback_ratings" class="feedback-ratings mb-2 bg-surface w-80 mx-auto border border-2 border-secondary rounded-pill d-flex justify-content-center align-items-center">
                 <h6 class="pt-2">Rate:</h6>
@@ -65,7 +65,7 @@
 
         </form>
     </div>
-    <div class="feedback-footer d-flex h-10 justify-content-center align-items-center py-2">
+    <div class="feedback-footer d-flex h-15 justify-content-center align-items-center py-2">
         <button id="feedback_submit" class="feedback-submit btn btn-primary rounded-pill w-75">SUBMIT</button>
     </div>
 </div>

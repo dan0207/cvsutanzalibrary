@@ -1,7 +1,13 @@
+
+<!-- Web Icon -->
+<link rel="icon" type="image/x-icon" href="../assets/img/cvsutanza-logo.png">
+<!-- Web Icon -->
+
 <!-- Vendor CSS Files -->
 <link rel="stylesheet" href="../assets/vendor/css/bootstrap.min.css">
 <link rel="stylesheet" href="../assets/vendor/css/header.css">
 <link rel="stylesheet" href="../assets/vendor/css/home.css">
+<link rel="stylesheet" href="../assets/vendor/css/about.css">
 <link rel="stylesheet" href="../assets/vendor/css/services.css">
 <link rel="stylesheet" href="../assets/vendor/css/footer.css">
 <link rel="stylesheet" href="../assets/vendor/css/sidebars.css">
@@ -13,6 +19,7 @@
 <link rel="stylesheet" href="../assets/vendor/css/chat.css">
 <link rel="stylesheet" href="../assets/vendor/css/offcanvas.css">
 <link rel="stylesheet" href="../assets/vendor/css/receipt.css">
+<link rel="stylesheet" href="../assets/vendor/css/attendance.css">
 <link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">
 <link rel="stylesheet" href="../assets/fontawesome/css/brands.css">
 <link rel="stylesheet" href="../assets/fontawesome/css/solid.css">

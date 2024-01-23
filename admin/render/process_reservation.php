@@ -1,5 +1,7 @@
 <?php
     include '../render/connection.php';
+    include '../assets/cdn/cdn_links.php';
+    include '../assets/fonts/fonts.php';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -55,51 +57,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accept Reservation</title>
         
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../assets/style/style.css">
 
-        <!-- Bootstrap style -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <!-- Bootstrap script -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- font awesome -->
-        <script src="https://kit.fontawesome.com/9475ab4ee0.js" crossorigin="anonymous"></script>
-
-        <!-- Data table style-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-        <!-- Data table script -->
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     </head>
 
     <body>
-    <div class="container text-center pt-5">
-        <h1>Reservation Details</h1>
-        <div class="card">
-            <div class="text-end">
-                <a class="btn btn-secondary m-3 border rounded-circle" href="../admin/circulation.php"><i class="fa-solid fa-x"></i></a>
+        <div class="container text-center pt-5">
+            <h1>Reservation Details</h1>
+            <div class="col-sm-10 col-lg-6 text-start border border-secondary rounded ps-5 ms-auto me-auto">
+                <div class="text-end p-1">
+                    <a class="nav-link p-3" href="../admin/circulation.php"><i class="fa-solid fa-x"></i></a>
+                </div>
+                <?php
+                    // Display the data
+                    echo '<p><strong>Library ID:</strong> ' . $libraryId . '</p>';
+                    echo '<p><strong>Name:</strong> ' . $name . '</p>';
+                    echo '<p><strong>Course & Section:</strong> ' . $course . '</p>';
+                    echo '<p><strong>Email:</strong> ' . $email . '</p>';
+                    echo '<p><strong>Book Access No.:</strong> ' . $accessNo . '</p>';
+                    echo '<p><strong>Book Title:</strong> ' . $title . '</p>';
+                    echo '<p><strong>Book Author:</strong> ' . $author . '</p>';
+                    echo '<p><strong>Pickup Date:</strong> ' . $pickupDate . '</p>';
+                    echo '<p><strong>Return Date:</strong> ' . $returnDate . '</p>';
+                ?>
+                <!-- Button to insert data into bookborrowed table -->
+                <form method="post" class="text-end">
+                    <button type="submit" class="btn btn-success m-3" name="insert_button">ACCEPT</button>
+                </form>
+
             </div>
-            <?php
-                // Display the data
-                echo '<p><strong>Library ID:</strong> ' . $libraryId . '</p>';
-                echo '<p><strong>Name:</strong> ' . $name . '</p>';
-                echo '<p><strong>Course & Section:</strong> ' . $course . '</p>';
-                echo '<p><strong>Email:</strong> ' . $email . '</p>';
-                echo '<p><strong>Book Access No.:</strong> ' . $accessNo . '</p>';
-                echo '<p><strong>Book Title:</strong> ' . $title . '</p>';
-                echo '<p><strong>Book Author:</strong> ' . $author . '</p>';
-                echo '<p><strong>Pickup Date:</strong> ' . $pickupDate . '</p>';
-                echo '<p><strong>Return Date:</strong> ' . $returnDate . '</p>';
-            ?>
-            <!-- Button to insert data into bookborrowed table -->
-            <form method="post" class="text-end">
-                <button type="submit" class="btn btn-success m-3" name="insert_button">ACCEPT</button>
-            </form>
-
         </div>
-    </div>
 
-</body>
+    </body>
 </html>

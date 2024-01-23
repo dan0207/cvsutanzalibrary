@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 function convertDateFormat($inputDate)
 {
     $dateTime = new DateTime($inputDate);
@@ -22,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $book_call_number = isset($_POST['book_call_number']) ? $_POST['book_call_number'] : '';
     $pickupDate = isset($_POST['pickupDate']) ? $_POST['pickupDate'] : '';
     $returnDate = isset($_POST['returnDate']) ? $_POST['returnDate'] : '';
-    $status = 'pending';
+    $status = 'hold';
 
     $pickupDate = convertDateFormat($pickupDate);
     $returnDate = convertDateFormat($returnDate);
@@ -31,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($db && $result = mysqli_query($db, "SELECT * FROM bookreserve")) {
         $insert = "INSERT INTO bookreserve (libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookCallNo, pickupDate, returnDate, status) VALUES ('$library_id', '$name', '$courseSection', '$email', '$book_accession_number', '$book_title', '$book_call_number', '$pickupDate', '$returnDate', '$status')";
         if (mysqli_query($db, $insert)) {
+            $transactionNo = mysqli_insert_id($db);
             mysqli_close($db);
-            header("Location: ../pages/profile.php");
-            exit;
+            echo json_encode(['transactionNo' => $transactionNo]);
         } else {
-            echo "Error: " . mysqli_error($db);
+            echo json_encode (['error' => mysqli_error($db)]);
         }
     } else {
-        echo "Error: " . mysqli_error($db);
+        echo json_encode (['error' => mysqli_error($db)]);
     }
 }

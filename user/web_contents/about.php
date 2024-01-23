@@ -15,9 +15,30 @@ function callData($maintext)
 <div id="about" class="py-lg-5">
     <div class="container-fluid py-3">
         <div class="container text-center">
-            <h4 class="fs-3">ANNOUNCEMENT</h4>
-            <div class=" mb-5">
-                <img src="../assets/img/sample-announcement.jpg" class="img-responsive w-90 rounded-4" alt="">
+            <h4 class="fs-3">ANNOUNCEMENTS</h4>
+            <div class="d-flex justify-content-center mb-5">
+                <div id="announcements_carousel" class="carousel slide w-90" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded-4">
+                        <div class="carousel-item active">
+                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/img/sample video tutorial.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/img/bg.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#announcements_carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#announcements_carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- <img src="../assets/img/sample-announcement.jpg" class="img-responsive w-90 rounded-4" alt=""> -->
             </div>
 
             <h4 class="fs-4">UNIVERSITY VISION AND MISSION STATEMENTS</h4>

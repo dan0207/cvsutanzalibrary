@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php_script/main_script.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,7 @@ session_start();
                 <div class="container d-flex justify-content-center">
                     <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="continue_with" data-size="medium" data-logo_alignment="left">
                     </div>
+                    <input type="file" id="avatar_fileInput" class="d-none">
                 </div>
 
                 <hr class="hr_login_text" data-content="or continue with username & password">

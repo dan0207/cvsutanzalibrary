@@ -55,7 +55,7 @@ rating.forEach(function (radioButton) {
 });
 
 feedback_btn.addEventListener("click", toggleFeedbackForm);
-// feedback_submit.addEventListener("click", handle_feedbackSubmit);
+feedback_submit.addEventListener("click", handle_feedbackSubmit);
 
 
 

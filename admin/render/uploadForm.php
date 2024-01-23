@@ -1,30 +1,24 @@
 <?php
     include 'connection.php';
+    include '../assets/cdn/cdn_links.php';
+    include '../assets/fonts/fonts.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Upload Form</title>
 
-    <link rel="stylesheet" href="../style.css">
-    <!-- Bootstrap style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <!-- Bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/9475ab4ee0.js" crossorigin="anonymous"></script>
-
+        <link rel="stylesheet" href="../assets/style/style.css">
     </head>
 
     <body>
-        <div class="container my-5 w-50 card py-2">
-        <span class="position-absolute end-0"><button onclick="cancelPost()" class="btn btn-secondary border rounded-circle me-2"><i class="fa-solid fa-xmark"></i></button></span>
+        <div class="container my-5 w-lg-40 card py-2">
+        <span class="position-absolute end-0"><button onclick="cancelPost()" class="btn me-2"><i class="fa-solid fa-xmark"></i></button></span>
             <div class="text-center mb-3">
-                <img src="../image/cvsu_library.png" alt="" srcset="" style="width: 15rem;">
+                <img src="../assets/image/cvsu_library.png" alt="" srcset="" style="width: 15rem;">
                 
             </div>
             <h2 class="text-center">Upload Form</h2>

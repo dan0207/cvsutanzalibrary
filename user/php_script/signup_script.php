@@ -11,7 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $token = $_SESSION['user_token'];
     $fullname = $_SESSION['user_fullname'];
-    $picture = $_SESSION['user_picture'];
+
+
+    $user_picture_content = file_get_contents($_SESSION['user_picture']);
+    if ($user_picture_content !== false) {
+        $downloaded_picture_filename = "{$token}_profile_picture.png";
+        $downloaded_picture_path = '../assets/img/profile_pictures/' . $downloaded_picture_filename;
+        file_put_contents($downloaded_picture_path, $user_picture_content);
+        $_SESSION['user_picture'] = $downloaded_picture_path;
+        $picture = $_SESSION['user_picture'];
+    }
 
     $_SESSION['user_username'] = $_POST['user_username'];
     $_SESSION['user_password'] = $_POST['user_password'];
@@ -55,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ../pages/profile.php");
         exit();
     } else {
-        echo "Invalid DB."+ $result;
+        echo "Invalid DB." + $result;
     }
 } else {
     $_SESSION['user_token'] = $_SESSION['temp_token'];

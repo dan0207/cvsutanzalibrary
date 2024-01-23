@@ -6,19 +6,20 @@
                     <img class="card-img-top rounded-top-3" src="../assets/img/bg.png" alt="Background Photo">
                     <div class="card-body text-center p-0 d-flex flex-column">
                         <div class="profile-picture mb-3">
-                            <img id="profile_picture" src="../assets/img/student-icon.png" class="profile-img rounded-circle border border-5 border-onPrimary" alt="user">
+                            <img id="profile_picture" src="<?php echo $_SESSION['user_picture']; ?>" class="profile-img rounded-circle border border-5 border-onPrimary" alt="user">
                         </div>
 
+
                         <div class="on-mobile-profile d-lg-none">
-                            <h4 class="profile-name fs-6 mb-3">Name</h4>
-                            <p class="profile-type fs-6 fw-semibold mb-1">Member Type</p>
-                            <p class="profile-student-courseSection fs-7 mb-1">Course & Section</p>
-                            <p class="profile-student-number fs-7 mb-1">Student Number</p>
-                            <p class="profile-email fs-7 mb-1">CvSU Mail</p>
+                            <h4 class="profile-name fs-6 mb-3"><?php echo $_SESSION['user_fullname']; ?></h4>
+                            <p class="profile-type fs-6 fw-semibold mb-1"><?php echo $_SESSION['user_member_type']; ?></p>
+                            <p class="profile-student-courseSection fs-7 mb-1"><?php echo getFormatCourseSection($_SESSION['user_student_course'], $_SESSION['user_student_year'], $_SESSION['user_student_section']); ?></p>
+                            <p class="profile-student-number fs-7 mb-1"><?php echo $_SESSION['user_student_number']; ?></p>
+                            <p class="profile-email fs-7 mb-1"><?php echo $_SESSION['user_email']; ?></p>
                             <div id="profile_qr_code_container" class="text-center my-3">
-                                <img src="../assets/img/sample-qr-code.png" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-40 border border-5 border-primary rounded-4 mb-2 shadow bg-body-tertiary">
+                                <img src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-40 border border-5 border-primary rounded-4 mb-2 shadow bg-body-tertiary">
                                 <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
-                                <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8">Sample ID</p>
+                                <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['user_token']; ?></p>
                             </div>
                         </div>
 

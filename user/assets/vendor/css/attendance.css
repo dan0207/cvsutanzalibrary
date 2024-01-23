@@ -1,0 +1,27 @@
+.attendance {
+  overflow: hidden !important;
+}
+
+#attendance_contents .title {
+  text-shadow: 3px 3px 10px #d9e4d9 !important;
+  font-size: 6vh;
+}
+
+#attendance_contents .display-time {
+  font-size: 10vh !important;
+}
+
+#attendance_table .dataTables_filter,
+#attendance_table .dataTables_info,
+#attendance_table .dataTables_length {
+  display: none;
+}
+
+#attendance_table {
+  max-height: 80% !important; /* Set a maximum height for the container */
+  overflow-y: auto !important; /* Enable vertical scrolling */
+}
+
+#user_attendance_table table th {
+  text-align: center !important;
+}

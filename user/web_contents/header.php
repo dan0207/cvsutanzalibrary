@@ -40,7 +40,7 @@ function hideShowSearch($current_page)
     <div class="container-fluid">
 
         <!-- CVSU LIBRARY LOGO -->
-        <a class="navbar-brand p-0" href="../pages/home.php" type="button">
+        <a class="navbar-brand py-1 p-0" href="../pages/home.php" type="button">
             <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="180" class="img-responsive">
         </a>
         <!-- CVSU LIBRARY LOGO -->

@@ -87,7 +87,7 @@
 
 
 <!-- User Info Form Modal -->
-<div class="modal fade" id="user_form_modal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="user_signup_modal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center bg-tertiary">
@@ -104,7 +104,6 @@
                             <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="../assets/img/student-icon.png" alt="Avatar">
                             <a href="#Mama mo" id="user_change_avatarPreview" class="btn btn-outline-primary fs-10 fs-md-9 py-1 rounded-5">Change Photo</a>
                         </div>
-
 
                         <!-- User Details -->
                         <!-- Email and Member Type -->
@@ -284,7 +283,7 @@
 
 <!-- Book Reservation Request Review Modal  -->
 <div class="modal fade" id="book_request_review_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center bg-tertiary">
                 <i class="fa-solid fa-book fa-xl mx-2"></i>
@@ -324,14 +323,6 @@
                     <div class="row my-2 fs-7">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="d-flex">
-                                        <label for="book_reservation_title" class="form-label me-3 fw-bold">Book Title: </label>
-                                        <p id="book_reservation_title" class="text-muted"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-6">
                                     <div class="d-flex">
                                         <label for="book_reservation_accession_number" class="form-label me-3 fw-bold">Book Access No.: </label>
@@ -345,6 +336,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <label for="book_reservation_title" class="form-label me-3 fw-bold">Book Title: </label>
+                                        <p id="book_reservation_title" class="text-muted"></p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div id="borrow_period" class="row borrow-period text-center mt-3">
                                 <h6 class="fw-bold mb-3">SELECT YOUR BORROW PERIOD:</h6>
                                 <div class="col-6">
@@ -435,78 +435,79 @@
     </div>
 </div>
 <!-- Book Reservation Request Library Privary Notice Modal  -->
-f
+
 <!-- Book Reservation Request Library Receipt Modal  -->
 <div class="modal fade " id="book_request_receipt_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content d-print-inline-block" id="tryPrint">
+        <div class="modal-content d-print-inline-block">
             <div class="modal-header d-flex justify-content-center bg-tertiary">
                 <i class="fa-solid fa-xl fa-receipt mx-2"></i>
-                <h1 class="modal-title fs-3">Book Reservation Receipt</h1>
+                <h1 class="modal-title fs-3 fw-bold">Book Reservation Receipt</h1>
             </div>
             <div class="modal-body px-5 mx-4">
                 <a id="receipt" class="text-reset text-decoration-none">
-                    <form id="receipt_form" action="../php_script/receipt_script.php" class="container border rounded-3 w-100 mx-auto p-5 fs-7 shadow bg-body-tertiary" method="POST">
+                    <!-- <form id="receipt_form" action="../php_script/receipt_script.php" class="container border rounded-3 w-100 mx-auto p-5 fs-7 shadow bg-body-tertiary" method="POST"> -->
+                    <form id="receipt_form" class="container border rounded-3 w-100 mx-auto px-5 py-4 fs-7 shadow bg-body-tertiary">
                         <div class="row">
                             <div class="col-12">
-                                <h1 class="fs-3 fw-bold text-center border rounded-4 shadow-sm bg-body-tertiary py-2 mb-4">BOOK RESERVATION</h1>
+                                <h1 class="fs-3 fw-bold text-center border rounded-4 shadow-sm bg-body-tertiary py-2 mb-3">BOOK RESERVATION</h1>
                             </div>
                             <div class="col-7">
                                 <h5 class="fw-bold mb-2">RECEIVED FROM</h5>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Name: </span>
-                                        <input id="book_receipt_name" type="text" class="form-control fs-7 text-muted" name="name" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Name: </span>
+                                        <input id="book_receipt_name" type="text" class="form-control fs-7 text-muted py-1" name="name" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Course & Section: </span>
-                                        <input id="book_receipt_courseSection" type="text" class="form-control fs-7 text-muted" name="courseSection" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Course & Section: </span>
+                                        <input id="book_receipt_courseSection" type="text" class="form-control fs-7 text-muted py-1" name="courseSection" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Student No.: </span>
-                                        <input id="book_receipt_studentNumber" type="text" class="form-control fs-7 text-muted" name="studentNumber" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Student No.: </span>
+                                        <input id="book_receipt_studentNumber" type="text" class="form-control fs-7 text-muted py-1" name="studentNumber" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">CvSU Mail: </span>
-                                        <input id="book_receipt_email" type="text" class="form-control fs-7 text-muted" name="email" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">CvSU Mail: </span>
+                                        <input id="book_receipt_email" type="text" class="form-control fs-7 text-muted py-1" name="email" readonly>
                                     </div>
                                 </div>
 
-                                <h5 class="fw-bold mt-2 mb-2">BORROW DETAILS</h5>
+                                <h5 class="fw-bold my-1">BORROW DETAILS</h5>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Book Access No.: </span>
-                                        <input id="book_receipt_barrow_book_accession_number" type="text" class="form-control fs-7 text-muted" name="book_accession_number" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Book Access No.: </span>
+                                        <input id="book_receipt_barrow_book_accession_number" type="text" class="form-control fs-7 text-muted py-1" name="book_accession_number" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Book Call Number: </span>
-                                        <input id="book_receipt_barrow_book_call_number" type="text" class="form-control fs-7 text-muted" name="book_call_number" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Book Call Number: </span>
+                                        <input id="book_receipt_barrow_book_call_number" type="text" class="form-control fs-7 text-muted py-1" name="book_call_number" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Book Title: </span>
-                                        <input id="book_receipt_barrow_book_title" type="text" class="form-control fs-7 text-muted" name="book_title" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Book Title: </span>
+                                        <input id="book_receipt_barrow_book_title" type="text" class="form-control fs-7 text-muted py-1" name="book_title" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Pickup Date: </span>
-                                        <input id="book_receipt_barrow_pickupDate" type="text" class="form-control fs-7 text-muted" name="pickupDate" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Pickup Date: </span>
+                                        <input id="book_receipt_barrow_pickupDate" type="text" class="form-control fs-7 text-muted py-1" name="pickupDate" readonly>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <div class="input-group">
-                                        <span class="input-group-text fs-7 border-0">Return Date: </span>
-                                        <input id="book_receipt_barrow_returnDate" type="text" class="form-control fs-7 text-muted" name="returnDate" readonly>
+                                        <span class="input-group-text fs-7 border-0 py-1">Return Date: </span>
+                                        <input id="book_receipt_barrow_returnDate" type="text" class="form-control fs-7 text-muted py-1" name="returnDate" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -520,102 +521,30 @@ f
 
                             </div>
                         </div>
-                        <!-- <div class="row pt-2">
-                            <div class="col-12">
-                                <h5 class="fw-bold my-2">BOOK DETAILS</h5>
-                                <div class="row ps-3">
-                                    <div class="col-9">
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_accession_number" class="form-label me-3">Accession no.: </label>
-                                            <p id="book_receipt_details_accession_number" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_title" class="form-label me-3">Title: </label>
-                                            <p id="book_receipt_details_title" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_author" class="form-label me-3">Author: </label>
-                                            <p id="book_receipt_details_author" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_call_number" class="form-label me-3">Call no.: </label>
-                                            <p id="book_receipt_details_call_number" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_material_type" class="form-label me-3">Material type: </label>
-                                            <p id="book_receipt_details_material_type" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_language" class="form-label me-3">Language: </label>
-                                            <p id="book_receipt_details_language" class="text-muted my-0"></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <div id="book_receipt_image_container" class="text-center">
-                                            <img id="book_receipt_image" src="../assets/img/sample-book-photo.png" class="img-responsive w-90 shadow bg-body-surface">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ps-3">
-                                    <div class="col-12">
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_publication" class="form-label me-3">Publication details: </label>
-                                            <p id="book_receipt_details_publication" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_description" class="form-label me-3">Description: </label>
-                                            <p id="book_receipt_details_description" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_content_type" class="form-label me-3">Content type: </label>
-                                            <p id="book_receipt_details_content_type" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_media_type" class="form-label me-3">Media type: </label>
-                                            <p id="book_receipt_details_media_type" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_carrier_type" class="form-label me-3">Carrier type: </label>
-                                            <p id="book_receipt_details_carrier_type" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_isbn" class="form-label me-3">ISBN: </label>
-                                            <p id="book_receipt_details_isbn" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_subject" class="form-label me-3">Subject(s): </label>
-                                            <p id="book_receipt_details_subject" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="book_receipt_details_classification" class="form-label me-3">LOC classification: </label>
-                                            <p id="book_receipt_details_classification" class="text-muted my-0"></p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label for="" class="form-label me-3">Barcode: </label>
-                                            <div id="book_receipt_barcode_container" class="text-center">
-                                    <svg id="barcode" class="img-responsive ms-auto"></svg>
-                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="row text-center pt-4">
-                            <p class="fs-7 m-0 p-0">Receipt No:</p>
-                            <p id="book_receipt_id" class="m-0 p-0 fs-8 fw-semibold opacity-50">1000112</p>
+                        <div id="receiptNo_container" class="row text-center pt-4 d-none">
+                            <p class="fs-7 m-0 p-0">Transaction No:</p>
+                            <svg class="" id="book_receipt_id"></svg>
                         </div>
                     </form>
                 </a>
                 <div class="text-end py-3">
+                </div>
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <!-- <button type="button" class="btn btn-secondary rounded-pill text-onSecondary fs-7 me-auto" data-bs-target="#book_request_privacy_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to privacy statement</button> -->
+                <button id="receipt_submit_btn" class="btn btn-primary rounded-pill w-50 py-2 mx-auto">SUBMIT</button>
+                <div id="receipt_action_btn" class="receipt-action-btn d-none">
                     <button id="receipt_download_btn" class="btn btn-primary rounded-pill px-5">Download</button>
                     <button id="receipt_print_btn" class="btn btn-primary rounded-pill px-5">Print</button>
                 </div>
             </div>
-            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary fs-7 me-auto" data-bs-target="#book_request_privacy_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to privacy statement</button>
-                <button id="receipt_submit_btn" class="btn btn-primary rounded-pill px-5 border" disabled>SUBMIT</button>
+        </div>
+    </div>
+
+    <div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
+        <div id="liveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body py-5 text-bg-primary opacity-75 rounded-3 text-center">
+                <h1 class="fw-bold">SUCCESSFULLY SUBMITTED!</h1>
             </div>
         </div>
     </div>

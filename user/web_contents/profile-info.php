@@ -20,18 +20,18 @@
                                     <div class="fs-4">
                                         Profile
                                     </div>
-                                    <div class="profile-type fs-6 ms-auto">Member Type</div>
+                                    <div class="profile-type fs-6 ms-auto"><?php echo $_SESSION['user_member_type']; ?></div>
                                 </div>
-                                <p class="profile-name fs-2 px-4 py-2 mt-3 mb-0">Name</p>
-                                <p class="profile-student-courseSection px-4 py-0  mt-0 mb-1">Course & Section</p>
-                                <p class="profile-student-number px-4 py-0 mb-1">Student Number</p>
-                                <p class="profile-email px-4 py-0 mb-1">CvSU Mail</p>
+                                <p class="profile-name fs-2 px-4 py-2 mt-3 mb-0"><?php echo $_SESSION['user_fullname']; ?></p>
+                                <p class="profile-student-courseSection px-4 py-0  mt-0 mb-1"><?php echo getFormatCourseSection($_SESSION['user_student_course'], $_SESSION['user_student_year'], $_SESSION['user_student_section']); ?></p>
+                                <p class="profile-student-number px-4 py-0 mb-1"><?php echo $_SESSION['user_student_number']; ?></p>
+                                <p class="profile-email px-4 py-0 mb-1"><?php echo $_SESSION['user_email']; ?></p>
                             </div>
                             <div class="col-12 col-lg-3 p-3">
                                 <div id="profile_qr_code_container" class="text-center w-100 w-xl-80 mx-auto">
-                                    <img src="../assets/img/sample-qr-code.png" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                    <img src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                     <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
-                                    <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8">Sample QR Code</p>
+                                    <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['user_token']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                     <li class="nav-item fs-7 fs-lg-6"><a class="py-2 nav-link active" data-bs-toggle="tab" data-bs-target="#book_request_tabpane" type="button">Book Request</a></li>
                                 </div>
                                 <div class="col-4">
-                                    <li class="nav-item fs-7 fs-lg-6"><a class="py-2 nav-link" data-bs-toggle="tab" data-bs-target="#handled_book_tabpane" type="button">Handled Book</a></li>
+                                    <li class="nav-item fs-7 fs-lg-6"><a class="py-2 nav-link" data-bs-toggle="tab" data-bs-target="#handled_book_tabpane" type="button">Borrowed Book</a></li>
                                 </div>
                                 <div class="col-4">
                                     <li class="nav-item fs-8 fs-lg-6"><a class="py-2 px-0 nav-link" data-bs-toggle="tab" data-bs-target="#transaction_history_tabpane" type="button">Transactions History</a></li>

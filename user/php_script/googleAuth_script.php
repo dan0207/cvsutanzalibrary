@@ -42,9 +42,6 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
         $_SESSION['user_picture'] = $user_picture;
 
 
-
-
-        // Check whether the user data already exists in the database
         $sql = "SELECT * FROM users WHERE user_token = '$user_token'";
         $result = mysqli_query($db, $sql);
 
@@ -69,10 +66,10 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
             $_SESSION['user_picture'] = $user['user_picture'];
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
-            $_SESSION['user_type'] = $user['user_member_type'];
+            $_SESSION['user_member_type'] = $user['user_member_type'];
             $_SESSION['user_status'] = $user['user_status'];
         }
-        
+
         mysqli_close($db);
     }
 }

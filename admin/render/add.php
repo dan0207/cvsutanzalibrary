@@ -1,5 +1,7 @@
 <?php
     include '../render/connection.php';
+    include '../assets/cdn/cdn_links.php';
+    include '../assets/fonts/fonts.php';
 
     if(isset($_GET['id']) && isset($_GET['page'])) {
         $id = $_GET['id'];
@@ -33,6 +35,11 @@
             }
 
             .ck-editor__editable[role="textbox"]:focus {
+                border-color: rgb(0, 190, 25) !important;
+                box-shadow: 0 0 0 0.2rem rgb(0,114,5,0.25) !important;
+            }
+
+            .form-control:focus {
                 border-color: rgb(0, 190, 25) !important;
                 box-shadow: 0 0 0 0.2rem rgb(0,114,5,0.25) !important;
             }
@@ -90,7 +97,7 @@
 
                     ?>
 
-                    <button class="btn d-flex ms-auto btn-info mt-5"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
+                    <button class="btn d-flex ms-auto btn-info"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
                 </div>
 
                 <?php

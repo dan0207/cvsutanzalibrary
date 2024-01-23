@@ -1,14 +1,11 @@
 AOS.init();
 
-// Status Checker Authentication
-// setInterval(updateSession, 3000)
 
 export function updateSession() {
     return fetch('../php_script/update_session.php')
         .then(response => response.text())
         .then(data => {
             sessionStorage.setItem('sessionData', JSON.stringify(JSON.parse(data)) || {});
-            // console.log(JSON.stringify(JSON.parse(data)));
         })
         .catch(error => {
             console.error('Error:', error);
@@ -30,18 +27,13 @@ export function generateQRCode(qr_text, qr_size) {
     return googleChartApiUrl;
 }
 
-// export function generateBarCode(barcode_container, barcode_text, barcode_size, barcode_fontSize) {
-//     JsBarcode(barcode_container.id, barcode_text, {
-//         format: "EAN13",
-//         displayValue: true,
-//         fontSize: barcode_fontSize,
-//         height: barcode_size
-//     });
-// }
-
-export function generateBarCode(barcode_text, barcode_img, barcode_size) {
-    let text = document.getElementById("text").value;
-    JsBarcode("#barcode", text);
+export function generateBarCode(barcodeContainer, barcodeText,  barcodeWidth, barcodeHeight, barcodeFontsize) {
+    JsBarcode(barcodeContainer, barcodeText, {
+        format: "CODE128",
+        width: barcodeWidth,
+        height: barcodeHeight,
+        fontSize: barcodeFontsize,
+    });
 }
 
 
@@ -148,30 +140,45 @@ export function sendEmail(sender_server, receiver, subject, body) {
 
 export async function selectBookReservation() {
     let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
+    let reservedDatesCount = {};
+    let unavailableDates = [];
     let dates = [];
+    let book_copy;
+
     try {
         const response = await fetch('../php_script/db_getAllData.php');
         const data = await response.json();
+
+        data.books.forEach(function (e) {
+            if (e.book_access_number == sessionBookRequest.book_accession_number) {
+                book_copy = e.book_copy;
+            }
+        });
+
         data.bookreserve.forEach(function (e) {
-            if (e.bookCallNo == sessionBookRequest.book_call_number) {
-                // console.log('pickupDate: '+e.pickupDate);
-                // console.log('returnDate: '+e.returnDate);
+            if (e.bookAccessNo == sessionBookRequest.book_accession_number) {
                 let pickupDate = new Date(e.pickupDate);
                 let returnDate = new Date(e.returnDate);
                 for (let date = new Date(pickupDate); date <= returnDate; date.setDate(date.getDate() + 1)) {
                     dates.push(new Date(date));
+                    reservedDatesCount[date] = (reservedDatesCount[date] || 0) + 1;
                 }
-                // console.log(dates);
             }
         });
-        // Process the retrieved data as needed
-        // console.log(data.bookreserve);
+
+        Object.entries(reservedDatesCount).forEach(([date, count]) => {
+            if (book_copy - count <= 1) {
+                unavailableDates.push(new Date(date));
+            }
+        });
+
     } catch (error) {
         console.error('Error fetching data:', error);
     }
-    
-    borrowPeriod(dates);
+
+    borrowPeriod(unavailableDates);
 }
+
 
 
 function borrowPeriod(reservedDates) {
@@ -183,7 +190,7 @@ function borrowPeriod(reservedDates) {
 
     $('#pickup_date').datepicker({
         autoclose: false,
-        startDate: '+1d',
+        startDate: '+2d',
         todayHighlight: true,
         keepEmptyValues: true,
         daysOfWeekDisabled: '0,5,6', // Disable Not Open Hours

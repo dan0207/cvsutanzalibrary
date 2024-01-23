@@ -5,7 +5,7 @@
             <th>Book Title: </th>
             <th>Author: </th>
             <th>Call No.: </th>
-            <th>Material type: </th>
+            <th class="fs-8">Material type: </th>
             <th>Language: </th>
             <th>Publication details: </th>
             <th>Description: </th>
@@ -15,8 +15,8 @@
             <th>ISBN: </th>
             <th>Subject(s): </th>
             <th>LOC classification: </th>
-            <th>AVAILABILITY: </th>
-            <th class="fs-8" >ACTION: </th>
+            <th>STATUS: </th>
+            <th class="fs-10 fs-md-8" >ACTION: </th>
         </tr>
     </thead>
 </table>

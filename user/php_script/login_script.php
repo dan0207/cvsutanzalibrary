@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_picture'] = $user['user_picture'];
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
-            $_SESSION['user_type'] = $user['user_member_type'];
+            $_SESSION['user_member_type'] = $user['user_member_type'];
             $_SESSION['user_status'] = $user['user_status'];
             header("Location: ../pages/profile.php");
             exit();

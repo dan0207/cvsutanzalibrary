@@ -7,6 +7,19 @@
 
             <div class="accordion-item mb-2">
                 <div class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acquisition2023">
+                        <p class="mx-auto fw-semibold fs-5 text-primary">NEW ARRIVAL BOOKS 2023</p>
+                    </button>
+                </div>
+
+                <div id="acquisition2023" class="accordion-collapse collapse">
+                    <div class="accordion-body text-center px-2 px-md-5">
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acquisition2022">
                         <p class="mx-auto fw-semibold fs-5 text-primary">NEW ARRIVAL BOOKS 2022</p>
                     </button>
@@ -14,35 +27,8 @@
 
                 <div id="acquisition2022" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -55,35 +41,8 @@
 
                 <div id="acquisition2021" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -96,35 +55,8 @@
 
                 <div id="acquisition2020" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -137,35 +69,8 @@
 
                 <div id="acquisition2019" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -178,35 +83,8 @@
 
                 <div id="acquisition2018" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -219,35 +97,8 @@
 
                 <div id="acquisition2017" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -260,35 +111,8 @@
 
                 <div id="acquisition2016" class="accordion-collapse collapse">
                     <div class="accordion-body text-center px-2 px-md-5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <iframe src="../assets/documents/Acquisition-2023.pdf" class="rounded-3 w-100" height="500">
+                        </iframe>
                     </div>
                 </div>
             </div>

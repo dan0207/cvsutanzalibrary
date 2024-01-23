@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php_script/main_script.php';
 ?>
 
 <!DOCTYPE html>

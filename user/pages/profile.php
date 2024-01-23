@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../php_script/main_script.php';
 
 if (!isset($_SESSION["user_token"])) {
     header("Location: login.php");
@@ -53,10 +54,3 @@ if (!isset($_SESSION["user_token"])) {
 </body>
 
 </html>
-
-
-
-
-
-
-

@@ -2,6 +2,7 @@
 import { updateSession, setupFormValidation, showModal, generateQRCode, getFormatCourseSection, getformatDate, selectBookReservation } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
+
 // Function for books datatables
 let books_table = new DataTable('#books_table', {
     ajax: {
@@ -20,23 +21,25 @@ let books_table = new DataTable('#books_table', {
             targets: -1,
             data: null,
             render: function (data, type, row) {
-                let value = row[14];
+                let value = row[15];
 
-                if (value === "Available to Borrow") {
-                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-8 py-1'>REQUEST</button>";
+                if (value >= 1) {
+                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-10 fs-md-8 py-1 d-flex align-items-center'><i class='fa-solid fa-upload'></i><span class='ps-1'>BORROW</span></button>";
                 } else {
-                    return "<button class='btn btn-outline-secondary fs-8 py-1' disabled>REQUEST</button>";
+                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1' disabled style='white-space: nowrap'>BORROWED</button>";
                 }
             }
         },
         {
             targets: -2,
             render: function (data, type, row) {
-                let value = row[14];
-                if (value === "Available to Borrow") {
-                    return "<h4 class='fst-italic text-primary'>" + data + "</h4>";
-                } else {
-                    return "<h4 class='fst-italic text-secondary'>" + data + "</h4>";
+                let value = row[15];
+                if (value > 1) {
+                    return "<h4 class='fst-italic text-primary'>Available to Borrow</h4>";
+                } else if (value == 1) {
+                    return "<h4 class='fst-italic text-highlight'>Available for Room Use Only</h4>";
+                } else if (value < 1) {
+                    return "<h4 class='fst-italic text-secondary'>Not Available</h4>";
                 }
             }
         },
@@ -53,9 +56,9 @@ let books_table = new DataTable('#books_table', {
 
 
     createdRow: function (row, data, index) {
-        let value = data[14];
+        let value = data[15];
 
-        if (value == "Available to Borrow") {
+        if (value >= 1) {
             $('#request_btn', row).prop('disabled', false);
             $('td', row).addClass('available');
         } else {
@@ -137,25 +140,18 @@ $(function () {
                 console.error('Error:', error);
             });
     });
-
-
 });
 
 
 
+// function submitReceipt() {
+//     // Parse the URL to get parameters
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const submitted = urlParams.get('submit');
 
+//     if (submitted === 'receipt') {
+//         showModal(book_request_receipt_modal.id);
+//     }
 
-
-
-
-
-
-
-
-
-
-
-
-// $('#books_table tbody').on('click', 'tr', function () {
-//     alert($(this).find('td:first').text());
-// });
+// }
+// submitReceipt();

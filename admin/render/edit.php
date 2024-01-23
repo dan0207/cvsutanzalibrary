@@ -1,5 +1,7 @@
 <?php
     include 'connection.php';
+    include '../assets/cdn/cdn_links.php';
+    include '../assets/fonts/fonts.php';
 
     if(isset($_GET['subText']) && isset($_GET['id']) && isset($_GET['page'])) {
         $id = $_GET['id'];
@@ -26,15 +28,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit</title>
         
-        <link rel="stylesheet" href="../style.css">
-
-        <!-- Bootstrap style -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <!-- Bootstrap script -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- font awesome -->
-        <script src="https://kit.fontawesome.com/9475ab4ee0.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../assets/style/style.css">
 
     </head>
 
@@ -45,35 +39,40 @@
                 ?>
                     <div class="container p-5">
                         <form method="post">
-                            <textarea class="form-control mt-3 mb-3" name="editText" cols="30" rows="10"><?php echo $subText ?></textarea>
+                            <!-- Add a hidden input field for 'id' -->
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                            <textarea class="form-control mt-3 mb-3" name="editText" cols="30" rows="10"><?php echo $subText; ?></textarea>
                             <button class="btn btn-success ms-auto" name="update" type="submit">SAVE</button>
                             <button class="btn btn-danger"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">CANCEL</a></button>
                         </form>
 
                         <?php
-                            if(isset($_POST['update'])) {
-                                // Get the edited mission text from the form
-                                $editText = $_POST['editText'];
-                            
-                                // Update the data in the database
-                                $mainText = mysqli_real_escape_string($conn, $id); // Sanitize input
-                                $editText = mysqli_real_escape_string($conn, $editText); // Sanitize input
-                            
-                                // Construct the SQL update query
-                                $updateQuery = "UPDATE librarypages SET subText = '$editText' WHERE mainText = '$mainText'";
-                            
-                                // Execute the update query
-                                if (mysqli_query($conn, $updateQuery)) {
-                                    echo "Data updated successfully!";
-                                    echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/about.php"; }, 500);</script>';
-                                } else {
-                                    echo "Error updating data: " . mysqli_error($conn);
-                                }
+                        if (isset($_POST['update'])) {
+                            // Get the edited mission text and ID from the form
+                            $editText = $_POST['editText'];
+                            $id = $_POST['id']; // Now 'id' should be set
 
-                            }                            
+                            // Update the data in the database
+                            $mainText = mysqli_real_escape_string($conn, $id); // Sanitize input
+                            $editText = mysqli_real_escape_string($conn, $editText); // Sanitize input
+
+                            // Construct the SQL update query
+                            $updateQuery = "UPDATE librarypages SET subText = '$editText' WHERE id = '$mainText'"; // Assuming 'id' is the primary key column
+
+                            // Execute the update query
+                            if (mysqli_query($conn, $updateQuery)) {
+                                echo "Data updated successfully!";
+                                echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/about.php"; }, 500);</script>';
+                            } else {
+                                echo "Error updating data: " . mysqli_error($conn);
+                            }
+                        }
                         ?>
+
                         <button class="btn d-flex ms-auto btn-info mt-5"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
                     </div>
+
                 <?php
             } else if($page == 'services') {
                 ?>
@@ -112,12 +111,15 @@
                                 mysqli_stmt_close($stmt);
                             }                                                   
                         ?>
+
+                        <button class="btn d-flex ms-auto btn-info"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
+
                     </div>
                 <?php
             }
         ?>
 
-        <script src="../script.js"></script>
+        <script src="../assets/script/script.js"></script>
         
         <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
         <script>

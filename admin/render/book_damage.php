@@ -1,5 +1,7 @@
 <?php
     include '../render/connection.php';
+    include '../assets/cdn/cdn_links.php';
+    include '../assets/fonts/fonts.php';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -55,31 +57,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Book Damage</title>
         
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../assets/style/style.css">
 
-        <!-- Bootstrap style -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <!-- Bootstrap script -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- font awesome -->
-        <script src="https://kit.fontawesome.com/9475ab4ee0.js" crossorigin="anonymous"></script>
-
-        <!-- Data table style-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-        <!-- Data table script -->
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     </head>
 
     <body>
     <div class="container text-center pt-5">
         <h1>BOOK DAMAGE</h1>
-        <div class="card">
+        <div class="col-sm-10 col-lg-6 text-start border border-secondary rounded ps-5 ms-auto me-auto">
             <div class="text-end">
-                <a class="btn btn-secondary m-3 border rounded-circle" href="../admin/circulation.php"><i class="fa-solid fa-x"></i></a>
+                <a class="nav-link p-3" href="../admin/circulation.php"><i class="fa-solid fa-x"></i></a>
             </div>
             <?php
                 // Display the data
