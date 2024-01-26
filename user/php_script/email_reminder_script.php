@@ -73,7 +73,7 @@ foreach ($returnReminder as $reminder) {
             <p style='color: #555; margin: 15px 10px; font-size: 20px'><strong>Return Date: </strong>" . getFormattedDate($returnDate) . "</p>
         </div>
 
-        <div style='margin-top: 20px;'>
+        <div style='margin-top: 20px; color: #555;'>
             <h2>Library Rules and Regulations</h2>
             <ul>
                 <li>Always present your School ID and scan your Library ID as you enter the library.</li>
