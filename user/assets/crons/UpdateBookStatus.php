@@ -10,7 +10,8 @@ $sql = "UPDATE books
                 WHEN book_copy = 1 THEN 'Room Use Only'
                 ELSE 'Not Available'
             END";
-
+            
+echo "hello world\n";
 
 mysqli_query($db, $sql);
 mysqli_close($db);
