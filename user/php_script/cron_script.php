@@ -1,11 +1,7 @@
 <?php
 session_start();
 require('db_local_connection.php');
-$sql = "
-BEGIN
-    CALL UpdateReservationStatus();
-    CALL UpdateBookStatus();
-END
-";
-
-mysqli_multi_query($db, $sql);
+$sql = "CALL UpdateReservationStatus();";
+mysqli_query($db, $sql);
+$sql = "CALL UpdateBookStatus();";
+mysqli_query($db, $sql);
