@@ -25,9 +25,9 @@ while ($row = $result->fetch_assoc()) {
     ));
 }
 
-print_r($returnReminder.$id);
+// print_r($returnReminder.$id);
 
-echo 'Hello';
+echo $returnReminder.$id;
 
 
 
