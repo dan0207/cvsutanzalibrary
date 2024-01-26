@@ -1,132 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
-    <style>
-        /* Styles go here */
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Library Reminder</title>
 
-        .page-header,
-        .page-header-space {
-            height: 100px;
-        }
-
-        .page-footer,
-        .page-footer-space {
-            height: 50px;
-
-        }
-
-        .page-footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 1px solid black;
-            /* for demo */
-            background: yellow;
-            /* for demo */
-        }
-
-        .page-header {
-            position: fixed;
-            top: 0mm;
-            width: 100%;
-            border-bottom: 1px solid black;
-            /* for demo */
-            background: yellow;
-            /* for demo */
-        }
-
-        .page {
-            page-break-after: always;
-        }
-
-        @page {
-            margin: 20mm
-        }
-
-        @media print {
-            thead {
-                display: table-header-group;
-            }
-
-            tfoot {
-                display: table-footer-group;
-            }
-
-            button {
-                display: none;
-            }
-
-            body {
-                margin: 0;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;'>
+    <div class='container' style='max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 5px; margin-top: 20px;'>
 
-    <div class="page-header" style="text-align: center">
-        I'm The Header
-        <br />
-        <button type="button" onClick="window.print()" style="background: pink">
-            PRINT ME!
-        </button>
+        <header style='text-align: center;'>
+            <img src='../assets/img/logo.png'>
+        </header>
+        <h1 style='color: #333; text-align: center;'>Library Reminder</h1>
+        <p style='color: #555;'>Dear $name,</p>
+        <p style='color: #555;'>We hope this message finds you well. This is a gentle reminder regarding the borrowed book from the library.</p>
+
+        <div class='book-details'>
+            <p style='color: #555; margin: 10px'><strong>Transaction No:</strong> $bookAccessNo</p>
+            <p style='color: #555; margin: 10px'><strong>Book Title:</strong> $bookTitle</p>
+            <p style='color: #555; margin: 10px'><strong>Book Accesstion No:</strong> $bookAccessNo</p>
+            <p style='color: #555; margin: 10px'><strong>Book Call No:</strong> $bookCallNo</p>
+            <p style='color: #555; margin: 10px'><strong>Pickup Date:</strong> $pickupDate</p>
+            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong>$returnDate</p>
+        </div>
+
+        <div class='rules' style='margin-top: 20px; text-align: center;'>
+            <h2>Library Rules and Regulations</h2>
+            <ul style='text-align: left;'>
+                <li>Always present your ID as you enter the library.</li>
+                <li>Two (2) non-reserved books can be borrowed at a time by library users.</li>
+                <li>Reference books, reserved books, and other specified materials are for library use only.</li>
+            </ul>
+        </div>
+
+        <p style='color: #555;'>If you have any questions or concerns about the borrowed book or the return process, please do not hesitate to reach out. We are here to assist you.</p>
+
+        <p style='color: #555;'>Thank you for your cooperation, and we appreciate your adherence to our library policies.</p>
+
+        <div class='footer' style='margin-top: 20px; color: #888;'>
+            <p style='color: #555;'>Best regards,<br>
+                Cavite State University Tanza Campus Library</p>
+        </div>
+
+        <header>Hello</header>
     </div>
-
-    <div class="page-footer">
-        I'm The Footer
-    </div>
-
-    <table>
-
-        <thead>
-            <tr>
-                <td>
-                    <!--place holder for the fixed-position header-->
-                    <div class="page-header-space"></div>
-                </td>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>
-                    <!--*** CONTENT GOES HERE ***-->
-                    <div class="page">PAGE 1</div>
-                    <div class="page">PAGE 2</div>
-                    <div class="page" style="line-height: 3;">
-                        PAGE 3 - Long Content
-                        <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt metus eu consectetur rutrum. Praesent tempor facilisis dapibus. Aliquam cursus diam ac vehicula pulvinar. Integer lacinia non odio et condimentum. Aenean faucibus cursus
-                        mi, sed interdum turpis sagittis a. Quisque quis pellentesque mi. Ut erat eros, posuere sed scelerisque ut, pharetra vitae tellus. Suspendisse ligula sapien, laoreet ac hendrerit sit amet, viverra vel mi. Pellentesque faucibus nisl et dolor
-                        pharetra, vel mattis massa venenatis. Integer congue condimentum nisi, sed tincidunt velit tincidunt non. Nulla sagittis sed lorem pretium aliquam. Praesent consectetur volutpat nibh, quis pulvinar est volutpat id. Cras maximus odio posuere
-                        suscipit venenatis. Donec rhoncus scelerisque metus, in tempus erat rhoncus sed. Morbi massa sapien, porttitor id urna vel, volutpat blandit velit. Cras sit amet sem eros. Quisque commodo facilisis tristique. Proin pellentesque sodales rutrum.
-                        Vestibulum purus neque, congue vel dapibus in, venenatis ut felis. Donec et ligula enim. Sed sapien sapien, tincidunt vitae lectus quis, ultricies rhoncus mi. Nunc dapibus nulla tempus nunc interdum, sed facilisis ex pellentesque. Nunc vel
-                        lorem leo. Cras pharetra sodales metus. Cras lacus ex, consequat at consequat vel, laoreet ac dui. Curabitur aliquam, sapien quis congue feugiat, nisi nisl feugiat diam, sed vehicula velit nulla ac nisl. Aliquam quis nisi euismod massa blandit
-                        pharetra nec eget nunc. Etiam eros ante, auctor sit amet quam vel, fringilla faucibus leo. Morbi a pulvinar nulla. Praesent sed vulputate nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo
-                        mollis iaculis. Maecenas consectetur enim vitae mollis venenatis. Ut scelerisque pretium orci id laoreet. In sit amet pharetra diam. Vestibulum in molestie lorem. Nunc gravida, eros non consequat fermentum, ex orci vestibulum orci, non accumsan
-                        sem velit ac lectus. Vivamus malesuada lacus nec velit dignissim, ac fermentum nulla pretium. Aenean mi nisi, convallis sed tempor in, porttitor eu libero. Praesent et molestie ante. Duis suscipit vitae purus sit amet aliquam. Vestibulum lectus
-                        justo, lobortis a purus a, dapibus efficitur metus. Suspendisse potenti. Duis dictum ex lorem. Suspendisse nec ligula consectetur magna hendrerit ullamcorper et eget mauris. Etiam vestibulum sodales diam, eget venenatis nunc luctus quis. Ut
-                        fermentum placerat neque nec elementum. Praesent orci erat, rhoncus vitae est eu, dictum molestie metus. Cras et fermentum elit. Aenean eget augue lacinia, varius ante in, ullamcorper dolor. Cras viverra purus non egestas consectetur. Nulla
-                        nec dolor ac lectus convallis aliquet sed a metus. Suspendisse eu imperdiet nunc, id pulvinar risus. Maecenas varius sagittis est, vel fermentum risus accumsan at. Vestibulum sollicitudin dui pharetra sapien volutpat, id convallis mi vestibulum.
-                        Phasellus commodo sit amet lorem quis imperdiet. Proin nec diam sed urna euismod ultricies at sed urna. Quisque ornare, nulla et vehicula ultrices, massa purus vehicula urna, ac sodales lacus leo vitae mi. Sed congue placerat justo at placerat.
-                        Aenean suscipit fringilla vehicula. Quisque iaculis orci vitae arcu commodo maximus. Maecenas nec nunc rutrum, cursus elit quis, porttitor sapien. Sed ac hendrerit ipsum, lacinia fringilla velit. Donec ultricies feugiat dictum.
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-
-        <tfoot>
-            <tr>
-                <td>
-                    <!--place holder for the fixed-position footer-->
-                    <div class="page-footer-space"></div>
-                </td>
-            </tr>
-        </tfoot>
-
-    </table>
-
 </body>
 
 </html>
