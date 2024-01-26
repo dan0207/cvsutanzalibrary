@@ -42,84 +42,50 @@ foreach ($returnReminder as $reminder) {
     $subject = "Library Reminder: Return Your Borrowed Book";
 
     $message = "
-        <!DOCTYPE html>
-        <html lang='en'>
-        <head>
-            <meta charset='UTF-8'>
-            <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Library Reminder</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    background-color: #f4f4f4;
-                }
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Library Reminder</title>
+        
+    </head>
+    <body style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;'>
+        <div class='container' style='max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 5px; margin-top: 20px;'>
+            <h1 style='color: #333;'>Library Reminder</h1>
+            <p style='color: #555;'>Dear $name,</p>
+            <p style='color: #555;'>We hope this message finds you well. This is a gentle reminder regarding the borrowed book from the library.</p>
 
-                .container {
-                    max-width: 600px;
-                    margin: 0 auto;
-                    padding: 20px;
-                    background-color: #fff;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    border-radius: 5px;
-                    margin-top: 20px;
-                }
-
-                h1 {
-                    color: #333;
-                }
-
-                p {
-                    color: #555;
-                }
-
-                .rules {
-                    margin-top: 20px;
-                }
-
-                .footer {
-                    margin-top: 20px;
-                    color: #888;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <h1>Library Reminder</h1>
-                <p>Dear $name,</p>
-                <p>We hope this message finds you well. This is a gentle reminder regarding the borrowed book from the library.</p>
-
-                <div class='book-details'>
-                    <p><strong>Book ID:</strong> $bookAccessNo</p>
-                    <p><strong>Title:</strong> $bookTitle</p>
-                    <p><strong>Return Date:</strong> $returnDate</p>
-                </div>
-
-                <div class='rules'>
-                    <h2>Library Rules and Regulations</h2>
-                    <ul>
-                        <li>Always present your ID as you enter the library.</li>
-                        <li>Two (2) non-reserved books can be borrowed at a time by library users.</li>
-                        <li>Reference books, reserved books, and other specified materials are for library use only.</li>
-                    </ul>
-                </div>
-
-                <p>If you have any questions or concerns about the borrowed book or the return process, please do not hesitate to reach out. We are here to assist you.</p>
-
-                <p>Thank you for your cooperation, and we appreciate your adherence to our library policies.</p>
-
-                <div class='footer'>
-                    <p>Best regards,<br>
-                    CVSU Library</p>
-                </div>
+            <div class='book-details'>
+                <p style='color: #555;'><strong>Book ID:</strong> $bookAccessNo</p>
+                <p style='color: #555;'><strong>Title:</strong> $bookTitle</p>
+                <p style='color: #555;'><strong>Return Date:</strong> $returnDate</p>
             </div>
-        </body>
-        </html>
+
+            <div class='rules' style='margin-top: 20px;'>
+                <h2>Library Rules and Regulations</h2>
+                <ul>
+                    <li>Always present your ID as you enter the library.</li>
+                    <li>Two (2) non-reserved books can be borrowed at a time by library users.</li>
+                    <li>Reference books, reserved books, and other specified materials are for library use only.</li>
+                </ul>
+            </div>
+
+            <p style='color: #555;'>If you have any questions or concerns about the borrowed book or the return process, please do not hesitate to reach out. We are here to assist you.</p>
+
+            <p style='color: #555;'>Thank you for your cooperation, and we appreciate your adherence to our library policies.</p>
+
+            <div class='footer' style='margin-top: 20px; color: #888;'>
+                <p style='color: #555;'>Best regards,<br>
+                CVSU Library</p>
+            </div>
+        </div>
+    </body>
+    </html>
     ";
 
-    $headers = "From:" . $from;
+    $headers = 'From:' . $from;
 
     if (mail($to, $subject, $message, $headers)) {
         echo "Email message for Book ID $bookAccessNo was sent.<br>";
