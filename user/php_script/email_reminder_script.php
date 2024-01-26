@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('db_local_connection.php');
+include 'main_script.php';
 
 $returnReminder = [];
 
@@ -64,12 +65,12 @@ foreach ($returnReminder as $reminder) {
         <p style='color: #555;'>We hope this message finds you well. This is a gentle reminder regarding the borrowed book from the library.</p>
 
         <div class='book-details'>
-            <p style='color: #555; margin: 10px'><strong>Transaction No:</strong> $bookAccessNo</p>
-            <p style='color: #555; margin: 10px'><strong>Book Title:</strong> $bookTitle</p>
-            <p style='color: #555; margin: 10px'><strong>Book Accesstion No:</strong> $bookAccessNo</p>
-            <p style='color: #555; margin: 10px'><strong>Book Call No:</strong> $bookCallNo</p>
-            <p style='color: #555; margin: 10px'><strong>Pickup Date:</strong> $pickupDate</p>
-            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong> $returnDate</p>
+            <p style='color: #555; margin: 10px'><strong>Transaction No: </strong>$bookAccessNo</p>
+            <p style='color: #555; margin: 10px'><strong>Book Title: </strong>$bookTitle</p>
+            <p style='color: #555; margin: 10px'><strong>Book Accesstion No: </strong>$bookAccessNo</p>
+            <p style='color: #555; margin: 10px'><strong>Book Call No: </strong>$bookCallNo</p>
+            <p style='color: #555; margin: 10px'><strong>Pickup Date: </strong>".getFormattedDate($pickupDate)."</p>
+            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date: </strong>".getFormattedDate($returnDate)."</p>
         </div>
 
         <div style='margin-top: 20px; text-align: center;'>
