@@ -25,10 +25,10 @@
             <p style='color: #555; margin: 10px'><strong>Book Accesstion No:</strong> $bookAccessNo</p>
             <p style='color: #555; margin: 10px'><strong>Book Call No:</strong> $bookCallNo</p>
             <p style='color: #555; margin: 10px'><strong>Pickup Date:</strong> $pickupDate</p>
-            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong>$returnDate</p>
+            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong> $returnDate</p>
         </div>
 
-        <div class='rules' style='margin-top: 20px; text-align: center;'>
+        <div class='rules' style='margin-top: 20px; text-align: center; border: solid 1px #333'>
             <h2>Library Rules and Regulations</h2>
             <ul style='text-align: left;'>
                 <li>Always present your ID as you enter the library.</li>
@@ -41,12 +41,10 @@
 
         <p style='color: #555;'>Thank you for your cooperation, and we appreciate your adherence to our library policies.</p>
 
-        <div class='footer' style='margin-top: 20px; color: #888;'>
+        <div class='footer' style='margin-top: 20px;'>
             <p style='color: #555;'>Best regards,<br>
                 Cavite State University Tanza Campus Library</p>
         </div>
-
-        <header>Hello</header>
     </div>
 </body>
 

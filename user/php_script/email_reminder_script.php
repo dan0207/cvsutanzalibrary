@@ -69,16 +69,16 @@ foreach ($returnReminder as $reminder) {
             <p style='color: #555; margin: 10px'><strong>Book Title: </strong>$bookTitle</p>
             <p style='color: #555; margin: 10px'><strong>Book Accesstion No: </strong>$bookAccessNo</p>
             <p style='color: #555; margin: 10px'><strong>Book Call No: </strong>$bookCallNo</p>
-            <p style='color: #555; margin: 10px'><strong>Pickup Date: </strong>".getFormattedDate($pickupDate)."</p>
-            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date: </strong>".getFormattedDate($returnDate)."</p>
+            <p style='color: #555; margin: 10px'><strong>Pickup Date: </strong>" . getFormattedDate($pickupDate) . "</p>
+            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date: </strong>" . getFormattedDate($returnDate) . "</p>
         </div>
 
         <div style='margin-top: 20px; text-align: center;'>
             <h2>Library Rules and Regulations</h2>
             <ul style='text-align: left;'>
                 <li>Always present your ID as you enter the library.</li>
-                <li>Two (2) non-reserved books can be borrowed at a time by library users.</li>
-                <li>Reference books, reserved books, and other specified materials are for library use only.</li>
+                <li>Always leave your belongings, except your valuables at the Baggage Counter Area. The library is not responsible for any loss or damage to your property.</li>
+                <li>Always present to the student assistant on duty any duly borrowed library property you may wish to bring outside the library for inspection.</li>
             </ul>
         </div>
 
@@ -86,7 +86,7 @@ foreach ($returnReminder as $reminder) {
 
         <p style='color: #555;'>Thank you for your cooperation, and we appreciate your adherence to our library policies.</p>
 
-        <div class='footer' style='margin-top: 20px; color: #888;'>
+        <div class='footer' style='margin-top: 20px;'>
             <p style='color: #555;'>Best regards,<br>
                 Cavite State University Tanza Campus Library</p>
         </div>
