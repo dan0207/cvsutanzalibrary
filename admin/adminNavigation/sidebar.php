@@ -16,7 +16,7 @@
     </div>
 </div>
     
-<div id="sidebar" class="d-flex flex-column bg-light mx-auto ms-2 mt-3 mb-3 flex-shrink-0">
+<div id="sidebar" class="d-flex flex-column bg-light ms-2 mt-3 mb-3 flex-shrink-0">
   <ul class="nav nav-pills flex-column mb-auto">
     <button id="pageAccess" class="border-0 fs-5 p-1 align-items-center text-light collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true">Dashboard</button>
     <div class="collapse show" id="dashboard">
@@ -29,7 +29,7 @@
     <div class="collapse" id="circulation">
       <li><a class="nav_bar nav-link" href="../admin/circulation.php#bookReservation"><i class="fa-solid fa-arrow-right fa-2xs"></i> Book Reservation</a></li>
       <li><a class="nav_bar nav-link" href="../admin/circulation.php#bookBorrowed"><i class="fa-solid fa-arrow-right fa-2xs"></i> Book Borrowed</a></li>
-      <li><a class="nav_bar nav-link" href="../admin/circulation.php#bookReturned"><i class="fa-solid fa-arrow-right fa-2xs"></i> Book Transaction</a></li>
+      <li><a class="nav_bar nav-link" href="../admin/circulation.php#bookTransaction"><i class="fa-solid fa-arrow-right fa-2xs"></i> Book Transaction</a></li>
     </div>
 
     <button id="pageAccess" class="border-0 fs-5 p-1 align-items-center text-light collapsed" data-bs-toggle="collapse" data-bs-target="#userAccounts" aria-expanded="false">User Accounts</button>

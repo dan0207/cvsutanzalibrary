@@ -1,9 +1,14 @@
 <?php
 //  Database connection parameters
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "cvsutanzalib_db";
+
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "cvsutanzalib_db";
+$username = "u303407946_cvsutanzalib";
+$password = "uTQ^zBHA*k1";
+$database = "u303407946_cvsutanzalib";
 
 
 // $servername = "sql12.freesqldatabase.com";

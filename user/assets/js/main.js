@@ -183,6 +183,7 @@ export async function selectBookReservation() {
 
 function borrowPeriod(reservedDates) {
     let pickup_date, return_date;
+    const currentDate = new Date();
 
     $('#pickup_date').datepicker('destroy');
     $('#return_date').datepicker('destroy');
@@ -202,7 +203,7 @@ function borrowPeriod(reservedDates) {
         beforeShowDay: function (date) {
             if (reservedDates !== undefined) {
                 for (let i = 0; i < reservedDates.length; i++) {
-                    if (date.getDate() === new Date(reservedDates[i]).getDate() && date.getMonth() === new Date(reservedDates[i]).getMonth() && date.getYear() === new Date(reservedDates[i]).getYear()) {
+                    if (date.getDate() !== currentDate.getDate() && date.getDate() === new Date(reservedDates[i]).getDate() && date.getMonth() === new Date(reservedDates[i]).getMonth() && date.getYear() === new Date(reservedDates[i]).getYear()) {
                         return {
                             classes: 'bg-secondary text-onSecondary opacity-25 rounded-0 disabled',
                             tooltip: 'Reserved Date',

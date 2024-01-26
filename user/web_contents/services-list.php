@@ -132,7 +132,7 @@
                     </div>
                 </div>
 
-                <div id="online_library_services" class="animation-services col-12 ms-auto">
+                <!-- <div id="online_library_services" class="animation-services col-12 ms-auto">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
                         <img src="../assets/img/service2.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
@@ -158,9 +158,9 @@
                             <button class="animation-service-closebtn btn btn-sm btn-secondary text-onSecondary my-5 mx-auto d-none">Back</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div id="online_library_services" class="animation-services col-6 ms-auto">
+                <!-- <div id="online_library_services" class="animation-services col-6 ms-auto">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
                         <img src="../assets/img/service2.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
@@ -189,7 +189,7 @@
                             <button class="animation-service-closebtn btn btn-sm btn-secondary text-onSecondary my-5 mx-auto d-none">Back</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="animation-services col-6">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">

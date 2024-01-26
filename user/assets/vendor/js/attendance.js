@@ -41,7 +41,6 @@ $(document).ready(function () {
 
 
 const displayTime = document.querySelector(".display-time");
-// Time
 function showTime() {
     let time = new Date();
     displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: true });
@@ -50,11 +49,9 @@ function showTime() {
 
 showTime();
 
-// Date
 function updateDate() {
     let today = new Date();
 
-    // return number
     let dayName = today.getDay(),
         dayNum = today.getDate(),
         month = today.getMonth(),
@@ -83,9 +80,7 @@ function updateDate() {
         "Friday",
         "Saturday",
     ];
-    // value -> ID of the html element
     const IDCollection = ["day", "daynum", "month", "year"];
-    // return value array with number as a index
     const val = [dayWeek[dayName], dayNum, months[month], year];
     for (let i = 0; i < IDCollection.length; i++) {
         document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
@@ -115,10 +110,8 @@ $(".qr-scanner-input").change(function (e) {
         .then(user_scan_valid => {
             if (user_scan_valid) {
                 $('#qrForm').off('submit').submit();
-                // $(".before-scanning, .after-scanning").toggleClass("d-none");
             } else {
                 InvalidQRcodeTaost.show()
-                // console.log('Modal');
             }
             $(qr_scanner_input).focus().val('');
         })

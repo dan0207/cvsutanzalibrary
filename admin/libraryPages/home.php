@@ -83,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div>
                         <?php
                         # Select data
                         $select_sql = "SELECT * FROM createpost ORDER BY timestamp DESC";

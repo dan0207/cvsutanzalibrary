@@ -2,13 +2,20 @@
 include '../php_script/main_script.php';
 
 $name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Name';
-$courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['section']) ? getFormatCourseSection(htmlspecialchars($_GET['course']), htmlspecialchars($_GET['year']), htmlspecialchars($_GET['section'])) : 'Course & Section';
-$number = isset($_GET['number']) ? htmlspecialchars($_GET['number']) : 'Student Number';
+$student_number = isset($_GET['student_number']) ? htmlspecialchars($_GET['student_number']) : 'Student Number';
+$faculty_number = isset($_GET['faculty_number']) ? htmlspecialchars($_GET['faculty_number']) : 'Employee ID';
+$faculty_department = isset($_GET['faculty_department']) ? htmlspecialchars($_GET['faculty_department']) : 'Department';
 $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : 'Email';
 $member_type = isset($_GET['member_type']) ? htmlspecialchars($_GET['member_type']) : 'User';
 $picture = isset($_GET['picture']) ? htmlspecialchars($_GET['picture']) : '../assets/img/student-icon.png';
 $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : 'Library ID';
 $status = isset($_GET['status']) ? htmlspecialchars($_GET['status']) : '';
+
+
+if ($member_type == 'Student') {
+    $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['section']) ? getFormatCourseSection(htmlspecialchars($_GET['course']), htmlspecialchars($_GET['year']), htmlspecialchars($_GET['section'])) : 'Course & Section';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -111,11 +118,18 @@ $status = isset($_GET['status']) ? htmlspecialchars($_GET['status']) : '';
                                     </div>
                                     <div class="attendance-details mx-4 h-60 d-flex flex-column justify-content-evenly">
                                         <h4 class="attendance-name m-1"><?php echo $name; ?></h4>
-                                        <h6 class="attendance-student-courseSection m-1"><?php echo $courseSection; ?></h6>
-                                        <h6 class="attendance-student-number m-1"><?php echo $number; ?></h6>
+                                        <?php
+                                        if ($member_type == 'Student') {
+                                            echo "<h6 class='attendance-student-courseSection m-1'>$courseSection</h6>";
+                                            echo "<h6 class='attendance-student-number m-1'>$student_number</h6>";
+                                        } else {
+                                            echo "<h6 class='attendance-faculty-department m-1'>$faculty_department</h6>";
+                                            echo "<h6 class='attendance-faculty-number m-1'>$faculty_number</h6>";
+                                        }
+                                        ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>
                                         <h6 class="attendance-libraryid m-1" id="library_id"><?php echo mask($id) ?></h6>
-                                        <h5 class="<?php echo checkStatus($status)?> rounded-pill py-2 mx-4">STATUS: <?php echo $status?></h5>
+                                        <h5 class="<?php echo checkStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
                                     </div>
                                 </div>
                             </div>

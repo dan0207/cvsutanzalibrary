@@ -10,5 +10,6 @@
 <body>
     <a href="./admin/index.php"> Admin</a>
     <a href="./user/pages/home.php"> User</a>
+    <a href="./user/pages/attendance.php"> Attendance</a>
 </body>
 </html>

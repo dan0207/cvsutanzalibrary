@@ -102,8 +102,9 @@ function datatable_attendance()
         array('db' => 'student_course',     'dt' => 3),
         array('db' => 'status',             'dt' => 4),
     );
+    
+    $where = "date = CURDATE()";
 
-    $where = "date = '" . date('Y-m-d') . "'";
 
     return [
         'primaryKey' => $primaryKey,
@@ -134,12 +135,21 @@ function datatable()
     $columns = $result['columns'];
     $where = $result['where'] ? $result['where'] : '';
 
+    // for Domain
     $sql_details = array(
-        'user' => 'root',
-        'pass' => '',
-        'db' => 'cvsutanzalib_db',
+        'user' => 'u303407946_cvsutanzalib',
+        'pass' => 'uTQ^zBHA*k1',
+        'db' => 'u303407946_cvsutanzalib',
         'host' => 'localhost',
     );
+    
+    // for Local
+    // $sql_details = array(
+    //     'user' => 'root',
+    //     'pass' => '',
+    //     'db' => 'cvsutanzalib_db',
+    //     'host' => 'localhost',
+    // );
     require('ssp.class.php');
 
     echo json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where));

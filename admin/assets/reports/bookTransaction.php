@@ -1,5 +1,6 @@
 <?php
     include __DIR__ . '/../../render/connection.php';
+    include __DIR__ . '/../cdn/cdn_links.php';
 
     // Fetch data from the booktransaction table
     $sqlBorrowed = "SELECT * FROM booktransaction";
@@ -25,13 +26,34 @@
                     <th>Book Author</th>
                     <th>Pickup Date</th>
                     <th>Return Date</th>
+                    <th>Fine</th>
                     <th>Remarks</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                // Output data of each row
-                while ($rowBorrowed = $resultBorrowed->fetch_assoc()) {
+                    // Output data of each row
+                    while ($rowBorrowed = $resultBorrowed->fetch_assoc()) {
+                        $remarksClass = '';
+                    
+                        switch ($rowBorrowed["remarks"]) {
+                            case 'Damaged':
+                                $remarksClass = 'text-danger';
+                                break;
+                            case 'Declined':
+                                $remarksClass = 'text-danger';
+                                break;
+                            case 'Returned':
+                                $remarksClass = 'text-success';
+                                break;
+                            case 'Missing':
+                                $remarksClass = 'text-warning';
+                                break;
+                            default:
+                                $remarksClass = '';
+                                break;
+                        }
+            
                     ?>
                     <tr>
                         <td><?php echo $rowBorrowed["libraryid"]; ?></td>
@@ -43,7 +65,8 @@
                         <td><?php echo $rowBorrowed["bookAuthor"]; ?></td>
                         <td><?php echo $rowBorrowed["pickupDate"]; ?></td>
                         <td><?php echo $rowBorrowed["returnDate"]; ?></td>
-                        <td><?php echo $rowBorrowed["remarks"]; ?></td>
+                        <td><?php echo empty($rowBorrowed["fine"]) ? 0 : $rowBorrowed["fine"]; ?></td>
+                        <td class="<?php echo $remarksClass; ?>"><?php echo $rowBorrowed["remarks"]; ?></td>
                     </tr>
                     <?php
                 }

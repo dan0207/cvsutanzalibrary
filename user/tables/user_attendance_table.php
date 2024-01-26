@@ -3,9 +3,9 @@
         <tr>
             <th class="text-center">Time: </th>
             <!-- <th class="text-center">Date: </th> -->
-            <th class="text-center">Student No.: </th>
+            <th class="text-center">ID Number: </th>
             <th class="text-center">Name: </th>
-            <th class="text-center">Course: </th>
+            <th class="text-center">Course/Department: </th>
             <th class="text-center">Status: </th>
         </tr>
     </thead>

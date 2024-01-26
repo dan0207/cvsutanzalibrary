@@ -67,13 +67,13 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
             $_SESSION['user_member_type'] = $user['user_member_type'];
-            $_SESSION['user_status'] = $user['user_status'];
-        }
+            $_SESSION['user_status'] = 'Online';
 
-        mysqli_close($db);
+            // $update = "UPDATE users SET user_status = 'Online'";
+            // mysqli_query($db, $update);
+            // mysqli_close($db);
+        }
     }
 }
-
 echo json_encode($new_account);
-
 exit();

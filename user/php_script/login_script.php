@@ -36,7 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
             $_SESSION['user_member_type'] = $user['user_member_type'];
-            $_SESSION['user_status'] = $user['user_status'];
+            $_SESSION['user_status'] = 'Online';
+
+            $update = "UPDATE users SET user_status = 'Online'";
+            mysqli_query($db, $update);
+            mysqli_close($db);
+
             header("Location: ../pages/profile.php");
             exit();
         } else {

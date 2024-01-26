@@ -25,7 +25,7 @@
                 <h1 id="pageHeader">Quick Links</h1>
                 <div class="container p-2">
                     <div class="border p-2 mb-3">
-                        <h5>ACADEMIC SUBSCRIPTION <button id="btnNewAcademicSubscription" class="btn btn-secondary border"><a class="nav-link" href="../render/add.php?id=academic%20subscription&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
+                        <h5>ACADEMIC SUBSCRIPTION <button id="btnNewAcademicSubscription" class="btn text-primary border"><a class="nav-link" href="../render/add.php?id=academic%20subscription&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
                         <?php
                             $select_sql = "SELECT subText, links FROM librarypages WHERE pages = 'links' AND mainText = 'academic subscription'";
                             $result = mysqli_query($conn, $select_sql);
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="border p-2 mb-3">
-                        <h5>E-BOOKS <button id="btnNewEbooks" class="btn btn-secondary border"><a class="nav-link" href="../render/add.php?id=e-books&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
+                        <h5>E-BOOKS <button id="btnNewEbooks" class="btn text-primary border"><a class="nav-link" href="../render/add.php?id=e-books&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
                         <?php
                             $select_sql = "SELECT subText, links FROM librarypages WHERE pages = 'links' AND mainText = 'e-books'";
                             $result = mysqli_query($conn, $select_sql);
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="border p-2 mb-3">
-                        <h5>E-JOURNALS <button id="btnNewEjournals" class="btn btn-secondary border"><a class="nav-link" href="../render/add.php?id=e-journals&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
+                        <h5>E-JOURNALS <button id="btnNewEjournals" class="btn text-primary border"><a class="nav-link" href="../render/add.php?id=e-journals&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
                         <?php
                             $select_sql = "SELECT subText, links FROM librarypages WHERE pages = 'links' AND mainText = 'e-journals'";
                             $result = mysqli_query($conn, $select_sql);
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="border p-2 mb-3">
-                        <h5>CVSU-TANZA PAGE <button id="btnNewTanzaPage" class="btn btn-secondary border"><a class="nav-link" href="../render/add.php?id=cvsu%20tanza%20page&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
+                        <h5>CVSU-TANZA PAGE <button id="btnNewTanzaPage" class="btn text-primary border"><a class="nav-link" href="../render/add.php?id=cvsu%20tanza%20page&page=links"><i class="fa-solid fa-plus"></i></a></button></h5>
                         <?php
                             $select_sql = "SELECT subText, links FROM librarypages WHERE pages = 'links' AND mainText = 'cvsu tanza page'";
                             $result = mysqli_query($conn, $select_sql);

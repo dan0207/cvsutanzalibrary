@@ -8,16 +8,16 @@ body {
 }
 :root {
     --bg-color: rgb(12, 133, 28);
-    --bg-color-light: rgba(0, 255, 34, 0.158);
-    --bg-color-dark: rgb(0, 114, 6);
+    --bg-color-light: rgba(0, 255, 34, 0.548);
+    --bg-color-dark: rgb(4, 190, 13);
     --bg-color-secondary: rgb(0, 0, 0);
     --text-color: rgb(255, 255, 255);
     --text-color-secondary: rgb(139, 139, 139);
 }
 
-.form-control:focus {
-    border-color: var(--bg-color-light) !important;
-    box-shadow: 0 0 0 0.2rem var(--bg-color-dark) !important;
+.form-control:focus, .form-select:focus {
+    border-color: var(--bg-color) !important;
+    box-shadow: 0 0 .1rem .2rem var(--bg-color-light) !important;
 }
 
 .w-lg-40 {
@@ -33,6 +33,23 @@ body {
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 
+#opacBG {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+}
+
+#opacBG::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 128, 0, .5); /* Green color with 50% opacity */
+    z-index: 1 !important; /* Adjust the z-index as needed */
+}
 
 /* admin body  */
 #admin-body {
@@ -201,6 +218,22 @@ section {
     transform: translateX(20px);
     color: var(--bg-color-dark) !important;
 }
+
+
+/* admin transaction | remarks change of colors */
+.text-danger {
+    color: red;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-warning {
+    color: orange;
+}
+/* admin transaction | remarks change of colors */
+
 
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */

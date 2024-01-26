@@ -21,25 +21,27 @@ let books_table = new DataTable('#books_table', {
             targets: -1,
             data: null,
             render: function (data, type, row) {
-                let value = row[15];
+                let value = row[14];
 
-                if (value >= 1) {
-                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-10 fs-md-8 py-1 d-flex align-items-center'><i class='fa-solid fa-upload'></i><span class='ps-1'>BORROW</span></button>";
+                if (value === 'Available to Borrow') {
+                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-10 fs-md-8 py-1 d-flex justify-content-center align-items-center w-100'><i class='fa-solid fa-upload'></i><span class='ps-1'>BORROW</span></button>";
+                } else if (value === 'Room Use Only') {
+                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1 w-100' style='white-space: nowrap'>ROOM USE ONLY</button>";
                 } else {
-                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1' disabled style='white-space: nowrap'>BORROWED</button>";
+                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1 w-100' style='white-space: nowrap'>BORROWED</button>";
                 }
             }
         },
         {
             targets: -2,
             render: function (data, type, row) {
-                let value = row[15];
-                if (value > 1) {
+                let value = row[14];
+                if (value === 'Available to Borrow') {
                     return "<h4 class='fst-italic text-primary'>Available to Borrow</h4>";
-                } else if (value == 1) {
+                } else if (value === 'Room Use Only') {
                     return "<h4 class='fst-italic text-highlight'>Available for Room Use Only</h4>";
-                } else if (value < 1) {
-                    return "<h4 class='fst-italic text-secondary'>Not Available</h4>";
+                } else {
+                    return "<h4 class='fst-italic text-secondary'>Not Available for Borrowing</h4>";
                 }
             }
         },
@@ -56,9 +58,9 @@ let books_table = new DataTable('#books_table', {
 
 
     createdRow: function (row, data, index) {
-        let value = data[15];
+        let value = data[14];
 
-        if (value >= 1) {
+        if (value === 'Available to Borrow') {
             $('#request_btn', row).prop('disabled', false);
             $('td', row).addClass('available');
         } else {

@@ -15,6 +15,7 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         iDisplayLength: 10,
         responsive: true,
+        order: [[0, "desc"]],
         // dom: 'Bfrtip',
         // buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         columnDefs: [

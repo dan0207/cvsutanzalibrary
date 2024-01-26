@@ -13,6 +13,24 @@
 
         <link rel="stylesheet" href="../assets/style/style.css">
         
+        <style>
+            
+/* admin transaction | remarks change of colors */
+.text-danger {
+    color: red;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-warning {
+    color: orange;
+}
+/* admin transaction | remarks change of colors */
+
+
+        </style>
     </head>
 
     <body>
@@ -42,7 +60,7 @@
                                         <th>Name</th>
                                         <th>Book Access No.</th>
                                         <th>Book Title</th>
-                                        <th>Book Call No.</th>
+                                        <th>Book Author</th>
                                         <th>Pickup Date</th>
                                         <th>Return Date</th>
                                         <th>Course & Section</th>
@@ -66,7 +84,7 @@
                                                         data-title="<?php echo $row["bookTitle"]; ?>"
                                                         data-author="<?php echo $row["bookCallNo"]; ?>"
                                                         data-pickup="<?php echo $row["pickupDate"]; ?>"
-                                                        data-return="<?php echo $row["returnDate"]; ?>">Accept
+                                                        data-return="<?php echo $row["returnDate"]; ?>">Pick Up
                                                 </button> 
                                                 <button class="btn btn-danger btn-sm decline_request"
                                                         data-id="<?php echo $row["id"]; ?>"
@@ -162,7 +180,8 @@
                                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
                                                         data-author="<?php echo $rowBorrowed["bookAuthor"]; ?>"
                                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
-                                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>">Missing
+                                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                                        data-fine="<?php echo $rowBorrowed["fine"]; ?>">Missing
                                                 </button> 
                                                 <button class="btn btn-danger btn-sm book_damage"
                                                         data-id="<?php echo $rowBorrowed["id"]; ?>"
@@ -174,7 +193,8 @@
                                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
                                                         data-author="<?php echo $rowBorrowed["bookAuthor"]; ?>"
                                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
-                                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>">Damage
+                                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                                        data-fine="<?php echo $rowBorrowed["fine"]; ?>">Damaged
                                                 </button> 
                                             </td>
                                             <td><?php echo $rowBorrowed["libraryid"]; ?></td>
@@ -238,7 +258,7 @@
                 </div>
             </section>
             
-            <section id="bookReturned">
+            <section id="bookTransaction">
                 <h1 id="pageHeader">Book Transaction</h1>
 
                 <div class="p-5">
@@ -271,9 +291,29 @@
                                     <?php
                                     // Output data of each row
                                     while ($rowBorrowed = $resultBorrowed->fetch_assoc()) {
+                                        $remarksClass = '';
+                                    
+                                        switch ($rowBorrowed["remarks"]) {
+                                            case 'Damaged':
+                                                $remarksClass = 'text-danger';
+                                                break;
+                                            case 'Declined':
+                                                $remarksClass = 'text-danger';
+                                                break;
+                                            case 'Returned':
+                                                $remarksClass = 'text-success';
+                                                break;
+                                            case 'Missing':
+                                                $remarksClass = 'text-warning';
+                                                break;
+                                            default:
+                                                $remarksClass = '';
+                                                break;
+                                        }
+                                    
                                         ?>
                                         <tr>
-                                            <td><?php echo $rowBorrowed["remarks"]; ?></td>
+                                            <td class="<?php echo $remarksClass; ?>"><?php echo $rowBorrowed["remarks"]; ?></td>
                                             <td><?php echo $rowBorrowed["libraryid"]; ?></td>
                                             <td><?php echo $rowBorrowed["name"]; ?></td>
                                             <td><?php echo $rowBorrowed["bookAccessNo"]; ?></td>
@@ -288,6 +328,7 @@
                                         <?php
                                     }
                                     ?>
+                                    
                                 </tbody>
                             </table>
                             <?php
@@ -338,7 +379,7 @@
                     var returnDate = $(this).data('return');
 
                     // Redirect to process_reservation.php with data
-                    window.location.href = '../render/process_reservation.php?id=' + id + '&libraryid=' + libraryId +
+                    window.location.href = '../render/bookCirculation/process_reservation.php?id=' + id + '&libraryid=' + libraryId +
                         '&name=' + name +
                         '&course=' + course +
                         '&email=' + email +
@@ -364,7 +405,7 @@
                     var returnDate = $(this).data('return');
 
                     // Redirect to process_reservation.php with data
-                    window.location.href = '../render/deny_reservation.php?id=' + id + '&libraryid=' + libraryId +
+                    window.location.href = '../render/bookCirculation/deny_reservation.php?id=' + id + '&libraryid=' + libraryId +
                         '&name=' + name +
                         '&course=' + course +
                         '&email=' + email +
@@ -392,7 +433,7 @@
                     var fine = $(this).data('fine');
 
                     // Redirect to book_return.php with data
-                    window.location.href = '../render/book_return.php?id=' + id + '&libraryid=' + libraryId +
+                    window.location.href = '../render/bookCirculation/book_return.php?id=' + id + '&libraryid=' + libraryId +
                         '&name=' + name +
                         '&course=' + course +
                         '&email=' + email +
@@ -417,9 +458,10 @@
                     var author = $(this).data('author');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
+                    var fine = $(this).data('fine');
 
-                    // Redirect to book_return.php with data
-                    window.location.href = '../render/book_missing.php?id=' + id + '&libraryid=' + libraryId +
+                    // Redirect to book_missing.php with data
+                    window.location.href = '../render/bookCirculation/book_missing.php?id=' + id + '&libraryid=' + libraryId +
                         '&name=' + name +
                         '&course=' + course +
                         '&email=' + email +
@@ -427,7 +469,8 @@
                         '&title=' + title +
                         '&author=' + author +
                         '&pickupDate=' + pickupDate +
-                        '&returnDate=' + returnDate;
+                        '&returnDate=' + returnDate +
+                        '&fine=' + fine;
                 });
                 
                 // Handle the click event on the "Damage" button
@@ -443,9 +486,10 @@
                     var author = $(this).data('author');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
+                    var fine = $(this).data('fine');
 
-                    // Redirect to book_return.php with data
-                    window.location.href = '../render/book_damage.php?id=' + id + '&libraryid=' + libraryId +
+                    // Redirect to book_damage.php with data
+                    window.location.href = '../render/bookCirculation/book_damage.php?id=' + id + '&libraryid=' + libraryId +
                         '&name=' + name +
                         '&course=' + course +
                         '&email=' + email +
@@ -453,7 +497,8 @@
                         '&title=' + title +
                         '&author=' + author +
                         '&pickupDate=' + pickupDate +
-                        '&returnDate=' + returnDate;
+                        '&returnDate=' + returnDate +
+                        '&fine=' + fine;
                 });
             });
             // loading datatable | handle circulation

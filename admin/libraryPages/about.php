@@ -38,7 +38,7 @@
                                $select_sql1 = mysqli_query($conn, $select_sql);
                                while($vision = mysqli_fetch_array($select_sql1)) {
                                     ?>
-                                        <a class="nav-link" href="../render/edit.php?page=about&id=vision&subText=<?php echo $vision['subText'] ?>"><i class="fa-solid fa-pen-to-square"></i> <?php echo $vision['subText']; ?></a>
+                                        <a class="nav-link" href="../render/edit.php?page=about&id=vision&subText=<?php echo $vision['subText'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i> <?php echo $vision['subText']; ?></a>
                                         
                                     <?php
                                }
@@ -55,7 +55,7 @@
                                $select_sql1 = mysqli_query($conn, $select_sql);
                                while($mission = mysqli_fetch_array($select_sql1)) {
                                     ?>
-                                        <a class="nav-link" href="../render/edit.php?page=about&id=mission&subText=<?php echo $mission['subText'] ?>"><i class="fa-solid fa-pen-to-square"></i> <?php echo $mission['subText'] ?></a>
+                                        <a class="nav-link" href="../render/edit.php?page=about&id=mission&subText=<?php echo $mission['subText'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i> <?php echo $mission['subText'] ?></a>
                                         
                                     <?php
                                }
@@ -64,7 +64,7 @@
                         </p>
                     </div>
 
-                    <p id="objective" class="fs-4 fw-bold">Library Objectives <button class="btn border" id="btnAddObjectives"><a class="nav-link" href="../render/add.php?id=objective&page=about"><i class="fa-solid fa-plus"></i></a></button></p>
+                    <p id="objective" class="fs-4 fw-bold">Library Objectives <button class="btn text-primary border" id="btnAddObjectives"><a class="nav-link" href="../render/add.php?id=objective&page=about"><i class="fa-solid fa-plus"></i></a></button></p>
                     
                     <div class="border mb-5 p-2">
                         <?php
@@ -74,10 +74,10 @@
                             while($row = mysqli_fetch_assoc($result)) {
                         ?>
                                 <ul>
-                                    <a class="nav-link" href="../render/edit.php?page=about&id=<?php echo $row['id']; ?>&subText=<?php echo $row['subText']; ?>">
+                                    <a class="nav-link text-success" href="../render/edit.php?page=about&id=<?php echo $row['id']; ?>&subText=<?php echo $row['subText']; ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Edit
                                     </a>
-                                    <a class="nav-link" href="../render/delete.php?page=about&id=<?php echo $row['id'] ?>&subText=<?php echo $row['subText']; ?>">
+                                    <a class="nav-link text-danger" href="../render/delete.php?page=about&id=<?php echo $row['id'] ?>&subText=<?php echo $row['subText']; ?>">
                                         <i class="fa-solid fa-trash"></i> Delete
                                     </a>
                                     <?php echo $row['subText']; ?>
@@ -88,7 +88,7 @@
                     </div>
 
 
-                    <p class="fs-4 fw-bold">Library Rules and Regulations <button class="btn border" id="btnAddRules"><a class="nav-link" href="../render/add.php?id=rules&page=about"><i class="fa-solid fa-plus"></i></a></button></p>
+                    <p class="fs-4 fw-bold">Library Rules and Regulations <button class="btn text-primary border" id="btnAddRules"><a class="nav-link" href="../render/add.php?id=rules&page=about"><i class="fa-solid fa-plus"></i></a></button></p>
                     <div class="border mb-5 p-2">
                         <?php
                             $select_sql = "SELECT id, subText FROM librarypages WHERE pages = 'about' AND mainText = 'rules'";
@@ -97,10 +97,10 @@
                             while($row = mysqli_fetch_assoc($result)) {
                         ?>
                                 <ul>
-                                    <a class="nav-link" href="../render/edit.php?page=about&id=<?php echo $row['id']; ?>&subText=<?php echo $row['subText']; ?>">
+                                    <a class="nav-link text-success" href="../render/edit.php?page=about&id=<?php echo $row['id']; ?>&subText=<?php echo $row['subText']; ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Edit
                                     </a>
-                                    <a class="nav-link" href="../render/delete.php?page=about&id=<?php echo $row['id'] ?>&subText=<?php echo $row['subText']; ?>">
+                                    <a class="nav-link text-danger" href="../render/delete.php?page=about&id=<?php echo $row['id'] ?>&subText=<?php echo $row['subText']; ?>">
                                         <i class="fa-solid fa-trash"></i> Delete
                                     </a>
                                     <?php echo $row['subText']; ?>

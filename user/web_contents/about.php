@@ -18,15 +18,12 @@ function callData($maintext)
             <h4 class="fs-3">ANNOUNCEMENTS</h4>
             <div class="d-flex justify-content-center mb-5">
                 <div id="announcements_carousel" class="carousel slide w-90" data-bs-ride="carousel">
-                    <div class="carousel-inner rounded-4">
+                    <div class="carousel-inner rounded-4 border shadow-lg bg-body-tertiary">
                         <div class="carousel-item active">
+                            <img src="../assets/img/newly-acquired-books.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
                             <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/sample video tutorial.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/bg.png" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#announcements_carousel" data-bs-slide="prev">
@@ -38,7 +35,6 @@ function callData($maintext)
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <!-- <img src="../assets/img/sample-announcement.jpg" class="img-responsive w-90 rounded-4" alt=""> -->
             </div>
 
             <h4 class="fs-4">UNIVERSITY VISION AND MISSION STATEMENTS</h4>

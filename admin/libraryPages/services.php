@@ -80,10 +80,10 @@
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <ul class="border mb-5 p-2">
-                                    <a class="nav-link" href="../render/edit.php?page=services&id=<?php echo $mainText ?>&subText=<?php echo $subText ?>">
+                                    <a class="nav-link text-success" href="../render/edit.php?page=services&id=<?php echo $mainText ?>&subText=<?php echo $subText ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Edit
                                     </a>
-                                    <a class="nav-link" href="../render/delete.php?page=services&id=<?php echo $mainText ?>&subText=<?php echo $subText ?>">
+                                    <a class="nav-link text-danger hover" href="../render/delete.php?page=services&id=<?php echo $mainText ?>&subText=<?php echo $subText ?>">
                                         <i class="fa-solid fa-trash"></i> Delete
                                     </a>
 
