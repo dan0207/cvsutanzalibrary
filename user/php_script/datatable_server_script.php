@@ -22,7 +22,6 @@ function datatable_books()
         array('db' => 'book_classification',        'dt' => 13),
         array('db' => 'book_status',                'dt' => 14),
         array('db' => 'book_copy',                  'dt' => 15),
-        array('db' => 'book_btn',                   'dt' => 16)
     );
 
     $where = "";
@@ -42,7 +41,6 @@ function datatable_bookreserve()
         array('db' => 'pickupDate', 'dt' => 2),
         array('db' => 'returnDate', 'dt' => 3),
         array('db' => 'bookTitle',  'dt' => 4),
-        array('db' => 'action_btn', 'dt' => 5)
     );
 
     $where = "libraryid =" . $_SESSION['user_token'] . "";
@@ -150,6 +148,7 @@ function datatable()
     //     'db' => 'cvsutanzalib_db',
     //     'host' => 'localhost',
     // );
+
     require('ssp.class.php');
 
     echo json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where));
