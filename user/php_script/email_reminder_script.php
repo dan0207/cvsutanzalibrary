@@ -20,8 +20,8 @@ $user_token = $_SESSION['user_token'];
 $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()";
 $result = mysqli_query($db, $sql);
 
-$email = $result->fetch_assoc();
-
-echo $email['email'];
+while ($row = $result->fetch_assoc()) {
+    echo $row['email'] . "<br>";
+}
 
 echo 'Hello';
