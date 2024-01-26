@@ -21,8 +21,8 @@ $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()-1";
 $result = mysqli_query($db, $sql);
 
 while ($row = $result->fetch_assoc()) {
-    echo $row['email'] . "<br>";
-    echo $row['email'] . "<br>";
+    echo $row['id'] . "<br>";
+    // echo $row['email'] . "<br>";
 }
 
 echo 'Hello';
