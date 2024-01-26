@@ -57,7 +57,7 @@ foreach ($returnReminder as $reminder) {
     <div class='container' style='max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 5px; margin-top: 20px;'>
 
         <header style='text-align: center;'>
-            <img src='../assets/img/logo.png'>
+            <img src='https://cvsutanzalibrary.site/cvsutanzalibrary/user/assets/img/logo.png'>
         </header>
         <h1 style='color: #333; text-align: center;'>Library Reminder</h1>
         <p style='color: #555;'>Dear $name,</p>
@@ -69,10 +69,10 @@ foreach ($returnReminder as $reminder) {
             <p style='color: #555; margin: 10px'><strong>Book Accesstion No:</strong> $bookAccessNo</p>
             <p style='color: #555; margin: 10px'><strong>Book Call No:</strong> $bookCallNo</p>
             <p style='color: #555; margin: 10px'><strong>Pickup Date:</strong> $pickupDate</p>
-            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong>$returnDate</p>
+            <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong> $returnDate</p>
         </div>
 
-        <div class='rules' style='margin-top: 20px; text-align: center;'>
+        <div style='margin-top: 20px; text-align: center;'>
             <h2>Library Rules and Regulations</h2>
             <ul style='text-align: left;'>
                 <li>Always present your ID as you enter the library.</li>
