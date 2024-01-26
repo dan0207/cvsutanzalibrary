@@ -13,8 +13,6 @@ session_start();
 //     echo "The email message was not sent.";
 // }
 
-
-
 require('db_local_connection.php');
 
 $user_token = $_SESSION['user_token'];
@@ -24,7 +22,6 @@ $result = mysqli_query($db, $sql);
 
 $email = $result->fetch_assoc();
 
-
-echo $email['user_email'];
+echo $email['email'];
 
 echo 'Hello';
