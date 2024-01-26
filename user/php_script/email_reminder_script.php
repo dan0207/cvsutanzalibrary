@@ -16,6 +16,7 @@ session_start();
 
 require('db_local_connection.php');
 
+
 $user_token = $_SESSION['user_token'];
 
 $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()";
