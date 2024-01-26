@@ -28,8 +28,8 @@
             <p style='color: #555; margin: 20px 10px; font-size: 30px'><strong>Return Date:</strong> $returnDate</p>
         </div>
 
-        <div class='rules' style='margin-top: 20px; text-align: center; border: solid 1px #333'>
-            <h2>Library Rules and Regulations</h2>
+        <div class='rules' style='margin-top: 70px; text-align: center; border: solid 1px #333'>
+            <h3>Library Rules and Regulations</h3>
             <ul style='text-align: left;'>
                 <li>Always present your ID as you enter the library.</li>
                 <li>Two (2) non-reserved books can be borrowed at a time by library users.</li>
