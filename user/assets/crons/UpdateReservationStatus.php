@@ -9,7 +9,6 @@ $sql = "UPDATE bookreserve
         AND timestamp <= NOW() - INTERVAL 1 MINUTE";
 
 echo "hello world\n";
-// ...
 
 mysqli_query($db, $sql);
 mysqli_close($db);
