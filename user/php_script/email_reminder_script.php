@@ -23,7 +23,7 @@ $returnReminder = [];
 
 
 
-$sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()-1";
+$sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()";
 $result = mysqli_query($db, $sql);
 
 while ($row = $result->fetch_assoc()) {
@@ -33,7 +33,6 @@ while ($row = $result->fetch_assoc()) {
         'email' => $row['email']
     ));
 }
-
 
 print_r($pickupReminder);
 
