@@ -1,4 +1,5 @@
 <?php
+session_start();
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
 // $from = "campuslibrarian@cvsutanzalibrary.site";
@@ -13,4 +14,11 @@
 // }
 
 
-echo "Hello";
+require('db_local_connection.php');
+
+$user_token = $_SESSION['user_token'];
+
+$sql = "SELECT email FROM users WHERE user_token = '$user_token'";
+$result = mysqli_query($db, $sql);
+
+echo $result;
