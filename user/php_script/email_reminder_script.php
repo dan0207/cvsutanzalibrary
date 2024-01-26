@@ -14,7 +14,6 @@ session_start();
 // }
 
 
-
 require('db_local_connection.php');
 
 
