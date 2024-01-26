@@ -57,7 +57,7 @@ foreach ($returnReminder as $reminder) {
 <body style='font-family: Arial, sans-serif; margin: 0; padding: 50px; background-color: #f4f4f4;'>
     <div class='container' style='max-width: 600px; margin: 0 auto; padding: 40px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 5px; margin-top: 20px;'>
 
-        <header style='text-align: center;'>
+        <header style='text-align: center; margin-bottom: 30px'>
             <img src='https://cvsutanzalibrary.site/cvsutanzalibrary/user/assets/img/logo.png'>
         </header>
         <h1 style='color: #333; text-align: center;'>Library Reminder</h1>
@@ -74,7 +74,7 @@ foreach ($returnReminder as $reminder) {
         </div>
 
         <div style='margin-top: 20px;'>
-            <h2 style='text-align: center;'>Library Rules and Regulations</h2>
+            <h2>Library Rules and Regulations</h2>
             <ul>
                 <li>Always present your School ID and scan your Library ID as you enter the library.</li>
                 <li>Always leave your belongings, except your valuables at the Baggage Counter Area. The library is not responsible for any loss or damage to your property.</li>
