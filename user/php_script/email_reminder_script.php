@@ -45,10 +45,10 @@ foreach ($returnReminder as $reminder) {
         <!DOCTYPE html>
         <body>
             <div class='container'>
-                <p>Hi $customerName,</p>
-                <p>We hope this message finds you well. This is a gentle reminder regarding the borrowed book with reference ID <strong>$bookID</strong>. The return date for this book is fast approaching, and we kindly request your prompt attention.</p>
+                <p>Hi $name,</p>
+                <p>We hope this message finds you well. This is a gentle reminder regarding the borrowed book with reference ID <strong>$bookAccessNo</strong>. The return date for this book is fast approaching, and we kindly request your prompt attention.</p>
                 <p><strong>Return Date:</strong> $returnDate<br>
-                <strong>Book ID:</strong> $bookID<br>
+                <strong>Book ID:</strong> $bookAccessNo<br>
                 <strong>Title:</strong> $bookTitle</p>
             </div>
         </body>
@@ -58,8 +58,8 @@ foreach ($returnReminder as $reminder) {
     $headers = "From:" . $from;
 
     if (mail($reminder['email'], $subject, $message, $headers)) {
-        echo "Email message for Book ID $bookID was sent.<br>";
+        echo "Email message for Book ID $bookAccessNo was sent.<br>";
     } else {
-        echo "Email message for Book ID $bookID was not sent.<br>";
+        echo "Email message for Book ID $bookAccessNo was not sent.<br>";
     }
 }
