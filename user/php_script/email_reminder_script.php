@@ -28,9 +28,16 @@ $result = mysqli_query($db, $sql);
 
 while ($row = $result->fetch_assoc()) {
     array_push($pickupReminder, array(
-        'ID' => $row['id'],
-        'Title' => $row['title'],
-        'email' => $row['email']
+        'id' => $row['id'],
+        'libraryid' => $row['libraryid'],
+        'name' => $row['name'],
+        'courseSection' => $row['courseSection'],
+        'email' => $row['email'],
+        'bookAccessNo' => $row['bookAccessNo'],
+        'bookTitle' => $row['bookTitle'],
+        'bookCallNo' => $row['bookCallNo'],
+        'pickupDate' => $row['pickupDate'],
+        'returnDate' => $row['returnDate'],
     ));
 }
 
