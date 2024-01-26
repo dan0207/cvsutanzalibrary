@@ -103,7 +103,6 @@ function datatable_attendance()
     
     $where = "date = CURDATE()";
 
-
     return [
         'primaryKey' => $primaryKey,
         'columns' => $columns,
