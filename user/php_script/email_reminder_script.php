@@ -85,7 +85,8 @@ foreach ($returnReminder as $reminder) {
     </html>
     ";
 
-    $headers = 'From:' . $from;
+    $headers = "From: $from\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
         echo "Email message for Book ID $bookAccessNo was sent.<br>";
