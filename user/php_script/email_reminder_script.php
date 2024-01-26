@@ -17,12 +17,15 @@ require('db_local_connection.php');
 
 $user_token = $_SESSION['user_token'];
 
+$pickupReminder = [];
+$returnReminder = [];
+
 $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()-1";
 $result = mysqli_query($db, $sql);
 
 while ($row = $result->fetch_assoc()) {
-    echo $row['id'] . "<br>";
-    // echo $row['email'] . "<br>";
+    array_push($pickupReminder, $row['id']);
 }
+print_r($pickupReminder);
 
 echo 'Hello';
