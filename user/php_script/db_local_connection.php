@@ -24,3 +24,4 @@ $db = new mysqli($servername, $username, $password, $database);
 if ($db->connect_error) {
     die("Connection failed: " . $d->connect_error);
 }
+
