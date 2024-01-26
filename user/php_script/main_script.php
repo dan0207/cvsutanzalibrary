@@ -55,3 +55,6 @@ function generateQRCode($qr_text, $qr_size)
 
 
 
+
+
+
