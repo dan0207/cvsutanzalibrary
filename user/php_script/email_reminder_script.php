@@ -18,8 +18,8 @@ require('db_local_connection.php');
 
 $user_token = $_SESSION['user_token'];
 
-$sql = "SELECT email FROM users WHERE user_token = '$user_token'";
-$result = mysqli_query($db, $sql);
+// $sql = "SELECT email FROM users WHERE user_token = '$user_token'";
+// $result = mysqli_query($db, $sql);
 
 echo $result;
 echo 'Hello';
