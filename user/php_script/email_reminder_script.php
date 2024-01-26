@@ -23,5 +23,5 @@ $result = mysqli_query($db, $sql);
 
 $email = $result->fetch_assoc();
 
-echo $email['email'];
+echo $email['user_email'];
 echo 'Hello';
