@@ -76,25 +76,25 @@ export function activateTopSearch() {
 // sendEmail('abanciadanilo0207@gmail.com', 'iamerikanavarro09@gmail.com', 'Try', 'Testing')
 
 // export function sendEmail(sender_server, receiver, subject, body, attachment) {
-export function sendEmail(sender_server, receiver, subject, body) {
-    let smtp_secureToken = "d4a41c9a-511b-4299-af7d-b30984ce71d4";
+// export function sendEmail(sender_server, receiver, subject, body) {
+//     let smtp_secureToken = "d4a41c9a-511b-4299-af7d-b30984ce71d4";
 
-    Email.send({
-        SecureToken: smtp_secureToken,
-        To: receiver,
-        From: sender_server,
-        Subject: subject,
-        Body: body,
-        // Attachments: attachment,
-        // Attachments: [
-        //     {
-        //         name: attachmentName,
-        //         path: attachmentPath
-        //     }]
-    }).then(
-        message => alert(message)
-    );
-}
+//     Email.send({
+//         SecureToken: smtp_secureToken,
+//         To: receiver,
+//         From: sender_server,
+//         Subject: subject,
+//         Body: body,
+//         // Attachments: attachment,
+//         // Attachments: [
+//         //     {
+//         //         name: attachmentName,
+//         //         path: attachmentPath
+//         //     }]
+//     }).then(
+//         message => alert(message)
+//     );
+// }
 
 export async function selectBookReservation() {
     let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
