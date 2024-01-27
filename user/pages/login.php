@@ -22,14 +22,18 @@ include '../php_script/main_script.php';
                 <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-fluid">
                 <h3 class="fs-1" style="font-family: 'Times New Roman', Times, serif;">Student</h3>
 
-                <!-- <div id="g_id_onload" data-client_id="171145039223-i2oabkul3cr1qflpogvbm55taag2a3kj.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-nonce="" data-auto_prompt="false">
+
+                <div id="g_id_onload" data-client_id="171145039223-i2oabkul3cr1qflpogvbm55taag2a3kj.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-nonce="" data-itp_support="true">
                 </div>
 
                 <div class="container d-flex justify-content-center">
                     <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="continue_with" data-size="medium" data-logo_alignment="left">
                     </div>
                     <input type="file" id="avatar_fileInput" class="d-none">
-                </div> -->
+                </div>
+
+
+
 
                 <hr class="hr_login_text" data-content="or continue with username & password">
 
