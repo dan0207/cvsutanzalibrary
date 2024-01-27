@@ -317,6 +317,7 @@ function handle_membertype() {
 }
 
 function handle_bookRequestReviewModal() {
+    
 }
 
 function handle_bookRequestPrivacyStatementBtn() {
