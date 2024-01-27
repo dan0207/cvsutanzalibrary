@@ -69,9 +69,9 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
             $_SESSION['user_member_type'] = $user['user_member_type'];
             $_SESSION['user_status'] = 'Online';
 
-            $update = "UPDATE users SET user_status = 'Online'";
-            mysqli_query($db, $update);
-            mysqli_close($db);
+            // $update = "UPDATE users SET user_status = 'Online'";
+            // mysqli_query($db, $update);
+            // mysqli_close($db);
         }
     }
 }
