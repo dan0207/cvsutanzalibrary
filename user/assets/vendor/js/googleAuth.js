@@ -1,7 +1,7 @@
 
 globalThis.handleCredentialResponse = async (response) => {
 
-    fetch('../php_script/google_auth_script.php', {
+    fetch('../php_script/googleAuth_script.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
