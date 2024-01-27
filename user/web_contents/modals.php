@@ -229,7 +229,7 @@
                         <label class="form-label mb-1 ms-1 fs-4 text-center">LOGIN CREDENTIALS</label>
                         <div class="col-12 col-xl-6 px-3">
                             <label for="user_username_input" class="form-label">Username</label>
-                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" required>
+                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" value="<?php echo $_SESSION['user_email']; ?>" required>
                             <div id="user_username_feedback" class="text-secondary fs-8"></div>
                         </div>
                         <div class="col-12 col-md-6 col-xl-3 px-3">
