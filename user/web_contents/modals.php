@@ -126,7 +126,7 @@
                         <div class="personal-details row-gap-2 row m-0 p-0 col-12 col-md-8 col-lg-12 col-xl-6 order-4 order-md-4 order-xl-3">
                             <div class="col-8">
                                 <label for="user_name_input" class="form-label">Name</label>
-                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" value="<?php echo $_SESSION['user_name']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" value="<?php echo $_SESSION['user_givenName']; ?>" required>
                                 <div id="user_name_feedback" class="text-secondary fs-10"></div>
                             </div>
                             <div class="col-4">
@@ -136,7 +136,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="user_surname_input" class="form-label">Surname</label>
-                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" value="<?php echo $_SESSION['user_surname']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" value="<?php echo $_SESSION['user_familyName']; ?>" required>
                                 <div id="user_surname_feedback" class="text-secondary fs-10"></div>
                             </div>
 
