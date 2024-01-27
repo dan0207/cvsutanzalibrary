@@ -206,9 +206,9 @@
                         <!-- Library QR Code -->
                         <div class="text-center p-2 col-6 col-md-4 col-lg-3 col-xl-3 order-2 order-md-3 order-xl-4">
                             <div id="signup_qr_code_container" class="text-center">
-                                <img id="signup_qr_code_img" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                <img id="signup_qr_code_img" src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                 <p class="text-center m-0 p-0 mx-auto fs-7">Your Library ID:</p>
-                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8"></p>
+                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['user_token']; ?></p>
                             </div>
                         </div>
                     </div>
