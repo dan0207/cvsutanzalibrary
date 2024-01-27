@@ -208,7 +208,7 @@
                             <div id="signup_qr_code_container" class="text-center">
                                 <img id="signup_qr_code_img" src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                 <p class="text-center m-0 p-0 mx-auto fs-7">Your Library ID:</p>
-                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['user_token']; ?></p>
+                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['temp_token']; ?></p>
                             </div>
                         </div>
                     </div>
