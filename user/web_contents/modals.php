@@ -252,7 +252,7 @@
                 </form>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button id="user_form_modal_btn" class="btn btn-primary rounded-3 w-90 mx-auto fs-4">SUBMIT</button>
+                <button id="user_signup_modal_btn" class="btn btn-primary rounded-3 w-90 mx-auto fs-4">SUBMIT</button>
             </div>
         </div>
     </div>
