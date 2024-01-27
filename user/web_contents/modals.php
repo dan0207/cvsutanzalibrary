@@ -58,7 +58,7 @@
                 <p>You need to log in first before you can request books.</p>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button id="login_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button>
+                <button id="login_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-target="#signup_reminder_modal" data-bs-toggle="modal">Open first modal</button>
             </div>
         </div>
     </div>
