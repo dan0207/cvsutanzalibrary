@@ -16,15 +16,14 @@ if ($jsonObj === null && json_last_error() !== JSON_ERROR_NONE) {
 $new_account = false;
 
 // Check if the request type is 'user_auth'
-if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
-    $credential = !empty($jsonObj->credential) ? $jsonObj->credential : '';
+// if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
+//     $credential = !empty($jsonObj->credential) ? $jsonObj->credential : '';
 
-    // Decode response payload from JWT token
-    list($header, $payload, $signature) = explode(".", $credential);
-    $responsePayload = json_decode(base64_decode($payload));
+//     // Decode response payload from JWT token
+//     list($header, $payload, $signature) = explode(".", $credential);
+//     $responsePayload = json_decode(base64_decode($payload));
 
-    if (!empty($responsePayload)) {
-        // Use prepared statements to prevent SQL injection
+//     if (!empty($responsePayload)) {
         // $user_token = mysqli_real_escape_string($db, $responsePayload->sub);
         // $user_givenName = mysqli_real_escape_string($db, $responsePayload->given_name);
         // $user_familyName = mysqli_real_escape_string($db, $responsePayload->family_name);
@@ -73,7 +72,7 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
         //     mysqli_query($db, $update);
         //     mysqli_close($db);
         // }
-    }
-}
+//     }
+// }
 echo json_encode($new_account);
 exit();
