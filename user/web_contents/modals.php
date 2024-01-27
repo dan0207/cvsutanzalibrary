@@ -101,7 +101,7 @@
                         <!-- Campus Details -->
                         <!-- Profile Picture -->
                         <div class="text-center p-2 col-6 col-md-4 col-lg-3 order-1 order-xl-2">
-                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="../assets/img/student-icon.png" alt="Avatar">
+                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="<?php echo $_SESSION['user_picture']; ?>" alt="Avatar">
                             <a href="#Mama mo" id="user_change_avatarPreview" class="btn btn-outline-primary fs-10 fs-md-9 py-1 rounded-5">Change Photo</a>
                         </div>
 
