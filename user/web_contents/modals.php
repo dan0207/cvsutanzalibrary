@@ -78,7 +78,7 @@
                 <p>You must complete your information to proceed.</p>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button id="signup_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-target="#signup_reminder_modal" data-bs-toggle="modal">Continue</button>
+                <button id="signup_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-target="#user_signup_modal" data-bs-toggle="modal">Continue</button>
             </div>
         </div>
     </div>
