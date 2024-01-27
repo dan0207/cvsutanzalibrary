@@ -1,6 +1,6 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection, sendEmail } from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal} from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
