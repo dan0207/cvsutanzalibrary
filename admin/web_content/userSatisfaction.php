@@ -39,18 +39,18 @@
         <tbody>
                 <?php
                     #select data
-                    $select_sql = "SELECT * FROM satisfactionrating";
+                    $select_sql = "SELECT * FROM ratings";
                     $select_sql1 = mysqli_query($conn, $select_sql);
                     if(mysqli_num_rows($select_sql1)) {
                         while($rows = mysqli_fetch_array($select_sql1)) {
                             ?>
                                 <tr>
-                                    <td><?php echo $rows['Category']?></td>
-                                    <td><?php echo $rows['Subject']?></td>
-                                    <td><?php echo $rows['Ratings']?></td>
-                                    <td><?php echo $rows['Comments']?></td>
-                                    <td><?php echo $rows['Date']?></td>
-                                    <td><?php echo $rows['Time']?></td>
+                                    <td><?php echo $rows['category']?></td>
+                                    <td><?php echo $rows['subject']?></td>
+                                    <td><?php echo $rows['rating']?></td>
+                                    <td><?php echo $rows['comments']?></td>
+                                    <td><?php echo $rows['date']?></td>
+                                    <td><?php echo $rows['time']?></td>
                                 </tr>
                             <?php
                         }
