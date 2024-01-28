@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER['HTTP_HOST'] === 'localhost:3000') {
     $servername = "localhost";
     $username = "root";
@@ -12,11 +11,8 @@ if ($_SERVER['HTTP_HOST'] === 'localhost:3000') {
     $database = "u303407946_cvsutanzalib";
 }
 
-
-// Create a new MySQLi connection
 $db = new mysqli($servername, $username, $password, $database);
 
-// Check the connection
 if ($db->connect_error) {
     die("Connection failed: " . $d->connect_error);
 }
