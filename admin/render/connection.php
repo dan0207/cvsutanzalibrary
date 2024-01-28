@@ -5,9 +5,9 @@
 // $pass = "";
 // $db = "cvsutanzalib_db";
 
-$servername = "154.41.240.153";
-$username = "u303407946_cvsutanzalib";
-$password = "uTQ^zBHA*k1";
+$server = "154.41.240.153";
+$user = "u303407946_cvsutanzalib";
+$pass = "uTQ^zBHA*k1";
 $db = "u303407946_cvsutanzalib";
 
 $conn = mysqli_connect($server, $user, $pass, $db);
