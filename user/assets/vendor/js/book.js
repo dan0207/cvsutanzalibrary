@@ -58,6 +58,7 @@ let books_table = new DataTable('#books_table', {
     ],
 
 
+    
     createdRow: function (row, data, index) {
         let value = data[14];
 
