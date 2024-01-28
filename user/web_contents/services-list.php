@@ -5,15 +5,15 @@
                 <h3>Services</h3>
             </div>
             <div class="row text-center">
-                <div id="readers_services" class="animation-services col-12 d-none">
+                <div id="readers_services" class="animation-services col-6">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
                         <img src="../assets/img/service1.png" class="rounded-3" alt="Service 1 Image">
                         <div class="card-body d-flex flex-column">
-                            <div class="thumbnail-details d-none">
+                            <div class="thumbnail-details">
                                 <h6 class="card-title fw-semibold fs-7 fs-lg-5">READER’S SERVICES</h6>
                                 <p class="card-text my-auto fs-10">This is a service wherein students/faculty are using the reading areas for borrowing and returning library materials.</p>
                             </div>
-                            <div class="full-details text-start">
+                            <!-- <div class="full-details text-start">
                                 <h6 class="card-title fw-semibold fs-7 fs-lg-4">READER’S SERVICES</h6>
                                 <p class="card-text my-auto fs-6">
                                     Reader's or Public Services shall refer to those library activities where direct contact with the customer occurs on a daily basis. These services are provided for the use of library materials in circulation, reference, interlibrary loan or borrowing, photocopying, media services, and maintenance of book stacks.
@@ -125,22 +125,22 @@
                                     </li>
                                     <br>
                                 </ol>
-                            </div>
+                            </div> -->
                             <button class="animation-service-btn btn btn-sm btn-primary mt-auto mx-auto">Learn More</button>
                             <button class="animation-service-closebtn btn btn-sm btn-secondary text-onSecondary mt-auto mx-auto d-none">Close</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- <div id="online_library_services" class="animation-services col-12 ms-auto">
+                <div id="online_library_services" class="animation-services col-6 ms-auto">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
                         <img src="../assets/img/service2.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
-                            <div class="thumbnail-details d-none">
+                            <div class="thumbnail-details">
                                 <h6 class="card-title fw-semibold fs-7 fs-lg-5">ONLINE LIBRARY SERVICES</h6>
                                 <p class="card-text my-auto fs-10">In response to the new normal, the University Library introduces new library programs and services to serve students, faculty, and staff members even during the time of the COVID- 19 pandemic. These programs are as follows:</p>
                             </div>
-                            <div class="full-details text-start">
+                            <!-- <div class="full-details text-start">
                                 <h6 class="card-title fw-semibold fs-7 fs-lg-4">ONLINE LIBRARY SERVICES</h6>
                                 <p class="card-text my-auto fs-6">
                                     In response to the new normal, the University Library introduces new library programs and services to serve students, faculty, and staff members even during the time of the COVID- 19 pandemic. These programs are as follows:
@@ -153,18 +153,18 @@
                                     </li>
                                     <br>
                                 </ol>
-                            </div>
+                            </div> -->
                             <button class="animation-service-btn btn btn-sm btn-primary mt-auto mx-auto">Learn More</button>
                             <button class="animation-service-closebtn btn btn-sm btn-secondary text-onSecondary my-5 mx-auto d-none">Back</button>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- <div id="online_library_services" class="animation-services col-6 ms-auto">
                     <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
                         <img src="../assets/img/service2.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
-                            <div class="thumbnail-details d-none">
+                            <div class="thumbnail-details">
                                 <h6 class="card-title fw-semibold fs-7 fs-lg-5">READER’S SERVICES</h6>
                                 <p class="card-text my-auto fs-10">This is a service wherein students/faculty are using the reading areas for borrowing and returning library materials.</p>
                             </div>

@@ -25,11 +25,11 @@ let books_table = new DataTable('#books_table', {
                 let value = row[14];
 
                 if (value === 'Available to Borrow') {
-                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-10 fs-md-8 py-1 d-flex justify-content-center align-items-center w-100'><i class='fa-solid fa-upload'></i><span class='ps-1'>BORROW</span></button>";
+                    return "<button id='request_btn' showModal('login_reminder_modal') class='btn btn-outline-primary fs-10 p-1 d-flex justify-content-center align-items-center w-100'><i class='fa-solid fa-upload fa-sm'></i><span class='ps-1'>BORROW</span></button>";
                 } else if (value === 'Room Use Only') {
-                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1 w-100' style='white-space: nowrap'>ROOM USE ONLY</button>";
+                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 p-1 w-100' style='white-space: nowrap'>ROOM USE ONLY</button>";
                 } else {
-                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 fs-md-8 py-1 w-100' style='white-space: nowrap'>BORROWED</button>";
+                    return "<button id='request_btn' class='btn btn-outline-secondary fs-10 p-1 w-100' style='white-space: nowrap'>BORROWED</button>";
                 }
             }
         },

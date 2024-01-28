@@ -24,9 +24,9 @@ $_GET['opac_search'] = '';
                     <option value="100">100</option>
                 </select>
                 entries
-                <div class="update-books-btn ms-auto">
+                <!-- <div class="update-books-btn ms-auto">
                     <a href="../php_script/db_server_copyData.php" class="btn btn-primary py-1 fs-7">UPDATE LIST OF BOOKS</a>
-                </div>
+                </div> -->
             </div>
             <div class="book-list-container w-100 overflow-hidden">
                 <div id="book_list_table" class="book-list-table">
