@@ -1,5 +1,5 @@
 // Import JavaScript Files ////////////////////////////////////////////////////////
-import { setupFormValidation, showModal, generateQRCode } from '../../js/main.js';
+import { } from '../../js/main.js';
 // Import JavaScript Files ////////////////////////////////////////////////////////
 
 // DOM Elements

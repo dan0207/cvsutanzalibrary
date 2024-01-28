@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode, getFormatCourseSection, getformatDate, selectBookReservation } from '../../js/main.js';
+import { updateSession, selectBookReservation } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
