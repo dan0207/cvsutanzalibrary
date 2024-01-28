@@ -100,7 +100,7 @@ function datatable_attendance()
         array('db' => 'student_course',     'dt' => 3),
         array('db' => 'status',             'dt' => 4),
     );
-    
+
     $where = "date = CURDATE()";
 
     return [
@@ -132,21 +132,14 @@ function datatable()
     $columns = $result['columns'];
     $where = $result['where'] ? $result['where'] : '';
 
-    // for Domain
+    require_once('db_local_connection.php');
+
     $sql_details = array(
-        'user' => 'u303407946_cvsutanzalib',
-        'pass' => 'uTQ^zBHA*k1',
-        'db' => 'u303407946_cvsutanzalib',
-        'host' => 'localhost',
+        'user' => $username,
+        'pass' => $password,
+        'db' => $database,
+        'host' => $servername,
     );
-    
-    // for Local
-    // $sql_details = array(
-    //     'user' => 'root',
-    //     'pass' => '',
-    //     'db' => 'cvsutanzalib_db',
-    //     'host' => 'localhost',
-    // );
 
     require('ssp.class.php');
 
