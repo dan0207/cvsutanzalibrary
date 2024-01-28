@@ -5,7 +5,7 @@
 // $pass = "";
 // $db = "cvsutanzalib_db";
 
-$servername = "154.41.240.153";
+$servername = "localhost";
 $username = "u303407946_cvsutanzalib";
 $password = "uTQ^zBHA*k1";
 $db = "u303407946_cvsutanzalib";
