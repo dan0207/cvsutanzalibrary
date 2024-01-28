@@ -1,6 +1,6 @@
 <?php
 
-$serverHost = '192.168.1.32'; 
+$serverHost = '192.168.1.32';
 $serverUsername = 'user';
 $serverPassword = 'User8888$$$';
 $serverDatabase = 'cvsutanzalibrary-clone';
