@@ -132,7 +132,7 @@
 
                                 <div class="handled-book-container w-100 overflow-hidden">
                                     <div id="handled_book_table" class="handled-book-table">
-                                        <?php include '../tables/user_hanled_book_table.php'; ?>
+                                        <?php include '../tables/user_borrowed_book_table.php'; ?>
                                     </div>
                                 </div>
 

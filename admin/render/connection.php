@@ -1,30 +1,25 @@
 <?php
-    // $server = "localhost";
-    // $user = "root";
-    // $pass = "";
-    // $db = "cvsupages";
 
-    $server = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "cvsutanzalib_db";
+// $server = "localhost";
+// $user = "root";
+// $pass = "";
+// $db = "cvsutanzalib_db";
 
-    // $servername = "sql12.freesqldatabase.com";
-    // $username = "sql12676046";
-    // $password = "yfBL7dwnGM";
-    // $database = "sql12676046";
 
-    $conn = mysqli_connect($server, $user, $pass, $db);
-    
-    if(!$conn)
-    {
-        die("connection error " . mysqli_connect_error());
-    }
+$servername = "154.41.240.153";
+$username = "u303407946_cvsutanzalib";
+$password = "uTQ^zBHA*k1";
+$database = "u303407946_cvsutanzalib";
 
-    try {
-        $pdo = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-    }
-?>
+$conn = mysqli_connect($server, $user, $pass, $db);
+
+if (!$conn) {
+    die("connection error " . mysqli_connect_error());
+}
+
+try {
+    $pdo = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
