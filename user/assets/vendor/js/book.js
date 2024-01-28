@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, selectBookReservation } from '../../js/main.js';
+import { updateSession, selectBookReservation, getFormatCourseSection } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 

@@ -73,28 +73,55 @@ export function activateTopSearch() {
     });
 }
 
+export function getFormatCourseSection(course, year, section) {
+    const yearToNumber = {
+        'FISRT': 1,
+        'SECOND': 2,
+        'THIRD': 3,
+        'FOURTH': 4
+    };
+
+    const sectionToNumber = {
+        'ONE': 1,
+        'TWO': 2,
+        'THREE': 3,
+        'FOUR': 4
+    };
+
+    return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
+}
+
+export function getformatDate(date) {
+    let formattedDate = date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
+    return formattedDate;
+}
+
 // sendEmail('abanciadanilo0207@gmail.com', 'iamerikanavarro09@gmail.com', 'Try', 'Testing')
 
 // export function sendEmail(sender_server, receiver, subject, body, attachment) {
-// export function sendEmail(sender_server, receiver, subject, body) {
-//     let smtp_secureToken = "d4a41c9a-511b-4299-af7d-b30984ce71d4";
+export function sendEmail(sender_server, receiver, subject, body) {
+    let smtp_secureToken = "d4a41c9a-511b-4299-af7d-b30984ce71d4";
 
-//     Email.send({
-//         SecureToken: smtp_secureToken,
-//         To: receiver,
-//         From: sender_server,
-//         Subject: subject,
-//         Body: body,
-//         // Attachments: attachment,
-//         // Attachments: [
-//         //     {
-//         //         name: attachmentName,
-//         //         path: attachmentPath
-//         //     }]
-//     }).then(
-//         message => alert(message)
-//     );
-// }
+    Email.send({
+        SecureToken: smtp_secureToken,
+        To: receiver,
+        From: sender_server,
+        Subject: subject,
+        Body: body,
+        // Attachments: attachment,
+        // Attachments: [
+        //     {
+        //         name: attachmentName,
+        //         path: attachmentPath
+        //     }]
+    }).then(
+        message => alert(message)
+    );
+}
 
 export async function selectBookReservation() {
     let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
