@@ -74,7 +74,7 @@
 
     <script>
         globalThis.handleCredentialResponse = async (response) => {
-            console.log('Hello');
+            console.log('Test');
             // fetch('../php_script/googleAuth_script.php', {
             //         method: 'POST',
             //         headers: {
