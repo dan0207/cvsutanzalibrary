@@ -1,11 +1,9 @@
 <?php
 
-
-$serverHost = '49.144.130.150'; 
+$serverHost = '192.168.1.32'; 
 $serverUsername = 'user';
 $serverPassword = 'User8888$$$';
 $serverDatabase = 'cvsutanzalibrary-clone';
-
 
 $db_server = new mysqli($serverHost, $serverUsername, $serverPassword, $serverDatabase);
 
