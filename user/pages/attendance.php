@@ -12,9 +12,8 @@ $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : 'Library ID';
 $status = isset($_GET['status']) ? htmlspecialchars($_GET['status']) : '';
 
 
-if ($member_type == 'Student') {
-    $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['section']) ? getFormatCourseSection(htmlspecialchars($_GET['course']), htmlspecialchars($_GET['year']), htmlspecialchars($_GET['section'])) : 'Course & Section';
-}
+$courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['section']) ? getFormatCourseSection(htmlspecialchars($_GET['course']), htmlspecialchars($_GET['year']), htmlspecialchars($_GET['section'])) : 'Course & Section';
+
 
 ?>
 
@@ -119,12 +118,12 @@ if ($member_type == 'Student') {
                                     <div class="attendance-details mx-4 h-60 d-flex flex-column justify-content-evenly">
                                         <h4 class="attendance-name m-1"><?php echo $name; ?></h4>
                                         <?php
-                                        if ($member_type == 'Student') {
-                                            echo "<h6 class='attendance-student-courseSection m-1'>$courseSection</h6>";
-                                            echo "<h6 class='attendance-student-number m-1'>$student_number</h6>";
-                                        } else {
+                                        if ($member_type == 'Faculty') {
                                             echo "<h6 class='attendance-faculty-department m-1'>$faculty_department</h6>";
                                             echo "<h6 class='attendance-faculty-number m-1'>$faculty_number</h6>";
+                                        } else {
+                                            echo "<h6 class='attendance-student-courseSection m-1'>$courseSection</h6>";
+                                            echo "<h6 class='attendance-student-number m-1'>$student_number</h6>";
                                         }
                                         ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>

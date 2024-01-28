@@ -80,7 +80,6 @@ $('.pageLengthSelect').on('change', function () {
 
 let opac_search_input = document.getElementById('opac_search_input');
 let opac_search_btn = document.getElementById('opac_search_btn');
-let opac_search_btn_icon = document.getElementById('opac_search_btn_icon');
 
 opac_search_input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
@@ -88,12 +87,9 @@ opac_search_input.addEventListener('keyup', function (event) {
     }
 });
 
-opac_search_btn.addEventListener('click', searchBooks(opac_search_input.value));
-
-
-if (opac_search_input.value) {
+opac_search_btn.addEventListener('click', function(event){
     searchBooks(opac_search_input.value);
-}
+});
 
 function searchBooks(query) {
     books_table.search(query).draw();
