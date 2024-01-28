@@ -1,13 +1,12 @@
 <?php
 
-$serverHost = '192.168.1.32';
+$serverHost = '49.144.130.150'; 
 $serverUsername = 'user';
 $serverPassword = 'User8888$$$';
 $serverDatabase = 'cvsutanzalibrary-clone';
 
 $db_server = new mysqli($serverHost, $serverUsername, $serverPassword, $serverDatabase);
 
-// Check connection
 if ($db_server->connect_error) {
     die("Connection failed: " . $db_server->connect_error);
 }
