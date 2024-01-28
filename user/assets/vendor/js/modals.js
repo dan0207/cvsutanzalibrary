@@ -1,6 +1,6 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal} from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -34,7 +34,7 @@ const signup_qr_code_img = document.getElementById('signup_qr_code_img');
 const add_new_event_modal = document.getElementById('add_new_event_modal');
 const login_reminder_modal = document.getElementById('login_reminder_modal');
 const signup_reminder_modal = document.getElementById('signup_reminder_modal');
-const user_signup_modal = document.getElementById('user_signup_modal');
+const user_form_modal = document.getElementById('user_form_modal');
 const user_review_modal = document.getElementById('user_review_modal');
 const book_request_form_modal = document.getElementById('book_request_form_modal');
 const book_request_privacy_modal = document.getElementById('book_request_privacy_modal');
@@ -51,21 +51,18 @@ const receipt_form = document.getElementById('receipt_form');
 const book_request_review_form = document.getElementById('book_request_review_form');
 // Initialize Form ////////////////////////////////////////////////////////
 
-
 // Initialize Button ////////////////////////////////////////////////////////
 const receipt_submit_btn = document.getElementById("receipt_submit_btn");
 const receipt_print_btn = document.getElementById("receipt_print_btn");
 const receipt_download_btn = document.getElementById("receipt_download_btn");
 
-
 const signup_reminder_modal_btn = document.getElementById("signup_reminder_modal_btn");
 const add_new_event_modal_btn = document.getElementById("add_new_event_modal_btn");
-const user_signup_modal_btn = document.getElementById("user_signup_modal_btn");
+const user_signup_modal = document.getElementById("user_signup_modal");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 const book_request_privacy_btn = document.getElementById("book_request_privacy_btn");
 const book_request_review_modal_btn = document.getElementById("book_request_review_modal_btn");
-
 // Initialize Button ////////////////////////////////////////////////////////
 
 
@@ -267,7 +264,7 @@ function handle_receiptDownloadBtn() {
 
 
 function handle_UserFormModalBtn() {
-    showModal(user_review_modal.id, user_signup_modal.id);
+    showModal(user_review_modal.id, user_form_modal.id);
 }
 
 function handle_addNewEventModalBtn() {
@@ -317,7 +314,6 @@ function handle_membertype() {
 }
 
 function handle_bookRequestReviewModal() {
-    
 }
 
 function handle_bookRequestPrivacyStatementBtn() {
@@ -427,7 +423,7 @@ book_request_privacy_checkbox.addEventListener("change", handle_bookRequestPriva
 
 // // Call Functions /////////////////////////////////////////////////////////
 
-setupFormValidation(user_form.id, user_signup_modal_btn.id, handle_UserFormModalBtn);
+setupFormValidation(user_form.id, user_signup_modal.id, handle_UserFormModalBtn);
 setupFormValidation(book_request_review_form.id, book_request_review_modal_btn.id, handle_bookRequestReviewModalBtn);
 // // Call Functions /////////////////////////////////////////////////////////
 
