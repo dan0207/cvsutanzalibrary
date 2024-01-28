@@ -3,6 +3,7 @@ import { updateSession, selectBookReservation, getFormatCourseSection } from '..
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
+
 // Function for books datatables
 let books_table = new DataTable('#books_table', {
     ajax: {
