@@ -26,5 +26,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- chart js -->
 
+<!-- SCRIPT FOR GOOGLE IDENTITY -->
+<script src="https://accounts.google.com/gsi/client" async></script>
+<!-- SCRIPT FOR GOOGLE IDENTITY -->
 
 
