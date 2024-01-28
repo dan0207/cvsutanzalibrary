@@ -22,6 +22,21 @@ export function showModal(show_id, hide_id) {
     }
 }
 
+export function generateQRCode(qr_text, qr_size) {
+    var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + qr_size + "x" + qr_size + "&cht=qr&chl=" + qr_text + "&choe=UTF-8";
+    return googleChartApiUrl;
+}
+
+export function generateBarCode(barcodeContainer, barcodeText,  barcodeWidth, barcodeHeight, barcodeFontsize) {
+    JsBarcode(barcodeContainer, barcodeText, {
+        format: "CODE128",
+        width: barcodeWidth,
+        height: barcodeHeight,
+        fontSize: barcodeFontsize,
+    });
+}
+
+
 export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
     'use strict';
 
