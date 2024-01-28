@@ -4,9 +4,6 @@ require_once('db_local_connection.php');
 require_once('db_server_connection.php');
 
 $remoteBookTable = 'books';
-// $remoteBookTable = 'books';
-// $remoteBookTable = 'books';
-// $remoteBookTable = 'books';
 $localBookTable = 'books';
 
 $selectQuery = "SELECT * FROM $remoteBookTable";
