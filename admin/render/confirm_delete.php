@@ -25,7 +25,7 @@
                 <!-- Include your CSS and meta tags -->
                 <title>Confirm Delete</title>
 
-                <link rel="stylesheet" href="../assets/style/style.css">
+                <link rel="stylesheet" href="../../assets/style/style.css">
                 
                 <style>
                     /* admin home | embed */
