@@ -97,23 +97,35 @@
                                     $daysDifference = $dateDiff->format("%r%a"); // %r includes the sign (- or +)
 
                                     // Display the difference in days
-                                    echo abs($daysDifference) . " days "; // Use abs() to get the absolute value
+                                    echo abs($daysDifference) . " day(s) "; // Use abs() to get the absolute value
 
                                     // Check if the return date is in the past
                                     if ($dateDiff->invert) {
                                         // If negative, display "days left"
                                         echo "left";
                                     } else {
-                                        // If positive, display the penalty (difference * 5 pesos)
-                                        $fine = $daysDifference * 5;
+                                        $sgcFine = "SELECT links FROM librarypages WHERE mainText = 'student' AND subText = 'general circulation'";
+                                        $resultSgcFine = $conn->query($sgcFine);
+
+                                        if ($resultSgcFine->num_rows > 0) {
+                                            $rowSgcFine = $resultSgcFine->fetch_assoc();
+                                            $penaltyRate = (int)$rowSgcFine['links'];
+
+                                            // Calculate fine based on penalty rate and days difference
+                                            $fine = (int)$daysDifference * $penaltyRate;
+
+                                            // Display the calculated fine
+                                            echo ('₱'), $fine;
+                                        }
                                     }
 
                                     // Update the penalty in the database
                                     $updateQuery = "UPDATE bookborrowed SET fine = ? WHERE id = ?";
                                     $stmt = $conn->prepare($updateQuery);
                                     $stmt->bind_param("ii", $fine, $id);
+                                    $stmt->execute();
                                 ?>
-                                <?php echo ('₱'), empty($rowBorrowed["fine"]) ? 0 : $rowBorrowed["fine"]; ?>
+                                
                             </td>
                             <td><?php echo $rowBorrowed["courseSection"]; ?></td>
                             <td><?php echo $rowBorrowed["email"]; ?></td>

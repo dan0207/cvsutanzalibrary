@@ -7,12 +7,24 @@ body {
     min-width: 270px;
 }
 :root {
-    --bg-color: rgb(12, 133, 28);
-    --bg-color-light: rgba(0, 255, 34, 0.548);
-    --bg-color-dark: rgb(4, 190, 13);
-    --bg-color-secondary: rgb(0, 0, 0);
-    --text-color: rgb(255, 255, 255);
-    --text-color-secondary: rgb(139, 139, 139);
+    --bg-color: #007205;
+    --bg-color-light: #2cff36;
+    --bg-color-dark: #009908;
+    --bg-color-secondary: #000000;
+    --text-color: #fff;
+    --text-color-secondary: #afafaf;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--text-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-color-secondary);
+    border-radius: 5rem;
 }
 
 .form-control:focus, .form-select:focus {
@@ -28,6 +40,43 @@ body {
     cursor: pointer;
 }
 
+.paginate_button {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.paginate_button a {
+    padding: 5px 20px !important;
+}
+
+.paginate_button a:hover, .paginate_button:hover a {
+    background: var(--text-color-secondary) !important;
+    color: var(--bg-color-secondary) !important;
+    border-radius: 4px !important;
+}
+.paginate_button.active:hover {
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+}
+.paginate_button.active a:hover {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+}
+
+.paginate_button.active a {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--bg-color) !important;
+    border-radius: 4px !important;
+    font-weight: bold;
+}
+
+.pageLengthSelect {
+    padding: 3px 10px !important;
+    margin: 5px 10px !important;
+}
 
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
@@ -153,10 +202,10 @@ section {
     width: 5px;
 }
 #sidebar::-webkit-scrollbar-track {
-    background: none;
+    background: var(--text-color);
 }
 #sidebar::-webkit-scrollbar-thumb {
-    background: none;
+    background: var(--bg-color-dark);
 }
 
 #sidebar ul a {
