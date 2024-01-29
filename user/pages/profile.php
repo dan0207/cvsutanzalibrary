@@ -7,6 +7,7 @@ if (!isset($_SESSION["user_token"])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
