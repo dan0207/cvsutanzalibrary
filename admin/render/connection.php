@@ -1,8 +1,13 @@
 <?php
-$server = "154.41.240.153";
-$user = "u303407946_cvsutanzalib";
-$pass = "uTQ^zBHA*k1";
-$db = "u303407946_cvsutanzalib";
+// $server = "154.41.240.153";
+// $user = "u303407946_cvsutanzalib";
+// $pass = "uTQ^zBHA*k1";
+// $db = "u303407946_cvsutanzalib";
+
+$server = "localhost";
+$user = "root";
+$pass = "";
+$db = "cvsupages";
 
 $conn = mysqli_connect($server, $user, $pass, $db);
 
