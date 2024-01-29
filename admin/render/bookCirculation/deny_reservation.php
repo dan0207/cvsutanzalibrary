@@ -78,11 +78,23 @@
                         <label for="declineOption">Decline Options:</label>
                         <select class="form-control" id="declineOption" name="selectedOption">
                             <option value="default" selected>Select an option</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                            <option value="option4">Option 4</option>
-                            <option value="option5">Option 5</option>
+                            
+                            <!-- The student may have violated library policies, such as having outstanding fines or overdue materials,
+                            preventing them from borrowing additional books until the issues are resolved. -->
+                            <option value="Policy Violation">Policy Violation</option>
+
+                            <!-- The student may have initially reserved the book but later canceled the request due to a change of mind
+                            or a decision to use alternative resources. -->
+                            <option value="Reservation Cancellation">Reservation Cancellation</option>
+
+                            <!-- The student may have lost the book and is in the process of resolving the issue with the library, making
+                            it temporarily unavailable until the matter is resolved. -->
+                            <option value="Lost Book">Lost Book</option>
+
+                            <!-- If the library is closed for a holiday, maintenance, or any other reason, students may not be able to access 
+                            or borrow books during that time. -->
+                            <option value="Library Closure">Library Closure</option>
+
                         </select>
                     </div>
                     <div class="text-end">
@@ -95,7 +107,8 @@
                         // Insert the data into the booktransaction table when the button is clicked
                         $remarks = $_POST["selectedOption"];
                         if($remarks != 'default') {
-                            insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $remarks);
+                            $remarksOption = 'Declined, ' . $remarks; 
+                            insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $remarksOption);
                         } else {
                             echo "<p class='text-danger'>Please select valid value</p>";
                         }
