@@ -1,4 +1,4 @@
-<table id="user_attendance_table" class="nowrap responsive text-center row-border rounded-3 compact" style="width:100%">
+<table id="user_attendance_table" class="nowrap responsive text-center row-border rounded-3 compact border border-2" style="width:100%">
     <thead>
         <tr>
             <th class="text-center">Time: </th>

@@ -29,5 +29,3 @@
 <!-- SCRIPT FOR GOOGLE IDENTITY -->
 <script src="https://accounts.google.com/gsi/client" async></script>
 <!-- SCRIPT FOR GOOGLE IDENTITY -->
-
-

@@ -80,7 +80,13 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                             </div>
                             <div class="display-time text-center rounded-5 display-2 fw-bold" style="font-family: 'Lato', sans-serif;"></div>
                         </div>
+                        <div class="log-btn text-center my-3">
+                            <a type="button" href="../web_contents/attendance_log.php" class="btn btn-lg btn-primary px-5">
+                                View Log book
+                            </a>
+                        </div>
                     </div>
+
                     <div class="col-4 pe-0 h-100">
                         <div class="sidebar m-0 rounded-3 p-5 shadow-sm bg-surface h-100">
                             <div class="card text-center h-100 border-0 shadow-lg bg-surface">
@@ -94,6 +100,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                         </div>
                     </div>
                 </div>
+
                 <div class="after-scanning row h-100" data-aos="fade-in" data-aos-duration="1000">
                     <div class="col-8 rounded-3 border shadow bg-surface h-100 p-5">
                         <div class="library-registry p-5 border rounded-3 shadow-lg bg-surface h-100">
@@ -101,7 +108,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                 <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                             </div>
                             <div class="attendance-container w-100 h-100 overflow-hidden">
-                                <div id="attendance_table" class="attendance-table border border-2 rounded-3">
+                                <div id="attendance_table" class="attendance-table">
                                     <?php include '../tables/user_attendance_table.php'; ?>
                                 </div>
                             </div>

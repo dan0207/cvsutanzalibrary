@@ -4,7 +4,6 @@ $user = "u303407946_cvsutanzalib";
 $pass = "uTQ^zBHA*k1";
 $db = "u303407946_cvsutanzalib";
 
-
 $conn = mysqli_connect($server, $user, $pass, $db);
 
 if (!$conn) {

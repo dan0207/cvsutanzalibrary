@@ -91,7 +91,7 @@
                     var email = $(this).data('email');
                     var accessNo = $(this).data('accessno');
                     var title = $(this).data('title');
-                    var author = $(this).data('author');
+                    var callno = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
 
@@ -102,7 +102,7 @@
                         '&email=' + email +
                         '&accessno=' + accessNo +
                         '&title=' + title +
-                        '&author=' + author +
+                        '&callno=' + callno +
                         '&pickupDate=' + pickupDate +
                         '&returnDate=' + returnDate;
                 });
@@ -117,7 +117,7 @@
                     var email = $(this).data('email');
                     var accessNo = $(this).data('accessno');
                     var title = $(this).data('title');
-                    var author = $(this).data('author');
+                    var callno = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
 
@@ -128,7 +128,7 @@
                         '&email=' + email +
                         '&accessno=' + accessNo +
                         '&title=' + title +
-                        '&author=' + author +
+                        '&callno=' + callno +
                         '&pickupDate=' + pickupDate +
                         '&returnDate=' + returnDate;
 
@@ -144,7 +144,7 @@
                     var email = $(this).data('email');
                     var accessNo = $(this).data('accessno');
                     var title = $(this).data('title');
-                    var author = $(this).data('author');
+                    var callno = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
@@ -156,7 +156,7 @@
                         '&email=' + email +
                         '&accessno=' + accessNo +
                         '&title=' + title +
-                        '&author=' + author +
+                        '&callno=' + callno +
                         '&pickupDate=' + pickupDate +
                         '&returnDate=' + returnDate +
                         '&fine=' + fine;
@@ -172,7 +172,7 @@
                     var email = $(this).data('email');
                     var accessNo = $(this).data('accessno');
                     var title = $(this).data('title');
-                    var author = $(this).data('author');
+                    var callno = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
@@ -184,7 +184,7 @@
                         '&email=' + email +
                         '&accessno=' + accessNo +
                         '&title=' + title +
-                        '&author=' + author +
+                        '&callno=' + callno +
                         '&pickupDate=' + pickupDate +
                         '&returnDate=' + returnDate +
                         '&fine=' + fine;
@@ -200,7 +200,7 @@
                     var email = $(this).data('email');
                     var accessNo = $(this).data('accessno');
                     var title = $(this).data('title');
-                    var author = $(this).data('author');
+                    var callno = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
@@ -212,7 +212,7 @@
                         '&email=' + email +
                         '&accessno=' + accessNo +
                         '&title=' + title +
-                        '&author=' + author +
+                        '&callno=' + callno +
                         '&pickupDate=' + pickupDate +
                         '&returnDate=' + returnDate +
                         '&fine=' + fine;

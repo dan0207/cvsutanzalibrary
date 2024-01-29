@@ -11,16 +11,16 @@
         $email = $_GET['email'];
         $accessNo = $_GET['accessno'];
         $title = $_GET['title'];
-        $author = $_GET['author'];
+        $callno = $_GET['callno'];
         $pickupDate = $_GET['pickupDate'];
         $returnDate = $_GET['returnDate'];
     }
 
     // Function to insert data into the booktransaction table
-    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $author, $pickupDate, $returnDate)
+    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate)
     {
-        $sql = "INSERT INTO bookborrowed (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookAuthor, pickupDate, returnDate) 
-                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$author', '$pickupDate', '$returnDate')";
+        $sql = "INSERT INTO bookborrowed (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookCallNo, pickupDate, returnDate) 
+                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$callno', '$pickupDate', '$returnDate')";
 
         if ($conn->query($sql) === TRUE) {
             // Delete the record from the bookreserve table
@@ -42,7 +42,7 @@
 
     if (isset($_POST['insert_button'])) {
         // Insert the data into the booktransaction table when the button is clicked
-        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $author, $pickupDate, $returnDate);
+        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate);
 
     }
 
@@ -76,7 +76,7 @@
                     echo '<p><strong>Email:</strong> ' . $email . '</p>';
                     echo '<p><strong>Book Access No.:</strong> ' . $accessNo . '</p>';
                     echo '<p><strong>Book Title:</strong> ' . $title . '</p>';
-                    echo '<p><strong>Book Author:</strong> ' . $author . '</p>';
+                    echo '<p><strong>Book Call No:</strong> ' . $callno . '</p>';
                     echo '<p><strong>Pickup Date:</strong> ' . $pickupDate . '</p>';
                     echo '<p><strong>Return Date:</strong> ' . $returnDate . '</p>';
                 ?>

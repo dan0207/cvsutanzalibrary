@@ -41,7 +41,11 @@
         <script>
             $(document).ready(function() {
                 var satisfactionTable =  $('#satisfactionRating').DataTable({
-                    scrollX: true
+                    scrollX: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
                 });
             })
 

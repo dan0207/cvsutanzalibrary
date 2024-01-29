@@ -16,7 +16,7 @@
                         <th>Name</th>
                         <th>Book Access No.</th>
                         <th>Book Title</th>
-                        <th>Book Author</th>
+                        <th>Book Call No.</th>
                         <th>Pickup Date</th>
                         <th>Return Date</th>
                         <th>Course & Section</th>
@@ -43,7 +43,7 @@
                                             data-email="<?php echo $row["email"]; ?>"
                                             data-accessno="<?php echo $row["bookAccessNo"]; ?>"
                                             data-title="<?php echo $row["bookTitle"]; ?>"
-                                            data-author="<?php echo $row["bookAuthor"]; ?>"
+                                            data-callno="<?php echo $row["bookCallNo"]; ?>"
                                             data-pickup="<?php echo $row["pickupDate"]; ?>"
                                             data-return="<?php echo $row["returnDate"]; ?>">Pick Up
                                     </button> 
@@ -55,7 +55,7 @@
                                             data-email="<?php echo $row["email"]; ?>"
                                             data-accessno="<?php echo $row["bookAccessNo"]; ?>"
                                             data-title="<?php echo $row["bookTitle"]; ?>"
-                                            data-author="<?php echo $row["bookAuthor"]; ?>"
+                                            data-callno="<?php echo $row["bookCallNo"]; ?>"
                                             data-pickup="<?php echo $row["pickupDate"]; ?>"
                                             data-return="<?php echo $row["returnDate"]; ?>">Decline
                                     </button>
@@ -64,7 +64,7 @@
                                 <td><?php echo $row["name"]; ?></td>
                                 <td><?php echo $row["bookAccessNo"]; ?></td>
                                 <td><?php echo $row["bookTitle"]; ?></td>
-                                <td><?php echo $row["bookAuthor"]; ?></td>
+                                <td><?php echo $row["bookCallNo"]; ?></td>
                                 <td><?php echo $row['pickupDate']; ?></td>
                                 <td><?php echo $row["returnDate"]; ?></td>
                                 <td><?php echo $row["courseSection"]; ?></td>
@@ -79,12 +79,12 @@
                             $email = $row["email"];
                             $bookAccessNo = $row["bookAccessNo"];
                             $bookTitle = $row["bookTitle"];
-                            $bookAuthor = $row["bookAuthor"];
+                            $bookCalln = $row["bookCallNo"];
                             $pickupDate = $row['pickupDate'];
                             $returnDate = $row['returnDate'];
                             $remarks = "Cancelled, Missing the designated time.";
 
-                            $sql = "INSERT INTO bookTransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookAuthor, pickupDate, returnDate, remarks) VALUES ('$id', '$libraryId', '$name', '$courseSection', '$email', '$bookAccessNo', '$bookTitle', '$bookAuthor', '$pickupDate', '$returnDate', '$remarks')";
+                            $sql = "INSERT INTO booktransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookCallNo, pickupDate, returnDate, remarks) VALUES ('$id', '$libraryId', '$name', '$courseSection', '$email', '$bookAccessNo', '$bookTitle', '$bookCalln', '$pickupDate', '$returnDate', '$remarks')";
 
                             if (mysqli_query($conn, $sql)) {
                                 $sql1 = "DELETE FROM bookreserve WHERE id = '$id'";

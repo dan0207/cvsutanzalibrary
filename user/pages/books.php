@@ -10,7 +10,6 @@ include '../php_script/main_script.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../web_contents/head.php'; ?>
-    <link rel="stylesheet" href="../assets/vendor/css/tables.css">
     <title>Books • Tanza Campus Library</title>
 </head>
 

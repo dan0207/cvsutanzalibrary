@@ -11,16 +11,16 @@
         $email = $_GET['email'];
         $accessNo = $_GET['accessno'];
         $title = $_GET['title'];
-        $author = $_GET['author'];
+        $callno = $_GET['callno'];
         $pickupDate = $_GET['pickupDate'];
         $returnDate = $_GET['returnDate'];
     }
 
     // Function to insert data into the booktransaction table
-    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $author, $pickupDate, $returnDate, $remarks)
+    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $remarks)
     {
-        $sql = "INSERT INTO booktransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookAuthor, pickupDate, returnDate, remarks) 
-                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$author', '$pickupDate', '$returnDate', '$remarks')";
+        $sql = "INSERT INTO booktransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookcallNo, pickupDate, returnDate, remarks) 
+                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$callno', '$pickupDate', '$returnDate', '$remarks')";
 
         if ($conn->query($sql) === TRUE) {
             // Delete the record from the bookreserve table
@@ -68,7 +68,7 @@
                     echo '<p><strong>Email:</strong> ' . $email . '</p>';
                     echo '<p><strong>Book Access No.:</strong> ' . $accessNo . '</p>';
                     echo '<p><strong>Book Title:</strong> ' . $title . '</p>';
-                    echo '<p><strong>Book Author:</strong> ' . $author . '</p>';
+                    echo '<p><strong>Book Call No:</strong> ' . $callno . '</p>';
                     echo '<p><strong>Pickup Date:</strong> ' . $pickupDate . '</p>';
                     echo '<p><strong>Return Date:</strong> ' . $returnDate . '</p>';
                 ?>
@@ -95,7 +95,7 @@
                         // Insert the data into the booktransaction table when the button is clicked
                         $remarks = $_POST["selectedOption"];
                         if($remarks != 'default') {
-                            insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $author, $pickupDate, $returnDate, $remarks);
+                            insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $remarks);
                         } else {
                             echo "<p class='text-danger'>Please select valid value</p>";
                         }

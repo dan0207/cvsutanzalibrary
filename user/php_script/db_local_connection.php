@@ -5,6 +5,11 @@ $username = "u303407946_cvsutanzalib";
 $password = "uTQ^zBHA*k1";
 $database = "u303407946_cvsutanzalib";
 
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "cvsutanzalib_db";
+
 
 $db = new mysqli($servername, $username, $password, $database);
 

@@ -16,7 +16,7 @@
                         <th>Name</th>
                         <th>Book Access No.</th>
                         <th>Book Title</th>
-                        <th>Book Author</th>
+                        <th>Book Call No.</th>
                         <th>Pickup Date</th>
                         <th>Return Date</th>
                         <th>Fine</th>
@@ -40,7 +40,7 @@
                                         data-email="<?php echo $rowBorrowed["email"]; ?>"
                                         data-accessno="<?php echo $rowBorrowed["bookAccessNo"]; ?>"
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
-                                        data-author="<?php echo $rowBorrowed["bookAuthor"]; ?>"
+                                        data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Returned
@@ -53,7 +53,7 @@
                                         data-email="<?php echo $rowBorrowed["email"]; ?>"
                                         data-accessno="<?php echo $rowBorrowed["bookAccessNo"]; ?>"
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
-                                        data-author="<?php echo $rowBorrowed["bookAuthor"]; ?>"
+                                        data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Missing
@@ -66,7 +66,7 @@
                                         data-email="<?php echo $rowBorrowed["email"]; ?>"
                                         data-accessno="<?php echo $rowBorrowed["bookAccessNo"]; ?>"
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
-                                        data-author="<?php echo $rowBorrowed["bookAuthor"]; ?>"
+                                        data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Damaged
@@ -76,7 +76,7 @@
                             <td><?php echo $rowBorrowed["name"]; ?></td>
                             <td><?php echo $rowBorrowed["bookAccessNo"]; ?></td>
                             <td><?php echo $rowBorrowed["bookTitle"]; ?></td>
-                            <td><?php echo $rowBorrowed["bookAuthor"]; ?></td>
+                            <td><?php echo $rowBorrowed["bookCallNo"]; ?></td>
                             <td><?php echo $rowBorrowed["pickupDate"]; ?></td>
                             <td><?php echo $rowBorrowed["returnDate"]; ?></td>
                             <td id="bookPenalty">
