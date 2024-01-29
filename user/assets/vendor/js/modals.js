@@ -34,7 +34,7 @@ const signup_qr_code_img = document.getElementById('signup_qr_code_img');
 const add_new_event_modal = document.getElementById('add_new_event_modal');
 const login_reminder_modal = document.getElementById('login_reminder_modal');
 const signup_reminder_modal = document.getElementById('signup_reminder_modal');
-const user_form_modal = document.getElementById('user_form_modal');
+const user_signup_modal = document.getElementById('user_signup_modal');
 const user_review_modal = document.getElementById('user_review_modal');
 const book_request_form_modal = document.getElementById('book_request_form_modal');
 const book_request_privacy_modal = document.getElementById('book_request_privacy_modal');
@@ -58,8 +58,8 @@ const receipt_download_btn = document.getElementById("receipt_download_btn");
 
 const signup_reminder_modal_btn = document.getElementById("signup_reminder_modal_btn");
 const add_new_event_modal_btn = document.getElementById("add_new_event_modal_btn");
-const user_signup_modal = document.getElementById("user_signup_modal");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
+const user_signup_modal_btn = document.getElementById("user_signup_modal_btn");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 const book_request_privacy_btn = document.getElementById("book_request_privacy_btn");
 const book_request_review_modal_btn = document.getElementById("book_request_review_modal_btn");
@@ -236,7 +236,7 @@ function handle_receiptSubmitBtn() {
         body: formData
     })
         .then(response => response.json())
-        .then(data => {            
+        .then(data => {
             generateBarCode("#book_receipt_id", data.transactionNo, 2, 50, 14);
         })
         .catch(error => {
@@ -264,7 +264,9 @@ function handle_receiptDownloadBtn() {
 
 
 function handle_UserFormModalBtn() {
-    showModal(user_review_modal.id, user_form_modal.id);
+    setupFormValidation(user_form.id, user_signup_modal.id, function (e) {
+        showModal(user_review_modal.id, user_signup_modal.id);
+    });
 }
 
 function handle_addNewEventModalBtn() {
@@ -394,6 +396,7 @@ receipt_download_btn.addEventListener("click", handle_receiptDownloadBtn);
 
 add_new_event_modal_btn.addEventListener("click", handle_addNewEventModalBtn);
 user_review_modal_btn.addEventListener("click", handle_UserReviewModalBtn);
+user_signup_modal_btn.addEventListener("click", handle_UserFormModalBtn);
 login_reminder_modal_btn.addEventListener("click", handle_LoginReminderModalBtn);
 book_request_privacy_btn.addEventListener("click", handle_bookRequestPrivacyStatementBtn);
 
@@ -423,7 +426,6 @@ book_request_privacy_checkbox.addEventListener("change", handle_bookRequestPriva
 
 // // Call Functions /////////////////////////////////////////////////////////
 
-setupFormValidation(user_form.id, user_signup_modal.id, handle_UserFormModalBtn);
 setupFormValidation(book_request_review_form.id, book_request_review_modal_btn.id, handle_bookRequestReviewModalBtn);
 // // Call Functions /////////////////////////////////////////////////////////
 
