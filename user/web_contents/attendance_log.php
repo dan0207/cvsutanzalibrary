@@ -55,7 +55,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
             <div class="body px-5 h-70">
                 <div class="row h-100" data-aos="fade-in" data-aos-duration="1000">
                     <div class="library-registry p-5 rounded-3 shadow-lg bg-surface h-100">
-                        <div class="attendance-title text-center mb-3">
+                        <div class="attendance-title text-center mb-3 h-10">
                             <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                         </div>
                         <div class="attendance-container w-100 h-80 overflow-hidden">
@@ -63,9 +63,9 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                 <?php include '../tables/user_attendance_table.php'; ?>
                             </div>
                         </div>
-                        <div class="log-btn text-center my-3 mt-auto">
-                            <a type="button" href="../pages/attendance.php" class="btn btn-lg btn-primary px-5">
-                                Back to Attendance
+                        <div class="log-btn my-3 mt-auto h-10">
+                            <a type="button" href="../pages/attendance.php" class="btn btn-lg btn-secondary text-onSecondary px-3">
+                            <i class="fa-solid fa-arrow-left px-2"></i> Back to Attendance
                             </a>
                         </div>
                     </div>

@@ -135,7 +135,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                         ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>
                                         <h6 class="attendance-libraryid m-1" id="library_id"><?php echo mask($id) ?></h6>
-                                        <h5 class="<?php echo checkStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
+                                        <h5 class="<?php echo checkAttendanceStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
                                     </div>
                                 </div>
                             </div>

@@ -5,6 +5,7 @@
 :root {
   --primary-clr: #007205;
   --secondary-clr: #ff0000;
+  --tertiary-clr: #f0f2f5;
 }
 
 * {
@@ -156,8 +157,25 @@ td.notAvailable {
   display: none;
 }
 
-.dt-button {
-  background: #007205 !important;
-  color: #fff !important;
+.dt-button, .dt-button:focus {
   border-radius: 4px !important;
+  padding: 3px 30px !important;
+  outline: none !important;
 }
+
+.dt-buttons .buttons-excel {
+  background: var(--primary-clr) !important;
+  color: #fff !important;
+}
+.dt-buttons .buttons-pdf {
+  background: var(--secondary-clr) !important;
+  color: #fff !important;
+}
+.dt-buttons .buttons-print {
+  background: var(--tertiary-clr) !important;
+  color: #000 !important;
+}
+/* .dt-buttons .buttons-print {
+  background: var(--secondary-clr) !important;
+  color: #fff !important;
+} */

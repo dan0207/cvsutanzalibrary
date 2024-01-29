@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_token = $user['user_token'];
 
 
-        $checkDuplicatesQuery = "SELECT COUNT(*) AS duplicate_count FROM attendance WHERE token = '$user_token' AND date = CURDATE()";
+        $checkDuplicatesQuery = "SELECT COUNT(*) AS duplicate_count FROM attendance WHERE libraryId = '$user_token' AND date = CURDATE()";
         $checkDuplicatesResult = mysqli_query($db, $checkDuplicatesQuery);
 
         if ($checkDuplicatesResult) {
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $duplicateCount = $duplicateuser['duplicate_count'];
             $status = ($duplicateCount % 2 === 1) ? 'OUT' : 'IN';
 
-            $insert = "INSERT INTO attendance (member_type, fullname, student_course, student_section, student_year, student_number, faculty_number, faculty_department, picture, email, token, status) VALUES ('$user_member_type','$user_fullname','$user_student_course','$user_student_section','$user_student_year','$user_student_number','$user_faculty_number','$user_faculty_department','$user_picture','$user_email','$user_token','$status')";
+            $insert = "INSERT INTO attendance (member_type, fullname, student_course, student_section, student_year, student_number, faculty_number, faculty_department, picture, email, libraryId, status) VALUES ('$user_member_type','$user_fullname','$user_student_course','$user_student_section','$user_student_year','$user_student_number','$user_faculty_number','$user_faculty_department','$user_picture','$user_email','$user_token','$status')";
             mysqli_query($db, $insert);
 
             $redirectUrl = "../pages/attendance.php?name=$user_fullname&course=$user_student_course&year=$user_student_year&section=$user_student_section&student_number=$user_student_number&faculty_number=$user_faculty_number&faculty_department=$user_faculty_department&email=$user_email&member_type=$user_member_type&picture=$user_picture&id=$user_token&status=$status";

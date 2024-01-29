@@ -97,7 +97,7 @@ function datatable_attendance()
     $columns = array(
         array('db' => 'time',               'dt' => 0),
         // array('db' => 'date',               'dt' => 1),
-        array('db' => 'student_number',     'dt' => 1),
+        array('db' => 'libraryId',          'dt' => 1),
         array('db' => 'fullname',           'dt' => 2),
         array('db' => 'student_course',     'dt' => 3),
         array('db' => 'status',             'dt' => 4),

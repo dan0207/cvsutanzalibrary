@@ -1,11 +1,6 @@
 <?php
 session_start();
-function convertDateFormat($inputDate)
-{
-    $dateTime = new DateTime($inputDate);
-    $outputDate = $dateTime->format('Y-m-d\TH:i:s.v\Z');
-    return $outputDate;
-}
+include '../php_script/main_script.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('db_local_connection.php');
@@ -23,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $returnDate = isset($_POST['returnDate']) ? $_POST['returnDate'] : '';
     $status = 'hold';
 
-    $pickupDate = convertDateFormat($pickupDate);
-    $returnDate = convertDateFormat($returnDate);
+    $pickupDate = getFormattedDate($pickupDate);
+    $returnDate = getFormattedDate($returnDate);
 
 
     if ($db && $result = mysqli_query($db, "SELECT * FROM bookreserve")) {

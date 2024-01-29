@@ -37,7 +37,7 @@ function getFormattedDate($dateString)
     return $formatedDate;
 }
 
-function checkStatus($status)
+function checkAttendanceStatus($status)
 {
     if ($status === 'OUT') {
         return "text-onSecondary bg-secondary";

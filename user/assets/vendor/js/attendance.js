@@ -105,7 +105,6 @@ $(".qr-scanner-input").change(function (e) {
     const toastLiveExample = document.getElementById('liveToast')
     const InvalidQRcodeTaost = bootstrap.Toast.getOrCreateInstance(toastLiveExample, { delay: 2000 })
 
-
     checkUserData(qr_scanner_input_value)
         .then(user_scan_valid => {
             if (user_scan_valid) {

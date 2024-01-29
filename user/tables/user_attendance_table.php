@@ -3,7 +3,7 @@
         <tr>
             <th class="text-center">Time: </th>
             <!-- <th class="text-center">Date: </th> -->
-            <th class="text-center">ID Number: </th>
+            <th class="text-center">Library ID: </th>
             <th class="text-center">Name: </th>
             <th class="text-center">Course/Department: </th>
             <th class="text-center">Status: </th>

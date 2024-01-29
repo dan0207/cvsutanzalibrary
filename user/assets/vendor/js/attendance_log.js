@@ -14,7 +14,7 @@ $(document).ready(function () {
         processing: true, // DO NOT REMOVE
         serverSide: true, // DO NOT REMOVE
         responsive: true,
-        paging: false,
+        iDisplayLength: 5,
         order: [[0, "desc"]],
         dom: 'Bfrtip',
         buttons: ['excel', 'pdf', 'print'],
@@ -38,4 +38,8 @@ $(document).ready(function () {
             },
         ]
     });
+
+    var buttonContainer = $('.dataTables_wrapper .dt-buttons');
+    var buttonText = $('<span class="fw-bold me-3">Download: </span>');
+    buttonContainer.prepend(buttonText);
 });
