@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $faculty_department = $_SESSION['user_faculty_department'];
     $member_type = $_SESSION['user_member_type'];
     $status = $_SESSION['user_status'];
-
+    
 
     $sql = "SELECT * FROM users WHERE user_token = '$token'";
     $result = mysqli_query($db, $sql);

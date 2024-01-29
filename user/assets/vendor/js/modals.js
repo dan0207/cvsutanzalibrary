@@ -34,7 +34,7 @@ const signup_qr_code_img = document.getElementById('signup_qr_code_img');
 const add_new_event_modal = document.getElementById('add_new_event_modal');
 const login_reminder_modal = document.getElementById('login_reminder_modal');
 const signup_reminder_modal = document.getElementById('signup_reminder_modal');
-const user_form_modal = document.getElementById('user_form_modal');
+const user_signup_modal = document.getElementById('user_signup_modal');
 const user_review_modal = document.getElementById('user_review_modal');
 const book_request_form_modal = document.getElementById('book_request_form_modal');
 const book_request_privacy_modal = document.getElementById('book_request_privacy_modal');
@@ -58,7 +58,6 @@ const receipt_download_btn = document.getElementById("receipt_download_btn");
 
 const signup_reminder_modal_btn = document.getElementById("signup_reminder_modal_btn");
 const add_new_event_modal_btn = document.getElementById("add_new_event_modal_btn");
-const user_signup_modal = document.getElementById("user_signup_modal");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 const book_request_privacy_btn = document.getElementById("book_request_privacy_btn");
@@ -264,7 +263,7 @@ function handle_receiptDownloadBtn() {
 
 
 function handle_UserFormModalBtn() {
-    showModal(user_review_modal.id, user_form_modal.id);
+    showModal(user_review_modal.id, user_signup_modal.id);
 }
 
 function handle_addNewEventModalBtn() {
