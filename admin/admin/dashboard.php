@@ -16,7 +16,7 @@
     
     <body>
         <?php include '../adminNavigation/header.php' ?>
-qeqweqweqweqeqwe
+
         <div class="pt-5">
             <?php include '../adminNavigation/sidebar.php'; ?>
         </div>
