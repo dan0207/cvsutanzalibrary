@@ -13,24 +13,6 @@
 
         <link rel="stylesheet" href="../assets/style/style.css">
         
-        <style>
-            
-        /* admin transaction | remarks change of colors */
-        .text-danger {
-            color: red;
-        }
-
-        .text-success {
-            color: green;
-        }
-
-        .text-warning {
-            color: orange;
-        }
-        /* admin transaction | remarks change of colors */
-
-
-        </style>
     </head>
 
     <body>
