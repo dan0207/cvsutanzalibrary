@@ -124,8 +124,8 @@ function checkUserData(qr_scanner_input_value) {
     return fetch('../php_script/db_getAllData.php')
         .then(response => response.json())
         .then(data => {
-            // let user_scan = Object.values(data.users).find(user => user.user_token === qr_scanner_input_value);
-            return 'user_scan';
+            let user_scan = Object.values(data.users).find(user => user.user_token === qr_scanner_input_value);
+            return user_scan;
         })
         .catch(error => {
             console.error('Error:', error);
