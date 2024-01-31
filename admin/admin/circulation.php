@@ -2,6 +2,12 @@
     include '../render/connection.php';
     include '../assets/cdn/cdn_links.php';
     include '../assets/fonts/fonts.php';
+    
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../index.php"); // Redirect to the index if not logged in
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,24 +19,6 @@
 
         <link rel="stylesheet" href="../assets/style/style.css">
         
-        <style>
-            
-        /* admin transaction | remarks change of colors */
-        .text-danger {
-            color: red;
-        }
-
-        .text-success {
-            color: green;
-        }
-
-        .text-warning {
-            color: orange;
-        }
-        /* admin transaction | remarks change of colors */
-
-
-        </style>
     </head>
 
     <body>

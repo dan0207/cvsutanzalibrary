@@ -9,6 +9,12 @@
 
     <link rel="stylesheet" href="assets/style/style.css">
     <?php include "assets/cdn/cdn_links.php"; ?>
+
+    <style>
+        .fs-small {
+            font-size: .7rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +54,6 @@
             <form class="pt-1" action="index.php" method="post">
                 <h2>Librarian</h2>
 
-                <p class="text-center pt-2">or</p>
                 <div id="g_id_onload" data-client_id="171145039223-i2oabkul3cr1qflpogvbm55taag2a3kj.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-nonce="" data-itp_support="true">
                 </div>
 
@@ -58,6 +63,8 @@
                     <input type="file" id="avatar_fileInput" class="d-none">
                 </div>
 
+                <p class="text-center pt-3 fs-small">or login using username and password</p>
+                
                 <div id="text-field">
                     <label for="username">Username</label>
                     <input type="text" name="username" autocomplete="off" required placeholder="Enter your username">

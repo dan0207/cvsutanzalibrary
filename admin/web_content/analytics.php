@@ -91,15 +91,72 @@
                 <div class="row">
                     <div class="col">
                         <p>Borrow Request</p>
-                        <span>2</span>
+                        <?php
+                            $currentDay = date('d');
+                            $sql = "SELECT COUNT(*) as total_rows FROM bookreserve WHERE DAY(pickupDate) = $currentDay";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // Fetch the result as an associative array
+                                $row = $result->fetch_assoc();
+
+                                // Access the total_rows field
+                                $totalRows = $row["total_rows"];
+
+                                // Display the total number of rows
+                                echo $totalRows;
+                            } else {
+                                echo "No rows found";
+                            }
+                        ?>
                     </div>
                     <div class="col">
                         <p>Borrowed Books</p>
-                        <span>7</span>
+                        <?php
+                            $currentDay = date('d');
+                            $sql = "SELECT COUNT(*) as total_rows FROM bookborrowed WHERE DAY(pickupDate) = $currentDay";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // Fetch the result as an associative array
+                                $row = $result->fetch_assoc();
+
+                                // Access the total_rows field
+                                $totalRows = $row["total_rows"];
+
+                                // Display the total number of rows
+                                echo $totalRows;
+                            } else {
+                                echo "No rows found";
+                            }
+                        ?>
                     </div>
                     <div class="col">
                         <p>Fine Collected</p>
-                        <span>0</span>
+                        <?php
+                            $currentDay = date('d');
+                            $totalFine = 0;
+                            // Construct the SQL query to fetch data for the current month
+                            $sql = "SELECT * FROM bookTransaction WHERE DAY(returnDate) = $currentDay";
+
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // Output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    // Check if 'fine' is a valid number
+                                    if (is_numeric($row['fine'])) {
+                                        // Cast 'fine' to an integer before adding to totalFine
+                                        $totalFine += (int)$row['fine'];
+                                    }
+                                }
+                            
+                                // Display the total fine after processing all rows
+                                echo $totalFine;
+                            } else {
+                                echo "0";
+                            }
+                        ?>
                     </div>
                 </div>
                 
