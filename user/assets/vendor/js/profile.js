@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { } from '../../js/main.js';
+import { confirmationModal } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 $(document).ready(function () {
@@ -16,8 +16,6 @@ $(document).ready(function () {
         iDisplayLength: 10,
         responsive: true,
         order: [[0, "desc"]],
-        // dom: 'Bfrtip',
-        // buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         columnDefs: [
             {
                 targets: -1,
@@ -70,14 +68,16 @@ $(document).ready(function () {
             {
                 targets: 1,
                 render: function (data, type, row) {
-                    let value = row[1];
-                    if (value == 0) {
+                    let curDate = new Date();
+                    let value = new Date(row[4]);
+                    if (value.getDate() == curDate.getDate()) {
                         return "<h7 class='fw-semibold text-primary m-0'>Return Day</h7>";
-                    } else if (value < 0) {
-                        return "<h7 class='fw-semibold text-secondary m-0'>OVERDUE</h7>";
+                    } else if (value.getDate() > curDate.getDate() && value.getMonth() >= curDate.getMonth()) {
+                        return "<h7 class='fw-semibold text-secondary m-0'>OVERDUE "+curDate.getMonth()+"</h7>";
                     } else {
-                        let d = data > 1 ? 's' : '';
-                        return "<h7 class='fw-semibold text-primary m-0'>" + data + " day" + d + " left</h7>";
+                        let interval = value.getDate() + curDate.getDate();
+                        let d = interval > 1 ? 's' : '';
+                        return "<h7 class='fw-semibold text-primary m-0'>" + interval + " day" + d + " left</h7>";
                     }
                 }
             }, {
@@ -110,9 +110,12 @@ $(document).ready(function () {
 });
 
 
-let logout_btn = document.querySelectorAll("logout-btn");
+let logout_btn = document.querySelectorAll(".logout-btn");
 logout_btn.forEach(function (e) {
     e.addEventListener("click", function () {
         sessionStorage.clear();
+        confirmationModal('Are you sure you want to logout?', 'Logout', function confirmationModal_function (e) {
+            location.href = '../php_script/logout_script.php';
+        });
     });
 })

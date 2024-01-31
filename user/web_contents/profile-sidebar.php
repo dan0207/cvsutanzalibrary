@@ -33,8 +33,7 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <a class="logout-btn btn btn-primary mt-auto fs-7 rounded-0 mb-3 d-none d-lg-block" href="../php_script/logout_script.php" type="button">Logout</a>
+                        <button class="logout-btn btn btn-primary mt-auto fs-7 rounded-0 mb-3 d-none d-lg-block" type="button">Logout</button>
                     </div>
                 </div>
             </div>

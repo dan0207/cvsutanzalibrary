@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="border d-lg-none rounded-3 shadow bg-body-tertiary my-3 p-3 d-flex justify-content-center align-items-center">
-                            <a class="logout-btn btn btn-primary fs-7 rounded-0 w-100 rounded-3" href="../pages/home.php" type="button">Logout</a>
+                            <button class="logout-btn btn btn-primary fs-7 rounded-0 w-100 rounded-3" type="button">Logout</button>
                         </div>
                     </div>
                 </div>

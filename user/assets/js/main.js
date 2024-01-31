@@ -13,6 +13,14 @@ export function updateSession() {
         });
 }
 
+export function confirmationModal(title, btnText, confirmationModal_function ) {
+    $('#confirmationModal_title').text(title);
+    showModal('confirmationModal');
+    const $confirmationModal_btn = $('#confirmationModal_btn');
+    $confirmationModal_btn.text(btnText);
+    $confirmationModal_btn.on('click', confirmationModal_function);
+}
+
 export function showModal(show_id, hide_id) {
     if (show_id) {
         $('#' + show_id).modal('show');
@@ -158,7 +166,7 @@ export async function selectBookReservation() {
     borrowPeriod(unavailableDates);
 }
 
-export function getBase64ImageSync(url,callback) {
+export function getBase64ImageSync(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         var reader = new FileReader();

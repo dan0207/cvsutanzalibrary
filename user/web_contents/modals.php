@@ -1,5 +1,25 @@
 <script src="../assets/vendor/js/modals.js" type="module"></script>
 
+<!-- Confirmation modal -->
+<div class="modal fade" id="confirmationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
+                <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
+                <button type="button" class="btn-close z-3 position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h5 id="confirmationModal_title" class="modal-title my-3">Title of Modal</h5>
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button type="button" class="btn btn-secondary text-onSecondary" data-bs-dismiss="modal">Close</button>
+                <button id="confirmationModal_btn" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirmation modal -->
+
 <!-- Add New Event Modal -->
 <div class="modal fade" id="add_new_event_modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
