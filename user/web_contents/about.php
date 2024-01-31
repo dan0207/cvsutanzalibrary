@@ -4,10 +4,7 @@ function callData($maintext)
 {
     require('../php_script/db_local_connection.php');
     $select_sql = "SELECT subText FROM librarypages WHERE mainText = '" . $maintext . "'";
-    $select_sql1 = mysqli_query($db, $select_sql);
-    while ($vision = mysqli_fetch_array($select_sql1)) {
-        echo $vision['subText'];
-    }
+    mysqli_query($db, $select_sql);
 }
 
 ?>

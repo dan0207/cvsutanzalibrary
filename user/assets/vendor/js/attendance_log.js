@@ -1,8 +1,9 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { getBase64ImageSync } from '../../js/main.js';
+import { getBase64ImageSync, getformatDate } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 $(document).ready(function () {
+    let curDate = getformatDate(new Date());
     let headerImg;
     getBase64ImageSync('../assets/img/fileheader.png', function (base64) { headerImg = (base64); });
     $('#user_attendance_table').DataTable({
@@ -26,29 +27,23 @@ $(document).ready(function () {
         dom: 'Bfrtip',
         buttons: [{
             extend: 'excelHtml5',
-            title: 'Hello',
+            title: 'Library Attendance ' + curDate,
             text: 'Excel',
-            titleAttr: 'Export Excel',
-            "oSelectorOpts": { filter: 'applied', order: 'current' },
-            exportOptions: {
-                modifier: {
-                    page: 'all'
-                },
-                format: {
-                    header: function (data, columnIdx) {
-                        if (columnIdx == 1) {
-                            return 'column_1_header';
-                        }
-                        else {
-                            return data;
-                        }
-                    }
-                }
+            customize: function (xlsx) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                // $('c[r=A1] t', sheet).text( 'Cavite State University Tanza Campus' );
+                $('c[r=A1]', sheet).attr( 's', '51');
+                // $('row c[r^="A"]', sheet).each(function () {
+                //     // Get the value
+                //     // if ($('is t', this).text() == 'New York') {
+                //         $(this).attr('s', '20');
+                //     // }
+                // });
             }
         },
         {
             extend: 'pdfHtml5',
-            title: 'Library Entry ',
+            title: 'Library Attendance ' + curDate,
             download: 'open',
             customize: function (doc) {
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');

@@ -25,14 +25,13 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../web_contents/head.php'; ?>
     <title>Attendance • Tanza Campus Library</title>
-    <style></style>
 </head>
 
 <body class="attendance">
     <!-- Header -->
     <nav id="navbar" class="navbar vh-5 navbar-expand-lg navbar-onSurface bg-surface border-bottom shadow-sm bg-body-surface">
         <div class="container-fluid">
-            <a class="navbar-brand py-1 p-0" href="../pages/home.php" type="button">
+            <a class="navbar-brand py-1 p-0" href="home.php" type="button">
                 <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="180" class="img-responsive">
             </a>
             <ul class="navbar-nav nav-pills text-center ms-auto mt-3 my-lg-auto" id="navTab_pill">
