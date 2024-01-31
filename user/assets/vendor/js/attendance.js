@@ -111,7 +111,7 @@ $(".qr-scanner-input").change(function (e) {
     checkUserData(qr_scanner_input_value)
         .then(user_scan_valid => {
             if (user_scan_valid) {
-                // $('#qrForm').off('submit').submit();
+                $('#qrForm').off('submit').submit();
             } else {
                 InvalidQRcodeTaost.show()
             }
