@@ -123,14 +123,14 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                         <img id="attendance_picture" src="<?php echo $picture; ?>" class="img-responsive rounded-circle border border-5 border-tertiary shadow h-70" alt="user">
                                     </div>
                                     <div class="attendance-details mx-4 h-60 d-flex flex-column justify-content-evenly">
-                                        <h4 class="attendance-name m-1"><?php echo $name; ?></h4>
+                                        <h5 class="attendance-name m-0"><?php echo $name; ?></h5>
                                         <?php
                                         if ($member_type == 'Faculty') {
-                                            echo "<h6 class='attendance-faculty-department m-1'>$faculty_department</h6>";
-                                            echo "<h6 class='attendance-faculty-number m-1'>$faculty_number</h6>";
+                                            echo "<h6 class='attendance-faculty-department m-0'>$faculty_department</h6>";
+                                            echo "<h6 class='attendance-faculty-number m-0'>$faculty_number</h6>";
                                         } else {
                                             echo "<h6 class='attendance-student-courseSection m-1'>$courseSection</h6>";
-                                            echo "<h6 class='attendance-student-number m-1'>$student_number</h6>";
+                                            echo "<h6 class='attendance-student-number m-0'>$student_number</h6>";
                                         }
                                         ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>
@@ -156,7 +156,6 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
         </div>
     </footer>
     <!-- Footer -->
-
 
     <!-- Script -->
     <script src="../assets/vendor/js/attendance.js" type="module"></script>
