@@ -68,16 +68,13 @@ $(document).ready(function () {
             {
                 targets: 1,
                 render: function (data, type, row) {
-                    let curDate = new Date();
-                    let value = new Date(row[4]);
-                    if (value.getDate() == curDate.getDate()) {
-                        return "<h7 class='fw-semibold text-primary m-0'>Return Day</h7>";
-                    } else if (value.getDate() > curDate.getDate() && value.getMonth() >= curDate.getMonth()) {
-                        return "<h7 class='fw-semibold text-secondary m-0'>OVERDUE "+curDate.getMonth()+"</h7>";
+                    let value = row[1];
+                    if (value == 'Return Day') {
+                        return "<h7 class='fw-semibold text-primary m-0'> "+data+" </h7>";
+                    } else if (value == 'Overdue') {
+                        return "<h7 class='fw-semibold text-secondary m-0'>"+data+"</h7>";
                     } else {
-                        let interval = value.getDate() + curDate.getDate();
-                        let d = interval > 1 ? 's' : '';
-                        return "<h7 class='fw-semibold text-primary m-0'>" + interval + " day" + d + " left</h7>";
+                        return "<h7 class='fw-semibold text-primary m-0'>"+data+"</h7>";
                     }
                 }
             }, {
