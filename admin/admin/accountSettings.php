@@ -22,18 +22,73 @@
         </div>
 
         <div id="admin-body">
-            <h1 id="pageHeader" class="mb-5">Account Settings</h1>
-
-            <div class="container">
+            <h1 id="pageHeader">Account Settings</h1>
+            <div class="container-fluid p-1">
                 <section id="profile">
-                    <h1 id="pageHeader">Profile</h1>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="row card px-2 m-2 admin-profile text-center">
+                                Profile
+                                <div class="mt-auto text-center">
+                                    <a class="nav-link text-primary fs-small" href="">change profile picture</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-sm-12">
+                            <div class="row px-2 card m-2">
+                                Email: 
+                            </div>
+                            <div class="row card px-2 m-2">
+                                Faculty Number: 
+                            </div>
+                            <div class="row card px-2 m-2">
+                                Member Type: 
+                            </div>
+                            <div class="row card px-2 m-2">
+                                Username: 
+                            </div>
+                            <div class="row card px-2 m-2">
+                                Password: 
+                                <a class="nav-link text-primary ps-3 fs-small" href="">change password</a>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section id="personalInfo">
                     <h1 id="pageHeader">Personal Information</h1>
+                    <div class="row py-1">
+                        <div class="col-lg-5 col-sm-10">
+                            <div class="row card px-2 m-1">
+                                Lastname: 
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-sm-10">
+                            <div class="row card px-2 m-1">
+                                Firstname:
+                            </div> 
+                        </div>
+                        <div class="col-lg-2 col-sm-10">
+                            <div class="row card px-2 m-1">
+                                M.I.: 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-lg-6 col-sm-10">
+                            <div class="row card px-2 m-1">
+                                Birthday: 
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-10">
+                            <div class="row card px-2 m-1">
+                                Gender: 
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
-
+<!-- Firstname,lastname, middle, birthday, gender, -->
         <script src="../assets/script/script.js"></script>
     </body>
 </html>
