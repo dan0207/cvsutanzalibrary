@@ -44,9 +44,9 @@
                                 <?php include '../tables/user_attendance_table.php'; ?>
                             </div>
                         </div>
-                        <div class="log-btn my-3 mt-auto h-10">
-                            <a type="button" href="../pages/attendance.php" class="btn btn-lg btn-secondary text-onSecondary px-3">
-                            <i class="fa-solid fa-arrow-left px-2"></i> Back to Attendance
+                        <div class="log-btn my-3 h-10">
+                            <a type="button" href="../pages/attendance.php" class="btn btn-secondary text-onSecondary px-3">
+                            <i class="fa-solid fa-arrow-left px-2"></i> Back
                             </a>
                         </div>
                     </div>
