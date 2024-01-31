@@ -3,6 +3,7 @@
 <link rel="icon" type="image/x-icon" href="../assets/img/cvsutanza-logo.png">
 <!-- Web Icon -->
 
+
 <!-- Vendor CSS Files -->
 <link rel="stylesheet" href="../assets/vendor/css/bootstrap.min.css">
 <link rel="stylesheet" href="../assets/vendor/css/header.css">

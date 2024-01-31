@@ -107,7 +107,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                             <div class="attendance-title text-center mb-3">
                                 <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                             </div>
-                            <div class="attendance-container w-100 h-100 overflow-hidden">
+                            <div class="attendance-container w-100 h-80">
                                 <div id="attendance_table" class="attendance-table">
                                     <?php include '../tables/user_attendance_table.php'; ?>
                                 </div>

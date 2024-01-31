@@ -1,22 +1,3 @@
-<?php
-include '../php_script/main_script.php';
-
-$name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Name';
-$student_number = isset($_GET['student_number']) ? htmlspecialchars($_GET['student_number']) : 'Student Number';
-$faculty_number = isset($_GET['faculty_number']) ? htmlspecialchars($_GET['faculty_number']) : 'Employee ID';
-$faculty_department = isset($_GET['faculty_department']) ? htmlspecialchars($_GET['faculty_department']) : 'Department';
-$email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : 'Email';
-$member_type = isset($_GET['member_type']) ? htmlspecialchars($_GET['member_type']) : 'User';
-$picture = isset($_GET['picture']) ? htmlspecialchars($_GET['picture']) : '../assets/img/student-icon.png';
-$id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : 'Library ID';
-$status = isset($_GET['status']) ? htmlspecialchars($_GET['status']) : '';
-
-
-$courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['section']) ? getFormatCourseSection(htmlspecialchars($_GET['course']), htmlspecialchars($_GET['year']), htmlspecialchars($_GET['section'])) : 'Course & Section';
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,8 +39,8 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                         <div class="attendance-title text-center mb-3 h-10">
                             <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                         </div>
-                        <div class="attendance-container w-100 h-80 overflow-hidden">
-                            <div id="attendance_table" class="attendance-table">
+                        <div class="attendance-container w-100 h-80">
+                            <div id="attendance_log_table" class="attendance-table h-95">
                                 <?php include '../tables/user_attendance_table.php'; ?>
                             </div>
                         </div>

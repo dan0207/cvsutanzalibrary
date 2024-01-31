@@ -28,7 +28,7 @@ export function generateQRCode(qr_text, qr_size) {
     return googleChartApiUrl;
 }
 
-export function generateBarCode(barcodeContainer, barcodeText,  barcodeWidth, barcodeHeight, barcodeFontsize) {
+export function generateBarCode(barcodeContainer, barcodeText, barcodeWidth, barcodeHeight, barcodeFontsize) {
     JsBarcode(barcodeContainer, barcodeText, {
         format: "CODE128",
         width: barcodeWidth,
@@ -158,6 +158,19 @@ export async function selectBookReservation() {
     borrowPeriod(unavailableDates);
 }
 
+export function getBase64ImageSync(url,callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+}
 
 
 function borrowPeriod(reservedDates) {

@@ -16,6 +16,9 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         responsive: true,
         paging: false,
+        scrollY: $('.attendance-container').height(),
+        deferRender: true,
+        scroller: true,
         order: [[0, "desc"]],
         columnDefs: [
             {

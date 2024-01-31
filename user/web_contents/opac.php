@@ -1,5 +1,5 @@
-<div class="opac-background rounded-bottom-4" data-aos="fade-down" data-aos-duration="1000">
-    <div class="opac-mask rounded-bottom-4 bg-primary bg-opacity-75">
+<div class="opac-background" data-aos="fade-down" data-aos-duration="1000">
+    <div class="opac-mask bg-primary bg-opacity-75">
         <div class="opac-page vh-35 d-flex align-items-center justify-content-center text-center p-2 text-onPrimary">
             <div class="opac-content">
                 <h1 class="opac-title display-1" style="font-family: anton;">TANZA CAMPUS LIBRARY</h1>
