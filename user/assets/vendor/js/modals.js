@@ -260,6 +260,9 @@ function handle_receiptDownloadBtn() {
         link.click();
     });
     showModal('', book_request_receipt_modal.id);
+    setInterval(function (e) {
+        location.reload();
+    },1000)
 }
 
 
@@ -313,9 +316,6 @@ function handle_membertype() {
         user_faculty_number_input.required = false;
         user_faculty_department_select.required = false;
     }
-}
-
-function handle_bookRequestReviewModal() {
 }
 
 function handle_bookRequestPrivacyStatementBtn() {

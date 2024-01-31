@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $returnDate = isset($_POST['returnDate']) ? $_POST['returnDate'] : '';
     $status = 'hold';
 
-    $pickupDate = getFormattedDate($pickupDate);
-    $returnDate = getFormattedDate($returnDate);
+    $date = new DateTime($pickupDate);
+    $pickupDate = $date->format('Y-m-d');
+    $date = new DateTime($returnDate);
+    $returnDate = $date->format('Y-m-d');
 
 
     if ($db && $result = mysqli_query($db, "SELECT * FROM bookreserve")) {
