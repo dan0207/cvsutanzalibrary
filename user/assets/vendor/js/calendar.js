@@ -89,7 +89,7 @@ function initCalendar() {
             activeDate = new Date(year, month, i);
             getActiveMonth(month);
             updateEvents(i);
-            days += `<div class="day py-2 text-bg-primary today active ${event ? 'event' : ''}">${i}</div>`;
+            days += `<div class="day py-2 text-bg-primary rounded-3 today active ${event ? 'event' : ''}">${i}</div>`;
         } else {
             days += `<div class="day py-2 text-primary ${event ? 'event' : ''}">${i}</div>`;
         }
