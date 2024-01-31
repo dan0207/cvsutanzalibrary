@@ -28,11 +28,12 @@
         <div id="admin-body">
             <section id="list">
                 <h1 id="pageHeader">List</h1>
-                <div class="container">
+                <div class="container-fluid p-3">
                     <table id="userList" class="table table-sm nowrap table-striped compact table-hover">
                         <thead>
                             <tr>
-                                <th>Full Name</th>
+                                <th>First Name</th>
+                                <th>Lastname</th>
                                 <th>Username</th>
                                 <th>CvSu Email</th>
                                 <th>Faculty No.</th>
@@ -41,8 +42,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>John Kenneth Villacorte</td>
-                                <td>johnkenneth</td>
+                                <td>John Kenneth</td>
+                                <td>Villacorte</td>
+                                <td>johnkenneth.villacorte</td>
                                 <td>johnkenneth.villacorte@cvsu.edu.ph</td>
                                 <td>102501</td>
                                 <td>Librarian</td>
@@ -67,7 +69,14 @@
 
         <script>
             $(document).ready(function() {
-                var satisfactionTable =  $('#userList').DataTable();
+                if (window.innerWidth <= 999) {
+                    var satisfactionTable =  $('#userList').DataTable({
+                        scrollX: true,
+                    });
+                } else {
+                    var satisfactionTable =  $('#userList').DataTable();
+                }
+                
             })
         </script>
     </body>
