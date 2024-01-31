@@ -105,13 +105,13 @@ $(".qr-scanner-input").change(function (e) {
     var qr_scanner_input = this;
     let qr_scanner_input_value = $(qr_scanner_input).val();
 
-    const toastLiveExample = document.getElementById('liveToast')
-    const InvalidQRcodeTaost = bootstrap.Toast.getOrCreateInstance(toastLiveExample, { delay: 2000 })
+    const toast = document.getElementById('liveToast')
+    const InvalidQRcodeTaost = bootstrap.Toast.getOrCreateInstance(toast, { delay: 2000 })
 
     checkUserData(qr_scanner_input_value)
         .then(user_scan_valid => {
             if (user_scan_valid) {
-                $('#qrForm').off('submit').submit();
+                // $('#qrForm').off('submit').submit();
             } else {
                 InvalidQRcodeTaost.show()
             }
@@ -124,8 +124,8 @@ function checkUserData(qr_scanner_input_value) {
     return fetch('../php_script/db_getAllData.php')
         .then(response => response.json())
         .then(data => {
-            let user_scan = Object.values(data.users).find(user => user.user_token === qr_scanner_input_value);
-            return user_scan;
+            // let user_scan = Object.values(data.users).find(user => user.user_token === qr_scanner_input_value);
+            return 'user_scan';
         })
         .catch(error => {
             console.error('Error:', error);
