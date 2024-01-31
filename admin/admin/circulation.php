@@ -28,6 +28,7 @@
             <?php include '../adminNavigation/sidebar.php'; ?>
         </div>
 
+    
         <div id="admin-body" class="pt-2">
             <section id="bookReservation" class="">
                 <?php include '../web_content/bookReservation.php'; ?>
