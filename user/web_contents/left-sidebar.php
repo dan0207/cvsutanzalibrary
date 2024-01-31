@@ -3,8 +3,7 @@
         <div class="card text-center mb-3 rounded-3">
             <div class="card-header text-bg-primary rounded-top-3">LIBRARY HOURS</div>
             <div class="card-body">
-                <p class="card-text">Monday - Thursday</p>
-                <p class="card-text fs-7">7AM-6PM</p>
+                <?php callDataFromDatabase('libraryHours') ?>
             </div>
         </div>
         <div class="card text-center mb-3 rounded-3">
