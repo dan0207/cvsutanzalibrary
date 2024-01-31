@@ -41,8 +41,9 @@ body {
 }
 
 .paginate_button {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 3px !important;
+    padding: 0px !important;
+    border-radius: 4px !important;
 }
 
 .paginate_button a {
@@ -76,6 +77,10 @@ body {
 .pageLengthSelect {
     padding: 3px 10px !important;
     margin: 5px 10px !important;
+}
+
+.fs-small {
+    font-size: .7rem;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -162,12 +167,11 @@ section {
     background: var(--bg-color);
     color: var(--text-color);
     border-radius: 50px;
-    font-size: 16px;
-    height: 50px;
-    width: 100%;
+    font-size: 75%;
+    width: 25%;
     margin-bottom: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: .5rem;
+    letter-spacing: .1rem;
 }
 
 #adminLogin #text-field input {
@@ -316,12 +320,9 @@ section {
     }
 
     #adminLogin button {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+        text-align: center;
         border-radius: 50px;
-        font-size: 8px;
-        height: 25px;
+        font-size: 75%;
         width: 50%;
         margin-bottom: 2.5px;
         letter-spacing: .2rem;

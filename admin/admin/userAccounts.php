@@ -28,6 +28,29 @@
         <div id="admin-body">
             <section id="list">
                 <h1 id="pageHeader">List</h1>
+                <div class="container">
+                    <table id="userList" class="table table-sm nowrap table-striped compact table-hover">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>CvSu Email</th>
+                                <th>Faculty No.</th>
+                                <th>Member Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Kenneth Villacorte</td>
+                                <td>johnkenneth</td>
+                                <td>johnkenneth.villacorte@cvsu.edu.ph</td>
+                                <td>102501</td>
+                                <td>Librarian</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
             </section>
             
             <section id="view">
@@ -41,5 +64,11 @@
         </div>
 
         <script src="../assets/script/script.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                var satisfactionTable =  $('#userList').DataTable();
+            })
+        </script>
     </body>
 </html>

@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="assets/style/style.css">
     <?php include "assets/cdn/cdn_links.php"; ?>
 
-    <style>
-        .fs-small {
-            font-size: .7rem;
-        }
-    </style>
 </head>
 
 <body>
@@ -73,8 +68,10 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" required placeholder="Enter your password">
                 </div>
-                <button id="loginBtn" type="submit" name="loginBtn">LOG IN</button>
-                <h6><a class="nav-link text-end pt-3" href="">forgot password ?</a></h6>
+                <div class="text-center">
+                    <button id="loginBtn" type="submit" name="loginBtn">LOG IN</button>
+                </div>
+                <h6><a class="nav-link text-end pt-3 fs-small" href="">forgot password ?</a></h6>
             </form>
         </div>
     </div>
