@@ -2,6 +2,12 @@
     include '../render/connection.php';
     include '../assets/cdn/cdn_links.php';
     include '../assets/fonts/fonts.php';
+    
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../index.php"); // Redirect to the index if not logged in
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>

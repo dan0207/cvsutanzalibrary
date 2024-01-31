@@ -31,7 +31,13 @@
                         $currentDate = new DateTime();
                         $currentDateFormatted = $currentDate->format('Y-m-d');
                         
-                        if ($pickupDate != $currentDateFormatted) {
+                        // Convert strings to DateTime objects
+                        $pickupDateTime = new DateTime($pickupDate);
+                        $currentDateTime = new DateTime($currentDateFormatted);
+                        // Add 1 day to the pickup date
+                        $pickupDateTime->add(new DateInterval('P1D'));
+
+                        if ($pickupDateTime != $currentDateTime) {
                             ?>
                             <tr>
                                 <td>
