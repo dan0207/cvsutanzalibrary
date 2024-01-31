@@ -6,7 +6,7 @@
             </div>
             <div class="row text-center">
                 <div id="readers_services" class="animation-services col-6">
-                    <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="card border-0 h-100" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                         <img src="../assets/img/service1.png" class="rounded-3" alt="Service 1 Image">
                         <div class="card-body d-flex flex-column">
                             <div class="thumbnail-details">
@@ -133,7 +133,7 @@
                 </div>
 
                 <div id="online_library_services" class="animation-services col-6 ms-auto">
-                    <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="card border-0 h-100" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                         <img src="../assets/img/service2.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
                             <div class="thumbnail-details">
@@ -192,7 +192,7 @@
                 </div> -->
 
                 <div class="animation-services col-6">
-                    <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="card border-0 h-100" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                         <img src="../assets/img/service3.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
                             <h6 class="card-title fw-semibold fs-7 fs-lg-5">INTERNET SERVICE</h6>
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="animation-services col-6 ms-auto">
-                    <div class="card border-0 h-100" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="card border-0 h-100" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                         <img src="../assets/img/service4.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
                             <h6 class="card-title fw-semibold fs-7 fs-lg-5">CATEGORIZED BOOK</h6>
