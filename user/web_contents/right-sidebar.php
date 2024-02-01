@@ -57,8 +57,6 @@
 </div>
 
 
-
-
 <!-- Scripts -->
 <script defer src="../assets/vendor/js/right_sidebar.js" type="text/javascript"></script>
 <!-- Scripts -->
