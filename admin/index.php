@@ -91,17 +91,17 @@
             //     })
             //     .then(response => response.json())
             //     .then(data => {
-            //         console.log(data);
+                    // console.log(data);
 
-            //         if (data) {
-            //             $('#signup_reminder_modal').modal('show');
-            //         } else {
-            //             location.href = '../php_script/signup_script.php';
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.error('Error:', error)
-            //     })
+                    // if (data) {
+                    //     $('#signup_reminder_modal').modal('show');
+                    // } else {
+                    //     location.href = '../php_script/signup_script.php';
+                    // }
+                // })
+                // .catch(error => {
+                //     console.error('Error:', error)
+                // })
         }
     </script>
 </body>
