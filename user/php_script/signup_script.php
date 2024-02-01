@@ -7,7 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('db_local_connection.php');
 
     $_SESSION['user_token'] = $_SESSION['temp_token'];
+    $_SESSION['user_fullname'] = $_SESSION['temp_fullname'];
     unset($_SESSION['temp_token']);
+    unset($_SESSION['temp_fullname']);
 
     $token = $_SESSION['user_token'];
     $fullname = $_SESSION['user_fullname'];

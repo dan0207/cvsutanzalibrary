@@ -66,15 +66,15 @@ include '../php_script/main_script.php';
     <!-- Main -->
 
 
-    <!-- Modals -->
-    <?php include '../web_contents/modals.php'; ?>
-    <!-- Modals -->
-
     <!-- Scripts -->
     <script src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
     <script src="../assets/vendor/js/login.js" type="module"></script>
     <!-- Scripts -->
+    
 
+    <!-- Modals -->
+    <?php include '../web_contents/modals.php'; ?>
+    <!-- Modals -->
 </body>
 
 </html>

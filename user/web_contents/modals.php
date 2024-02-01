@@ -121,7 +121,7 @@
                         <!-- Campus Details -->
                         <!-- Profile Picture -->
                         <div class="text-center p-2 col-6 col-md-4 col-lg-3 order-1 order-xl-2">
-                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="<?php echo $_SESSION['user_picture']; ?>" alt="Avatar">
+                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="../assets/img/student-icon.png" alt="Avatar">
                             <a href="#Mama mo" id="user_change_avatarPreview" class="btn btn-outline-primary fs-10 fs-md-9 py-1 rounded-5">Change Photo</a>
                         </div>
 
@@ -130,7 +130,7 @@
                         <div class="campus-details row-gap-2 row m-0 p-0 col-12 col-md-8 col-lg-6 col-xl-12 order-3 order-md-2 order-xl-1 row-gap-md-3 mb-xl-3 mb-3 mb-md-auto">
                             <div class="col-12 col-xl-8">
                                 <label for="user_email_input" class="form-label">CvSU Mail</label>
-                                <input type="text" class="form-control fs-7" name="user_email" id="user_email_input" value="<?php echo $_SESSION['user_email']; ?>" readonly>
+                                <input type="text" class="form-control fs-7" name="user_email" id="user_email_input" value="<?php echo $_SESSION['temp_email']; ?>" readonly>
                             </div>
                             <div class="col-12 col-xl-4">
                                 <label for="user_member_type_select" class="form-label">Member type</label>
@@ -146,7 +146,7 @@
                         <div class="personal-details row-gap-2 row m-0 p-0 col-12 col-md-8 col-lg-12 col-xl-6 order-4 order-md-4 order-xl-3">
                             <div class="col-8">
                                 <label for="user_name_input" class="form-label">Name</label>
-                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" value="<?php echo $_SESSION['user_givenName']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" value="<?php echo $_SESSION['temp_givenName']; ?>" required>
                                 <div id="user_name_feedback" class="text-secondary fs-10"></div>
                             </div>
                             <div class="col-4">
@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="user_surname_input" class="form-label">Surname</label>
-                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" value="<?php echo $_SESSION['user_familyName']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" value="<?php echo $_SESSION['temp_familyName']; ?>" required>
                                 <div id="user_surname_feedback" class="text-secondary fs-10"></div>
                             </div>
 
@@ -233,8 +233,6 @@
                         </div>
                     </div>
 
-
-
                     <hr>
                     <!-- Warning Message -->
                     <div class="warning text-center my-4">
@@ -249,7 +247,7 @@
                         <label class="form-label mb-1 ms-1 fs-4 text-center">LOGIN CREDENTIALS</label>
                         <div class="col-12 col-xl-6 px-3">
                             <label for="user_username_input" class="form-label">Username</label>
-                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" value="<?php echo $_SESSION['user_email']; ?>" required>
+                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" value="<?php echo $_SESSION['temp_email']; ?>" required>
                             <div id="user_username_feedback" class="text-secondary fs-8"></div>
                         </div>
                         <div class="col-12 col-md-6 col-xl-3 px-3">
