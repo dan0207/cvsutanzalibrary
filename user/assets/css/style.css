@@ -96,6 +96,10 @@ tbody {
   font-size: 0.7rem;
 }
 
+#user_attendance_log_table tbody {
+  font-size: 1rem;
+}
+
 td.available {
   background-color: rgb(0, 114, 5, 0.05);
 }

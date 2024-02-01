@@ -6,12 +6,12 @@ $(document).ready(function () {
     let curDate = getformatDate(new Date());
     let headerImg;
     getBase64ImageSync('../assets/img/fileheader.png', function (base64) { headerImg = (base64); });
-    $('#user_attendance_table').DataTable({
+    $('#user_attendance_log_table').DataTable({
         ajax: {
             type: 'GET',
             url: '../php_script/datatable_server_script.php',
             data: {
-                table: 'attendance'
+                table: 'attendance_log'
             }
         },
         processing: true, // DO NOT REMOVE
@@ -23,7 +23,7 @@ $(document).ready(function () {
         deferRender: true,
         scroller: true,
         // iDisplayLength: 10,
-        order: [[0, "desc"]],
+        order: [[6, "desc"]],
         dom: 'Bfrtip',
         buttons: [{
             extend: 'excelHtml5',
@@ -32,7 +32,7 @@ $(document).ready(function () {
             customize: function (xlsx) {
                 var sheet = xlsx.xl.worksheets['sheet1.xml'];
                 // $('c[r=A1] t', sheet).text( 'Cavite State University Tanza Campus' );
-                $('c[r=A1]', sheet).attr( 's', '51');
+                $('c[r=A1]', sheet).attr('s', '51');
                 // $('row c[r^="A"]', sheet).each(function () {
                 //     // Get the value
                 //     // if ($('is t', this).text() == 'New York') {
@@ -73,18 +73,13 @@ $(document).ready(function () {
             {
                 targets: -1,
                 render: function (data, type, row) {
-                    if (data === 'IN') {
-                        return "<h4 class='text-primary'>" + data + "</h4>";
-                    } else {
-                        return "<h4 class='text-secondary'>" + data + "</h4>";
-                    }
+                    return "<h4 class='text-secondary'>" + data + "</h4>";
                 }
             },
             {
-                targets: 0,
+                targets: -2,
                 render: function (data, type, row) {
-                    var time = new Date('1970-01-01T' + data);
-                    return time.toLocaleTimeString("en-US", { hour12: true });
+                    return "<h4 class='text-primary'>" + data + "</h4>";
                 }
             },
         ]

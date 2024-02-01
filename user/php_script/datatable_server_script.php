@@ -95,12 +95,35 @@ function datatable_attendance()
 {
     $primaryKey = 'id';
     $columns = array(
-        array('db' => 'time',               'dt' => 0),
-        // array('db' => 'date',               'dt' => 1),
-        array('db' => 'libraryId',          'dt' => 1),
+        array('db' => 'token',              'dt' => 0),
+        array('db' => 'member_type',        'dt' => 1),
         array('db' => 'fullname',           'dt' => 2),
-        array('db' => 'student_course',     'dt' => 3),
-        array('db' => 'status',             'dt' => 4),
+        array('db' => 'id_number',          'dt' => 3),
+        array('db' => 'course_department',  'dt' => 4),
+        array('db' => 'time',               'dt' => 5),
+        array('db' => 'status',             'dt' => 6),
+    );
+
+    $where = "date = CURDATE()";
+
+    return [
+        'primaryKey' => $primaryKey,
+        'columns' => $columns,
+        'where' => $where
+    ];
+}
+
+function datatable_attendance_log()
+{
+    $primaryKey = 'id';
+    $columns = array(
+        array('db' => 'token',              'dt' => 0),
+        array('db' => 'member_type',        'dt' => 1),
+        array('db' => 'fullname',           'dt' => 2),
+        array('db' => 'id_number',          'dt' => 3),
+        array('db' => 'course_department',  'dt' => 4),
+        array('db' => 'time_in',            'dt' => 5),
+        array('db' => 'time_out',           'dt' => 6),
     );
 
     $where = "date = CURDATE()";
@@ -128,6 +151,8 @@ function datatable()
         $result = datatable_booktransaction();
     } else if ($table == 'attendance') {
         $result = datatable_attendance();
+    } else if ($table == 'attendance_log') {
+        $result = datatable_attendance_log();
     }
 
     $primaryKey = $result['primaryKey'];

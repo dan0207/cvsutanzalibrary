@@ -70,14 +70,15 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     let value = row[1];
                     if (value == 'Return Day') {
-                        return "<h7 class='fw-semibold text-primary m-0'> "+data+" </h7>";
+                        return "<h7 class='fw-semibold text-primary m-0'> " + data + " </h7>";
                     } else if (value == 'Overdue') {
-                        return "<h7 class='fw-semibold text-secondary m-0'>"+data+"</h7>";
+                        return "<h7 class='fw-semibold text-secondary m-0'>" + data + "</h7>";
                     } else {
-                        return "<h7 class='fw-semibold text-primary m-0'>"+data+"</h7>";
+                        return "<h7 class='fw-semibold text-primary m-0'>" + data + "</h7>";
                     }
                 }
-            }, {
+            },
+            {
                 targets: 2,
                 render: function (data, type, row) {
                     let value = row[2];
@@ -111,7 +112,7 @@ let logout_btn = document.querySelectorAll(".logout-btn");
 logout_btn.forEach(function (e) {
     e.addEventListener("click", function () {
         sessionStorage.clear();
-        confirmationModal('Are you sure you want to logout?', 'Logout', function confirmationModal_function (e) {
+        confirmationModal('Are you sure you want to logout?', 'Logout', function confirmationModal_function(e) {
             location.href = '../php_script/logout_script.php';
         });
     });

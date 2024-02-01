@@ -19,7 +19,7 @@ $(document).ready(function () {
         scrollY: $('.attendance-container').height(),
         deferRender: true,
         scroller: true,
-        order: [[0, "desc"]],
+        order: [[5, "desc"]],
         columnDefs: [
             {
                 targets: -1,
@@ -32,10 +32,10 @@ $(document).ready(function () {
                 }
             },
             {
-                targets: 0,
+                targets: -2,
                 render: function (data, type, row) {
                     var time = new Date('1970-01-01T' + data);
-                    return time.toLocaleTimeString("en-US", { hour12: true });
+                    return "<div class='fs-6'>" + time.toLocaleTimeString("en-US", { hour12: true }) + "</div>";
                 }
             },
         ]
