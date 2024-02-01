@@ -32,11 +32,12 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
 
         $user_token = $_SESSION['temp_token'] = substr((string)$user_token, -8);
 
-        $_SESSION['temp_givenName'] = $user_givenName;
-        $_SESSION['temp_familyName'] = $user_familyName;
-        $_SESSION['temp_fullname'] = $user_fullname;
-        $_SESSION['temp_email'] = $user_email;
-        $_SESSION['temp_picture'] = $user_picture;
+        $_SESSION['user_givenName'] = $user_givenName;
+        $_SESSION['user_familyName'] = $user_familyName;
+        $_SESSION['user_fullname'] = $user_fullname;
+        $_SESSION['user_email'] = $user_email;
+        $_SESSION['user_picture'] = $user_picture;
+
 
         $sql = "SELECT * FROM users WHERE user_token = '$user_token'";
         $result = mysqli_query($db, $sql);

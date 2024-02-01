@@ -98,13 +98,42 @@
                 <p>You must complete your information to proceed.</p>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button id="signup_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-target="#user_signup_modal" data-bs-toggle="modal">Continue</button>
+                <button id="signup_reminder_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button>
             </div>
         </div>
     </div>
 </div>
 <!-- User Login First Modal -->
 
+
+
+<!-- Selection Member Type Modal -->
+<div class="modal fade" id="member_type_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
+                <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
+            </div>
+            <div class="modal-body text-center">
+                <h5 class="modal-title my-3">Please Select Your Member Type</h5>
+                <div class="row my-4 mx-5">
+                    <div class="col-6">
+                        <input type="radio" class="btn-check" name="membertype" id="type1" checked>
+                        <label class="btn btn-lg btn-outline-primary w-100 fs-5" for="type1">Student</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="btn-check" name="membertype" id="type2">
+                        <label class="btn btn-lg btn-outline-primary w-100 fs-5" for="type2">Faculty or Staff</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button id="member_type_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Selection Member Type Modal -->
 
 <!-- User Info Form Modal -->
 <div class="modal fade" id="user_signup_modal" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -133,11 +162,8 @@
                                 <input type="text" class="form-control fs-7" name="user_email" id="user_email_input" readonly>
                             </div>
                             <div class="col-12 col-xl-4">
-                                <label for="user_member_type_select" class="form-label">Member type</label>
-                                <select id="user_member_type_select" name="user_member_type" class="form-select fs-7" required>
-                                    <option selected value="Student">Student</option>
-                                    <option value="Faculty">Faculty</option>
-                                </select>
+                                <label for="user_member_type_input" class="form-label">Member type</label>
+                                <input type="text" class="form-control fs-7" name="user_member_type" id="user_member_type_input">
                                 <div id="user_member_type_feedback" class="text-secondary fs-10"></div>
                             </div>
                         </div>
@@ -247,7 +273,7 @@
                         <label class="form-label mb-1 ms-1 fs-4 text-center">LOGIN CREDENTIALS</label>
                         <div class="col-12 col-xl-6 px-3">
                             <label for="user_username_input" class="form-label">Username</label>
-                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" value="<?php echo $_SESSION['temp_email']; ?>" required>
+                            <input type="text" class="form-control fs-7" name="user_username" id="user_username_input" required>
                             <div id="user_username_feedback" class="text-secondary fs-8"></div>
                         </div>
                         <div class="col-12 col-md-6 col-xl-3 px-3">
@@ -270,6 +296,10 @@
                 </form>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button id="user_signup_modal_btn_processing" class="btn btn-primary rounded-3 w-90 mx-auto fs-4 d-none" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm mx-1" role="status" aria-hidden="true"></span>
+                    Processing...
+                </button>
                 <button id="user_signup_modal_btn" class="btn btn-primary rounded-3 w-90 mx-auto fs-4">SUBMIT</button>
             </div>
         </div>
@@ -280,18 +310,17 @@
 
 <!-- User Info Review Modal  -->
 <div class="modal fade" id="user_review_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
                 <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
             </div>
-            <div class="modal-body text-center">
-                <h1 class="modal-title">Successfully Login</h1>
-                <p>Sample Only!!</p>
+            <div class="modal-body text-center py-4">
+                <h1 class="modal-title mb-3">Hi, <span id="welcome_name_label"></span><lord-icon class="p-1" colors="secondary:#007205" src="https://cdn.lordicon.com/awmkozsb.json" trigger="loop" style="width:50px;height:50px"></lord-icon></h1>
+                <p class="fs-4">Welcome to Cavite State University Tanza Campus Library</p>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
-                <button type="button" class="btn btn-secondary rounded-pill text-onSecondary position-absolute start-0 fs-7 mx-3" data-bs-target="#user_form_modal" data-bs-toggle="modal"><i class="fa-solid fa-circle-arrow-left mx-1"></i>Back to user information</button>
-                <button id="user_review_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto" data-bs-dismiss="modal">Confirm</button>
+                <button id="user_review_modal_btn" class="btn btn-primary rounded-pill w-50 mx-auto fs-5" data-bs-dismiss="modal">Go to My Profile</button>
             </div>
         </div>
     </div>

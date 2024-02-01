@@ -49,7 +49,11 @@
 <!-- SCRIPT FOR CODE GENERATORS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
-<!-- SCRIPT FOR FONT AWESOME -->
+<!-- SCRIPT FOR CODE GENERATORS -->
+
+<!-- SCRIPT FOR LORD ICONS -->
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<!-- SCRIPT FOR LORD ICONS -->
 
 <!-- SCRIPT -->
 <script defer src="https://code.jquery.com/jquery-3.7.0.js" type="text/javascript"></script>

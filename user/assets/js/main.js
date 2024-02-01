@@ -13,7 +13,7 @@ export function updateSession() {
         });
 }
 
-export function confirmationModal(title, btnText, confirmationModal_function ) {
+export function confirmationModal(title, btnText, confirmationModal_function) {
     $('#confirmationModal_title').text(title);
     showModal('confirmationModal');
     const $confirmationModal_btn = $('#confirmationModal_btn');
@@ -45,7 +45,6 @@ export function generateBarCode(barcodeContainer, barcodeText, barcodeWidth, bar
     });
 }
 
-
 export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
     'use strict';
 
@@ -54,7 +53,6 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
     const validateButton = document.getElementById(form_btn_id);
 
     if (form && validateButton) {
-        // console.log(form.id);
         validateButton.addEventListener('click', function (event) {
             if (!form.checkValidity()) {
                 event.preventDefault();
@@ -62,6 +60,7 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
                 console.log("Invalid Input");
             } else {
                 handleValidFunction();
+                return '';
             }
             form.classList.add('was-validated');
         });
