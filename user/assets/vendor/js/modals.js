@@ -430,6 +430,7 @@ function handle_MemberTypeModalBtn() {
     handle_membertype(selectedValue);
 
     showModal(user_signup_modal.id, member_type_modal.id);
+    user_signup_modal_btn.click();
 }
 
 

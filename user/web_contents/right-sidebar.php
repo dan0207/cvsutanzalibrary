@@ -14,7 +14,7 @@
 
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                     <div class="accordion-body">
-                        <?php callDataFromDatabase('recent_announcements') ?>
+                        <?php //callDataFromDatabase('recent_announcements') ?>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div id="panelsStayOpen-collapsetwo" class="accordion-collapse collapse show">
                     <div class="accordion-body">
-                        <?php callDataFromDatabase('quick_links') ?>
+                        <?php //callDataFromDatabase('quick_links') ?>
                     </div>
                 </div>
             </div>

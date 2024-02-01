@@ -34,7 +34,7 @@
                     </h2>
                     <div id="vision-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php callDataFromDatabase('vision') ?></em>
+                            <em><?php //callDataFromDatabase('vision') ?></em>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     </h2>
                     <div id="mission-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php callDataFromDatabase('mission') ?></em>
+                            <em><?php //callDataFromDatabase('mission') ?></em>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     </h2>
                     <div id="policy-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php callDataFromDatabase('policy') ?></em>
+                            <em><?php //callDataFromDatabase('policy') ?></em>
                             <!-- <p><em>We <strong>C</strong>ommit to the highest standards of education, <strong>V</strong>alue our stakeholders, <strong>S</strong>trive for continual improvement of our products and services, and <strong>U</strong>phold the University’s tenets of Truth, Excellence, and Service to produce globally competitive and morally upright individuals.</em></p> -->
                         </div>
                     </div>
@@ -69,31 +69,31 @@
 
             <div data-aos="fade-in" class="library-objecttives mb-5">
                 <h3>LIBRARY OBJECTIVES</h3>
-                <?php callDataFromDatabase('objectives') ?>
+                <?php //callDataFromDatabase('objectives') ?>
             </div>
 
 
             <div data-aos="fade-in" class="library-rules mb-5">
                 <h3>LIBRARY RULES AND REGULATIONS</h3>
-                <?php callDataFromDatabase('rules') ?>
+                <?php //callDataFromDatabase('rules') ?>
             </div>
 
 
             <div data-aos="fade-in" class="library-borrowingPrevileges mb-5">
                 <h3>BORROWING PRIVILEGES</h3>
-                <?php callDataFromDatabase('privileges') ?>
+                <?php //callDataFromDatabase('privileges') ?>
             </div>
 
 
             <div data-aos="fade-in" class="library-fines mb-5">
                 <h4>Overdue Fines</h4>
-                <?php callDataFromDatabase('overdue_fines') ?>
+                <?php //callDataFromDatabase('overdue_fines') ?>
             </div>
 
 
             <div data-aos="fade-in" class="library-guides mb-5">
                 <h4>Guide to CvSU Library</h4>
-                <?php callDataFromDatabase('guides') ?>
+                <?php //callDataFromDatabase('guides') ?>
             </div>
         </div>
     </div>

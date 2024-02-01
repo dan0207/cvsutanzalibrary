@@ -3,7 +3,7 @@
         <div class="card text-center mb-3 rounded-3">
             <div class="card-header text-bg-primary rounded-top-3">LIBRARY HOURS</div>
             <div class="card-body">
-                <?php callDataFromDatabase('libraryHours') ?>
+                <?php //callDataFromDatabase('libraryHours') ?>
             </div>
         </div>
         <div class="card text-center mb-3 rounded-3">
