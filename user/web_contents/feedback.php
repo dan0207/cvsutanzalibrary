@@ -4,7 +4,7 @@
         <p class=" p-0 m-0 fs-7 h-40">We welcome your comments and suggestions.</p>
     </div>
     <div class="feedback-body mx-4 px-1 py-3 h-70 rounded-5 border bg-surface">
-        <form id="feedback_form" action="../php_script/feedback_script.php" class="feedback-form needs-validation h-100 pt-2 overflow-auto px-3" method="POST">
+        <form id="feedback_form" action="../php_script/feedback_script.php" class="feedback-form needs-validation h-100 py-2 overflow-auto px-3" method="POST">
             <div id="feedback_ratings" class="feedback-ratings mb-2 bg-surface w-80 mx-auto border border-2 border-secondary rounded-pill d-flex justify-content-center align-items-center">
                 <h6 class="pt-2">Rate:</h6>
                 <div class="rating">
@@ -62,7 +62,6 @@
                 <textarea class="form-control" name="comments" id="feedback_comment_input" rows="8" required></textarea>
                 <div id="feedback_comments_feedback" class="text-secondary fs-10"></div>
             </div>
-
         </form>
     </div>
     <div class="feedback-footer d-flex h-15 justify-content-center align-items-center py-2">
