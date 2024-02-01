@@ -77,9 +77,11 @@ function datatable_booktransaction()
     $primaryKey = 'id';
     $columns = array(
         array('db' => 'id',         'dt' => 0),
-        array('db' => 'pickupDate', 'dt' => 1),
-        array('db' => 'returnDate', 'dt' => 2),
-        array('db' => 'bookTitle',  'dt' => 3),
+        array('db' => 'remarks',    'dt' => 1),
+        array('db' => 'fine',       'dt' => 2),
+        array('db' => 'pickupDate', 'dt' => 3),
+        array('db' => 'returnDate', 'dt' => 4),
+        array('db' => 'bookTitle',  'dt' => 5),
     );
 
     $where = "libraryid =" . $_SESSION['user_token'] . "";

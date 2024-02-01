@@ -104,6 +104,32 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         iDisplayLength: 10,
         responsive: true,
+        columnDefs: [
+            {
+                targets: 1,
+                render: function (data, type, row) {
+                    let value = row[1];
+                    if (value == 'Return Day') {
+                        return "<h7 class='fw-semibold text-primary m-0'> " + data + " </h7>";
+                    } else if (value == 'Overdue') {
+                        return "<h7 class='fw-semibold text-secondary m-0'>" + data + "</h7>";
+                    } else {
+                        return "<h7 class='fw-semibold text-primary m-0'>" + data + "</h7>";
+                    }
+                }
+            },
+            {
+                targets: 2,
+                render: function (data, type, row) {
+                    let value = row[2];
+                    if (value > 0) {
+                        return "<h5 class='text-secondary m-0'>₱ " + data + "</h5>";
+                    } else {
+                        return "<h5 class='text-primary m-0'>₱ 0</h5>"
+                    }
+                }
+            },
+        ]
     });
 });
 
