@@ -71,6 +71,7 @@ include '../php_script/main_script.php';
     <!-- Modals -->
 
     <!-- Scripts -->
+    <script src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
     <script src="../assets/vendor/js/login.js" type="module"></script>
     <!-- Scripts -->
 

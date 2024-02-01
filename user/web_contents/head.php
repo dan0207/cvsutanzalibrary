@@ -75,6 +75,5 @@
 
 <!-- SCRIPT -->
 <script defer src="../assets/vendor/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-<script defer src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
 <script defer src="../assets/vendor/js/html2canvas.js" type="text/javascript"></script>
 <!-- SCRIPT -->
