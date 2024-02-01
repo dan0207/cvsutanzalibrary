@@ -77,45 +77,32 @@
     </div>
 
     <script>
-        // globalThis.handleCredentialResponse = async (response) => {
-        //     console.log('Test');
-        //     // fetch('../php_script/googleAuth_script.php', {
-        //     //         method: 'POST',
-        //     //         headers: {
-        //     //             'Content-Type': 'application/json'
-        //     //         },
-        //     //         body: JSON.stringify({
-        //     //             request_type: 'user_auth',
-        //     //             credential: response.credential
-        //     //         })
-        //     //     })
-        //     //     .then(response => response.json())
-        //     //     .then(data => {
-        //     //         console.log(data);
+        globalThis.handleCredentialResponse = async (response) => {
+            console.log('Test');
+        //     fetch('../php_script/googleAuth_script.php', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({
+        //                 request_type: 'user_auth',
+        //                 credential: response.credential
+        //             })
+        //         })
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             console.log(data);
 
-        //     //         if (data) {
-        //     //             $('#signup_reminder_modal').modal('show');
-        //     //         } else {
-        //     //             location.href = '../php_script/signup_script.php';
-        //     //         }
-        //     //     })
-        //     //     .catch(error => {
-        //     //         console.error('Error:', error)
-        //     //     })
-            
+        //             if (data) {
+        //                 $('#signup_reminder_modal').modal('show');
+        //             } else {
+        //                 location.href = '../php_script/signup_script.php';
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error)
+        //         })
         // }
-        function handleCredentialResponse(response) {
-            // decodeJwtResponse() is a custom function defined by you
-            // to decode the credential response.
-            const responsePayload = decodeJwtResponse(response.credential);
-
-            console.log("ID: " + responsePayload.sub);
-            console.log('Full Name: ' + responsePayload.name);
-            console.log('Given Name: ' + responsePayload.given_name);
-            console.log('Family Name: ' + responsePayload.family_name);
-            console.log("Image URL: " + responsePayload.picture);
-            console.log("Email: " + responsePayload.email);
-        }
     </script>
 </body>
 
