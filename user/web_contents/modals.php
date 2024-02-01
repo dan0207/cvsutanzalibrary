@@ -121,7 +121,7 @@
                         <!-- Campus Details -->
                         <!-- Profile Picture -->
                         <div class="text-center p-2 col-6 col-md-4 col-lg-3 order-1 order-xl-2">
-                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="<?php echo $_SESSION['temp_picture']; ?>" alt="Avatar">
+                            <img id="user_avatarPreview" class="img-responsive w-90 mb-2 border border-5 border-surface shadow bg-body-surface rounded-4" src="../assets/img/student-icon.png" alt="Avatar">
                             <a href="#Mama mo" id="user_change_avatarPreview" class="btn btn-outline-primary fs-10 fs-md-9 py-1 rounded-5">Change Photo</a>
                         </div>
 
@@ -130,7 +130,7 @@
                         <div class="campus-details row-gap-2 row m-0 p-0 col-12 col-md-8 col-lg-6 col-xl-12 order-3 order-md-2 order-xl-1 row-gap-md-3 mb-xl-3 mb-3 mb-md-auto">
                             <div class="col-12 col-xl-8">
                                 <label for="user_email_input" class="form-label">CvSU Mail</label>
-                                <input type="text" class="form-control fs-7" name="user_email" id="user_email_input" value="<?php echo $_SESSION['temp_email']; ?>" readonly>
+                                <input type="text" class="form-control fs-7" name="user_email" id="user_email_input" readonly>
                             </div>
                             <div class="col-12 col-xl-4">
                                 <label for="user_member_type_select" class="form-label">Member type</label>
@@ -146,7 +146,7 @@
                         <div class="personal-details row-gap-2 row m-0 p-0 col-12 col-md-8 col-lg-12 col-xl-6 order-4 order-md-4 order-xl-3">
                             <div class="col-8">
                                 <label for="user_name_input" class="form-label">Name</label>
-                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" value="<?php echo $_SESSION['temp_givenName']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_name" id="user_name_input" required>
                                 <div id="user_name_feedback" class="text-secondary fs-10"></div>
                             </div>
                             <div class="col-4">
@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="user_surname_input" class="form-label">Surname</label>
-                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" value="<?php echo $_SESSION['temp_familyName']; ?>" required>
+                                <input type="text" class="form-control fs-7" name="user_surname" id="user_surname_input" required>
                                 <div id="user_surname_feedback" class="text-secondary fs-10"></div>
                             </div>
 
@@ -226,9 +226,9 @@
                         <!-- Library QR Code -->
                         <div class="text-center p-2 col-6 col-md-4 col-lg-3 col-xl-3 order-2 order-md-3 order-xl-4">
                             <div id="signup_qr_code_container" class="text-center">
-                                <img id="signup_qr_code_img" src="<?php echo generateQRCode($_SESSION['temp_token'], 500); ?>" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                <img id="signup_qr_code_img" src="" alt="QR Code" class="img-responsive ms-auto w-90 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                 <p class="text-center m-0 p-0 mx-auto fs-7">Your Library ID:</p>
-                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8"><?php echo $_SESSION['temp_token']; ?></p>
+                                <p id="library_id" class="text-center m-0 p-0 mx-auto fs-8">Sample QR Code</p>
                             </div>
                         </div>
                     </div>

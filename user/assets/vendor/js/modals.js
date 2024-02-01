@@ -9,7 +9,6 @@ const library_id = document.getElementById('library_id');
 // Initialize Library ID ////////////////////////////////////////////////////////
 
 // Initialize Receipt ////////////////////////////////////////////////////////
-const book_receipt_id = document.getElementById('book_receipt_id');
 const book_receipt_library_id = document.getElementById('book_receipt_library_id');
 const book_receipt_qr_Code_img = document.getElementById('book_receipt_qr_Code_img');
 const book_receipt_name = document.getElementById("book_receipt_name");
@@ -262,7 +261,7 @@ function handle_receiptDownloadBtn() {
     showModal('', book_request_receipt_modal.id);
     setInterval(function (e) {
         location.reload();
-    },1000)
+    }, 1000)
 }
 
 
@@ -387,6 +386,27 @@ function handle_bookRequestReviewModalBtn() {
     console.log(sessionBookRequest)
 }
 
+function handle_SignupReminderModalBtn() {
+    updateSession()
+        .then(() => {
+            let sessionData = JSON.parse(sessionStorage.getItem('sessionData')) || {};
+            if (sessionData) {
+                //PERSONAL DETAILS                    
+                user_avatarPreview.src = sessionData.temp_picture;
+                signup_qr_code_img.src = generateQRCode(sessionData.temp_token, 500);
+                user_email_input.value = sessionData.temp_email;
+                user_name_input.value = sessionData.temp_givenName;
+                user_surname_input.value = sessionData.temp_familyName;
+                library_id.textContent = sessionData.temp_token;
+            } else {
+                console.error("No session data");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
 
 
 // // Events for Click ////////////////////////////////////////////////////////
@@ -396,6 +416,7 @@ receipt_download_btn.addEventListener("click", handle_receiptDownloadBtn);
 
 add_new_event_modal_btn.addEventListener("click", handle_addNewEventModalBtn);
 user_review_modal_btn.addEventListener("click", handle_UserReviewModalBtn);
+signup_reminder_modal_btn.addEventListener("click", handle_SignupReminderModalBtn);
 user_signup_modal_btn.addEventListener("click", handle_UserFormModalBtn);
 login_reminder_modal_btn.addEventListener("click", handle_LoginReminderModalBtn);
 book_request_privacy_btn.addEventListener("click", handle_bookRequestPrivacyStatementBtn);
