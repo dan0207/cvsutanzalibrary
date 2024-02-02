@@ -77,7 +77,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                         <div class="book-list-container w-100 overflow-hidden">
                             <div id="book_list_table" class="book-list-table">
-                                <?php include '../../user/tables/book_list_table.php'; ?>
+                                <?php //include '../../user/tables/book_list_table.php'; ?>
                             </div>
                         </div>
                     </div>
