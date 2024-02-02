@@ -30,7 +30,7 @@ if (!isset($_SESSION['username'])) {
     <div id="admin-body">
         <section>
             <h1 id="pageHeader">Books</h1>
-            <div id="book" class="py-4">
+            <!-- <div id="book" class="py-4">
                 <div class="container-fluid py-5">
                     <div class="container">
 
@@ -82,14 +82,14 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
 
 
     <script src="../assets/script/script.js"></script>
 
-    <script>
+    <!-- <script>
         let books_table = new DataTable('#books_table', {
             ajax: {
                 type: 'GET',
@@ -173,7 +173,7 @@ if (!isset($_SESSION['username'])) {
         opac_search_btn.addEventListener('click', function(event) {
             searchBooks(opac_search_input.value);
         });
-    </script>
+    </script> -->
 
 </body>
 
