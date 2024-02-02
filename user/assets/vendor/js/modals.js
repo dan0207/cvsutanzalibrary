@@ -266,7 +266,7 @@ function handle_receiptDownloadBtn() {
     });
     showModal('', book_request_receipt_modal.id);
     setInterval(function (e) {
-        location.reload();
+        window.location.replace("./profile.php");
     }, 1000)
 }
 
