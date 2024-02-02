@@ -141,17 +141,3 @@ $(function () {
             });
     });
 });
-
-
-
-// function submitReceipt() {
-//     // Parse the URL to get parameters
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const submitted = urlParams.get('submit');
-
-//     if (submitted === 'receipt') {
-//         showModal(book_request_receipt_modal.id);
-//     }
-
-// }
-// submitReceipt();

@@ -225,8 +225,8 @@ function passwordToggle(password, toggle) {
 function handle_receiptSubmitBtn() {
     // receipt_form.submit();
     const formData = new FormData(document.getElementById('receipt_form'));
-    const toastLiveExample = document.getElementById('liveToast');
-    const submitReceiptToast = bootstrap.Toast.getOrCreateInstance(toastLiveExample, { delay: 2000 });
+    const submittedLiveToast = document.getElementById('submittedLiveToast');
+    const submitReceiptToast = bootstrap.Toast.getOrCreateInstance(submittedLiveToast, { delay: 2000 });
     const receiptNo_container = document.getElementById('receiptNo_container');
     const receipt_action_btn = document.getElementById('receipt_action_btn');
 
