@@ -23,9 +23,10 @@
 
         <div id="admin-body">
             <h1 id="pageHeader">Account Settings</h1>
-            <div class="container-fluid p-1">
-                <section id="profile">
-                    <div class="row">
+            <div class="container p-1">
+                <section class="card shadow mb-3 mt-5" id="profile">
+                    <h2 class="mx-3">Profile</h2>
+                    <div class="row pb-5">
                         <div class="col-lg-4 col-sm-12">
                             <div class="row card px-2 m-2 admin-profile text-center">
                                 Profile
@@ -54,8 +55,8 @@
                         </div>
                     </div>
                 </section>
-                <section id="personalInfo">
-                    <h1 id="pageHeader">Personal Information</h1>
+                <section class="card shadow mb-5" id="personalInfo">
+                    <h2 class="mx-3">Personal Information</h2>
                     <div class="row py-1">
                         <div class="col-lg-5 col-sm-10">
                             <div class="row card px-2 m-1">
