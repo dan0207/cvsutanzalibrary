@@ -1,4 +1,3 @@
-
 globalThis.handleCredentialResponse = async (response) => {
 
     fetch('../php_script/googleAuth_script.php', {
@@ -12,7 +11,6 @@ globalThis.handleCredentialResponse = async (response) => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-
             if (data) {
                 $('#signup_reminder_modal').modal('show');
             } else {

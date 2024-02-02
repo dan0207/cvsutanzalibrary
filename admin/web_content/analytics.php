@@ -8,7 +8,7 @@
                 <p>Total Borrow Request</p>
                 <?php
                     $currentMonth = date('m');
-                    $sql = "SELECT COUNT(*) as total_rows FROM bookTransaction WHERE MONTH(pickupDate) = $currentMonth";
+                    $sql = "SELECT COUNT(*) as total_rows FROM booktransaction WHERE MONTH(pickupDate) = $currentMonth";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
@@ -34,7 +34,7 @@
                     $currentMonth = date('m');
 
                     // Modify the SQL query to exclude rows with remarks containing 'Cancelled' or 'Declined'
-                    $sql = "SELECT COUNT(*) as total_rows FROM bookTransaction WHERE MONTH(returnDate) = $currentMonth AND remarks NOT LIKE '%Cancelled%' AND remarks NOT LIKE '%Declined%'";
+                    $sql = "SELECT COUNT(*) as total_rows FROM booktransaction WHERE MONTH(returnDate) = $currentMonth AND remarks NOT LIKE '%Cancelled%' AND remarks NOT LIKE '%Declined%'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -60,7 +60,7 @@
                     $currentMonth = date('m');
                     $totalFine = 0;
                     // Construct the SQL query to fetch data for the current month
-                    $sql = "SELECT * FROM bookTransaction WHERE MONTH(returnDate) = $currentMonth";
+                    $sql = "SELECT * FROM booktransaction WHERE MONTH(returnDate) = $currentMonth";
 
                     $result = $conn->query($sql);
 
@@ -137,7 +137,7 @@
                             $currentDay = date('d');
                             $totalFine = 0;
                             // Construct the SQL query to fetch data for the current month
-                            $sql = "SELECT * FROM bookTransaction WHERE DAY(returnDate) = $currentDay";
+                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay";
 
                             $result = $conn->query($sql);
 

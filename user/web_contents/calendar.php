@@ -23,7 +23,7 @@
             <div>Sat</div>
         </div>
         <div id="days_container" class="days-container d-flex flex-wrap fs-7"></div>
-        <button id="today_btn" class="today-btn btn btn-outline-primary rounded-2 px-4 fs-7 ms-1">Today</button>
+        <button id="today_btn" class="today-btn btn btn-outline-primary rounded-2 px-4 fs-7 ms-1 mt-3">Today</button>
         <!-- <button id="add_new_event_btn" class="btn btn-outline-primary rounded-2 col-12 col-md-4 py-2 mb-2">Add New Event</button> -->
     </div>
     <div id="event_organizer" class="event-organizer rounded-3">

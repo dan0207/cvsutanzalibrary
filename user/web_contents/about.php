@@ -1,17 +1,3 @@
-<?php
-
-function callData($maintext)
-{
-    require('../php_script/db_local_connection.php');
-    $select_sql = "SELECT subText FROM librarypages WHERE mainText = '" . $maintext . "'";
-    $select_sql1 = mysqli_query($db, $select_sql);
-    while ($vision = mysqli_fetch_array($select_sql1)) {
-        echo $vision['subText'];
-    }
-}
-
-?>
-
 <div id="about" class="py-lg-5">
     <div class="container-fluid py-3">
         <div class="container text-center">
@@ -48,8 +34,9 @@ function callData($maintext)
                     </h2>
                     <div id="vision-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php callData('vision') ?></em>
-                            <!-- <p><em>The premier university in historic Cavite globally recognized for excellence in character development, academics, research, innovation and sustainable community engagement.</em></p> -->
+                            <em><?php //callDataFromDatabase('vision') 
+                                ?></em>
+                            <em>The premier university in historic Cavite globally recognized for excellence in character development, academics, research, innovation and sustainable community engagement.</em>
                         </div>
                     </div>
                 </div>
@@ -62,8 +49,9 @@ function callData($maintext)
                     </h2>
                     <div id="mission-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php callData('mission') ?></em>
-                            <!-- <p><em>Cavite State University shall provide excellent, equitable and relevant educational opportunities in the arts, sciences and technology through quality instruction and responsive research and development activities. It shall produce professional, skilled and morally upright individuals for global competitiveness.</em></p> -->
+                            <em><?php //callDataFromDatabase('mission') 
+                                ?></em>
+                            <em>Cavite State University shall provide excellent, equitable and relevant educational opportunities in the arts, sciences and technology through quality instruction and responsive research and development activities. It shall produce professional, skilled and morally upright individuals for global competitiveness.</em>
                         </div>
                     </div>
                 </div>
@@ -76,6 +64,8 @@ function callData($maintext)
                     </h2>
                     <div id="policy-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
+                            <em><?php //callDataFromDatabase('policy') 
+                                ?></em>
                             <p><em>We <strong>C</strong>ommit to the highest standards of education, <strong>V</strong>alue our stakeholders, <strong>S</strong>trive for continual improvement of our products and services, and <strong>U</strong>phold the University’s tenets of Truth, Excellence, and Service to produce globally competitive and morally upright individuals.</em></p>
                         </div>
                     </div>
@@ -84,6 +74,8 @@ function callData($maintext)
 
             <div data-aos="fade-in" class="library-objecttives mb-5">
                 <h3>LIBRARY OBJECTIVES</h3>
+                <?php //callDataFromDatabase('objectives') 
+                ?>
                 <ul class="text-start mt-4">
                     <li>To support the school’s graduate and undergraduate programs in its instructional, research and information needs</li>
                     <li>To provide resources, facilities, and services to the Southern Luzon State University academic community as a means to achieve the school’s goals and objective</li>
@@ -95,16 +87,21 @@ function callData($maintext)
 
             <div data-aos="fade-in" class="library-rules mb-5">
                 <h3>LIBRARY RULES AND REGULATIONS</h3>
-                <ol class="text-start mt-4">
-                    <li>Always present your ID as you enter the library.</li>
-                    <li>Always leave your belongings, except your valuables at the Baggage Counter Area. The library is not responsible for any loss or damage to your property.</li>
-                    <li>Always present to the student assistant on duty any duly borrowed library property you may wish to bring outside the library for inspection.</li>
-                </ol>
+                <?php //callDataFromDatabase('rules') 
+                ?>
+                <ul class="text-start mt-4">
+                    <li>To support the school’s graduate and undergraduate programs in its instructional, research and information needs</li>
+                    <li>To provide resources, facilities, and services to the Southern Luzon State University academic community as a means to achieve the school’s goals and objective</li>
+                    <li>To develop, enrich, and maintain the library collection in terms of the course offered and special programs of the College</li>
+                    <li>To extend services to non-SLSU students within the limits of its resources</li>
+                </ul>
             </div>
 
 
             <div data-aos="fade-in" class="library-borrowingPrevileges mb-5">
                 <h3>BORROWING PRIVILEGES</h3>
+                <?php //callDataFromDatabase('privileges') 
+                ?>
                 <ol class="text-start">
                     <li class="fst-italic mt-3">Reading Room Use only.</li>
                     <ul>
@@ -132,6 +129,8 @@ function callData($maintext)
 
             <div data-aos="fade-in" class="library-fines mb-5">
                 <h4>Overdue Fines</h4>
+                <?php //callDataFromDatabase('overdue_fines') 
+                ?>
                 <table class="table">
                     <thead>
                         <tr>
@@ -174,8 +173,9 @@ function callData($maintext)
 
             <div data-aos="fade-in" class="library-guides mb-5">
                 <h4>Guide to CvSU Library</h4>
-                <br>
-                <h5>Orientation</h5>
+                <?php //callDataFromDatabase('guides') 
+                ?>
+                <h5 class="mt-3">Orientation</h5>
                 <p>The Library Personnel shall orient students and faculty members at the start of each school year on the collections, rules and regulations and the services that the unit offers.</p>
                 <br>
                 <h5>Current Awareness</h5>

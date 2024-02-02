@@ -9,7 +9,6 @@ const library_id = document.getElementById('library_id');
 // Initialize Library ID ////////////////////////////////////////////////////////
 
 // Initialize Receipt ////////////////////////////////////////////////////////
-const book_receipt_id = document.getElementById('book_receipt_id');
 const book_receipt_library_id = document.getElementById('book_receipt_library_id');
 const book_receipt_qr_Code_img = document.getElementById('book_receipt_qr_Code_img');
 const book_receipt_name = document.getElementById("book_receipt_name");
@@ -34,6 +33,7 @@ const signup_qr_code_img = document.getElementById('signup_qr_code_img');
 const add_new_event_modal = document.getElementById('add_new_event_modal');
 const login_reminder_modal = document.getElementById('login_reminder_modal');
 const signup_reminder_modal = document.getElementById('signup_reminder_modal');
+const member_type_modal = document.getElementById('member_type_modal');
 const user_signup_modal = document.getElementById('user_signup_modal');
 const user_review_modal = document.getElementById('user_review_modal');
 const book_request_form_modal = document.getElementById('book_request_form_modal');
@@ -59,7 +59,10 @@ const receipt_download_btn = document.getElementById("receipt_download_btn");
 const signup_reminder_modal_btn = document.getElementById("signup_reminder_modal_btn");
 const add_new_event_modal_btn = document.getElementById("add_new_event_modal_btn");
 const user_review_modal_btn = document.getElementById("user_review_modal_btn");
+const member_type_modal_btn = document.getElementById("member_type_modal_btn");
+const member_type_modal_btn_processing = document.getElementById("member_type_modal_btn_processing");
 const user_signup_modal_btn = document.getElementById("user_signup_modal_btn");
+const user_signup_modal_btn_processing = document.getElementById("user_signup_modal_btn_processing");
 const login_reminder_modal_btn = document.getElementById("login_reminder_modal_btn");
 const book_request_privacy_btn = document.getElementById("book_request_privacy_btn");
 const book_request_review_modal_btn = document.getElementById("book_request_review_modal_btn");
@@ -68,6 +71,7 @@ const book_request_review_modal_btn = document.getElementById("book_request_revi
 
 // Initialize Input ////////////////////////////////////////////////////////
 const user_email_input = document.getElementById("user_email_input");
+const user_member_type_input = document.getElementById("user_member_type_input");
 const user_name_input = document.getElementById("user_name_input");
 const user_middlename_input = document.getElementById("user_middlename_input");
 const user_student_number_input = document.getElementById("user_student_number_input");
@@ -83,7 +87,6 @@ const user_faculty_number_input = document.getElementById("user_faculty_number_i
 const user_student_section_select = document.getElementById("user_student_section_select");
 const user_student_year_select = document.getElementById("user_student_year_select");
 const user_student_course_select = document.getElementById("user_student_course_select");
-const user_member_type_select = document.getElementById("user_member_type_select");
 const user_faculty_department_select = document.getElementById("user_faculty_department_select");
 // Initialize Select ////////////////////////////////////////////////////////
 
@@ -105,6 +108,7 @@ const book_request_privacy_feedback = document.getElementById("book_request_priv
 
 // Initialize Label ////////////////////////////////////////////////////////
 const book_request_privacy_label = document.getElementById("book_request_privacy_label");
+const welcome_name_label = document.getElementById("welcome_name_label");
 // Initialize Label ////////////////////////////////////////////////////////
 
 
@@ -121,6 +125,7 @@ const book_request_privacy_checkbox = document.getElementById("book_request_priv
 // $('#login_reminder_modal').modal('show'); // For Troubleshooting
 // $('#add_new_event_modal').modal('show'); // For Troubleshooting
 // $('#signup_reminder_modal').modal('show'); // For Troubleshooting
+// $('#member_type_modal').modal('show'); // For Troubleshooting
 // $('#user_signup_modal').modal('show'); // For Troubleshooting
 // $('#user_review_modal').modal('show'); // For Troubleshooting
 // $('#create_post_modal').modal('show'); // For Troubleshooting
@@ -260,12 +265,19 @@ function handle_receiptDownloadBtn() {
         link.click();
     });
     showModal('', book_request_receipt_modal.id);
+    setInterval(function (e) {
+        location.reload();
+    }, 1000)
 }
 
 
 function handle_UserFormModalBtn() {
-    setupFormValidation(user_form.id, user_signup_modal.id, function (e) {
-        showModal(user_review_modal.id, user_signup_modal.id);
+    setupFormValidation(user_form.id, user_signup_modal_btn.id, function (e) {
+        user_signup_modal_btn_processing.classList.remove('d-none');
+        user_signup_modal_btn.classList.add('d-none');
+        setInterval(function (e) {
+            showModal(user_review_modal.id, user_signup_modal.id);
+        }, 5000);
     });
 }
 
@@ -281,25 +293,11 @@ function handle_LoginReminderModalBtn() {
 }
 
 
-function handle_membertype() {
-    let selected = this.value;
+function handle_membertype(selectedValue) {
     let faculty_info = document.querySelectorAll('.faculty-info');
     let student_info = document.querySelectorAll('.student-info');
 
-    if (selected === 'Faculty') {
-        student_info.forEach(function (e) {
-            e.classList.add('d-none');
-        })
-        faculty_info.forEach(function (e) {
-            e.classList.remove('d-none');
-        })
-        user_student_number_input.required = false;
-        user_student_section_select.required = false;
-        user_student_year_select.required = false;
-        user_student_course_select.required = false;
-        user_faculty_number_input.required = true;
-        user_faculty_department_select.required = true;
-    } else {
+    if (selectedValue === 'Student') {
         student_info.forEach(function (e) {
             e.classList.remove('d-none');
         })
@@ -312,10 +310,24 @@ function handle_membertype() {
         user_student_course_select.required = true;
         user_faculty_number_input.required = false;
         user_faculty_department_select.required = false;
-    }
-}
 
-function handle_bookRequestReviewModal() {
+        user_member_type_input.value = 'Student';
+    } else {
+        student_info.forEach(function (e) {
+            e.classList.add('d-none');
+        })
+        faculty_info.forEach(function (e) {
+            e.classList.remove('d-none');
+        })
+        user_student_number_input.required = false;
+        user_student_section_select.required = false;
+        user_student_year_select.required = false;
+        user_student_course_select.required = false;
+        user_faculty_number_input.required = true;
+        user_faculty_department_select.required = true;
+
+        user_member_type_input.value = 'Faculty';
+    }
 }
 
 function handle_bookRequestPrivacyStatementBtn() {
@@ -387,6 +399,40 @@ function handle_bookRequestReviewModalBtn() {
     console.log(sessionBookRequest)
 }
 
+function handle_SignupReminderModalBtn() {
+    showModal(member_type_modal.id, signup_reminder_modal.id);
+}
+
+function handle_MemberTypeModalBtn() {
+    updateSession()
+        .then(() => {
+            let sessionData = JSON.parse(sessionStorage.getItem('sessionData')) || {};
+            if (sessionData) {
+                //PERSONAL DETAILS                    
+                user_avatarPreview.src = sessionData.user_picture;
+                signup_qr_code_img.src = generateQRCode(sessionData.temp_token, 500);
+                user_email_input.value = sessionData.user_email;
+                user_name_input.value = sessionData.user_givenName;
+                user_surname_input.value = sessionData.user_familyName;
+                user_username_input.value = sessionData.user_email;
+                library_id.textContent = sessionData.temp_token;
+                welcome_name_label.textContent = sessionData.user_givenName;
+            } else {
+                console.error("No session data");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    var selectedValue = $("input[type='radio'][name='membertype']:checked").next().text();
+    console.log(selectedValue);
+    handle_membertype(selectedValue);
+
+    showModal(user_signup_modal.id, member_type_modal.id);
+    user_signup_modal_btn.click();
+}
+
 
 
 // // Events for Click ////////////////////////////////////////////////////////
@@ -396,6 +442,8 @@ receipt_download_btn.addEventListener("click", handle_receiptDownloadBtn);
 
 add_new_event_modal_btn.addEventListener("click", handle_addNewEventModalBtn);
 user_review_modal_btn.addEventListener("click", handle_UserReviewModalBtn);
+signup_reminder_modal_btn.addEventListener("click", handle_SignupReminderModalBtn);
+member_type_modal_btn.addEventListener("click", handle_MemberTypeModalBtn);
 user_signup_modal_btn.addEventListener("click", handle_UserFormModalBtn);
 login_reminder_modal_btn.addEventListener("click", handle_LoginReminderModalBtn);
 book_request_privacy_btn.addEventListener("click", handle_bookRequestPrivacyStatementBtn);
@@ -420,12 +468,10 @@ user_re_password_input.addEventListener('input', checkPasswordMatch);
 // // Events for Input ////////////////////////////////////////////////////////
 
 // // Events for Change ////////////////////////////////////////////////////////
-user_member_type_select.addEventListener("change", handle_membertype);
 book_request_privacy_checkbox.addEventListener("change", handle_bookRequestPrivacyCheckbox);
 // // Events for Change ////////////////////////////////////////////////////////
 
 // // Call Functions /////////////////////////////////////////////////////////
-
 setupFormValidation(book_request_review_form.id, book_request_review_modal_btn.id, handle_bookRequestReviewModalBtn);
 // // Call Functions /////////////////////////////////////////////////////////
 

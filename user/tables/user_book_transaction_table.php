@@ -2,6 +2,8 @@
     <thead>
         <tr>
             <th class="fs-8">Trans ID</th>
+            <th class="fs-8">Status</th>
+            <th class="fs-8">Fine</th>
             <th class="fs-8">Pickup Date</th>
             <th class="fs-8">Return Date</th>
             <th class="fs-6">Book Title</th>

@@ -17,11 +17,12 @@
   display: none;
 }
 
-#attendance_table {
-  max-height: 80% !important; /* Set a maximum height for the container */
-  overflow-y: auto !important; /* Enable vertical scrolling */
-}
+/* #attendance_table {
+  max-height: 80% !important;
+  overflow-y: auto !important;
+} */
 
 #user_attendance_table table th {
   text-align: center !important;
 }
+

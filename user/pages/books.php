@@ -13,7 +13,7 @@ include '../php_script/main_script.php';
     <title>Books • Tanza Campus Library</title>
 </head>
 
-<body>
+<body class="bookPage">
     <!-- Header -->
     <?php include '../web_contents/header.php'; ?>
     <!-- Header -->
