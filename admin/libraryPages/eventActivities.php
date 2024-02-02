@@ -30,7 +30,9 @@
         <div id="admin-body">
             <section>
                 <h1 id="pageHeader">Calendar of Events</h1>
-                
+                <div class="container-fluid text-center p-5">
+                    <a class="btn btn-success mx-auto" href="../render/calendar/add_new_event.php">Add Event</a>
+                </div>
             </section>
         </div>
 

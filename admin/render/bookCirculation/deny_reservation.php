@@ -112,8 +112,6 @@
                         } else {
                             echo "<p class='text-danger'>Please select valid value</p>";
                         }
-                        
-
                     }
                 ?>
             </div>

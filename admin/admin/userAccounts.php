@@ -29,6 +29,63 @@
             <section id="list">
                 <h1 id="pageHeader">List</h1>
                 <div class="container-fluid p-3">
+                    <h3>Moderators</h3>
+                    <table id="moderatorList" class="table table-sm nowrap table-striped compact table-hover">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Lastname</th>
+                                <th>Username</th>
+                                <th>CvSu Email</th>
+                                <th>Student No.</th>
+                                <th>Faculty No.</th>
+                                <th>Member Type</th>
+                                <th>Permission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $sql = "SELECT * FROM moderator";
+                                $result = $conn->query($sql);
+
+                                // Check if the query was successful
+                                if ($result) {
+                                    // Check if there are rows in the result set
+                                    if ($result->num_rows > 0) {
+                                        ?>
+                                            <?php
+                                            while ($row = $result->fetch_assoc()) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $row["user_givenName"]; ?></td>
+                                                    <td><?php echo $row["user_familyName"]; ?></td>
+                                                    <td><?php echo $row["user_username"]; ?></td>
+                                                    <td><?php echo $row["user_email"]; ?></td>
+                                                    <td><?php echo $row["user_student_number"]; ?></td>
+                                                    <td><?php echo $row["user_faculty_number"]; ?></td>
+                                                    <td><?php echo $row["user_member_type"]; ?></td>
+                                                    <td>
+                                                        <?php echo $row["permission"]; ?>
+                                                        <a class="nav-link text-success" href="../render/moderator/editPermission.php?user_token=<?php echo $row['user_token']?>">Edit</a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        <?php
+                                    } else {
+                                        echo "No records found.";
+                                    }
+                                } else {
+                                    // Display an error message if the query fails
+                                    echo "Error: " . $conn->error;
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container-fluid p-3">
+                    <h3>Users</h3>
                     <table id="userList" class="table table-sm nowrap table-striped compact table-hover">
                         <thead>
                             <tr>
@@ -36,19 +93,48 @@
                                 <th>Lastname</th>
                                 <th>Username</th>
                                 <th>CvSu Email</th>
+                                <th>Student No.</th>
                                 <th>Faculty No.</th>
                                 <th>Member Type</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>John Kenneth</td>
-                                <td>Villacorte</td>
-                                <td>johnkenneth.villacorte</td>
-                                <td>johnkenneth.villacorte@cvsu.edu.ph</td>
-                                <td>102501</td>
-                                <td>Librarian</td>
-                            </tr>
+                            <?php
+                                $sql = "SELECT * FROM users";
+                                $result = $conn->query($sql);
+
+                                // Check if the query was successful
+                                if ($result) {
+                                    // Check if there are rows in the result set
+                                    if ($result->num_rows > 0) {
+                                        ?>
+                                            <?php
+                                            while ($row = $result->fetch_assoc()) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $row["user_givenName"]; ?></td>
+                                                    <td><?php echo $row["user_familyName"]; ?></td>
+                                                    <td><?php echo $row["user_username"] ?></td>
+                                                    <td><?php echo $row["user_email"]; ?></td>
+                                                    <td><?php echo $row["user_student_number"]; ?></td>
+                                                    <td><?php echo $row["user_faculty_number"]; ?></td>
+                                                    <td>
+                                                        <?php echo $row["user_member_type"]; ?>
+                                                        <a class="nav-link text-success" href="../render/moderator/process_access.php?user_token=<?php echo $row['user_token']?>">Grant Access</a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        <?php
+                                    } else {
+                                        echo "No records found.";
+                                    }
+                                } else {
+                                    // Display an error message if the query fails
+                                    echo "Error: " . $conn->error;
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -69,15 +155,20 @@
 
         <script>
             $(document).ready(function() {
-                if (window.innerWidth <= 999) {
+                if (window.innerWidth <= 1000) {
                     var satisfactionTable =  $('#userList').DataTable({
+                        scrollX: true,
+                    });
+                    var satisfactionTable =  $('#moderatorList').DataTable({
                         scrollX: true,
                     });
                 } else {
                     var satisfactionTable =  $('#userList').DataTable();
+                    var satisfactionTable =  $('#moderatorList').DataTable();
                 }
                 
             })
+
         </script>
     </body>
 </html>
