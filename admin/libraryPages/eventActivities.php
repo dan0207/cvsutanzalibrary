@@ -23,17 +23,20 @@
     <body>
         <?php include '../adminNavigation/header.php' ?>
 
-        <div class="pt-5">
-            <?php include '../adminNavigation/sidebar.php'; ?>
-        </div>
-
-        <div id="admin-body">
-            <section>
-                <h1 id="pageHeader">Calendar of Events</h1>
-                <div class="container-fluid text-center p-5">
-                    <a class="btn btn-success mx-auto" href="../render/calendar/add_new_event.php">Add Event</a>
+        <div id="admin-body" class="pt-2">
+            <div class="row pt-5">
+                <div class="col-lg-3">
+                    <?php include '../adminNavigation/sidebar.php'; ?>
                 </div>
-            </section>
+                <div class="col-lg-9">
+                    <section>
+                        <h1 id="pageHeader">Calendar of Events</h1>
+                        <div class="container-fluid text-center p-5">
+                            <a class="btn btn-success mx-auto" href="../render/calendar/add_new_event.php">Add Event</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
 
 

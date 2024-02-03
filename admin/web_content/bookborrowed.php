@@ -32,7 +32,7 @@
                         ?>
                         <tr>
                             <td>
-                                <button class="btn btn-success btn-sm book_returned"
+                                <button id="book_return" class="btn btn-success btn-sm book_return"
                                         data-id="<?php echo $rowBorrowed["id"]; ?>"
                                         data-libraryid="<?php echo $rowBorrowed["libraryid"]; ?>"
                                         data-name="<?php echo $rowBorrowed["name"]; ?>"
@@ -45,7 +45,7 @@
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Returned
                                 </button> 
-                                <button class="btn btn-warning btn-sm book_missing"
+                                <button id="book_missing" class="btn btn-warning btn-sm book_missing"
                                         data-id="<?php echo $rowBorrowed["id"]; ?>"
                                         data-libraryid="<?php echo $rowBorrowed["libraryid"]; ?>"
                                         data-name="<?php echo $rowBorrowed["name"]; ?>"
@@ -58,7 +58,7 @@
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Missing
                                 </button> 
-                                <button class="btn btn-danger btn-sm book_damage"
+                                <button id="book_damage" class="btn btn-danger btn-sm book_damage"
                                         data-id="<?php echo $rowBorrowed["id"]; ?>"
                                         data-libraryid="<?php echo $rowBorrowed["libraryid"]; ?>"
                                         data-name="<?php echo $rowBorrowed["name"]; ?>"
@@ -66,7 +66,7 @@
                                         data-email="<?php echo $rowBorrowed["email"]; ?>"
                                         data-accessno="<?php echo $rowBorrowed["bookAccessNo"]; ?>"
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
-                                        data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
+                                        data-callNo="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
                                         data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Damaged

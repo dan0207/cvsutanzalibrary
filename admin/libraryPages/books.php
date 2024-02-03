@@ -22,15 +22,18 @@
     <body>
         <?php include '../adminNavigation/header.php' ?>
 
-        <div class="pt-5">
-            <?php include '../adminNavigation/sidebar.php'; ?>
-        </div>
-
-        <div id="admin-body">
-            <section>
-                <h1 id="pageHeader">Books</h1>
-                
-            </section>
+        <div id="admin-body" class="pt-5">
+            <div class="row pt-2">
+                <div class="col-lg-3">
+                    <?php include '../adminNavigation/sidebar.php'; ?>
+                </div>
+                <div class="col-lg-9">
+                    <section>
+                        <h1 id="pageHeader">Books</h1>
+                        
+                    </section>
+                </div>
+            </div>
         </div>
 
 
