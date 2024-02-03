@@ -25,14 +25,13 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../web_contents/head.php'; ?>
     <title>Attendance • Tanza Campus Library</title>
-    <style></style>
 </head>
 
 <body class="attendance">
     <!-- Header -->
     <nav id="navbar" class="navbar vh-5 navbar-expand-lg navbar-onSurface bg-surface border-bottom shadow-sm bg-body-surface">
         <div class="container-fluid">
-            <a class="navbar-brand py-1 p-0" href="../pages/home.php" type="button">
+            <a class="navbar-brand py-1 p-0" href="home.php" type="button">
                 <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="180" class="img-responsive">
             </a>
             <ul class="navbar-nav nav-pills text-center ms-auto mt-3 my-lg-auto" id="navTab_pill">
@@ -107,7 +106,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                             <div class="attendance-title text-center mb-3">
                                 <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                             </div>
-                            <div class="attendance-container w-100 h-100 overflow-hidden">
+                            <div class="attendance-container w-100 h-80">
                                 <div id="attendance_table" class="attendance-table">
                                     <?php include '../tables/user_attendance_table.php'; ?>
                                 </div>
@@ -123,19 +122,19 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                         <img id="attendance_picture" src="<?php echo $picture; ?>" class="img-responsive rounded-circle border border-5 border-tertiary shadow h-70" alt="user">
                                     </div>
                                     <div class="attendance-details mx-4 h-60 d-flex flex-column justify-content-evenly">
-                                        <h4 class="attendance-name m-1"><?php echo $name; ?></h4>
+                                        <h5 class="attendance-name m-0"><?php echo $name; ?></h5>
                                         <?php
                                         if ($member_type == 'Faculty') {
-                                            echo "<h6 class='attendance-faculty-department m-1'>$faculty_department</h6>";
-                                            echo "<h6 class='attendance-faculty-number m-1'>$faculty_number</h6>";
+                                            echo "<h6 class='attendance-faculty-department m-0'>$faculty_department</h6>";
+                                            echo "<h6 class='attendance-faculty-number m-0'>$faculty_number</h6>";
                                         } else {
                                             echo "<h6 class='attendance-student-courseSection m-1'>$courseSection</h6>";
-                                            echo "<h6 class='attendance-student-number m-1'>$student_number</h6>";
+                                            echo "<h6 class='attendance-student-number m-0'>$student_number</h6>";
                                         }
                                         ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>
                                         <h6 class="attendance-libraryid m-1" id="library_id"><?php echo mask($id) ?></h6>
-                                        <h5 class="<?php echo checkStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
+                                        <h5 class="<?php echo checkAttendanceStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +155,6 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
         </div>
     </footer>
     <!-- Footer -->
-
 
     <!-- Script -->
     <script src="../assets/vendor/js/attendance.js" type="module"></script>

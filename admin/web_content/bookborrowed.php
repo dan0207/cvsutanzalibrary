@@ -5,6 +5,7 @@
         $sqlBorrowed = "SELECT * FROM bookborrowed";
         $resultBorrowed = $conn->query($sqlBorrowed);
 
+        
         if ($resultBorrowed->num_rows > 0) {
             // Output a table header
             ?>

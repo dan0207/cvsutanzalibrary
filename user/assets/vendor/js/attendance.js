@@ -16,7 +16,10 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         responsive: true,
         paging: false,
-        order: [[0, "desc"]],
+        scrollY: $('.attendance-container').height(),
+        deferRender: true,
+        scroller: true,
+        order: [[5, "desc"]],
         columnDefs: [
             {
                 targets: -1,
@@ -29,10 +32,10 @@ $(document).ready(function () {
                 }
             },
             {
-                targets: 0,
+                targets: -2,
                 render: function (data, type, row) {
                     var time = new Date('1970-01-01T' + data);
-                    return time.toLocaleTimeString("en-US", { hour12: true });
+                    return "<div class='fs-6'>" + time.toLocaleTimeString("en-US", { hour12: true }) + "</div>";
                 }
             },
         ]
@@ -102,9 +105,8 @@ $(".qr-scanner-input").change(function (e) {
     var qr_scanner_input = this;
     let qr_scanner_input_value = $(qr_scanner_input).val();
 
-    const toastLiveExample = document.getElementById('liveToast')
-    const InvalidQRcodeTaost = bootstrap.Toast.getOrCreateInstance(toastLiveExample, { delay: 2000 })
-
+    const toast = document.getElementById('liveToast')
+    const InvalidQRcodeTaost = bootstrap.Toast.getOrCreateInstance(toast, { delay: 2000 })
 
     checkUserData(qr_scanner_input_value)
         .then(user_scan_valid => {

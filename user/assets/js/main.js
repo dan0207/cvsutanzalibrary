@@ -13,6 +13,14 @@ export function updateSession() {
         });
 }
 
+export function confirmationModal(title, btnText, confirmationModal_function) {
+    $('#confirmationModal_title').text(title);
+    showModal('confirmationModal');
+    const $confirmationModal_btn = $('#confirmationModal_btn');
+    $confirmationModal_btn.text(btnText);
+    $confirmationModal_btn.on('click', confirmationModal_function);
+}
+
 export function showModal(show_id, hide_id) {
     if (show_id) {
         $('#' + show_id).modal('show');
@@ -28,7 +36,7 @@ export function generateQRCode(qr_text, qr_size) {
     return googleChartApiUrl;
 }
 
-export function generateBarCode(barcodeContainer, barcodeText,  barcodeWidth, barcodeHeight, barcodeFontsize) {
+export function generateBarCode(barcodeContainer, barcodeText, barcodeWidth, barcodeHeight, barcodeFontsize) {
     JsBarcode(barcodeContainer, barcodeText, {
         format: "CODE128",
         width: barcodeWidth,
@@ -36,7 +44,6 @@ export function generateBarCode(barcodeContainer, barcodeText,  barcodeWidth, ba
         fontSize: barcodeFontsize,
     });
 }
-
 
 export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
     'use strict';
@@ -46,7 +53,6 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
     const validateButton = document.getElementById(form_btn_id);
 
     if (form && validateButton) {
-        // console.log(form.id);
         validateButton.addEventListener('click', function (event) {
             if (!form.checkValidity()) {
                 event.preventDefault();
@@ -54,6 +60,7 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
                 console.log("Invalid Input");
             } else {
                 handleValidFunction();
+                return '';
             }
             form.classList.add('was-validated');
         });
@@ -158,6 +165,19 @@ export async function selectBookReservation() {
     borrowPeriod(unavailableDates);
 }
 
+export function getBase64ImageSync(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+}
 
 
 function borrowPeriod(reservedDates) {

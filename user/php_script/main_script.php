@@ -37,7 +37,7 @@ function getFormattedDate($dateString)
     return $formatedDate;
 }
 
-function checkStatus($status)
+function checkAttendanceStatus($status)
 {
     if ($status === 'OUT') {
         return "text-onSecondary bg-secondary";
@@ -160,3 +160,13 @@ function emailRemider()
         }
     }
 }
+
+
+// function callDataFromDatabase($maintext)
+// {
+//     require('../php_script/db_local_connection.php');
+//     $select_sql = "SELECT * FROM librarypages WHERE mainText = '$maintext'";
+//     $result = mysqli_query($db, $select_sql);
+//     $result = $result->fetch_assoc();
+//     echo $result['subText'];
+// }

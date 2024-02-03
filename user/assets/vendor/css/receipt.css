@@ -4,3 +4,23 @@
     outline: none !important;
     box-shadow: none !important;
 }
+
+@media print {
+    .bookPage * {
+      visibility: hidden;
+    }
+  
+    #receipt,
+    #receipt * {
+      visibility: visible;
+    }
+  
+    #receipt {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+  }

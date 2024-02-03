@@ -10,17 +10,7 @@ function getDataFromTable($db, $tableName)
     while ($row = mysqli_fetch_assoc($result)) {
         $data[] = $row;
     }
-
-    if ($tableName === 'users') {
-        $user_token = $_SESSION['user_token'];
-        foreach ($data as $row) {
-            if ($row['user_token'] === $user_token) {
-                $data['active'] = $row;
-                break;
-            }
-        }
-    }
-
+    
     return $data;
 }
 
@@ -40,5 +30,3 @@ foreach ($tables as $table) {
 // Return JSON response
 header('Content-Type: application/json');
 echo json_encode($allData);
-
-?>

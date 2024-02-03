@@ -14,6 +14,8 @@
 
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                     <div class="accordion-body">
+                        <?php //callDataFromDatabase('recent_announcements') 
+                        ?>
                         <ul class="list-group">
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_1"><i class="fa-solid fa-circle fa-2xs me-2"></i>Newly Books</a></li>
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" href="../pages/user/home.php#post_2"><i class="fa-solid fa-circle fa-2xs me-2"></i>Login per Program</a></li>
@@ -34,6 +36,8 @@
                 </div>
                 <div id="panelsStayOpen-collapsetwo" class="accordion-collapse collapse show">
                     <div class="accordion-body">
+                        <?php //callDataFromDatabase('quick_links') 
+                        ?>
                         <ul class="list-group">
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.accessengineeringlibrary.com/"><i class="fa-solid fa-circle fa-2xs me-2"></i>Access Engineering</a></li>
                             <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://search.ebscohost.com/Login.aspx"><i class="fa-solid fa-circle fa-2xs me-2"></i>EBSCO Databases</a></li>
@@ -69,8 +73,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <!-- Scripts -->
