@@ -134,6 +134,34 @@ $(document).ready(function () {
 });
 
 
+$(function () {
+    $('#user_book_request_table tbody').on('click', '[id*=cancel_btn]', function () {
+        let clickedRow = $(this).closest('tr');
+        let transactionID = clickedRow.find('td:eq(0)').text();
+        confirmationModal('Are you sure want to delete this request? \n Transaction ID: ' + transactionID, 'Delete', function () {
+            fetch('../php_script/db_delete_row_script.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: 'transactionID=' + transactionID,
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if(data){   
+                        const deletedLiveToast = document.getElementById('deletedLiveToast');
+                        const deletedRequestToast = bootstrap.Toast.getOrCreateInstance(deletedLiveToast, { delay: 2000 });
+                        deletedRequestToast.show();
+                        setInterval(function (e) {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    });
+});
+
 let logout_btn = document.querySelectorAll(".logout-btn");
 logout_btn.forEach(function (e) {
     e.addEventListener("click", function () {

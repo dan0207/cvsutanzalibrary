@@ -40,7 +40,7 @@ let books_table = new DataTable('#books_table', {
                 if (value === 'Available to Borrow') {
                     return "<h4 class='fst-italic text-primary'>Available to Borrow</h4>";
                 } else if (value === 'Room Use Only') {
-                    return "<h4 class='fst-italic text-highlight'>Available for Room Use Only</h4>";
+                    return "<h4 class='fst-italic text-secondary'>Available for Room Use Only</h4>";
                 } else {
                     return "<h4 class='fst-italic text-secondary'>Not Available for Borrowing</h4>";
                 }
@@ -141,17 +141,3 @@ $(function () {
             });
     });
 });
-
-
-
-// function submitReceipt() {
-//     // Parse the URL to get parameters
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const submitted = urlParams.get('submit');
-
-//     if (submitted === 'receipt') {
-//         showModal(book_request_receipt_modal.id);
-//     }
-
-// }
-// submitReceipt();
