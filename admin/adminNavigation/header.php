@@ -5,3 +5,6 @@
     <div id="toggle"></div>
   </div>
 </nav>
+
+
+<?php include '../web_content/modals.php'; ?>

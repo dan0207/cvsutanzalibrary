@@ -5,6 +5,7 @@
 }
 body {
     min-width: 270px;
+    overflow-x: hidden;
 }
 :root {
     --bg-color: #007205;
@@ -193,7 +194,7 @@ section {
 /* admin sidebar */
 #sidebar {
     position: fixed;
-    left: -290px;
+    left: 0;
     width: 280px;
     height: 85vh;
     border: 3px solid var(--bg-color);
@@ -203,9 +204,7 @@ section {
     z-index: 100;
     transition: .5s ease;
 }
-#sidebar.active {
-    left: 0px;
-}
+
 #sidebar::-webkit-scrollbar {
     width: 5px;
 }
@@ -231,40 +230,7 @@ section {
 /* admin sidebar */
 
 
-/* admin header | Sidebar toggle */
-#toggle {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#toggle::before {
-    content : '';
-    position: absolute;
-    width: 28px;
-    height: 2px;
-    background: var(--bg-color);
-    transform: translateY(-5px);
-    transition: .2s;
-}
-#toggle::after {
-    content : '';
-    position: absolute;
-    width: 28px;
-    height: 2px;
-    background: var(--bg-color);
-    transform: translateY(5px);
-    transition: .2s;
-}
-#toggle.active::before {
-    transform: translateY(0px) rotate(45deg);
-}
-#toggle.active::after {
-    transform: translateY(0px) rotate(-45deg);
-}
-/* admin header | Sidebar toggle */
+
 
 
 .nav_bar {
@@ -301,6 +267,9 @@ section {
 
 /* for responsive screen on cellphone */
 @media screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
     /* admin login */
     #adminLogin {
         position: absolute;
@@ -340,10 +309,52 @@ section {
     }
 
     .post-text {
-        font-size: 1rem !important;
+        font-size: .9rem !important;
     }
     .post-text-icon {
         font-size: .7rem !important;
     }
     /* user create announcement */
+
+
+    /* admin header | Sidebar toggle */
+    #sidebar.active {
+        left: 0px;
+    }
+    #sidebar {
+        left: -290px;
+    }
+    #toggle {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #toggle::before {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(-5px);
+        transition: .2s;
+    }
+    #toggle::after {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(5px);
+        transition: .2s;
+    }
+    #toggle.active::before {
+        transform: translateY(0px) rotate(45deg);
+    }
+    #toggle.active::after {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    /* admin header | Sidebar toggle */
 }

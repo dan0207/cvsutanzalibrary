@@ -85,7 +85,7 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-10 col-lg-8 text-center"><br>
+        <div class="col-sm-10 col-lg-7 text-center"><br>
             <div id="report" class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">
                 <h3>Today Reports</h3>
                 <div class="row">

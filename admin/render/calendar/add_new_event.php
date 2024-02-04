@@ -32,7 +32,7 @@
         <title>Add New Event</title>
     </head>
     <body>
-        <div class="container-fluid w-50 mx-auto p-5">
+        <div class="container-fluid mx-auto p-5">
             <form class="card shadow p-2" method="post">
                 <div class="text-end">
                     <a class="nav-link p-3" href="../../libraryPages/eventActivities.php"><i class="fa-solid fa-x"></i></a>
