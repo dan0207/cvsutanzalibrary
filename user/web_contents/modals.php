@@ -592,14 +592,6 @@
             </div>
         </div>
     </div>
-
-    <div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
-        <div id="liveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body py-5 text-bg-primary opacity-75 rounded-3 text-center">
-                <h1 class="fw-bold">SUCCESSFULLY SUBMITTED!</h1>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- Book Reservation Request Library Receipt Modal  -->
 
@@ -646,3 +638,22 @@
     </div>
 </div>
 <!-- Create Post Modal -->
+
+
+<!-- Toast -->
+<div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
+    <div id="submittedLiveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body py-5 text-bg-primary opacity-75 rounded-3 text-center">
+            <h1 class="fw-bold">SUCCESSFULLY SUBMITTED!</h1>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
+    <div id="deletedLiveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body py-3 text-bg-primary opacity-75 rounded-3 text-center">
+            <h3 class="fw-bold">SUCCESSFULLY DELETED!</h3>
+        </div>
+    </div>
+</div>
+<!-- Toast -->
