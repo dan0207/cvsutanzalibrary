@@ -146,6 +146,7 @@ $(function () {
             })
                 .then(response => response.text())
                 .then(data => {
+                    console.log(data);
                     if(data){   
                         const deletedLiveToast = document.getElementById('deletedLiveToast');
                         const deletedRequestToast = bootstrap.Toast.getOrCreateInstance(deletedLiveToast, { delay: 2000 });

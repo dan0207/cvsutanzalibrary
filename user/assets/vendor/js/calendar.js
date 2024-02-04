@@ -47,7 +47,7 @@ const months = [
 
 const eventsArr = []; // Array to store events
 
-getEvents();
+// getEvents();
 
 
 // Initial calendar setup
@@ -100,34 +100,34 @@ function getActiveMonth(month) {
 }
 
 // Function to update events when a day is active
-function updateEvents(eventsArr) {
+function updateEvents() {
     let events = "";
     if (eventsArr.length == 0) {
         events = `<div class="no-event">
             <div class="fs-5 my-3">No Events</div>
         </div>`;
     } else {
-        for(let i = 0; i < eventsArr.length; i++){
+        // for(let i = 0; i < eventsArr.length; i++){
+        //     events += `<div class="event">
+        //         <div class="title">
+        //             <i class="fas fa-circle"></i>
+        //             <h3 class="event-title">${eventsArr}</h3>
+        //         </div>
+        //         <div class="event-time">
+        //             <span class="event-time">${eventsArr} - ${eventsArr}</span>
+        //         </div>
+        //     </div>`;
+        // }
+        eventsArr.forEach((event) => {
             events += `<div class="event">
                 <div class="title">
                     <i class="fas fa-circle"></i>
-                    <h3 class="event-title">${eventsArr}</h3>
+                    <h3 class="event-title">${event.title}</h3>
                 </div>
                 <div class="event-time">
-                    <span class="event-time">${eventsArr} - ${eventsArr}</span>
+                    <span class="event-time">${event.date} - ${event.time}</span>
                 </div>
             </div>`;
-        }
-        eventsArr.forEach((event) => {
-            // events += `<div class="event">
-            //     <div class="title">
-            //         <i class="fas fa-circle"></i>
-            //         <h3 class="event-title">${event.title}</h3>
-            //     </div>
-            //     <div class="event-time">
-            //         <span class="event-time">${event.date} - ${event.time}</span>
-            //     </div>
-            // </div>`;
         });
     }
 
@@ -355,26 +355,26 @@ goto_btn.addEventListener("click", function () {
 //     // localStorage.setItem("events", JSON.stringify(eventsArr));
 // }
 // // Function to get events from local storage
-function getEvents() {
+// function getEvents() {
 
-    fetch('../php_script/db_getAllData.php')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.events);
-            updateEvents(data.events);
-            // generateBarCode("#book_receipt_id", data.transactionNo, 2, 50, 14);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+//     fetch('../php_script/db_getAllData.php')
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data.events);
+//             updateEvents(data.events);
+//             // generateBarCode("#book_receipt_id", data.transactionNo, 2, 50, 14);
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
 
-    // if (localStorage.getItem("eventss") === null) {
-    //     return;
-    // }
+//     // if (localStorage.getItem("eventss") === null) {
+//     //     return;
+//     // }
 
-    // // localStorage.clear();
-    // eventsArr.push(...JSON.parse(localStorage.getItem("events")));
-}
+//     // // localStorage.clear();
+//     // eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+// }
 
 // // Function to convert time to 12-hour format
 // function convertTime(time) {

@@ -1,6 +1,6 @@
 <h1 id="pageHeader">Analytics</h1>
 <div class="container-fluid text-center mb-3">
-    <h2 class="border p-2">MONTH OF <span id="currentMonth"></span></h2>
+    <h2 class="border p-2">MONTH OF <span id="currentMonth"></span>    </h2>
     <div class="row text-center">
         <div class="col-sm-10 col-lg-4"><br>
             <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">

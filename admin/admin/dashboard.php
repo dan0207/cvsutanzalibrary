@@ -61,7 +61,7 @@
             // JavaScript code to get the current month
             var currentDate = new Date();
             var currentMonth = currentDate.toLocaleString('default', { month: 'long' }).toUpperCase();
-
+            
             // Display the current month in the HTML document
             document.getElementById('currentMonth').innerHTML = currentMonth;
             // getting the current month for the admin dashboard / ANALYTICS
