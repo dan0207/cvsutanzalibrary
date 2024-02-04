@@ -51,7 +51,7 @@
                                             data-title="<?php echo $row["bookTitle"]; ?>"
                                             data-callno="<?php echo $row["bookCallNo"]; ?>"
                                             data-pickup="<?php echo $row["pickupDate"]; ?>"
-                                            data-return="<?php echo $row["returnDate"]; ?>">Pick Up
+                                            data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#process_reservation">Pick Up
                                     </button> 
                                     <button class="btn btn-danger btn-sm decline_request"
                                             data-id="<?php echo $row["id"]; ?>"
@@ -63,7 +63,7 @@
                                             data-title="<?php echo $row["bookTitle"]; ?>"
                                             data-callno="<?php echo $row["bookCallNo"]; ?>"
                                             data-pickup="<?php echo $row["pickupDate"]; ?>"
-                                            data-return="<?php echo $row["returnDate"]; ?>">Decline
+                                            data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#deny_reservation">Decline
                                     </button>
                                 </td>
                                 <td><?php echo $row["libraryid"]; ?></td>

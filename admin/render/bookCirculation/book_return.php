@@ -5,16 +5,19 @@
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $libraryId = $_GET['libraryid'];
+        $libraryId = $_GET['libraryId'];
         $name = $_GET['name'];
         $course = $_GET['course'];
         $email = $_GET['email'];
-        $accessNo = $_GET['accessno'];
+        $accessNo = $_GET['accessNo'];
         $title = $_GET['title'];
         $callno = $_GET['callno'];
         $pickupDate = $_GET['pickupDate'];
         $returnDate = $_GET['returnDate'];
         $fine = $_GET['fine'];
+        
+        // Insert the data into the booktransaction table when the button is clicked
+        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $fine);
     }
 
     // Function to insert data into the booktransaction table
@@ -42,52 +45,9 @@
     }
 
     if (isset($_POST['insert_button'])) {
-        // Insert the data into the booktransaction table when the button is clicked
-        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $fine);
 
     }
 
     // Close the database connection
     $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Book Return</title>
-        
-        <link rel="stylesheet" href="../../assets/style/style.css">
-   </head>
-
-    <body>
-        <div class="container text-center pt-5">
-            <h1>BOOK RETURNED</h1>
-            <div class="col-sm-10 col-lg-6 text-start border border-secondary rounded ps-5 ms-auto me-auto">
-                <div class="text-end">
-                    <a class="nav-link p-3" href="../../admin/circulation.php"><i class="fa-solid fa-x"></i></a>
-                </div>
-                <?php
-                    // Display the data
-                    echo '<p><strong>Library ID:</strong> ' . $libraryId . '</p>';
-                    echo '<p><strong>Name:</strong> ' . $name . '</p>';
-                    echo '<p><strong>Course & Section:</strong> ' . $course . '</p>';
-                    echo '<p><strong>Email:</strong> ' . $email . '</p>';
-                    echo '<p><strong>Book Access No.:</strong> ' . $accessNo . '</p>';
-                    echo '<p><strong>Book Title:</strong> ' . $title . '</p>';
-                    echo '<p><strong>Book Call No:</strong> ' . $callno . '</p>';
-                    echo '<p><strong>Pickup Date:</strong> ' . $pickupDate . '</p>';
-                    echo '<p><strong>Return Date:</strong> ' . $returnDate . '</p>';
-                    echo '<p><strong>Fine:</strong> ₱' . (empty($fine) ? 0 : $fine) . '</p>';
-                ?>
-                <!-- Button to insert data into bookborrowed table -->
-                <form method="post" class="text-end">
-                    <button type="submit" class="btn btn-success m-3" name="insert_button">RETURN</button>
-                </form>
-
-            </div>
-        </div>
-
-    </body>
-</html>

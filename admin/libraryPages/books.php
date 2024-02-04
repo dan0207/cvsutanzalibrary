@@ -19,8 +19,8 @@
         <link rel="stylesheet" href="../assets/style/style.css">
     </head>
 
-    <body>
-        <?php include '../adminNavigation/header.php' ?>
+<body>
+    <?php include '../adminNavigation/header.php' ?>
 
         <div class="pt-5">
             <?php include '../adminNavigation/sidebar.php'; ?>

@@ -22,22 +22,25 @@
     
     <body>
         <?php include '../adminNavigation/header.php' ?>
-
-        <div class="pt-5">
-            <?php include '../adminNavigation/sidebar.php'; ?>
-        </div>
-        <div id="admin-body">
-            <section id="analytics">
-                <?php include '../web_content/analytics.php'; ?>
-            </section>
-            
-            <section id="collection">
-                <?php include '../web_content/collection.php'; ?>
-            </section>
-            
-            <section id="userSatisfaction">
-                <?php include '../web_content/userSatisfaction.php'; ?>
-            </section>
+        <div id="admin-body" class="pt-2">
+            <div class="row pt-5">
+                <div class="col-lg-3">
+                    <?php include '../adminNavigation/sidebar.php'; ?>
+                </div>
+                <div class="col-lg-9 p-3">
+                    <section id="analytics">
+                        <?php include '../web_content/analytics.php'; ?>
+                    </section>
+                    
+                    <section id="collection">
+                        <?php include '../web_content/collection.php'; ?>
+                    </section>
+                    
+                    <section id="userSatisfaction">
+                        <?php include '../web_content/userSatisfaction.php'; ?>
+                    </section>
+                </div>
+            </div>
         </div>
 
 
