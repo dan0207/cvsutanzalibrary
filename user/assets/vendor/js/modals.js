@@ -1,6 +1,6 @@
 
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection } from '../../js/main.js';
+import { updateSession, setupFormValidation, showModal, generateQRCode, generateBarCode, getformatDate, getFormatCourseSection, mask } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -415,7 +415,7 @@ function handle_MemberTypeModalBtn() {
                 user_name_input.value = sessionData.user_givenName;
                 user_surname_input.value = sessionData.user_familyName;
                 user_username_input.value = sessionData.user_email;
-                library_id.textContent = sessionData.temp_token;
+                library_id.textContent = mask(sessionData.temp_token);
                 welcome_name_label.textContent = sessionData.user_givenName;
             } else {
                 console.error("No session data");

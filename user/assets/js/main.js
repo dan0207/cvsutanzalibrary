@@ -126,6 +126,14 @@ export function getformatDate(date) {
     return formattedDate;
 }
 
+export function mask(text) {
+    var firstChar = text.substring(0, 1);
+    var lastChar = text.slice(-1);
+    var middleChars = '*'.repeat(text.length - 2);
+    return firstChar + middleChars + lastChar;
+}
+
+
 
 export async function selectBookReservation() {
     let sessionBookRequest = JSON.parse(sessionStorage.getItem('sessionBookRequest')) || {};
