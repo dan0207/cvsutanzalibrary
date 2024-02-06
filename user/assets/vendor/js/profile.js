@@ -109,12 +109,13 @@ $(document).ready(function () {
                 targets: 1,
                 render: function (data, type, row) {
                     let value = row[1];
-                    if (value == 'Return Day') {
-                        return "<h7 class='fw-semibold text-primary m-0'> " + data + " </h7>";
-                    } else if (value == 'Overdue') {
-                        return "<h7 class='fw-semibold text-secondary m-0'>" + data + "</h7>";
-                    } else {
-                        return "<h7 class='fw-semibold text-primary m-0'>" + data + "</h7>";
+                    switch (value) {
+                        case 'Returned':
+                            return "<h7 class='fw-semibold text-primary m-0'> " + data + " </h7>";
+                        case 'Missing':
+                            return "<h7 class='fw-semibold text-warning m-0'> " + data + " </h7>";
+                        default:
+                            return "<h7 class='fw-semibold text-secondary m-0'> " + data + " </h7>";
                     }
                 }
             },
@@ -141,13 +142,13 @@ $(function () {
         confirmationModal('Are you sure want to delete this request? \n Transaction ID: ' + transactionID, 'Delete', function () {
             fetch('../php_script/db_delete_row_script.php', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'transactionID=' + transactionID,
             })
                 .then(response => response.text())
                 .then(data => {
                     console.log(data);
-                    if(data){   
+                    if (data) {
                         const deletedLiveToast = document.getElementById('deletedLiveToast');
                         const deletedRequestToast = bootstrap.Toast.getOrCreateInstance(deletedLiveToast, { delay: 2000 });
                         deletedRequestToast.show();
