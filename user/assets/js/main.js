@@ -111,7 +111,10 @@ export function getFormatCourseSection(course, year, section) {
         'FOUR': 4
     };
 
-    return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
+    return [course && course, 
+        yearToNumber[year] && `${yearToNumber[year]}`, 
+        sectionToNumber[section] && `- ${sectionToNumber[section]}`].filter(Boolean).join(" ")
+    // return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
 }
 
 export function getformatDate(date) {
@@ -190,7 +193,7 @@ function borrowPeriod(reservedDates) {
 
     $('#pickup_date').datepicker({
         autoclose: false,
-        startDate: '+1d',
+        startDate: '+2d',
         todayHighlight: true,
         keepEmptyValues: true,
         daysOfWeekDisabled: '0,5,6', // Disable Not Open Hours

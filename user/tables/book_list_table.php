@@ -16,11 +16,29 @@
             <th>Subject(s): </th>
             <th>LOC classification: </th> <!--(CN_SORCE) Biblio Items -->
             <th>STATUS: </th>
-            <th class="fs-10 fs-md-8" >ACTION: </th>
-            
+            <th class="fs-10 fs-md-8">ACTION: </th>
+
             <!-- <th>modified: </th>
             <th>created: </th> -->
 
+        </tr>
+        <tr>
+            <th class="fs-8"></th> <!--(ITEM NUMBER) Items -->
+            <th></th> <!-- (TITLE) Biblio -->
+            <th></th> <!-- (AUTHOR) Biblio -->
+            <th></th> <!--(ITEM CALL NUMBER) Items -->
+            <th class="fs-8"></th> <!--(ITYPE) Items -->
+            <th></th>
+            <th></th> <!--(PLACE) Biblio Items/ (COPYRIGHT DATE) Biblio -->
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th> <!--(ISBN) Biblio Items -->
+            <th></th>
+            <th></th> <!--(CN_SORCE) Biblio Items -->
+            <th></th>
+            <th class="fs-10 fs-md-8"></th>
         </tr>
     </thead>
 </table>
