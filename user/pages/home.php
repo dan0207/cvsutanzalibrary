@@ -32,7 +32,6 @@ include '../php_script/main_script.php';
                     </div>
                     <div class="col-12 col-lg-6 order-1 order-lg-2 px-0">
                         <?php include '../web_contents/about.php'; ?>
-Hello
                     </div>
                     <div class="col-12 col-lg-3 order-3 order-lg-3">
                         <?php include '../web_contents/right-sidebar.php'; ?>
