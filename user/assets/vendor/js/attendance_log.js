@@ -6,7 +6,9 @@ $(document).ready(function () {
     let curDate = getformatDate(new Date());
     let headerImg;
     getBase64ImageSync('../assets/img/fileheader.png', function (base64) { headerImg = (base64); });
-    $('#user_attendance_log_table').DataTable({
+
+    // Initialize DataTable
+    let userAttendanceLogTable = $('#user_attendance_log_table').DataTable({
         ajax: {
             type: 'GET',
             url: '../php_script/datatable_server_script.php',
@@ -14,31 +16,49 @@ $(document).ready(function () {
                 table: 'attendance_log'
             }
         },
-        processing: true, // DO NOT REMOVE
-        serverSide: true, // DO NOT REMOVE
+        processing: true,
+        serverSide: true,
         responsive: true,
         paging: false,
         bInfo: false,
         scrollY: $('#attendance_log_table').height() * 0.8,
         deferRender: true,
         scroller: true,
-        // iDisplayLength: 10,
         order: [[6, "desc"]],
         dom: 'Bfrtip',
+
+        initComplete: function () {
+            this.api().columns().every(function (i) {
+                let column = this;
+                let select = $('<select class="form-control py-1444444444 mx-auto w-70"><option value="">All</option></select>')
+                    .appendTo($(column.footer()).empty())
+                    .on('change', function () {
+                        let val = $.fn.dataTable.util.escapeRegex($(this).val());
+                        column.search(val).draw();
+                    });
+
+
+                column.data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                });
+
+                // Add an input field for each column
+                // let input = $('<input type="text" class="form-control custom-cls" placeholder="Search"/>')
+                //     .appendTo($(column.footer()).empty())
+                //     .on('keyup change', function () {
+                //         let val = $.fn.dataTable.util.escapeRegex($(this).val());
+                //         column.search(val).draw();
+                //     });
+            });
+        },
+
         buttons: [{
             extend: 'excelHtml5',
             title: 'Library Attendance ' + curDate,
             text: 'Excel',
             customize: function (xlsx) {
-                var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                // $('c[r=A1] t', sheet).text( 'Cavite State University Tanza Campus' );
+                let sheet = xlsx.xl.worksheets['sheet1.xml'];
                 $('c[r=A1]', sheet).attr('s', '51');
-                // $('row c[r^="A"]', sheet).each(function () {
-                //     // Get the value
-                //     // if ($('is t', this).text() == 'New York') {
-                //         $(this).attr('s', '20');
-                //     // }
-                // });
             }
         },
         {
@@ -62,7 +82,6 @@ $(document).ready(function () {
                     width: 450,
                 });
             },
-
         },
         {
             extend: 'print',
@@ -85,7 +104,9 @@ $(document).ready(function () {
         ]
     });
 
-    var buttonContainer = $('.dataTables_wrapper .dt-buttons');
-    var buttonText = $('<span class="fw-semibold me-3">Download as: </span>');
+    // Add a label for download buttons
+    let buttonContainer = $('.dataTables_wrapper .dt-buttons');
+    let buttonText = $('<span class="fw-semibold me-3">Download as: </span>');
     buttonContainer.prepend(buttonText);
 });
+

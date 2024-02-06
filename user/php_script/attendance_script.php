@@ -1,7 +1,14 @@
 <?php
 session_start();
 include 'main_script.php';
-require_once('db_local_connection.php');
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "cvsutanzalib_db";
+
+$db = new mysqli($servername, $username, $password, $database);
+mysqli_query($db, "SET time_zone = '+08:00'");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $qrValue = $_POST['qr-scanner'];
