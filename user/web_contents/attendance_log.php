@@ -39,7 +39,7 @@
                             <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                         </div>
                         <div class="attendance-container w-100 h-80">
-                            <div id="attendance_log_table" class="attendance-table h-90">
+                            <div id="attendance_log_table" class="attendance-table h-70">
                                 <?php include '../tables/user_attendance_log_table.php'; ?>
                             </div>
                         </div>

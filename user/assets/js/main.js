@@ -1,36 +1,5 @@
 AOS.init();
 
-
-export function updateSession() {
-    return fetch('../php_script/update_session.php')
-        .then(response => response.text())
-        .then(data => {
-            sessionStorage.setItem('sessionData', JSON.stringify(JSON.parse(data)) || {});
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            throw error;
-        });
-}
-
-export function confirmationModal(title, btnText, confirmationModal_function) {
-    $('#confirmationModal_title').text(title);
-    showModal('confirmationModal');
-    const $confirmationModal_btn = $('#confirmationModal_btn');
-    $confirmationModal_btn.text(btnText);
-    $confirmationModal_btn.on('click', confirmationModal_function);
-}
-
-export function showModal(show_id, hide_id) {
-    if (show_id) {
-        $('#' + show_id).modal('show');
-    }
-    if (hide_id) {
-        $('#' + hide_id).modal('hide');
-    }
-}
-
-
 export function generateQRCode(qr_text, qr_size) {
     var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + qr_size + "x" + qr_size + "&cht=qr&chl=" + qr_text + "&choe=UTF-8";
     return googleChartApiUrl;
@@ -201,7 +170,7 @@ function borrowPeriod(reservedDates) {
 
     $('#pickup_date').datepicker({
         autoclose: false,
-        startDate: '+2d',
+        startDate: '+1d',
         todayHighlight: true,
         keepEmptyValues: true,
         daysOfWeekDisabled: '0,5,6', // Disable Not Open Hours
@@ -283,6 +252,36 @@ function borrowPeriod(reservedDates) {
     $('#borrow_period').datepicker({
         inputs: $('.borrow-date-range'),
     });
+}
+
+
+export function updateSession() {
+    return fetch('../php_script/update_session.php')
+        .then(response => response.text())
+        .then(data => {
+            sessionStorage.setItem('sessionData', JSON.stringify(JSON.parse(data)) || {});
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+}
+
+export function confirmationModal(title, btnText, confirmationModal_function) {
+    $('#confirmationModal_title').text(title);
+    showModal('confirmationModal');
+    const $confirmationModal_btn = $('#confirmationModal_btn');
+    $confirmationModal_btn.text(btnText);
+    $confirmationModal_btn.on('click', confirmationModal_function);
+}
+
+export function showModal(show_id, hide_id) {
+    if (show_id) {
+        $('#' + show_id).modal('show');
+    }
+    if (hide_id) {
+        $('#' + hide_id).modal('hide');
+    }
 }
 
 activateTopSearch();

@@ -36,19 +36,9 @@ $(document).ready(function () {
                         let val = $.fn.dataTable.util.escapeRegex($(this).val());
                         column.search(val).draw();
                     });
-
-
                 column.data().unique().sort().each(function (d, j) {
                     select.append('<option value="' + d + '">' + d + '</option>');
                 });
-
-                // Add an input field for each column
-                // let input = $('<input type="text" class="form-control custom-cls" placeholder="Search"/>')
-                //     .appendTo($(column.footer()).empty())
-                //     .on('keyup change', function () {
-                //         let val = $.fn.dataTable.util.escapeRegex($(this).val());
-                //         column.search(val).draw();
-                //     });
             });
         },
 

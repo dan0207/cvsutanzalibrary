@@ -13,7 +13,10 @@ let books_table = new DataTable('#books_table', {
             table: 'books'
         }
     },
-    processing: true, // DO NOT REMOVE
+    processing: true,
+    language: {
+        processing: '<div class="datatable-loader border"></div>'
+    },
     serverSide: true, // DO NOT REMOVE
     iDisplayLength: 10,
     responsive: true,
@@ -57,29 +60,39 @@ let books_table = new DataTable('#books_table', {
         }
     ],
 
+    initComplete: function (settings, json) {
+        $(".datatable-loader-container").css('visibility', 'hidden');
+        $(".dataTables_processing").css('visibility', 'visible');
+    },
 
-    
+
+
     createdRow: function (row, data, index) {
         let value = data[14];
 
         if (value === 'Available to Borrow') {
             $('#request_btn', row).prop('disabled', false);
-            $('td', row).addClass('available');
+            // $('td', row).addClass('available');
         } else {
             $('#request_btn', row).prop('disabled', true);
-            $('td', row).addClass('notAvailable');
+            // $('td', row).addClass('notAvailable');
         }
     },
 });
+
+$('books_table').hide();
 
 $('.pageLengthSelect').on('change', function () {
     let newPageLength = $(this).val();
     books_table.page.len(newPageLength).draw();
 });
 
-
 let opac_search_input = document.getElementById('opac_search_input');
 let opac_search_btn = document.getElementById('opac_search_btn');
+
+if (opac_search_input.value !== '') {
+    searchBooks(opac_search_input.value);
+}
 
 opac_search_input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
@@ -87,7 +100,7 @@ opac_search_input.addEventListener('keyup', function (event) {
     }
 });
 
-opac_search_btn.addEventListener('click', function(event){
+opac_search_btn.addEventListener('click', function (event) {
     searchBooks(opac_search_input.value);
 });
 
@@ -141,3 +154,4 @@ $(function () {
             });
     });
 });
+

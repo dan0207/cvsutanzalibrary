@@ -69,7 +69,9 @@ $(document).ready(function () {
                 targets: 1,
                 render: function (data, type, row) {
                     let value = row[1];
-                    if (value == 'Return Day') {
+                    if (value == 'Checking') {
+                        return "<h7 class='fw-semibold text-warning m-0'> " + data + " </h7>";
+                    } else if (value == 'Return Day') {
                         return "<h7 class='fw-semibold text-primary m-0'> " + data + " </h7>";
                     } else if (value == 'Overdue') {
                         return "<h7 class='fw-semibold text-secondary m-0'>" + data + "</h7>";

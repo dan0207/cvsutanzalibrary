@@ -56,6 +56,9 @@ $_GET['opac_search'] = '';
                     <?php include '../tables/book_list_table.php'; ?>
                 </div>
             </div>
+            <!-- <div class="datatable-loader-container d-flex justify-content-center align-items-center vh-50">
+                <div class="datatable-loader"></div>
+            </div> -->
         </div>
     </div>
 </div>

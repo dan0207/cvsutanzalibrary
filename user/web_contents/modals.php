@@ -394,6 +394,12 @@
 
                             <p class="text-center fs-8 mt-4">🔔Please review the details you request and click the Continue button if you wish to proceed🔔</p>
                             <div id="borrow_period" class="row borrow-period text-center mt-3">
+                                <h5 class="text-center">INSTRUCTIONS</h5>
+                                <ol class="text-start fs-7 px-5">
+                                    <li>The Home Reading Book service at the Library CVSU Tanza allows users to borrow two non-reserved books between 7:00 am and 6:00 pm.</li>
+                                    <li>Users are required to return the books on a day specified by them within a 1-7 day borrowing period.</li>
+                                    <li>This service encourages a convenient and flexible approach to reading, catering to users' schedules.</li>
+                                </ol>
                                 <h6 class="fw-bold mb-3">SELECT YOUR BORROW PERIOD:</h6>
                                 <div class="col-6">
                                     <h6 class="">Available Pickup Dates</h6>
@@ -416,12 +422,6 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="text-center mt-5">INSTRUCTIONS</h5>
-                    <ol class="text-start fs-7">
-                        <li>The Home Reading Book service at the Library CVSU Tanza allows users to borrow two non-reserved books between 7:00 am and 6:00 pm.</li>
-                        <li>Users are required to return the books on a day specified by them within a 1-7 day borrowing period.</li>
-                        <li>This service encourages a convenient and flexible approach to reading, catering to users' schedules.</li>
-                    </ol>
                 </form>
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
