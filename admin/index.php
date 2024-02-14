@@ -1,3 +1,51 @@
+<?php
+    include 'render/connection.php';
+    include 'assets/cdn/cdn_links.php';
+    include 'assets/fonts/fonts.php';
+
+    // Check if the user is already logged in
+    session_start();
+    if (isset($_SESSION['username'])) {
+        header("Location: admin/dashboard.php"); // Redirect to the dashboard if already logged in
+        exit;
+    }
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve username and password from the form
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        // Prepare SQL statement to select user with the provided username
+        $sql = "SELECT * FROM moderator WHERE user_username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if a row was returned
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            // Verify the password
+            if (password_verify($password, $row['user_password'])) {
+                // Redirect to the admin panel or moderator dashboard upon successful login
+                session_start();
+                $_SESSION['username'] = $username; // Store the username in session
+                $_SESSION['password'] = $password; // Store the username in session
+                header("Location: admin/dashboard.php");
+                exit;
+            }
+        }
+
+
+        // If credentials are incorrect, display an error message
+        echo "Invalid username or password. Please try again.";
+
+        // Close prepared statement
+        $stmt->close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,38 +56,10 @@
     <title>CVSU Tanza Campus - Library</title>
 
     <link rel="stylesheet" href="assets/style/style.css">
-    <?php include "assets/cdn/cdn_links.php"; ?>
 
 </head>
 
 <body>
-    <?php
-    // Check if the user is already logged in
-    session_start();
-    if (isset($_SESSION['username'])) {
-        header("Location: admin/dashboard.php"); // Redirect to the dashboard if already logged in
-        exit;
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Validate user credentials (you may want to fetch the data from a database)
-        $username = 'admin'; // Replace with your desired username
-        $password = 'password'; // Replace with your desired password
-
-        $submitted_username = $_POST['username'];
-        $submitted_password = $_POST['password'];
-
-        if ($username === $submitted_username && $password === $submitted_password) {
-            // Set the session variable to indicate the user is logged in
-            $_SESSION['username'] = $username;
-            header("Location: admin/dashboard.php");
-            exit;
-        } else {
-            echo '<p style="color: red;">Invalid credentials. Please try again.</p>';
-        }
-    }
-    ?>
-
     <div id="adminLogin" class="card shadow-lg">
 
         <div class="text-center pt-2">
@@ -49,17 +69,6 @@
             <form class="pt-1" action="index.php" method="post">
                 <h2>Librarian</h2>
 
-                <div id="g_id_onload" data-client_id="171145039223-i2oabkul3cr1qflpogvbm55taag2a3kj.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-nonce="" data-itp_support="true">
-                </div>
-
-                <div class="container d-flex justify-content-center">
-                    <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="continue_with" data-size="medium" data-logo_alignment="left">
-                    </div>
-                    <input type="file" id="avatar_fileInput" class="d-none">
-                </div>
-
-                <p class="text-center pt-3 fs-small">or login using username and password</p>
-                
                 <div id="text-field">
                     <label for="username">Username</label>
                     <input type="text" name="username" autocomplete="off" required placeholder="Enter your username">
@@ -75,12 +84,6 @@
             </form>
         </div>
     </div>
-
-    <script>
-        globalThis.handleCredentialResponse = async (response) => {
-            console.log('Test');
-        }
-    </script>
 </body>
 
 </html>

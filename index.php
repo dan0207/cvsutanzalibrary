@@ -12,6 +12,7 @@
     <main>
         <div class="container-fluid d-flex justify-content-center align-items-center vh-100 bg-body-tertiary">
             <div class="container d-flex flex-column justify-content-center align-items-center w-25">
+                <a class="btn btn-lg fs-1 btn-outline-success w-100 my-3" href="./admin/moderator_account/index.php"> Moderator</a>
                 <a class="btn btn-lg fs-1 btn-outline-success w-100 my-3" href="./admin/index.php"> Admin</a>
                 <a class="btn btn-lg fs-1 btn-outline-success w-100 my-3" href="./user/pages/home.php"> User</a>
                 <a class="btn btn-lg fs-1 btn-outline-success w-100 my-3" href="./user/pages/attendance.php"> Attendance</a>

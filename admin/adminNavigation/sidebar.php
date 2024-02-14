@@ -1,25 +1,7 @@
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="adminLogOut" tabindex="-1" aria-labelledby="adminLogOutLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="adminLogOutLabel">Confirm Log out</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" ><a class="nav-link" href="../admin/logout.php">Log out</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    
 <div id="sidebar" class="d-flex flex-column bg-light ms-2 mt-3 mb-3 flex-shrink-0">
   <ul class="nav nav-pills flex-column mb-auto">
     <button id="pageAccess" class="border-0 fs-5 p-1 align-items-center text-light collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true">Dashboard</button>
-    <div class="collapse show" id="dashboard">
+    <div class="collapse" id="dashboard">
       <li><a class="nav_bar nav-link" href="../admin/dashboard.php#analytics"><i class="fa-solid fa-arrow-right fa-2xs"></i> Analytics</a></li>
       <li><a class="nav_bar nav-link" href="../admin/dashboard.php#collection"><i class="fa-solid fa-arrow-right fa-2xs"></i> Collection</a></li>
       <li><a class="nav_bar nav-link" href="../admin/dashboard.php#userSatisfaction"><i class="fa-solid fa-arrow-right fa-2xs"></i> User Satisfaction</a></li>
@@ -36,7 +18,7 @@
     <div class="collapse" id="userAccounts">
       <li><a class="nav_bar nav-link" href="../admin/userAccounts.php#list"><i class="fa-solid fa-arrow-right fa-2xs"></i> List</a></li>
       <li><a class="nav_bar nav-link" href="../admin/userAccounts.php#view"><i class="fa-solid fa-arrow-right fa-2xs"></i> View</a></li>
-      <li><a class="nav_bar nav-link" href="../admin/userAccounts.php#profile"><i class="fa-solid fa-arrow-right fa-2xs"></i> Profile</a></li>
+      <!-- <li><a class="nav_bar nav-link" href="../admin/userAccounts.php#profile"><i class="fa-solid fa-arrow-right fa-2xs"></i> Profile</a></li> -->
     </div>
 
     <button id="pageAccess" class="border-0 fs-5 p-1 align-items-center text-light collapsed" data-bs-toggle="collapse" data-bs-target="#library-pages" aria-expanded="false">Library Pages</button>

@@ -2,16 +2,6 @@
     include '../../render/connection.php';
     include '../../assets/cdn/cdn_links.php';
     include '../../assets/fonts/fonts.php';
-    
-    session_start();
-    if (!isset($_SESSION['username'])) {
-        header("Location: ../index.php"); // Redirect to the index if not logged in
-        exit;
-    }
-
-    if (isset($_GET["user_token"])) {
-        $user_token = $_GET["user_token"];
-    }
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +17,17 @@
         <div class="container text-center py-5">
             <div class="col-sm-10 col-lg-6 text-start border border-secondary rounded ps-5 mx-auto">
                 <div class="text-end">
-                    <a class="nav-link p-3" href="../../admin/userAccounts.php"><i class="fa-solid fa-x"></i></a>
+                    <a class="nav-link p-3" href="../../moderator_account/dashboard.php"><i class="fa-solid fa-x"></i></a>
                 </div>
                 <?php
+                    if (isset($_GET["user_id"])) {
+                        $user_id = $_GET["user_id"];
+                    }
+                    
                     // Use prepared statement to avoid SQL injection
-                    $sql = "SELECT * FROM moderator WHERE user_token = ?";
+                    $sql = "SELECT * FROM moderator WHERE user_id = ?";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("s", $user_token);
+                    $stmt->bind_param("s", $user_id);
                     $stmt->execute();
                     $result = $stmt->get_result();
 
@@ -55,6 +49,7 @@
                                     <label for="permissionOption">Permission Options:</label>
                                     <select class="form-control" id="permissionOption" name="selectedOption">
                                         <option value="default" selected>Select an option</option>
+                                        <option value="Administrator">Administrator</option>
                                         <option value="Librarian">Librarian</option>
                                         <option value="Assistant Librarian">Assistant Librarian</option>
                                         <option value="Staff">Staff</option>
@@ -72,18 +67,18 @@
                                 
                                 if($permission != "default") {
                                     if($permission == "Remove Access") {
-                                        $redirectUrl = "remove_access.php?user_token=$user_token";
+                                        $redirectUrl = "remove_access.php?user_token=$user_id";
                                             echo '<script type="text/javascript">';
                                             echo 'window.location.href = "' . $redirectUrl . '";';
                                             echo '</script>';
                                     } else {
                                         // Use prepared statement to avoid SQL injection
-                                        $updateSql = "UPDATE moderator SET permission = ? WHERE user_token = ?";
+                                        $updateSql = "UPDATE moderator SET permission = ? WHERE user_id = ?";
                                         $updateStmt = $conn->prepare($updateSql);
-                                        $updateStmt->bind_param("ss", $permission, $user_token);
+                                        $updateStmt->bind_param("ss", $permission, $user_id);
                                         if ($updateStmt->execute()) {
                                             echo "Permission updated successfully.";
-                                            $redirectUrl = "../../admin/userAccounts.php";
+                                            $redirectUrl = "../../moderator_account/dashboard.php";
                                             echo '<script type="text/javascript">';
                                             echo 'window.location.href = "' . $redirectUrl . '";';
                                             echo '</script>';
