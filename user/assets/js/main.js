@@ -1,36 +1,5 @@
 AOS.init();
 
-
-export function updateSession() {
-    return fetch('../php_script/update_session.php')
-        .then(response => response.text())
-        .then(data => {
-            sessionStorage.setItem('sessionData', JSON.stringify(JSON.parse(data)) || {});
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            throw error;
-        });
-}
-
-export function confirmationModal(title, btnText, confirmationModal_function) {
-    $('#confirmationModal_title').text(title);
-    showModal('confirmationModal');
-    const $confirmationModal_btn = $('#confirmationModal_btn');
-    $confirmationModal_btn.text(btnText);
-    $confirmationModal_btn.on('click', confirmationModal_function);
-}
-
-export function showModal(show_id, hide_id) {
-    if (show_id) {
-        $('#' + show_id).modal('show');
-    }
-    if (hide_id) {
-        $('#' + hide_id).modal('hide');
-    }
-}
-
-
 export function generateQRCode(qr_text, qr_size) {
     var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + qr_size + "x" + qr_size + "&cht=qr&chl=" + qr_text + "&choe=UTF-8";
     return googleChartApiUrl;
@@ -111,7 +80,10 @@ export function getFormatCourseSection(course, year, section) {
         'FOUR': 4
     };
 
-    return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
+    return [course && course, 
+        yearToNumber[year] && `${yearToNumber[year]}`, 
+        sectionToNumber[section] && `- ${sectionToNumber[section]}`].filter(Boolean).join(" ")
+    // return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
 }
 
 export function getformatDate(date) {
@@ -122,6 +94,14 @@ export function getformatDate(date) {
     });
     return formattedDate;
 }
+
+export function mask(text) {
+    var firstChar = text.substring(0, 1);
+    var lastChar = text.slice(-1);
+    var middleChars = '*'.repeat(text.length - 2);
+    return firstChar + middleChars + lastChar;
+}
+
 
 
 export async function selectBookReservation() {
@@ -272,6 +252,36 @@ function borrowPeriod(reservedDates) {
     $('#borrow_period').datepicker({
         inputs: $('.borrow-date-range'),
     });
+}
+
+
+export function updateSession() {
+    return fetch('../php_script/update_session.php')
+        .then(response => response.text())
+        .then(data => {
+            sessionStorage.setItem('sessionData', JSON.stringify(JSON.parse(data)) || {});
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+}
+
+export function confirmationModal(title, btnText, confirmationModal_function) {
+    $('#confirmationModal_title').text(title);
+    showModal('confirmationModal');
+    const $confirmationModal_btn = $('#confirmationModal_btn');
+    $confirmationModal_btn.text(btnText);
+    $confirmationModal_btn.on('click', confirmationModal_function);
+}
+
+export function showModal(show_id, hide_id) {
+    if (show_id) {
+        $('#' + show_id).modal('show');
+    }
+    if (hide_id) {
+        $('#' + hide_id).modal('hide');
+    }
 }
 
 activateTopSearch();

@@ -1,9 +1,8 @@
 <div id="chat" class="chat d-none d-lg-block rounded-start-5 z-3 my-5 shadow bg-body-tertiary border">
     <div class="chat-body h-100">
-
         <div class="chatbox rounded-4 h-100 w-100 p-4">
             <!-- <iframe src="https://www.chatbase.co/chatbot-iframe/tLIFB8-62nxoI5IGg2whD" class="border rounded-4" width="100%" style="height: 100%;"></iframe> -->
-            <iframe src="https://www.chatbase.co/chatbot-iframe/tLIFB8-62nxoI5IGg2whD" width="100%" width="100%" style="height: 100%;" frameborder="0"></iframe>
+            <iframe src="https://www.chatbase.co/chatbot-iframe/tLIFB8-62nxoI5IGg2whD" class="border rounded-4" width="100%" width="100%" style="height: 100%;" frameborder="0"></iframe>
 
             <!-- <div class="chats border my-1 rounded-4 bg-surface h-90 p-4 overflow-auto">
                 <div class="sender-chat row">
@@ -37,9 +36,3 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
 <script defer src="../assets/vendor/js/chat.js" type="module"></script>
-
-<style>
-    .prose p {
-        font-size: 0.2rem !important;
-    }
-</style>

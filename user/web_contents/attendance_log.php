@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../web_contents/head.php'; ?>
-    <title>Attendance Log <?php echo date("Y-m-d") ?> • Tanza Campus Library</title>
+    <title>Attendance Log • Tanza Campus Library</title>
 </head>
 
 <body class="attendance">
@@ -39,12 +39,12 @@
                             <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
                         </div>
                         <div class="attendance-container w-100 h-80">
-                            <div id="attendance_log_table" class="attendance-table h-95">
+                            <div id="attendance_log_table" class="attendance-table h-70">
                                 <?php include '../tables/user_attendance_log_table.php'; ?>
                             </div>
                         </div>
                         <div class="log-btn my-3 mt-auto h-10">
-                            <a type="button" href="../pages/attendance.php" class="btn btn-lg btn-secondary text-onSecondary px-3">
+                            <a type="button" href="../pages/attendance.php" class="btn btn btn-secondary text-onSecondary px-3">
                             <i class="fa-solid fa-arrow-left px-2"></i> Back to Attendance
                             </a>
                         </div>

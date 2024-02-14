@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'main_script.php';
-require_once('db_local_connection.php');
+require ('./db_local_connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $qrValue = $_POST['qr-scanner'];

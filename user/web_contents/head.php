@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="../assets/vendor/css/about.css">
 <link rel="stylesheet" href="../assets/vendor/css/services.css">
 <link rel="stylesheet" href="../assets/vendor/css/footer.css">
-<link rel="stylesheet" href="../assets/vendor/css/sidebars.css">
 <link rel="stylesheet" href="../assets/vendor/css/login.css">
 <link rel="stylesheet" href="../assets/vendor/css/profile.css">
 <link rel="stylesheet" href="../assets/vendor/css/datepicker.css">
@@ -19,6 +18,7 @@
 <link rel="stylesheet" href="../assets/vendor/css/feedback.css">
 <link rel="stylesheet" href="../assets/vendor/css/chat.css">
 <link rel="stylesheet" href="../assets/vendor/css/offcanvas.css">
+<link rel="stylesheet" href="../assets/vendor/css/right-sidebar.css">
 <link rel="stylesheet" href="../assets/vendor/css/receipt.css">
 <link rel="stylesheet" href="../assets/vendor/css/attendance.css">
 <link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">

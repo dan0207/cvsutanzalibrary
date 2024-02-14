@@ -16,8 +16,8 @@
             <th>Subject(s): </th>
             <th>LOC classification: </th> <!--(CN_SORCE) Biblio Items -->
             <th>STATUS: </th>
-            <th class="fs-10 fs-md-8" >ACTION: </th>
-            
+            <th class="fs-10 fs-md-8">ACTION: </th>
+
             <!-- <th>modified: </th>
             <th>created: </th> -->
 

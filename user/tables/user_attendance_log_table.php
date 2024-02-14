@@ -10,4 +10,15 @@
             <th class="text-center">Time OUT </th>
         </tr>
     </thead>
+    <tfoot>
+        <tr class="rounded-3 border border-primary">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>
