@@ -1,5 +1,5 @@
 <h1 id="pageHeader">Satisfaction Rating</h1>
-<div class="card m-3 ps-3 pe-3">
+<div class="card m-3 ps-3 pe-3 shadow">
     <h3 class="text-center">SUMMARY OF SATISFACTION RATINGS</h3>
     <table class="table table-sm nowrap table-striped compact table-hover text-center" style="width:100%">
         <thead>

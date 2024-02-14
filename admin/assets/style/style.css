@@ -15,7 +15,9 @@ body {
     --text-color: #fff;
     --text-color-secondary: #afafaf;
 }
-
+textarea {
+    resize: none;
+}
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -33,6 +35,14 @@ body {
     box-shadow: 0 0 .1rem .2rem var(--bg-color-light) !important;
 }
 
+#profile_gender .form-select,
+#library_hours_modal .form-select,
+#edit_fines .form-select {
+    width: 100% !important;
+}
+.form-select {
+    width: 5rem !important;
+}
 .w-lg-40 {
     width: 40% !important;
 }
@@ -85,7 +95,11 @@ body {
 }
 
 .admin-profile {
-    height: 125% !important;
+    height: 100% !important;
+}
+
+.profile_picture {
+    width: 20vw !important;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -228,9 +242,6 @@ section {
     color: var(--text-color) !important;
 }
 /* admin sidebar */
-
-
-
 
 
 .nav_bar {

@@ -1,3 +1,20 @@
+<!--logout Modal -->
+<div class="modal fade" id="adminLogOut" tabindex="-1" aria-labelledby="adminLogOutLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="adminLogOutLabel">Confirm Log out</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" ><a class="nav-link" href="../admin/logout.php">Log out</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--logout Modal -->
+
 <!-- Process Reservation Modal -->
 <div class="modal fade" id="process_reservation" tabindex="-1" aria-labelledby="process_reservation_modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -170,3 +187,493 @@
     </div>
 </div>
 <!-- Return Book Modal -->
+
+<!-- edit opac background Modal -->
+<div class="modal fade" id="opac_bg_modal" tabindex="-1" aria-labelledby="opac_bg_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="opac_bg_modal_label">Update Opac Search Background</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data" action="../render/updateOpacSearch/updateOpacImage.php">
+            <input type="hidden" name="mainText" value="<?php echo $mainText; ?>">
+            <input type="hidden" name="pages" value="<?php echo $pages; ?>">
+
+            <div class="input-group p-3">
+                <label class="input-group-text" for="image">Upload</label>
+                <input class="form-control" type="file" name="image" id="image" accept="image/*">
+            </div>
+
+            <hr>
+            <div class="text-end">
+                <button type="submit" class="btn btn-success" name="opac_bg_save">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit opac background Modal -->
+
+<!-- library hours Modal -->
+<div class="modal fade" id="library_hours_modal" tabindex="-1" aria-labelledby="library_hours_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container p-3">
+                <h3 class="text-center">Update Library Hours Schedule</h3>
+                <form action="../render/editLibraryHours.php" method="post">
+                    <!-- select day schedule -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="startDay">Select start day:</label>
+                            <select id="startDay" name="startDay" class="form-select">
+                                <option value="default">Select option</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="endDay">Select end day:</label>
+                            <select id="endDay" name="endDay" class="form-select">
+                                <option value="default">Select option</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- select time schedule -->
+                            <label for="startTime">Select start time:</label>
+                            <select id="startTime" name="startTime" class="form-select">
+                                <!-- Options for hours from 7 AM to 6:30 PM in both 24-hour and 12-hour format -->
+                                <<option value="default">Select option</option>
+                                <option value="06:00">6:00 AM</option>
+                                <option value="06:30">6:30 AM</option>
+                                <option value="07:00">7:00 AM</option>
+                                <option value="07:30">7:30 AM</option>
+                                <option value="08:00">8:00 AM</option>
+                                <option value="08:30">8:30 AM</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="09:30">9:30 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="10:30">10:30 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="11:30">11:30 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="13:30">1:30 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="14:30">2:30 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="15:30">3:30 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="16:30">4:30 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="17:30">5:30 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="endTime">Select end time:</label>
+                            <select id="endTime" name="endTime" class="form-select">
+                                <!-- Options for hours from 7 AM to 6:30 PM in both 24-hour and 12-hour format -->
+                                <option value="default">Select option</option>
+                                <option value="06:00">6:00 AM</option>
+                                <option value="06:30">6:30 AM</option>
+                                <option value="07:00">7:00 AM</option>
+                                <option value="07:30">7:30 AM</option>
+                                <option value="08:00">8:00 AM</option>
+                                <option value="08:30">8:30 AM</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="09:30">9:30 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="10:30">10:30 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="11:30">11:30 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="13:30">1:30 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="14:30">2:30 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="15:30">3:30 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="16:30">4:30 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="17:30">5:30 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="text-end">
+                        <input class="btn btn-success" type="submit" value="UPDATE">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- library hourse Modal -->
+
+<!-- moderator logout Modal -->
+<div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to logout?
+      </div>
+      <div class="modal-footer">
+        <a href="logout.php" class="btn btn-success">Logout</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- moderator logout Modal -->
+
+<!-- Upload profile picture Modal -->
+<div class="modal fade" id="change_profile_picture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="../assets/script/php_script/moderator_upload_profile_picture.php" method="post" enctype="multipart/form-data"> <!-- Add form element -->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Picture</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                        <input type="file" class="form-control" id="inputGroupFile01" name="profile_picture"> <!-- Add name attribute -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="upload_profile_picture">Save changes</button> <!-- Change type to submit -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form> <!-- Close form element -->
+        </div>
+    </div>
+</div>
+<!-- Upload profile picture Modal -->
+
+<!-- See profile Modal -->
+<div class="modal fade" id="see_profile_picture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <?php
+                    $user = $_SESSION['username'];
+                    $sql = "SELECT user_picture FROM moderator WHERE user_username = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("s", $user);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if($result->num_rows === 0) {
+                        ?>
+                        <img src="../render/uploads/images/profile_picture.jpg" alt="">
+
+                        <?php
+                    } else {
+                        $row = $result->fetch_assoc();
+                        $user_picture = $row['user_picture'];
+                        ?>
+                            <img class="profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                        <?php
+                    }
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- See profile Modal -->
+
+<!-- Remove profile picture Modal -->
+<div class="modal fade" id="remove_profile_picture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Remove Profile Picture</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <?php
+                $user = $_SESSION['username'];
+                $sql = "SELECT user_picture FROM moderator WHERE user_username = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $user);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows === 0) {
+                    ?>
+                    <img class="" src="../render/uploads/images/profile_picture.jpg" alt="">
+                    <?php
+                } else {
+                    $row = $result->fetch_assoc();
+                    $user_picture = $row['user_picture'];
+                    ?>
+                    <img class="profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="modal-footer">
+                <form action="../assets/script/php_script/remove_profile_picture.php" method="post"> <!-- Add form for submission -->
+                    <button type="submit" class="btn btn-danger" name="remove_profile_picture">Remove</button> <!-- Change to submit button -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Remove profile picture Modal -->
+
+<!-- Change password Modal -->
+<div class="modal fade" id="change_password" tabindex="-1" aria-labelledby="change_password_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="change_password_modal">Change Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../assets/script/php_script/update_new_password.php" method="post" id="change_password_form">
+                    <div class="mb-3">
+                        <label for="old_password" class="form-label">Old Password</label>
+                        <input type="password" class="form-control" id="old_password" name="old_password" onkeyup="checkOldPassword()" required>
+                        <div id="old_password_feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new_password" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password" onkeyup="checkConfirmPassword()" required disabled="true">
+                        <div id="password_strength"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" onkeyup="checkConfirmPassword()" required disabled="true">
+                        <div id="confirm_password_feedback"></div>
+                    </div>
+
+                    <hr>
+                    <button type="submit" class="btn btn-success" id="update_password_button" disabled="true">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Change password Modal -->
+
+<!-- update profile Modal -->
+<div class="modal fade" id="update_profile" tabindex="-1" aria-labelledby="update_profile_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="update_profile_modal">Update Profile Information</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../assets/script/php_script/update_profile_info.php" method="post">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        $username = $_SESSION['username'];
+
+                        // Assuming your database connection is stored in $conn
+                        $query = "SELECT * FROM moderator WHERE user_username = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("s", $username);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        // Fetch data and do something with it
+                        while ($row = $result->fetch_assoc()) {
+                        ?>
+                        <div class="mb-3">
+                            <label for="profile_username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="profile_username" placeholder="username" value="<?php echo $row['user_username']?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?php echo $row['user_givenName']?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?php echo $row['user_familyName']?>">
+                        </div>
+                        <div class="row">
+                            <div class="col-2 mb-3">
+                                <label for="middle_initial" class="form-label">(M.I.)</label>
+                                <input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="" value="<?php echo $row['user_middleI']?>" maxlength="1">
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="birthday" class="form-label">Birthday</label>
+                                <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo $row['user_birthday']?>">
+                            </div>
+                            <div id="profile_gender" class="col mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select class="form-select" id="gender" name="gender">
+                                    <option value="default" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="prfile_email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="profile_email" name="profile_email" placeholder="name@example.com" value="<?php echo $row['user_email']?>">
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="profile_faculty_number" class="form-label">Faculty No.</label>
+                                <input type="text" class="form-control" id="profile_faculty_number" name="profile_faculty_number" placeholder="#######" value="<?php echo $row['user_faculty_number']?>">
+                            </div>
+                            <div class="col mb-3">
+                                <label for="profile_member_type" class="form-label">Member Type</label>
+                                <input type="text" class="form-control" id="profile_member_type" name="profile_member_type" placeholder="" value="<?php echo $row['user_member_type']?>">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="profile_bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="profile_bio" rows="3" name="profile_bio"><?php echo $row['user_bio']?></textarea>
+                        </div>
+                        <?php
+                        }
+                    }
+                    ?>
+                    <hr>
+                    <button type="submit" class="btn btn-success">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- update profile Modal -->
+
+<!-- add new event Modal -->
+<div class="modal fade" id="add_new_event" tabindex="-1" aria-labelledby="add_new_event_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="add_new_event_modal">Add New Event</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="p-2" action="../assets/script/php_script/add_new_event_script.php" method="post">
+                    <div class="form-group mb-2">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="form-group col-lg-6">
+                            <label for="timeFrom">Time From:</label>
+                            <input type="time" class="form-control" id="timeFrom" name="timeFrom" required>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label for="timeTo">Time To:</label>
+                            <input type="time" class="form-control" id="timeTo" name="timeTo" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+
+                    <hr>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add new event Modal -->
+
+<!-- edit fines Modal -->
+<div class="modal fade" id="edit_fines" tabindex="-1" aria-labelledby="edit_fines_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="edit_fines_modal">Update Fine</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="../assets/script/php_script/update_fines.php">
+                    <div class="form-group mb-3">
+                        <label for="userType">User Type:</label>
+                        <select class="form-select" id="userType" name="userType" required>
+                            <option value="" disabled selected>Select User Type</option>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="bookType">Book Type:</label>
+                        <select class="form-select" id="bookType" name="bookType" required>
+                            <option value="" disabled selected>Select Book Type</option>
+                            <option value="general circulation">General Circulation</option>
+                            <option value="reserve">Reserve</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="fine">Fine Amount:</label>
+                        <input type="number" class="form-control" id="fine" name="fine" placeholder="Enter fine amount" min="0" step="0.01" required>
+                    </div>
+                    <div class="text-end">
+                        <hr>
+                        <button type="submit" name="update" class="btn btn-success">Update</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- edit fines Modal -->

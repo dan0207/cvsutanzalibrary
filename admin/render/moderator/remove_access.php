@@ -1,11 +1,13 @@
 <?php
-include "../connection.php"; // Include your database connection file
+    include '../../render/connection.php';
+    include '../../assets/cdn/cdn_links.php';
+    include '../../assets/fonts/fonts.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $user_token = $_GET["user_token"];
+if (isset($_GET["user_token"])) {
+    $user_id = $_GET["user_token"];
 
     // Get user data based on the user_token
-    $selectSql = "SELECT * FROM moderator WHERE user_token = '$user_token'";
+    $selectSql = "SELECT * FROM moderator WHERE user_id = '$user_id'";
     $result = $conn->query($selectSql);
 
     if ($result && $result->num_rows > 0) {
@@ -25,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         if ($conn->query($insertSql)) {
             // If data is successfully inserted into 'users', delete from 'moderator'
-            $deleteSql = "DELETE FROM moderator WHERE user_token = '$user_token'";
+            $deleteSql = "DELETE FROM moderator WHERE user_id = '$user_id'";
             if (!$conn->query($deleteSql)) {
                 echo "Error deleting record: " . $conn->error;
             } else {
                 echo "Data transferred successfully.";
-                $redirectUrl = "../../admin/userAccounts.php";
+                $redirectUrl = "../../moderator_account/dashboard.php";
                 echo '<script type="text/javascript">';
                 echo 'window.location.href = "' . $redirectUrl . '";';
                 echo '</script>';

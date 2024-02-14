@@ -1,7 +1,5 @@
 <?php
     include '../../render/connection.php';
-    include '../../assets/cdn/cdn_links.php';
-    include '../../assets/fonts/fonts.php';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
