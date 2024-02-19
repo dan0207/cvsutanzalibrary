@@ -37,7 +37,8 @@ textarea {
 
 #profile_gender .form-select,
 #library_hours_modal .form-select,
-#edit_fines .form-select {
+#edit_fines .form-select,
+#links_modal .form-select {
     width: 100% !important;
 }
 .form-select {
@@ -99,7 +100,7 @@ textarea {
 }
 
 .profile_picture {
-    width: 20vw !important;
+    width: 20vw ;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -368,4 +369,9 @@ section {
         transform: translateY(0px) rotate(-45deg);
     }
     /* admin header | Sidebar toggle */
+
+    /* admin profile */
+    #see_profile_mobile {
+        width: 100% !important;
+    }
 }

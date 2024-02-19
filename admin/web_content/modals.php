@@ -404,14 +404,14 @@
 
                     if($result->num_rows === 0) {
                         ?>
-                        <img src="../render/uploads/images/profile_picture.jpg" alt="">
+                        <img class="see_profile_mobile" src="../render/uploads/images/profile_picture.jpg" alt="">
 
                         <?php
                     } else {
                         $row = $result->fetch_assoc();
                         $user_picture = $row['user_picture'];
                         ?>
-                            <img class="profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                            <img class="see_profile_mobile" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
                         <?php
                     }
                 ?>
@@ -554,9 +554,12 @@
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select" id="gender" name="gender">
                                     <option value="default" disabled selected>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
+                                    <?php
+                                        $gender = $row['user_gender']; // Assuming this is the column in your database that holds the gender value
+                                    ?>
+                                        <option value="Male" <?php if($gender == "Male") echo "selected"; ?>>Male</option>
+                                    <option value="Female" <?php if($gender == "Female") echo "selected"; ?>>Female</option>
+                                    <option value="Other" <?php if($gender == "Other") echo "selected"; ?>>Other</option>
                                 </select>
                             </div>
                         </div>
@@ -677,3 +680,259 @@
     </div>
 </div>
 <!-- edit fines Modal -->
+
+<!-- update vision Modal -->
+<div class="modal fade" id="edit_vision" tabindex="-1" aria-labelledby="edit_vision_modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit_vision_modal">Update Vision</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../assets/script/php_script/update_vision.php" method="post">
+            <div class="form-group mb-3">
+                <?php
+                    $sql = "SELECT subText FROM librarypages WHERE mainText = 'vision'";
+                    $result = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <label for="update_vision">Vision</label>
+                <textarea class="form-control" name="update_vision" id="update_vision" rows='15'><?php echo $row['subText'];?></textarea>
+                <?php
+                    }
+                ?>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" name="submit">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- update vision Modal -->
+
+<!-- update mission Modal -->
+<div class="modal fade" id="edit_mission" tabindex="-1" aria-labelledby="edit_mission_modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit_mission_modal">Update Mision</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../assets/script/php_script/update_mission.php" method="post">
+            <div class="form-group mb-3">
+                <?php
+                    $sql = "SELECT subText FROM librarypages WHERE mainText = 'mission'";
+                    $result = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <label for="update_mission">Mission</label>
+                <textarea class="form-control" name="update_mission" id="update_mission" rows='15'><?php echo $row['subText'];?></textarea>
+                <?php
+                    }
+                ?>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" name="submit">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- update mission Modal -->
+
+<!-- add new objective Modal -->
+<div class="modal fade" id="library_objectives" tabindex="-1" aria-labelledby="library_objectives_modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="library_objectives_modal">Add new Objective</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../assets/script/php_script/add_new_objective.php" method="post">
+            <div class="form-group mb-3">
+                <label for="add_objective">Objective</label>
+                <textarea type="text" name="add_objective" id="add_objective" class="form-control" rows="10" required></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Add</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- add new objective Modal -->
+
+<!-- add new rules Modal -->
+<div class="modal fade" id="library_rules" tabindex="-1" aria-labelledby="library_rules_modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="library_rules_modal">Add new Rules and Regulations</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../assets/script/php_script/add_new_rules.php" method="post">
+            <div class="form-group mb-3">
+                <label for="add_rules">Objective</label>
+                <textarea type="text" name="add_rules" id="add_rules" class="form-control" rows="10" required></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Add</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- add new rules Modal -->
+
+<!-- Edit Objective Modal -->
+<div class="modal fade" id="editObjectiveModal" tabindex="-1" aria-labelledby="editObjectiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mb-3">
+                <form action="../assets/script/php_script/edit_objective.php" method="post">
+                    <input type="hidden" name="id" id="editModalId"> <!-- Hidden input to store the record ID -->
+                    <div class="modal-body">
+                        <textarea id="subTextTextarea" name="subText" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Objective Modal -->
+
+<!-- Delete Objective Modal -->
+<div class="modal fade" id="deleteObjectiveModal" tabindex="-1" aria-labelledby="deleteObjectiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this objective?</p>
+                <p>Objective Content:</p>
+                <div id="objectiveContent"></div>
+            </div>
+            <div class="modal-footer">
+                <form action="../assets/script/php_script/delete_objective.php" method="post">
+                    <input type="hidden" name="id" id="deleteModalId">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Objective Modal -->
+
+<!-- Edit rules Modal -->
+<div class="modal fade" id="editRulesModal" tabindex="-1" aria-labelledby="editRulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editRulesModalLabel">Update Rules and Regulations</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mb-3">
+                <form action="../assets/script/php_script/edit_rules.php" method="post">
+                    <input type="hidden" name="id" id="editModalId"> <!-- Hidden input to store the record ID -->
+                    <div class="modal-body">
+                        <textarea id="subTextTextarea" name="subText" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit rules Modal -->
+
+<!-- Delete rules Modal -->
+<div class="modal fade" id="deleteRulesModal" tabindex="-1" aria-labelledby="deleteRulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteRulesModalLabel">Delete Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this objective?</p>
+                <p>Rules and Regulations Content:</p>
+                <div id="rulesContent"></div>
+            </div>
+            <div class="modal-footer">
+                <form action="../assets/script/php_script/delete_rules.php" method="post">
+                    <input type="hidden" name="id" id="deleteModalId">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete rules Modal -->
+
+<!-- add links Modal -->
+<div class="modal fade" id="links_modal" tabindex="-1" aria-labelledby="links_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="links_modal_label">Add Link</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../assets/script/php_script/add_links.php" method="post">
+                    <div class="mb-3">
+                        <label for="linkType" class="form-label">Link Type</label>
+                        <select class="form-select" id="linkType" name="linkType" onchange="checkOption()">
+                            <option value="default" disabled selected>Select Option</option>
+                            <option value="Academic Subscription">Academic Subscription</option>
+                            <option value="E-books">E-books</option>
+                            <option value="E-journals">E-journals</option>
+                            <option value="CvSU Tanza Pages">CvSU Tanza Pages</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkURL" class="form-label">Link URL</label>
+                        <input type="text" class="form-control" id="linkURL" name="linkTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkDescription" class="form-label">Link Title</label>
+                        <input type="text" class="form-control" id="linkDescription" name="linkURL" required>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success" id="submitButton" disabled="true">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add links Modal -->
