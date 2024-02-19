@@ -404,14 +404,14 @@
 
                     if($result->num_rows === 0) {
                         ?>
-                        <img class="see_profile_mobile" src="../render/uploads/images/profile_picture.jpg" alt="">
+                        <img src="../render/uploads/images/profile_picture.jpg" alt="">
 
                         <?php
                     } else {
                         $row = $result->fetch_assoc();
                         $user_picture = $row['user_picture'];
                         ?>
-                            <img class="see_profile_mobile" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                            <img class="profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
                         <?php
                     }
                 ?>
@@ -530,25 +530,25 @@
                         while ($row = $result->fetch_assoc()) {
                         ?>
                         <div class="mb-3">
-                            <label for="profile_username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="profile_username" placeholder="username" value="<?php echo $row['user_username']?>">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="username" value="<?php echo $row['user_username']?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?php echo $row['user_givenName']?>">
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?php echo $row['user_givenName']?>" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?php echo $row['user_familyName']?>">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?php echo $row['user_familyName']?>" autocomplete="off">
                         </div>
                         <div class="row">
                             <div class="col-2 mb-3">
                                 <label for="middle_initial" class="form-label">(M.I.)</label>
-                                <input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="" value="<?php echo $row['user_middleI']?>" maxlength="1">
+                                <input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="" value="<?php echo $row['user_middleI']?>" maxlength="1" autocomplete="off">
                             </div>
                             <div class="col-4 mb-3">
                                 <label for="birthday" class="form-label">Birthday</label>
-                                <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo $row['user_birthday']?>">
+                                <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo $row['user_birthday']?>" autocomplete="off">
                             </div>
                             <div id="profile_gender" class="col mb-3">
                                 <label for="gender" class="form-label">Gender</label>
@@ -557,7 +557,7 @@
                                     <?php
                                         $gender = $row['user_gender']; // Assuming this is the column in your database that holds the gender value
                                     ?>
-                                        <option value="Male" <?php if($gender == "Male") echo "selected"; ?>>Male</option>
+                                    <option value="Male" <?php if($gender == "Male") echo "selected"; ?>>Male</option>
                                     <option value="Female" <?php if($gender == "Female") echo "selected"; ?>>Female</option>
                                     <option value="Other" <?php if($gender == "Other") echo "selected"; ?>>Other</option>
                                 </select>
@@ -565,21 +565,21 @@
                         </div>
                         <div class="mb-3">
                             <label for="prfile_email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="profile_email" name="profile_email" placeholder="name@example.com" value="<?php echo $row['user_email']?>">
+                            <input type="email" class="form-control" id="profile_email" name="profile_email" placeholder="name@example.com" value="<?php echo $row['user_email']?>" autocomplete="off">
                         </div>
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="profile_faculty_number" class="form-label">Faculty No.</label>
-                                <input type="text" class="form-control" id="profile_faculty_number" name="profile_faculty_number" placeholder="#######" value="<?php echo $row['user_faculty_number']?>">
+                                <input type="text" class="form-control" id="profile_faculty_number" name="profile_faculty_number" placeholder="#######" value="<?php echo $row['user_faculty_number']?>" autocomplete="off">
                             </div>
                             <div class="col mb-3">
                                 <label for="profile_member_type" class="form-label">Member Type</label>
-                                <input type="text" class="form-control" id="profile_member_type" name="profile_member_type" placeholder="" value="<?php echo $row['user_member_type']?>">
+                                <input type="text" class="form-control" id="profile_member_type" name="profile_member_type" placeholder="" value="<?php echo $row['user_member_type']?>" autocomplete="off">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="profile_bio" class="form-label">Bio</label>
-                            <textarea class="form-control" id="profile_bio" rows="3" name="profile_bio"><?php echo $row['user_bio']?></textarea>
+                            <textarea class="form-control" id="profile_bio" rows="3" name="profile_bio" autocomplete="off"><?php echo $row['user_bio']?></textarea>
                         </div>
                         <?php
                         }
@@ -928,7 +928,7 @@
                         <input type="text" class="form-control" id="linkDescription" name="linkURL" required>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-success" id="submitButton" disabled="true">Submit</button>
+                        <button type="submit" class="btn btn-success" name="submitButton" disabled="true">Submit</button>
                     </div>
                 </form>
             </div>
@@ -936,3 +936,52 @@
     </div>
 </div>
 <!-- add links Modal -->
+
+<!-- Create announcemnet Modal -->
+<div class="modal fade" id="create_announcement_modal" tabindex="-1" aria-labelledby="create_announcement_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="create_announcement_modal_label">Create Announcement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-3 border-bottom p-2">
+                    <img src="../assets/image/cvsu_library.png" alt="" srcset="" style="width: 50%;">
+                </div>
+                <h2 class="text-center">Upload Form</h2>
+                <form action="../assets/script/php_script/create_announcement.php" method="post" enctype="multipart/form-data">
+                    <!-- Textbox -->
+                    <input class="form-control" type="text" name="text" id="text" placeholder="Title/Caption" autocomplete="off">
+
+                    <br>
+
+                    <!-- Image Upload -->
+                    <div class="input-group">
+                        <input class="form-control" type="file" name="images[]" id="images" accept="image/*" multiple>
+                        <label class="input-group-text" for="images">Images</label>
+                    </div>
+                    <br>
+
+                    <!-- Video Upload -->
+                    <div class="input-group">
+                        <input class="form-control" type="file" name="videos[]" id="videos" accept="video/*" multiple>
+                        <label class="input-group-text" for="videos">Videos</label>
+                    </div>
+
+                    <br>
+
+                    <!-- Iframe -->
+                    <label class="form-label" for="iframe">Embed Post</label>
+                    <textarea class="form-control" name="iframe" id="iframe" rows="4" cols="50" style="resize: none;" placeholder="Paste URL here"></textarea>
+
+                    <br><br>
+
+                    <!-- Submit Button -->
+                    <input class="btn btn-success" type="submit" value="Post" style="width: 100%;">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Create announcemnet Modal -->

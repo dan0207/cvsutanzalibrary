@@ -69,7 +69,7 @@
                         <h1 id="pageHeader">Home</h1>
                         
                         <div class="text-center mx-auto w-lg-40 ">
-                            <div id="createPostBtn" class="pointer mt-2 mb-5">
+                            <button class="btn mt-2 mb-5 w-100" data-bs-toggle="modal" data-bs-target="#create_announcement_modal">
                                 <div class="shadow border rounded px-5">
                                     <div class="col-lg-10 my-1 mx-auto">
                                         <div class="row text-center pb-2">
@@ -77,18 +77,18 @@
                                         </div>
                                         <div class="row post-text-icon">
                                             <div class="col border border-dark rounded-pill m-1 fs-small">
-                                                <span><i class="fa-solid fa-camera"></i> PHOTO</span>
+                                                <span><i class="fa-solid fa-camera"></i>PHOTO</span>
                                             </div>
                                             <div class="col border border-dark rounded-pill m-1 fs-small">
-                                                <span><i class="fa-solid fa-video"></i> VIDEO</span>
+                                                <span><i class="fa-solid fa-video"></i>VIDEO</span>
                                             </div>
                                             <div class="col border border-dark rounded-pill m-1 fs-small">
-                                                <span class="">EMBED</span>
+                                                <span><i class="fa-solid fa-link"></i>EMBED</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </button>
 
                             <div>
                                 <?php
@@ -102,7 +102,7 @@
                                         <div class="row shadow border rounded mb-3">
                                             <div class="row">
                                                 <div class="col-1 ms-auto">
-                                                    <button class="btn delete-post-btn" data-post-id="<?php echo $row['id']; ?>"><i class="fa-solid fa-x"></i></button>
+                                                    <button class="btn delete-post-btn" data-post-id="<?php echo $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#confirm_delete_modal"><i class="fa-solid fa-x"></i></button>
                                                 </div>
                                             </div>
                                             <div class="col-lg-10 mx-auto">
@@ -163,22 +163,33 @@
         <script src="../assets/script/script.js"></script>
 
         <script>
-            // admin create post
-            const createPostBtn = document.getElementById('createPostBtn');
-            createPostBtn.onclick = function() {
-                window.location.href = "../render/uploadForm.php";
-            }
-
             // AJAX script for deleting announcement
             $(document).ready(function () {
-                $('.delete-post-btn').click(function () {
+                $('.delete-post-btn').click(function (e) {
+                    e.preventDefault(); // Prevent the default action (redirect)
+
                     // Get the post ID from the data attribute
                     var postId = $(this).data('post-id');
 
-                    // Redirect to the confirmation page with the post ID as a parameter
-                    window.location.href = '../render/confirm_delete.php?postId=' + postId;
+                    // Fetch the post details based on the post ID via AJAX
+                    $.ajax({
+                        url: '../assets/script/php_script/fetch_post_details.php', // Change the URL to your PHP script that fetches post details
+                        method: 'GET',
+                        data: { postId: postId },
+                        success: function (response) {
+                            // Update the modal content with the fetched post details
+                            $('#confirm_delete_modal .modal-body').html(response);
+                            // Show the modal
+                            $('#confirm_delete_modal').modal('show');
+                        },
+                        error: function (xhr, status, error) {
+                            // Handle errors
+                            console.error(xhr.responseText);
+                        }
+                    });
                 });
             });
+
 
                 // AJAX script for deleting announcement
 
@@ -186,3 +197,52 @@
         
     </body>
 </html>
+
+<!-- confirm delete Modal -->
+<div class="modal fade" id="confirm_delete_modal" tabindex="-1" aria-labelledby="confirm_delete_moodal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="confirm_delete_moodal_label">Confirm Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Are you sure you want to delete the following announcement?</p>
+                <div class="col card m-3 p-2">
+                    <div class="mb-3 pb-3 px-auto text-center">
+                        <?php if (isset($row['text'])) { ?>
+                            <p><?php echo $row['text']; ?></p>
+                        <?php } ?>
+
+                        <?php if (isset($row['image_url']) && !empty($row['image_url'])) {
+                            $images = explode(',', $row['image_url']);
+                            if (!empty($images)) {
+                                foreach ($images as $image) { ?>
+                                    <img src="../render/uploads/images/<?php echo $image; ?>" alt="" srcset="" class="mb-2">
+                                <?php }
+                            }
+                        } ?>
+
+                        <?php if (isset($row['video_url']) && !empty($row['video_url'])) { ?>
+                            <video width="100%" height="auto" controls class="mb-2">
+                                <source src="../render/uploads/videos/<?php echo $row['video_url']; ?>" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        <?php } ?>
+
+                        <?php if (isset($row['embed_code']) && !empty($row['embed_code'])) { ?>
+                            <div class="embed-container">
+                                <?php echo $row['embed_code']; ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    </div>
+                <form class="m-2 text-end" action="../render/delete_post.php" method="post">
+                    <input type="hidden" name="postId" value="<?php echo $postId; ?>">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- confirm delete Modal -->

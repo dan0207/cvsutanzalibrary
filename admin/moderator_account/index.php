@@ -14,7 +14,7 @@
                 <form action="login.php" method="post">
                     <div class="row">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="text" name="username" placeholder="Username" required autocomplete="off">
                     </div>
                     <div class="row">
                         <i class="fas fa-lock"></i>

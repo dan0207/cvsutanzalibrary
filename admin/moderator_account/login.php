@@ -17,8 +17,6 @@
         // Check if a row was returned
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            // Debug: Output hashed password from the database
-            echo "Hashed Password from Database: " . $row['user_password'] . "<br>";
             // Verify the password
             if (password_verify($password, $row['user_password'])) {
                 // Redirect to the admin panel or moderator dashboard upon successful login
