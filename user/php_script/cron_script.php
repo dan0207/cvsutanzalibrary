@@ -7,4 +7,3 @@ $sql = "CALL UpdateReservationStatus();";
 mysqli_query($db, $sql);
 $sql = "CALL UpdateBorrowedStatus();";
 mysqli_query($db, $sql);
-

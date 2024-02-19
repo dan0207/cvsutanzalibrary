@@ -2,11 +2,20 @@
     <div class="container-fluid py-3">
         <div class="container text-center">
             <h4 class="fs-3">ANNOUNCEMENTS</h4>
-            <div class="d-flex justify-content-center mb-5">
+            <div class="d-flex justify-content-center mb-5" data-aos="zoom-in" data-aos-duration="1000">
                 <div id="announcements_carousel" class="carousel slide w-90" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-4 border shadow-lg bg-body-tertiary">
                         <div class="carousel-item active">
                             <img src="../assets/img/newly-acquired-books.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
@@ -34,8 +43,6 @@
                     </h2>
                     <div id="vision-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php //callDataFromDatabase('vision') 
-                                ?></em>
                             <em>The premier university in historic Cavite globally recognized for excellence in character development, academics, research, innovation and sustainable community engagement.</em>
                         </div>
                     </div>
@@ -49,8 +56,6 @@
                     </h2>
                     <div id="mission-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php //callDataFromDatabase('mission') 
-                                ?></em>
                             <em>Cavite State University shall provide excellent, equitable and relevant educational opportunities in the arts, sciences and technology through quality instruction and responsive research and development activities. It shall produce professional, skilled and morally upright individuals for global competitiveness.</em>
                         </div>
                     </div>
@@ -64,8 +69,6 @@
                     </h2>
                     <div id="policy-collapse" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <em><?php //callDataFromDatabase('policy') 
-                                ?></em>
                             <p><em>We <strong>C</strong>ommit to the highest standards of education, <strong>V</strong>alue our stakeholders, <strong>S</strong>trive for continual improvement of our products and services, and <strong>U</strong>phold the University’s tenets of Truth, Excellence, and Service to produce globally competitive and morally upright individuals.</em></p>
                         </div>
                     </div>
@@ -74,8 +77,6 @@
 
             <div data-aos="fade-in" class="library-objecttives mb-5">
                 <h3>LIBRARY OBJECTIVES</h3>
-                <?php //callDataFromDatabase('objectives') 
-                ?>
                 <ul class="text-start mt-4">
                     <li>To support the school’s graduate and undergraduate programs in its instructional, research and information needs</li>
                     <li>To provide resources, facilities, and services to the Southern Luzon State University academic community as a means to achieve the school’s goals and objective</li>
@@ -87,8 +88,6 @@
 
             <div data-aos="fade-in" class="library-rules mb-5">
                 <h3>LIBRARY RULES AND REGULATIONS</h3>
-                <?php //callDataFromDatabase('rules') 
-                ?>
                 <ul class="text-start mt-4">
                     <li>To support the school’s graduate and undergraduate programs in its instructional, research and information needs</li>
                     <li>To provide resources, facilities, and services to the Southern Luzon State University academic community as a means to achieve the school’s goals and objective</li>
@@ -100,8 +99,6 @@
 
             <div data-aos="fade-in" class="library-borrowingPrevileges mb-5">
                 <h3>BORROWING PRIVILEGES</h3>
-                <?php //callDataFromDatabase('privileges') 
-                ?>
                 <ol class="text-start">
                     <li class="fst-italic mt-3">Reading Room Use only.</li>
                     <ul>
@@ -129,8 +126,6 @@
 
             <div data-aos="fade-in" class="library-fines mb-5">
                 <h4>Overdue Fines</h4>
-                <?php //callDataFromDatabase('overdue_fines') 
-                ?>
                 <table class="table">
                     <thead>
                         <tr>
@@ -173,8 +168,6 @@
 
             <div data-aos="fade-in" class="library-guides mb-5">
                 <h4>Guide to CvSU Library</h4>
-                <?php //callDataFromDatabase('guides') 
-                ?>
                 <h5 class="mt-3">Orientation</h5>
                 <p>The Library Personnel shall orient students and faculty members at the start of each school year on the collections, rules and regulations and the services that the unit offers.</p>
                 <br>
