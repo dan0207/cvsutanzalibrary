@@ -14,6 +14,10 @@
         // Check if default values were selected
         if ($startDay == "default" || $endDay == "default" || $startTime == "default" || $endTime == "default") {
             echo "<span class='text-danger'>Please select valid values for all fields.</span>";
+            $redirectUrl = "../libraryPages/opacSearch.php";
+            echo '<script type="text/javascript">';
+            echo 'window.location.href = "' . $redirectUrl . '";';
+            echo '</script>';
         } else {
             // Construct the update query
             $updateQuery = "UPDATE librarypages SET mainText = '$startDay - $endDay', subText = '$startTime - $endTime' WHERE links = 'libraryHours'";

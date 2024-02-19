@@ -101,47 +101,52 @@
                                         ?>
                                         <div class="row shadow border rounded mb-3">
                                             <div class="row">
+                                                <div class="col-6 me-auto">
+                                                    <?php 
+                                                        // Convert timestamp to UNIX timestamp and then format it
+                                                        $formattedTimestamp = date("M. d, Y h:i A", strtotime($row['timestamp']));
+                                                        echo $formattedTimestamp; 
+                                                    ?>
+                                                </div>
                                                 <div class="col-1 ms-auto">
                                                     <button class="btn delete-post-btn" data-post-id="<?php echo $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#confirm_delete_modal"><i class="fa-solid fa-x"></i></button>
                                                 </div>
                                             </div>
                                             <div class="col-lg-10 mx-auto">
-                                                <div class="">
-                                                    <?php if (isset($row['text']) || isset($row['image_url']) || isset($row['video_url'])) { ?>
-                                                        <div class="mb-3 pb-3 px-auto text-center border rounded">
-                                                            <?php if (isset($row['text'])) { ?>
-                                                                <p><?php echo $row['text']; ?></p>
-                                                            <?php } ?>
+                                                <?php if (isset($row['text']) || isset($row['image_url']) || isset($row['video_url'])) { ?>
+                                                    <div class="mb-3 pb-3 px-auto text-center border rounded">
+                                                        <?php if (isset($row['text'])) { ?>
+                                                            <p><?php echo $row['text']; ?></p>
+                                                        <?php } ?>
 
-                                                            <?php if (isset($row['image_url']) && !empty($row['image_url'])) {
-                                                                $images = explode(',', $row['image_url']);
-                                                                if (!empty($images)) {
-                                                                    foreach ($images as $image) { ?>
-                                                                        <img src="../render/uploads/images/<?php echo $image; ?>" alt="" srcset="" class="mb-2">
-                                                                    <?php }
-                                                                }
-                                                            } ?>
+                                                        <?php if (isset($row['image_url']) && !empty($row['image_url'])) {
+                                                            $images = explode(',', $row['image_url']);
+                                                            if (!empty($images)) {
+                                                                foreach ($images as $image) { ?>
+                                                                    <img src="../render/uploads/images/<?php echo $image; ?>" alt="" srcset="" class="mb-2">
+                                                                <?php }
+                                                            }
+                                                        } ?>
 
-                                                            <?php if (isset($row['video_url']) && !empty($row['video_url'])) { ?>
-                                                                <video width="100%" height="auto" controls class="mb-2">
-                                                                    <source src="../render/uploads/videos/<?php echo $row['video_url']; ?>" type="video/mp4">
-                                                                    Your browser does not support the video tag.
-                                                                </video>
-                                                            <?php } ?>
+                                                        <?php if (isset($row['video_url']) && !empty($row['video_url'])) { ?>
+                                                            <video width="100%" height="auto" controls class="mb-2">
+                                                                <source src="../render/uploads/videos/<?php echo $row['video_url']; ?>" type="video/mp4">
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        <?php } ?>
 
-                                                            <?php if (isset($row['embed_code']) && !empty($row['embed_code'])) { ?>
-                                                                <div class="embed-container p-2">
-                                                                    <div class="custom-embed">
-                                                                        <?php echo $row['embed_code']; ?>
-                                                                    </div>
+                                                        <?php if (isset($row['embed_code']) && !empty($row['embed_code'])) { ?>
+                                                            <div class="embed-container p-2">
+                                                                <div class="custom-embed">
+                                                                    <?php echo $row['embed_code']; ?>
                                                                 </div>
-                                                            <?php } ?>
+                                                            </div>
+                                                        <?php } ?>
 
-                                                        </div>
-                                                    <?php } else { ?>
-                                                        <p>No content available</p>
-                                                    <?php } ?>
-                                                </div>
+                                                    </div>
+                                                <?php } else { ?>
+                                                    <p>No content available</p>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <?php

@@ -33,7 +33,7 @@
                     <section>
                         <h1 id="pageHeader">About</h1>
                         <div class="container">
-                            <p class="fs-4 fw-bold">UNIVERSITY VISION AND MISSION</p>
+                            <p class="fs-4 fw-bold">University Vision and Mission</p>
                             
                             <div class="mb-5">
                                 <span class="fs-5" id="vision">Vision</span>

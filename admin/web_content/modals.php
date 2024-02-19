@@ -913,23 +913,25 @@
                         <label for="linkType" class="form-label">Link Type</label>
                         <select class="form-select" id="linkType" name="linkType" onchange="checkOption()">
                             <option value="default" disabled selected>Select Option</option>
-                            <option value="Academic Subscription">Academic Subscription</option>
-                            <option value="E-books">E-books</option>
-                            <option value="E-journals">E-journals</option>
-                            <option value="CvSU Tanza Pages">CvSU Tanza Pages</option>
+                            <option value="academic subscription">Academic Subscription</option>
+                            <option value="e-books">E-books</option>
+                            <option value="e-journals">E-journals</option>
+                            <option value="cvsu tanza page">CvSU Tanza Pages</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="linkURL" class="form-label">Link URL</label>
-                        <input type="text" class="form-control" id="linkURL" name="linkTitle" required>
+                        <input type="text" class="form-control" id="linkURL" name="linkURL" required>
+
                     </div>
                     <div class="mb-3">
                         <label for="linkDescription" class="form-label">Link Title</label>
-                        <input type="text" class="form-control" id="linkDescription" name="linkURL" required>
+                        <input type="text" class="form-control" id="linkDescription" name="linkTitle" required>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-success" name="submitButton" disabled="true">Submit</button>
+                        <button id="submitButton" type="submit" class="btn btn-success" name="submitButton">Submit</button>
                     </div>
+                    <p id="errorMessage" style="color: red;"></p>
                 </form>
             </div>
         </div>

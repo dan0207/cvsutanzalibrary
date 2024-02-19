@@ -403,8 +403,13 @@
             function checkOption() {
                 var selectElement = document.getElementById("linkType");
                 var submitButton = document.getElementById("submitButton");
-                if (selectElement.value != "default") {
+                var errorMessage = document.getElementById("errorMessage");
+                
+                if (selectElement.value !== "default") {
                     submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                    alert('Please select a decline option.');
                 }
             }
         </script>

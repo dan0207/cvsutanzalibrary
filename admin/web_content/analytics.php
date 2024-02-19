@@ -147,9 +147,11 @@
                         <p class="fs-small">Fine<br>Collected</p>
                         <?php
                             $currentDay = date('d');
+                            $currentMonth = date('m');
                             $totalFine = 0;
+
                             // Construct the SQL query to fetch data for the current month
-                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay";
+                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay AND MONTH(returnDate) = $currentMonth";
 
                             $result = $conn->query($sql);
 
@@ -162,13 +164,14 @@
                                         $totalFine += (int)$row['fine'];
                                     }
                                 }
-                            
+                                
                                 // Display the total fine after processing all rows
                                 echo "<h2>" . $totalFine . "</h2>";
                             } else {
                                 echo "<h2>0</h2>";
                             }
                         ?>
+
                     </div>
                 </div>
                 
