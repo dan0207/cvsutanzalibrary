@@ -1,10 +1,13 @@
 <h1 id="pageHeader">Analytics</h1>
 <div class="container-fluid text-center mb-3">
-    <h2 class="border p-2">MONTH OF <span id="currentMonth"></span>    </h2>
+    <h2 class="border shadow p-2 mt-5 align-middle">MONTH OF <span id="currentMonth"></span></h2>
+
     <div class="row text-center">
         <div class="col-sm-10 col-lg-4"><br>
-            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">
-                <i class="fa-solid fa-hand-holding fs-1 m-4"></i>
+            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-2 card shadow">
+                <div class="text-end pb-5 m-2">
+                    <i class="fa-solid fa-hand-holding fs-5 border p-2 rounded-pill text-light bg-primary"></i>
+                </div>
                 <p>Total Borrow Request</p>
                 <?php
                     $currentMonth = date('m');
@@ -19,7 +22,7 @@
                         $totalRows = $row["total_rows"];
                         
                         // Display the total number of rows
-                        echo $totalRows;
+                        echo "<h1>" . $totalRows . "</h1>";
                     } else {
                         echo "No rows found";
                     }
@@ -27,8 +30,10 @@
             </div>
         </div>
         <div class="col-sm-10 col-lg-4"><br>
-            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">
-                <i class="fa-solid fa-hand-holding-hand fs-1 m-4"></i>
+            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-2 card shadow">
+                <div class="text-end pb-5 m-2">
+                    <i class="fa-solid fa-hand-holding-hand fs-5 border p-2 rounded-pill text-light bg-danger"></i>
+                </div>
                 <p>Total Borrowed Books</p>
                 <?php
                     $currentMonth = date('m');
@@ -45,7 +50,7 @@
                         $totalRows = $row["total_rows"];
 
                         // Display the total number of rows
-                        echo $totalRows;
+                        echo "<h1>" . $totalRows . "</h1>";
                     } else {
                         echo "No rows found";
                     }
@@ -53,8 +58,10 @@
             </div>
         </div>
         <div class="col-sm-10 col-lg-4"><br>
-            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">
-                <i class="fa-solid fa-hand-holding-dollar fs-1 m-4"></i>
+            <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-2 card shadow">
+                <div class="text-end pb-5 m-2">
+                    <i class="fa-solid fa-hand-holding-dollar fs-5 border p-2 rounded-pill text-light bg-warning"></i>
+                </div>
                 <p>Total Fine Collected</p>
                 <?php
                     $currentMonth = date('m');
@@ -75,9 +82,9 @@
                         }
                     
                         // Display the total fine after processing all rows
-                        echo $totalFine;
+                        echo "<h1>" . $totalFine . "</h1>";
                     } else {
-                        echo "0 results";
+                        echo "<h1>0</h1>";
                     }
                 ?>
             </div>
@@ -86,11 +93,12 @@
 
     <div class="row">
         <div class="col-sm-10 col-lg-7 text-center"><br>
-            <div id="report" class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 border">
+            <div id="report" class="m-sm-5 p-sm-5 m-lg-1 p-lg-5 card shadow">
                 <h3>Today Reports</h3>
                 <div class="row">
+                    <!-- book request -->
                     <div class="col">
-                        <p>Borrow Request</p>
+                        <p class="fs-small">Borrow<br>Request</p>
                         <?php
                             $currentDay = date('d');
                             $sql = "SELECT COUNT(*) as total_rows FROM bookreserve WHERE DAY(pickupDate) = $currentDay";
@@ -104,14 +112,16 @@
                                 $totalRows = $row["total_rows"];
 
                                 // Display the total number of rows
-                                echo $totalRows;
+                                echo "<h2>" . $totalRows . "</h2>";
                             } else {
                                 echo "No rows found";
                             }
                         ?>
                     </div>
+
+                    <!-- book borrowed -->
                     <div class="col">
-                        <p>Borrowed Books</p>
+                        <p class="fs-small">Borrowed<br>Books</p>
                         <?php
                             $currentDay = date('d');
                             $sql = "SELECT COUNT(*) as total_rows FROM bookborrowed WHERE DAY(pickupDate) = $currentDay";
@@ -125,19 +135,23 @@
                                 $totalRows = $row["total_rows"];
 
                                 // Display the total number of rows
-                                echo $totalRows;
+                                echo "<h2>" . $totalRows . "</h2>";
                             } else {
                                 echo "No rows found";
                             }
                         ?>
                     </div>
+
+                    <!-- fine collected -->
                     <div class="col">
-                        <p>Fine Collected</p>
+                        <p class="fs-small">Fine<br>Collected</p>
                         <?php
                             $currentDay = date('d');
+                            $currentMonth = date('m');
                             $totalFine = 0;
+
                             // Construct the SQL query to fetch data for the current month
-                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay";
+                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay AND MONTH(returnDate) = $currentMonth";
 
                             $result = $conn->query($sql);
 
@@ -150,19 +164,20 @@
                                         $totalFine += (int)$row['fine'];
                                     }
                                 }
-                            
+                                
                                 // Display the total fine after processing all rows
-                                echo $totalFine;
+                                echo "<h2>" . $totalFine . "</h2>";
                             } else {
-                                echo "0";
+                                echo "<h2>0</h2>";
                             }
                         ?>
+
                     </div>
                 </div>
                 
             </div>
             <div id="report" class="m-sm-5 p-sm-5 m-lg-1 p-lg-0"><br>
-                <div class="border">
+                <div class=" card shadow">
                     <h3>Most Borrowed Books</h3>
                     <div class="col-sm-10 col-lg-8 mx-auto">
                         <canvas id="barGraph"></canvas>
@@ -172,10 +187,10 @@
         </div>
         <div class="col"><br>
             <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-0">
-                <div class="border">
-                    <h3>TOP LIBRARY USERS</h3>
+                <div class="card shadow">
+                    <h3>Top Library Users</h3>
                     <div id="pieChartBox"class="col-sm-10 col m-1">
-                        <p>(BY COURSES)</p>
+                        <p>(By Courses)</p>
                     <canvas id="myChart"></canvas>
                 </div>
                 </div>

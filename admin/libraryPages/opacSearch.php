@@ -18,6 +18,18 @@
         <title>OPAC Search</title>
 
         <link rel="stylesheet" href="../assets/style/style.css">
+
+        <style>
+            /* Hide the arrow buttons in number input */
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type=number] {
+                -moz-appearance: textfield; /* Firefox */
+            }
+        </style>
     </head>
 
     <body>
@@ -32,6 +44,7 @@
                     <section>
                         <h1 id="pageHeader">OPAC Search</h1>
                         <div class="container">
+                            <!-- opac background -->
                             <div class="row mb-5 text-center border-bottom pb-5">
                                 <div class="col">
                                     <?php
@@ -45,7 +58,10 @@
                                             echo ' <img id="opacBG" src="../render/uploads/images/' . $imageName . '" alt="Image">';
                                             ?>
                                                 <div class="text-start">
-                                                    <a class="btn text-primary" href="../render/updateOpacSearch/updateOpacImage.php?pages=opacSearch&mainText=background&subText=<?php echo $imageName; ?>">Edit</a>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="nav-link text-primary ps-3 pt-2" data-bs-toggle="modal" data-bs-target="#opac_bg_modal">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
                                                 </div>
                                             <?php
                                         } else {
@@ -58,13 +74,15 @@
                             <div class="col">
                                 <div class="row text-center">
                                     <div class="px-3">
-                                        <h3>LIBRARY TRANSACTIONS</h3>
+                                        <h2>LIBRARY TRANSACTIONS</h2>
                                     </div>
                                     <div class="col-lg-6 col-sm-12 mb-5">
                                         <!-- library hours -->
-                                        <div class="m-1">
-                                            <h4>LIBRARY HOURS</h4>
-                                            <span><a class="text-primary nav-link" href="../render/editLibraryHours.php">Edit</a></span>
+                                        <div class="m-1 card shadow">
+                                            <h4>Library Hours</h4>
+                                            <button type="button" class="nav-link text-primary " data-bs-toggle="modal" data-bs-target="#library_hours_modal">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
                                             <?php
                                                 // Fetch data from the database
                                                 $libraryDayQuery = "SELECT mainText, subText FROM librarypages WHERE links = 'libraryHours'";
@@ -106,8 +124,11 @@
                                     </div>
                                     <div class="col-lg-6 col-sm-12 mb-5 text-center">
                                         <!-- overdue fines -->
-                                        <div class="m-1">
+                                        <div class="m-1 card shadow">
                                             <h4>Overdue Fines</h4>
+                                            <button type="button" class="btn text-primary" data-bs-toggle="modal" data-bs-target="#edit_fines">
+                                                <i class='fa-solid fa-pen-to-square'></i>
+                                            </button>
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -122,7 +143,7 @@
                                                             Student
                                                         </td>
                                                         <td>
-                                                            <div class="border-bottom pb-4">General Circulation</div>
+                                                            <div class="border-bottom pb-2">General Circulation</div>
                                                             <div>Reserve</div>
                                                         </td>
                                                         <td>
@@ -136,7 +157,7 @@
                                                                         $row = $result->fetch_assoc();
                                                                         $librarypages = $row['links'];
                                                                         
-                                                                        echo 'Php ' . $librarypages . "/day*<a class='nav-link text-primary' href='../render/editFines.php?mainText=student&subText=general circulation&links=$librarypages'>Edit</a>";
+                                                                        echo $librarypages . "/day*";
                                                                     } else {
                                                                         echo "No results found";
                                                                     }
@@ -152,9 +173,7 @@
                                                                         $row = $result->fetch_assoc();
                                                                         $librarypages = $row['links'];
                                                                     
-                                                                            
-                                                                        
-                                                                        echo 'Php ' . $librarypages . "/day*<a class='nav-link text-primary' href='../render/editFines.php?mainText=student&subText=reserve&links=$librarypages'>Edit</a>";
+                                                                        echo $librarypages . "/day*";
                                                                         
                                                                     } else {
                                                                         echo "No results found";
@@ -168,7 +187,7 @@
                                                             Faculty
                                                         </td>
                                                         <td>
-                                                            <div class="border-bottom pb-4">General Circulation</div>
+                                                            <div class="border-bottom pb-2">General Circulation</div>
                                                             <div>Reserve</div>
                                                         </td>
                                                         <td>
@@ -182,7 +201,7 @@
                                                                             $row = $result->fetch_assoc();
                                                                             $librarypages = $row['links'];
                                                                             
-                                                                            echo 'Php ' . $librarypages . "/day*<a class='nav-link text-primary' href='../render/editFines.php?mainText=faculty&subText=general circulation&links=$librarypages'>Edit</a>";
+                                                                            echo $librarypages . "/day*";
                                                                         } else {
                                                                             echo "No results found";
                                                                         }
@@ -197,8 +216,7 @@
                                                                             // Fetch the data and store it in the $librarypages variable
                                                                             $row = $result->fetch_assoc();
                                                                             $librarypages = $row['links'];
-                                                                        
-                                                                            echo 'Php ' . $librarypages . "/day*<a class='nav-link text-primary' href='../render/editFines.php?mainText=faculty&subText=reserve&links=$librarypages'>Edit</a>";
+                                                                            echo $librarypages . "/day*";
                                                                         } else {
                                                                             echo "No results found";
                                                                         }
@@ -217,12 +235,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
         <script src="../assets/script/script.js"></script>
     </body>

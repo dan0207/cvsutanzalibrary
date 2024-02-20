@@ -1,5 +1,5 @@
 <h1 id="pageHeader">Satisfaction Rating</h1>
-<div class="card m-3 ps-3 pe-3">
+<div class="card m-3 ps-3 pe-3 shadow">
     <h3 class="text-center">SUMMARY OF SATISFACTION RATINGS</h3>
     <table class="table table-sm nowrap table-striped compact table-hover text-center" style="width:100%">
         <thead>
@@ -10,16 +10,41 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>4.90</td>
-                <td>HIGHLY SATISFIED</td>
-                <td>2023</td>
-            </tr>
-            <tr>
-                <td>4.00</td>
-                <td>SATISFIED</td>
-                <td>2022</td>
-            </tr>
+            <?php
+                $select_sql = "SELECT YEAR(STR_TO_DATE(date, '%m/%d/%Y')) AS year, ROUND(AVG(rating), 2) AS average_rating 
+                FROM ratings 
+                GROUP BY YEAR(STR_TO_DATE(date, '%m/%d/%Y'));";
+                $result = $conn->query($select_sql);
+
+                if ($result) {
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $averageRating = $row['average_rating'];
+                            $descriptiveRating = getDescriptiveRating($averageRating);
+                            $year = $row['year'];
+                            echo "<tr><td>$averageRating</td><td>$descriptiveRating</td><td>$year</td></tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3'>No ratings found</td></tr>";
+                    }
+                } else {
+                    echo "Error: " . $conn->error;
+                }
+
+                function getDescriptiveRating($averageRating) {
+                    if ($averageRating >= 4.5) {
+                        return "HIGHLY SATISFIED";
+                    } elseif ($averageRating >= 3.5) {
+                        return "SATISFIED";
+                    } elseif ($averageRating >= 2.5) {
+                        return "NEUTRAL";
+                    } elseif ($averageRating >= 1.5) {
+                        return "DISSATISFIED";
+                    } else {
+                        return "HIGHLY DISSATISFIED";
+                    }
+                }
+            ?>
         </tbody>
     </table>
 </div>

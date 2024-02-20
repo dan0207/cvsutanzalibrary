@@ -70,7 +70,7 @@
                     scrollX: true,
                     dom: 'Bfrtip',
                     buttons: [
-                        'copy', 'csv', 'excel', 'pdf', 'print'
+                        'csv', 'excel', 'pdf', 'print'
                     ]
                 });
 
@@ -287,7 +287,7 @@
                 });
 
                 // Handle the click event on the "missing" button
-                $('.book_missing ').click(function () {
+                $('.book_missing').click(function () {
                     // Retrieve data attributes
                     var id = $(this).data('id');
                     var libraryId = $(this).data('libraryid');

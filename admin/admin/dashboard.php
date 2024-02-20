@@ -53,7 +53,7 @@
                     scrollX: true,
                     dom: 'Bfrtip',
                     buttons: [
-                        'copy', 'csv', 'excel', 'pdf', 'print'
+                        'csv', 'excel', 'pdf', 'print'
                     ]
                 });
             })

@@ -34,36 +34,7 @@
 
     <body>
         <?php
-            // editing data for about
-            if($page == 'about') {
-                ?>
-                    <div class="container p-5">
-                        <form method="post">
-                            <textarea class="form-control mt-3 mb-3" name="editText" cols="30" rows="10"><?php echo $subText; ?></textarea>
-                            <button class="btn btn-warning ms-auto" name="delete" type="submit">DELETE</button>
-                            <button class="btn btn-danger"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">CANCEL</a></button>
-                        </form>
-
-                        <?php
-                            if (isset($_POST['delete'])) {
-
-                                // Construct the SQL delete query
-                                $deleteQuery = "DELETE FROM librarypages WHERE subText = '$subText'";
-                                // Execute the delete query
-                                if (mysqli_query($conn, $deleteQuery)) {
-                                    echo "Data deleted successfully!";
-                                    echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/about.php"; }, 500);</script>';
-                                } else {
-                                    echo "Error deleting data: " . mysqli_error($conn);
-                                }
-                            }
-                        ?>
-
-                        <button class="btn d-flex ms-auto btn-info mt-5"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
-                    </div>
-
-                <?php
-            } else if($page == 'services') {
+            if($page == 'services') {
                 ?>
                     <div class="container p-5">
                         <form method="post">
@@ -80,8 +51,7 @@
 
                                 // Execute the delete query
                                 if (mysqli_query($conn, $deleteQuery)) {
-                                    echo "Data deleted successfully!";
-                                    echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/services.php"; }, 500);</script>';
+                                    echo '<script type="text/javascript">location.href = "../librarypages/services.php";</script>';
                                 } else {
                                     echo "Error deleting data: " . mysqli_error($conn);
                                 }

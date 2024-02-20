@@ -15,7 +15,9 @@ body {
     --text-color: #fff;
     --text-color-secondary: #afafaf;
 }
-
+textarea {
+    resize: none;
+}
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -33,6 +35,15 @@ body {
     box-shadow: 0 0 .1rem .2rem var(--bg-color-light) !important;
 }
 
+#profile_gender .form-select,
+#library_hours_modal .form-select,
+#edit_fines .form-select,
+#links_modal .form-select {
+    width: 100% !important;
+}
+.form-select {
+    width: 5rem !important;
+}
 .w-lg-40 {
     width: 40% !important;
 }
@@ -85,7 +96,11 @@ body {
 }
 
 .admin-profile {
-    height: 125% !important;
+    height: 100% !important;
+}
+
+.profile_picture {
+    width: 20vw ;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -230,9 +245,6 @@ section {
 /* admin sidebar */
 
 
-
-
-
 .nav_bar {
     transition: .5s ease;
 }
@@ -309,14 +321,62 @@ section {
     }
 
     .post-text {
-        font-size: .9rem !important;
+        font-size: .3rem !important;
     }
     .post-text-icon {
-        font-size: .7rem !important;
+        font-size: .3rem !important;
     }
     /* user create announcement */
 
 
+    /* admin header | Sidebar toggle */
+    #sidebar.active {
+        left: 0px;
+    }
+    #sidebar {
+        left: -290px;
+    }
+    #toggle {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #toggle::before {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(-5px);
+        transition: .2s;
+    }
+    #toggle::after {
+        content : '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: var(--bg-color);
+        transform: translateY(5px);
+        transition: .2s;
+    }
+    #toggle.active::before {
+        transform: translateY(0px) rotate(45deg);
+    }
+    #toggle.active::after {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    /* admin header | Sidebar toggle */
+
+    /* admin profile */
+    #see_profile_mobile {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
     /* admin header | Sidebar toggle */
     #sidebar.active {
         left: 0px;

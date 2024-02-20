@@ -1,4 +1,5 @@
 <?php
+    include '../render/connection.php';
     include '../assets/cdn/cdn_links.php';
     include '../assets/fonts/fonts.php';
 
@@ -22,8 +23,8 @@
     <body>
         <?php include '../adminNavigation/header.php' ?>
 
-        <div id="admin-body" class="pt-5">
-            <div class="row pt-2">
+        <div id="admin-body" class="pt-2">
+            <div class="row pt-5">
                 <div class="col-lg-3">
                     <?php include '../adminNavigation/sidebar.php'; ?>
                 </div>
@@ -35,12 +36,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
         <script src="../assets/script/script.js"></script>
     </body>

@@ -7,7 +7,7 @@ $db = "u303407946_cvsutanzalib";
 // $server = "localhost";
 // $user = "root";
 // $pass = "";
-// $db = "cvsutanzalib_db
+// $db = "cvsupages";
 
 $conn = mysqli_connect($server, $user, $pass, $db);
 
