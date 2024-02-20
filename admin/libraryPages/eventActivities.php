@@ -44,7 +44,7 @@
 
                                         // Format the current date to "Month Day, Year" format
                                         $formattedCurrentDate = date("F j, Y", strtotime($currentDate));
-
+                                        
                                         // SQL query to retrieve all events for the current day
                                         $sql = "SELECT event_date, event_timeFrom, event_timeTo, event_title FROM events WHERE event_date = '$currentDate'";
 

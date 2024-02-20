@@ -47,108 +47,11 @@
                             ?>
                             <section class="card shadow mb-3 mt-5" id="profile">
                                 <h2 class="mx-3">Profile</h2>
-                                <div class="row pb-5">
-                                    <div class="col-lg-4 col-sm-12 px-5">
-                                        <div class="col text-center admin-profile">
-                                            <div class="dropdown">
-                                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <?php
-                                                    if ($row['user_picture'] != NULL) {
-                                                        $user_picture = $row['user_picture']; // Ensure $user_picture is properly assigned
-                                                        ?>
-                                                        <img class="border border-dark rounded-circle shadow profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                        <img class="profile_picture border border-dark rounded-circle shadow" src="../render/uploads/images/profile_picture.jpg" alt="">
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <?php
-                                                        if($row['user_picture'] != NULL) {
-                                                            ?>
-                                                            <li><a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#see_profile_picture">See profile picture</a></li>
-                                                            <li><a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#change_profile_picture">Update profile picture</a></li>
-                                                            <li><a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#remove_profile_picture">Remove profile picture</a></li>
-                                                            <?php
-                                                        } else {
-                                                            ?>
-                                                            <li><a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#change_profile_picture">Update profile picture</a></li>
-                                                            <?php
-                                                        }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-sm-12">
-                                        <div class="row px-2 card m-2">
-                                            Email: <?php echo $row['user_email'];?>
-                                        </div>
-                                        <div class="row card px-2 m-2">
-                                            Faculty Number: <?php echo $row['user_faculty_number'];?>
-                                        </div>
-                                        <div class="row card px-2 m-2">
-                                            Member Type: <?php echo $row['user_member_type'];?>
-                                        </div>
-                                        <div class="row card px-2 m-2">
-                                            Username: <?php echo $row['user_username'];?>
-                                        </div>
-                                        <div class="row card px-2 m-2">
-                                            Password:
-                                            <?php
-                                                // Mask the first 10 characters of the hashed password with asterisks
-                                                $hashedPassword = $password;
-                                                $maskedPassword = str_repeat("*", strlen($hashedPassword));
-                                                echo $maskedPassword;
-                                            ?>
-                                            <button class="nav-link fs-small text-primary text-start ps-3" data-bs-toggle="modal" data-bs-target="#change_password">change password</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="nav-link bg-success text-light" data-bs-toggle="modal" data-bs-target="#update_profile">
-                                    Update Profile
-                                </button>
+                                <?php include '../web_content/userProfile.php'; ?>
                             </section>
                             <section class="card shadow mb-5" id="personalInfo">
                                 <h2 class="mx-3">Personal Information</h2>
-                                <div class="row py-1">
-                                    <div class="col-lg-5 col-sm-10">
-                                        <div class="row card px-2 m-1">
-                                            Lastname: <?php echo $row['user_familyName'];?>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-sm-10">
-                                        <div class="row card px-2 m-1">
-                                            Firstname: <?php echo $row['user_givenName'];?>
-                                        </div> 
-                                    </div>
-                                    <div class="col-lg-2 col-sm-10">
-                                        <div class="row card px-2 m-1">
-                                            M.I.: <?php echo $row['user_middleI'];?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row py-1">
-                                    <div class="col-lg-6 col-sm-10">
-                                        <div class="row card px-2 m-1">
-                                            Birthday: <?php echo $row['user_birthday'];?>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-10">
-                                        <div class="row card px-2 m-1">
-                                            Gender: <?php echo $row['user_gender'];?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-sm-10">
-                                    <div class="row card px-2 m-1">
-                                        Bio: <?php echo $row['user_bio'];?>
-                                    </div>
-                                </div>
+                                <?php include '../web_content/userPersonalInfo.php'; ?>
                             </section>
                                 <?php
                                 }

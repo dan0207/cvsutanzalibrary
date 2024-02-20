@@ -48,114 +48,7 @@
 
     <body>
         <?php
-            // adding data for about
-            if($page == 'about') {
-
-                ?>
-
-                <div class="container p-5">
-                    <h1 style="text-transform: uppercase;">Insert New <?php echo $id; ?></h1>
-                    <form method="post">
-                        <input type="text" class="form-control mb-2" name="addSubtext" autocomplete="off" placeholder="Enter new <?php echo $id; ?>">
-                        <button class="btn btn-success" type="submit" name="addBtn">ADD</button>
-                        <button class="btn btn-danger"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">CANCEL</a></button>
-                    </form>
-
-                    <?php
-                        // Check if the form is submitted
-                        if (isset($_POST['addBtn'])) {
-                            // Get the form data
-                            $subText = $_POST['addSubtext'];
-
-                            // Create a prepared statement
-                            $insert_sql = "INSERT INTO librarypages (pages, mainText, subText) VALUES (?, ?, ?)";
-                            $stmt = mysqli_prepare($conn, $insert_sql);
-
-                            if ($stmt) {
-                                // Bind parameters
-                                mysqli_stmt_bind_param($stmt, "sss", $page, $id, $subText);
-
-                                // Set parameter values
-                                $page = $page; // You may want to set $page to a default value or fetch it from somewhere
-
-                                // Execute the statement
-                                if (mysqli_stmt_execute($stmt)) {
-                                    // Insert successful
-                                    echo "Record inserted successfully.";
-                                    echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/about.php"; }, 500);</script>';
-                                } else {
-                                    // Insert failed
-                                    echo "Error: " . mysqli_error($conn);
-                                }
-
-                                // Close the statement
-                                mysqli_stmt_close($stmt);
-                            } else {
-                                echo "Error: " . mysqli_error($conn);
-                            }
-                        }
-
-                    ?>
-
-                    <button class="btn d-flex ms-auto btn-info"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
-                </div>
-
-                <?php
-
-            } else if($page == 'links') {
-
-                ?>
-
-                    <div class="container p-5">
-                        <h1 style="text-transform: uppercase;">Insert New <?php echo $id; ?></h1>
-                        <form method="post">
-                            <input type="text" class="form-control mb-2" name="addSubtext" autocomplete="off" placeholder="Enter new <?php echo $id; ?>">
-                            <input type="text" class="form-control mb-2" name="links" autocomplete="off" placeholder="Enter links">
-                            <button class="btn btn-success" type="submit" name="addBtn">ADD</button>
-                            <button class="btn btn-danger"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">CANCEL</a></button>
-                        </form>
-                        <?php
-                        // Check if the form is submitted
-                        if (isset($_POST['addBtn'])) {
-                            // Get the form data
-                            $subText = $_POST['addSubtext'];
-                            $links = $_POST['links'];
-
-                            // Create a prepared statement
-                            $insert_sql = "INSERT INTO librarypages (pages, mainText, subText, links) VALUES (?, ?, ?, ?)";
-                            $stmt = mysqli_prepare($conn, $insert_sql);
-
-                            if ($stmt) {
-                                // Bind parameters
-                                mysqli_stmt_bind_param($stmt, "ssss", $page, $id, $subText, $links);
-
-                                // Set parameter values
-                                $page = $page; // You may want to set $page to a default value or fetch it from somewhere
-
-                                // Execute the statement
-                                if (mysqli_stmt_execute($stmt)) {
-                                    // Insert successful
-                                    echo "Record inserted successfully.";
-                                    echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/links.php"; }, 500);</script>';
-                                } else {
-                                    // Insert failed
-                                    echo "Error: " . mysqli_error($conn);
-                                }
-
-                                // Close the statement
-                                mysqli_stmt_close($stmt);
-                            } else {
-                                echo "Error: " . mysqli_error($conn);
-                            }
-                        }
-                        ?>
-                        <button class="btn d-flex ms-auto btn-info mt-5"><a class="nav-link" href="../libraryPages/<?php echo $page; ?>.php#<?php echo $id; ?>">Go Back</a></button>
-
-                    </div>
-
-                <?php
-
-            } else if($page == 'services') {
+            if($page == 'services') {
 
                 ?>
                     <div class="container p-5">
@@ -187,9 +80,7 @@
 
                                     // Execute the statement
                                     if (mysqli_stmt_execute($stmt)) {
-                                        // Insert successful
-                                        echo "Record inserted successfully.";
-                                        echo '<script type="text/javascript">setTimeout(function(){ location.href = "../librarypages/services.php"; }, 500);</script>';
+                                        echo '<script type="text/javascript">location.href = "../librarypages/services.php";</script>';
                                     } else {
                                         // Insert failed
                                         echo "Error: " . mysqli_error($conn);

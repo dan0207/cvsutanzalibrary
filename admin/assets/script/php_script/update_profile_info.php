@@ -33,7 +33,11 @@
                 echo 'window.location.href = "' . $redirectUrl . '";';
                 echo '</script>';
             } else {
-                echo "Error updating profile.";
+                echo '<script type="text/javascript">';
+                echo "window.alert('No update has been made.');";
+                $redirectUrl = "../../../admin/accountSettings.php";
+                echo 'window.location.href = "' . $redirectUrl . '";';
+                echo '</script>';
             }
 
             // Close statement and connection
