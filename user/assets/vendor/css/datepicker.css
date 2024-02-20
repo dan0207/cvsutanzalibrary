@@ -1,43 +1,79 @@
 .datepicker table tr td {
-    width: 14.285% !important;
+  width: 14.285% !important;
 }
 
 .datepicker table tr td.range-start {
-    color: #fff !important;
-    background-color: var(--primary-clr) !important;
-    background-image: linear-gradient(to bottom, #00b309, var(--primary-clr)) !important;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  color: #fff !important;
+  background-color: var(--primary-clr) !important;
+  background-image: linear-gradient(
+    to bottom,
+    #00b309,
+    var(--primary-clr)
+  ) !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .datepicker table tr td.range-end {
-    color: #fff !important;
-    background-color: var(--primary-clr) !important;
-    background-image: linear-gradient(to bottom, #00b309, var(--primary-clr)) !important;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  color: #fff !important;
+  background-color: var(--primary-clr) !important;
+  background-image: linear-gradient(
+    to bottom,
+    #00b309,
+    var(--primary-clr)
+  ) !important;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .datepicker table tr td.range {
-    color: #fff !important;
-    background-color: var(--primary-clr) !important;
-    background-image: linear-gradient(to bottom, #00b309, var(--primary-clr)) !important;
-    opacity: 0.5;
+  color: #fff !important;
+  background-color: var(--primary-clr) !important;
+  background-image: linear-gradient(
+    to bottom,
+    #00b309,
+    var(--primary-clr)
+  ) !important;
+  opacity: 0.5;
 }
 
-.datepicker table tr td.today, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today:hover {
-    background-color: transparent !important;
-    background-image: none !important;
-    color: var(--primary-clr) !important;
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 0px;
+.datepicker table tr td.today,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today.disabled:hover,
+.datepicker table tr td.today:hover {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--primary-clr) !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0px;
 }
 
 .datepicker table tr td.day:not(.disabled) {
-    font-weight: 600;
+  font-weight: 600;
 }
 
-#return_date_container, #return_date_label {
-    opacity: 0.25;
+#return_date_container,
+#return_date_label {
+  opacity: 0.25;
+}
+
+.day.reserved-date {
+    background-color: #fabbbb !important;
+    color: #fff !important;
+    border-radius: 0%;
+}
+
+.day.reserved-date:hover::after {
+  content: "Reserved";
+  display: block;
+  position: absolute;
+  background-color: var(--secondary-clr);
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  z-index: 100; 
+  white-space: nowrap; /* Prevents text wrapping */
+  font-size: 12px; /* Adjust font size as needed */
+  margin-top: 5px; /* Adjust distance from the original element */
 }

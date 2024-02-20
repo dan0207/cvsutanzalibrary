@@ -1,4 +1,4 @@
-<table id="books_table" class="hover row-border border border-2 rounded-3 compact" style="width:100%">
+<table id="books_table" class="hover row-border border border-2 rounded-3 compact" style="width:100%; display: none">
     <thead>
         <tr>
             <th class="fs-8">Access No.: </th> <!--(ITEM NUMBER) Items -->
@@ -17,10 +17,11 @@
             <th>LOC classification: </th> <!--(CN_SORCE) Biblio Items -->
             <th>STATUS: </th>
             <th class="fs-10 fs-md-8">ACTION: </th>
-
             <!-- <th>modified: </th>
             <th>created: </th> -->
-
         </tr>
     </thead>
 </table>
+
+
+

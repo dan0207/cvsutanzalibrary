@@ -3,6 +3,7 @@
     bottom: 30px;
     right: 10px;
     display: none;
+    z-index: 2000;
 }
 
 /* .chat-button-icon {

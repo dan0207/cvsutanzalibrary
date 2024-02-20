@@ -3,7 +3,6 @@ import { updateSession, selectBookReservation, getFormatCourseSection } from '..
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
-
 // Function for books datatables
 let books_table = new DataTable('#books_table', {
     ajax: {
@@ -15,7 +14,7 @@ let books_table = new DataTable('#books_table', {
     },
     processing: true,
     language: {
-        processing: '<div class="datatable-loader border"></div>'
+        processing: '<div class="datatable-loader mx-auto" style="display: none;"></div>'
     },
     serverSide: true, // DO NOT REMOVE
     iDisplayLength: 10,
@@ -61,8 +60,9 @@ let books_table = new DataTable('#books_table', {
     ],
 
     initComplete: function (settings, json) {
-        $(".datatable-loader-container").css('visibility', 'hidden');
-        $(".dataTables_processing").css('visibility', 'visible');
+        $(".loader-container").css('display', 'none').css('background-color', 'blue');
+        $(".datatable-loader").css('display', 'block');
+        $("#books_table").css('display', 'block');
     },
 
 

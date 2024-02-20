@@ -6,9 +6,6 @@ $_GET['opac_search'] = '';
 <div id="book" class="py-4">
     <div class="container-fluid py-5">
         <div class="container">
-            <div class="title text-center">
-                <h3>Books</h3>
-            </div>
 
             <div id="opac_search" class="opac-search input-group mx-auto my-2">
                 <input id="opac_search_input" name="opac_search" type="text" class="opac-search-input form-control rounded-start-pill py-1 px-3 fs-7 fs-md-6" placeholder="Search library collection here.." value="<?php echo htmlspecialchars($search_query); ?>">
@@ -16,7 +13,7 @@ $_GET['opac_search'] = '';
             </div>
 
             <div class="room-use-reminder d-flex align-items-center mt-3 mb-2">
-                <span class="fw-bold">Reminder : </span><span class="text-dark fs-7 ms-3">If for <button class="btn btn-outline-secondary fs-10 p-1 disabled my-1 mx-2">ROOM USE ONLY</button> kindly proceed directly to the librarian.</span>
+                <span class="fw-bold">Reminder: </span><span class="text-dark fs-7 ms-3">If for <button class="btn btn-outline-secondary fs-10 p-1 disabled my-1 mx-2">ROOM USE ONLY</button> kindly proceed directly to the librarian.</span>
             </div>
 
             <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -51,14 +48,14 @@ $_GET['opac_search'] = '';
                     <a href="../php_script/db_server_copyData.php" class="btn btn-primary py-1 fs-7">UPDATE LIST OF BOOKS</a>
                 </div> -->
             </div>
-            <div class="book-list-container w-100 overflow-hidden">
+            <div class="book-list-container w-100">
                 <div id="book_list_table" class="book-list-table">
                     <?php include '../tables/book_list_table.php'; ?>
                 </div>
             </div>
-            <!-- <div class="datatable-loader-container d-flex justify-content-center align-items-center vh-50">
+            <div class="loader-container">
                 <div class="datatable-loader"></div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>

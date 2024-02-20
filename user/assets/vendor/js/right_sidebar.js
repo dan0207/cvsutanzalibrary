@@ -12,14 +12,14 @@ myCollapsible.forEach(function (element) {
 });
 
 
-window.addEventListener('scroll', function () {
-    var Sidebar = document.querySelector('.sticky-top');
+// window.addEventListener('scroll', function () {
+//     var Sidebar = document.querySelector('.sticky-top');
 
-    var sidebarBottom = Sidebar.getBoundingClientRect().bottom;
+//     var sidebarBottom = Sidebar.getBoundingClientRect().bottom;
 
-    if (sidebarBottom >= footerTop) {
-        Sidebar.classList.remove('vh-100');
-    } else {
-        Sidebar.classList.add('sticky-top');
-    }
-});
+//     if (sidebarBottom >= Sidebar) {
+//         Sidebar.classList.remove('vh-100');
+//     } else {
+//         Sidebar.classList.add('sticky-top');
+//     }
+// });

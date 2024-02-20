@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { getBase64ImageSync, getformatDate } from '../../js/main.js';
+import { getBase64ImageSync, getformatDate, mask } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 $(document).ready(function () {
@@ -24,7 +24,7 @@ $(document).ready(function () {
         scrollY: $('#attendance_log_table').height() * 0.8,
         deferRender: true,
         scroller: true,
-        order: [[6, "desc"]],
+        order: [[5, "desc"]],
         dom: 'Bfrtip',
 
         initComplete: function () {
@@ -75,7 +75,7 @@ $(document).ready(function () {
         },
         {
             extend: 'print',
-            text: '<span class="fw-semibold ms-0">or </span> Print',
+            text: 'Print',
         }
         ],
         columnDefs: [

@@ -28,20 +28,6 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
 </head>
 
 <body class="attendance">
-    <!-- Header -->
-    <nav id="navbar" class="navbar vh-5 navbar-expand-lg navbar-onSurface bg-surface border-bottom shadow-sm bg-body-surface">
-        <div class="container-fluid">
-            <a class="navbar-brand py-1 p-0" href="home.php" type="button">
-                <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="180" class="img-responsive">
-            </a>
-            <ul class="navbar-nav nav-pills text-center ms-auto mt-3 my-lg-auto" id="navTab_pill">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../admin/index.php"><i class="fa-solid fa-user"></i> Login Admin</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Header -->
 
     <!-- Main -->
     <div class="contents vh-95">
@@ -134,7 +120,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                                         ?>
                                         <h6 class="attendance-email m-1"><?php echo mask($email); ?></h6>
                                         <h6 class="attendance-libraryid m-1" id="library_id"><?php echo mask($id) ?></h6>
-                                        <h5 class="<?php echo checkAttendanceStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status ?></h5>
+                                        <h5 class="<?php echo checkAttendanceStatus($status) ?> rounded-pill py-2 mx-4">STATUS: <?php echo $status . ' ' . gmdate('h:i A', time() + 8 * 3600); ?></h5>
                                     </div>
                                 </div>
                             </div>

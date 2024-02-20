@@ -13,7 +13,11 @@
             </div>
             <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
                 <button type="button" class="btn btn-secondary text-onSecondary" data-bs-dismiss="modal">Close</button>
-                <button id="confirmationModal_btn" class="btn btn-primary">Confirm</button>
+                <button id="confirmationModal_btn" class="btn btn-primary w-30">Confirm</button>
+                <button id="confirmationModal_btn_processing" class="btn btn-primary w-30 d-none" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Loading</span>
+                </button>
             </div>
         </div>
     </div>
@@ -137,7 +141,7 @@
 
 <!-- User Info Form Modal -->
 <div class="modal fade" id="user_signup_modal" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center bg-tertiary">
                 <i class="fa-solid fa-user-plus me-2"></i>
@@ -568,7 +572,7 @@
                                 <div id="book_receipt_qr_code_container" class="text-center">
                                     <img id="book_receipt_qr_Code_img" alt="QR Code" class="img-responsive ms-auto w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                     <p class="fs-6 text-center m-0 p-0 mx-auto">Library ID:</p>
-                                    <input id="book_receipt_library_id" type="text" class="form-control text-center pb-3 fs-7 border-0 fw-semibold" name="library_id" readonly>
+                                    <input id="book_receipt_library_id" type="text" class="form-control text-center pb-3 fs-7 border-0 fw-semibold" name="library_id" readonly hidden>
                                 </div>
 
                             </div>
@@ -643,7 +647,7 @@
 <!-- Toast -->
 <div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
     <div id="submittedLiveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-body py-5 text-bg-primary opacity-75 rounded-3 text-center">
+        <div class="toast-body py-3 text-bg-primary opacity-75 rounded-3 text-center">
             <h1 class="fw-bold">SUCCESSFULLY SUBMITTED!</h1>
         </div>
     </div>
@@ -653,6 +657,14 @@
     <div id="deletedLiveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-body py-3 text-bg-primary opacity-75 rounded-3 text-center">
             <h3 class="fw-bold">SUCCESSFULLY DELETED!</h3>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">
+    <div id="feedbackLiveToast" class="toast w-100 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body py-3 text-bg-primary opacity-75 rounded-3 text-center">
+            <h3 class="fw-bold">THANK YOU FOR YOUR FEEDBACK!</h3>
         </div>
     </div>
 </div>

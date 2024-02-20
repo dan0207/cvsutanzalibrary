@@ -33,7 +33,17 @@ function toggleFeedbackForm() {
 }
 
 function handle_feedbackSubmit() {
-    feedback_form.submit();
+    const feedback_submit_processing = document.getElementById('feedback_submit_processing');
+    const feedback_submit = document.getElementById('feedback_submit');
+    const submittedLiveToast = document.getElementById('feedbackLiveToast');
+    const submittedFeedbackToast = bootstrap.Toast.getOrCreateInstance(submittedLiveToast);
+    submittedFeedbackToast.show();
+
+    feedback_submit_processing.classList.remove('d-none');
+    feedback_submit.classList.add('d-none');
+    setInterval( () => {
+        feedback_form.submit();
+    }, 2000);
 }
 
 function validRating() {
@@ -43,7 +53,7 @@ function validRating() {
         feedback_ratings.classList.remove('border-secondary');
         feedback_ratings.classList.add('border-primary');
         console.log(selectedRating.value);
-    }else{
+    } else {
         feedback_ratings.classList.remove('border-primary');
         feedback_ratings.classList.add('border-secondary');
         rating.setCustomValidity('Invalid');

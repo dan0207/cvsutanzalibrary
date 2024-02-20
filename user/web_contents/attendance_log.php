@@ -9,20 +9,6 @@
 </head>
 
 <body class="attendance">
-    <!-- Header -->
-    <nav id="navbar" class="navbar vh-5 navbar-expand-lg navbar-onSurface bg-surface border-bottom shadow-sm bg-body-surface">
-        <div class="container-fluid">
-            <a class="navbar-brand py-1 p-0" href="../pages/home.php" type="button">
-                <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" width="180" class="img-responsive">
-            </a>
-            <ul class="navbar-nav nav-pills text-center ms-auto mt-3 my-lg-auto" id="navTab_pill">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../admin/index.php"><i class="fa-solid fa-user"></i> Login Admin</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Header -->
 
     <!-- Main -->
     <div class="contents vh-95">
@@ -36,7 +22,7 @@
                 <div class="row h-100" data-aos="fade-in" data-aos-duration="1000">
                     <div class="library-registry p-5 rounded-3 shadow-lg bg-surface h-100">
                         <div class="attendance-title text-center mb-3 h-10">
-                            <div class="text-bg-primary rounded-3 fs-2" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY</div>
+                            <div class="text-bg-primary rounded-3 fs-2 text-uppercase" style="font-family: 'poppins', sans-serif; letter-spacing: 10px;">LIBRARY REGISTRY <?php echo date('F j, Y', strtotime('+8 hours')) ?></div>
                         </div>
                         <div class="attendance-container w-100 h-80">
                             <div id="attendance_log_table" class="attendance-table h-70">

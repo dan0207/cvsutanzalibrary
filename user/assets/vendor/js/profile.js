@@ -64,6 +64,7 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         iDisplayLength: 10,
         responsive: true,
+        order: [[0, "desc"]],
         columnDefs: [
             {
                 targets: 1,
@@ -106,6 +107,7 @@ $(document).ready(function () {
         serverSide: true, // DO NOT REMOVE
         iDisplayLength: 10,
         responsive: true,
+        order: [[0, "desc"]],
         columnDefs: [
             {
                 targets: 1,
@@ -152,11 +154,11 @@ $(function () {
                     console.log(data);
                     if (data) {
                         const deletedLiveToast = document.getElementById('deletedLiveToast');
-                        const deletedRequestToast = bootstrap.Toast.getOrCreateInstance(deletedLiveToast, { delay: 2000 });
+                        const deletedRequestToast = bootstrap.Toast.getOrCreateInstance(deletedLiveToast);
                         deletedRequestToast.show();
                         setInterval(function (e) {
                             window.location.reload();
-                        }, 2000);
+                        }, 1000);
                     }
                 })
                 .catch(error => {

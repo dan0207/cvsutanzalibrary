@@ -1,3 +1,21 @@
+<?php
+require_once('../php_script/db_local_connection.php');
+$sql = "SELECT text, image_url, video_url, embed_code FROM createpost";
+$result = $db->query($sql);
+
+$announcementPaths = [];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $url = !empty($row["image_url"]) ? $row["image_url"] : (!empty($row["video_url"]) ? $row["video_url"] : (!empty($row["embed_code"]) ? $row["embed_code"] : ''));
+        $text = $row["text"];
+        $announcementPaths[] = ["url" => $url, "text" => $text];
+    }
+} else {
+    echo "No Announcements";
+}
+?>
+
 <div id="about" class="py-lg-5">
     <div class="container-fluid py-3">
         <div class="container text-center">
@@ -5,21 +23,22 @@
             <div class="d-flex justify-content-center mb-5" data-aos="zoom-in" data-aos-duration="1000">
                 <div id="announcements_carousel" class="carousel slide w-90" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-4 border shadow-lg bg-body-tertiary">
-                        <div class="carousel-item active">
-                            <img src="../assets/img/newly-acquired-books.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/sample-announcement.jpg" class="d-block w-100" alt="...">
-                        </div>
+                        <?php
+                        foreach ($announcementPaths as $index => $data) {
+                            $isActive = ($index == 0) ? 'active' : '';
+                            $url = $data["url"];
+                            $text = $data["text"];
+                            $fileExtension = pathinfo($url, PATHINFO_EXTENSION);
+                        
+                            if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
+                                echo '<div class="carousel-item ' . $isActive . '"><img src="../../admin/render/uploads/images/' . $url  . '" class="d-block w-100" alt="..."><div class="announcement-overlay"><div class="overlay-text fw-semibold">' . $text . '</div></div></div>';
+                            } elseif (in_array($fileExtension, ['mp4', 'webm', 'ogg'])) {
+                                echo '<div class="carousel-item ' . $isActive . '"><video control autoplay loop class="d-block w-100"><source src="../../admin/render/uploads/videos/' . $url  . '" type="video/' . $fileExtension . '">Your browser does not support the video tag.</video><div class="announcement-overlay"><div class="overlay-text fw-semibold">' . $text . '</div></div></div>';
+                            }else{
+                                echo '<div class="carousel-item ' . $isActive . '">'.$url.'</div>';
+                            }
+                        }
+                        ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#announcements_carousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

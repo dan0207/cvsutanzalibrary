@@ -1,4 +1,10 @@
-AOS.init();
+AOS.init({
+    disable: function () {
+        var maxWidth = 600;
+        return window.innerWidth < maxWidth;
+    }
+});
+
 
 export function generateQRCode(qr_text, qr_size) {
     var googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" + qr_size + "x" + qr_size + "&cht=qr&chl=" + qr_text + "&choe=UTF-8";
@@ -80,9 +86,9 @@ export function getFormatCourseSection(course, year, section) {
         'FOUR': 4
     };
 
-    return [course && course, 
-        yearToNumber[year] && `${yearToNumber[year]}`, 
-        sectionToNumber[section] && `- ${sectionToNumber[section]}`].filter(Boolean).join(" ")
+    return [course && course,
+    yearToNumber[year] && `${yearToNumber[year]}`,
+    sectionToNumber[section] && `- ${sectionToNumber[section]}`].filter(Boolean).join(" ")
     // return course + ' ' + yearToNumber[year] + '-' + sectionToNumber[section];
 }
 
@@ -180,29 +186,46 @@ function borrowPeriod(reservedDates) {
             rightArrow: '<i class="fa-solid fa-caret-right fa-xl"></i>',
         },
         beforeShowDay: function (date) {
+            let className = '';
             if (reservedDates !== undefined) {
                 for (let i = 0; i < reservedDates.length; i++) {
                     if (date.getDate() !== currentDate.getDate() && date.getDate() === new Date(reservedDates[i]).getDate() && date.getMonth() === new Date(reservedDates[i]).getMonth() && date.getYear() === new Date(reservedDates[i]).getYear()) {
-                        return {
-                            classes: 'bg-secondary text-onSecondary opacity-25 rounded-0 disabled',
-                            tooltip: 'Reserved Date',
-                        };
+                        className = 'reserved-date disabled';
                     }
                 }
             }
+            return {
+                classes: className,
+            };
         },
     }).on('changeDate', function (e) {
-        pickup_date = $('#pickup_date').datepicker('getDate');
+        pickup_date = e.date;
 
-        var maxReturnDate = new Date(e.date.getTime() + 7 * 24 * 60 * 60 * 1000);
         $('#return_date').datepicker('setStartDate', e.date);
-        $('#return_date').datepicker('setEndDate', maxReturnDate);
 
         $('#return_date_container').css("opacity", 1);
         $('#return_date_label').css("opacity", 1);
 
         $('#pickup_date_label').text(getformatDate(pickup_date));
         $('#pickup_date_input').val(pickup_date);
+
+        var maxReturnDate = new Date(e.date.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+        for (let i = 0; i < reservedDates.length; i++) {
+            // var beforeReservedDate = new Date(reservedDates[i]);
+            // beforeReservedDate.setDate(beforeReservedDate.getDate()-1);
+
+            if (pickup_date < reservedDates[i]) {
+                console.log("Pickup: " + pickup_date)
+                console.log("LastDay: " + reservedDates[i])
+                $('#return_date').datepicker('setDate', reservedDates[i]);
+                break;
+            }
+
+            // if(i == reservedDates.length-1){
+            //     $('#return_date').datepicker('setDate', maxReturnDate);
+            // }
+        }
     });
 
 
@@ -218,30 +241,29 @@ function borrowPeriod(reservedDates) {
             rightArrow: '<i class="fa-solid fa-caret-right fa-xl"></i>',
         },
         beforeShowDay: function (date) {
-            if (reservedDates !== undefined) {
-                for (let i = 0; i < reservedDates.length; i++) {
-                    if (date.getDate() === reservedDates[i].getDate() && date.getMonth() === reservedDates[i].getMonth() && date.getYear() === reservedDates[i].getYear()) {
-                        return {
-                            classes: 'bg-secondary text-onSecondary opacity-25 rounded-0 disabled',
-                            tooltip: 'Reserved Date',
-                        };
-                    }
-                }
-            }
+            let className = '';
 
             if (pickup_date !== undefined) {
                 for (let i = 0; i < reservedDates.length; i++) {
                     if (pickup_date <= reservedDates[i] && date >= reservedDates[i]) {
-                        return {
-                            classes: 'disabled',
-                            tooltip: 'Unavailable',
-                        };
+                        className = 'disabled';
                     }
                 }
             } else {
                 return false;
             }
 
+            if (reservedDates !== undefined) {
+                for (let i = 0; i < reservedDates.length; i++) {
+                    if (date.getDate() === reservedDates[i].getDate() && date.getMonth() === reservedDates[i].getMonth() && date.getYear() === reservedDates[i].getYear()) {
+                        className = 'reserved-date disabled';
+                    }
+                }
+            }
+
+            return {
+                classes: className,
+            };
         },
     }).on('changeDate', function (e) {
         return_date = $('#return_date').datepicker('getDate');
@@ -270,9 +292,19 @@ export function updateSession() {
 export function confirmationModal(title, btnText, confirmationModal_function) {
     $('#confirmationModal_title').text(title);
     showModal('confirmationModal');
-    const $confirmationModal_btn = $('#confirmationModal_btn');
-    $confirmationModal_btn.text(btnText);
-    $confirmationModal_btn.on('click', confirmationModal_function);
+    const confirmationModal_btn = $('#confirmationModal_btn');
+    const confirmationModal_btn_processing = $('#confirmationModal_btn_processing');
+    confirmationModal_btn.text(btnText);
+
+    confirmationModal_btn.on('click', () => {
+        confirmationModal_btn_processing.removeClass('d-none');
+        confirmationModal_btn.addClass('d-none');
+        setInterval(function (e) {
+            confirmationModal_function();
+        }, 5000)
+    }
+    );
+
 }
 
 export function showModal(show_id, hide_id) {

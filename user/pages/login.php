@@ -20,7 +20,7 @@ include '../php_script/main_script.php';
         <section class="loin_section container d-flex justify-content-center align-items-center vh-100 text-center">
             <div class="login_content col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 bg-surface shadow-lg p-4 rounded-4">
                 <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-fluid">
-                <h3 class="fs-1" style="font-family: 'Times New Roman', Times, serif;">Student</h3>
+                <h3 class="fs-2 py-3" style="font-family: arial; font-weight: bold;">USER</h3>
 
                 <div id="g_id_onload" data-client_id="171145039223-i2oabkul3cr1qflpogvbm55taag2a3kj.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-nonce="" data-itp_support="true">
                 </div>

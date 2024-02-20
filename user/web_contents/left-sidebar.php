@@ -4,7 +4,7 @@
             <div class="card-header text-bg-primary rounded-top-3">LIBRARY HOURS</div>
             <div class="card-body">
                 <p class="card-text m-0">Monday - Thursday</p>
-                <p class="card-text fw-semibold text-primary fs-5">7AM-6PM</p>
+                <p class="card-text fw-semibold text-primary fs-3">7AM-6PM</p>
             </div>
         </div>
         <div class="card text-center mb-3 rounded-3 shadow">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card text-center mb-3 rounded-3 shadow">
-            <div class="card-header text-bg-primary rounded-top-3">FAQs</div>
+            <div class="card-header text-bg-primary rounded-top-3">Documentation</div>
             <div class="card-body">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <div class="nav-link text-onSurface" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab">How to request books</div>

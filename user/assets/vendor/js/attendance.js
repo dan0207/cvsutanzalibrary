@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { } from '../../js/main.js';
+import { mask } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -21,6 +21,12 @@ $(document).ready(function () {
         scroller: true,
         order: [[5, "desc"]],
         columnDefs: [
+            {
+                targets: 0,
+                render: function (data, type, row) {
+                    return mask(data);
+                }
+            },
             {
                 targets: -1,
                 render: function (data, type, row) {

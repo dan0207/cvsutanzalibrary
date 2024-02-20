@@ -38,7 +38,6 @@
                     </div>
                     <div class="profile-details">
                         <div class="row m-0 border-bottom py-3 mb-3 border rounded-3 shadow bg-body-tertiary">
-                            <label class="form-label mb-1 ms-1 fs-4 text-center">About Me</label>
                             <div class="col-12 col-lg-6">
                                 <label for="" class="form-label">Bio</label>
                                 <textarea type="text" class="form-control" rows="4"></textarea>
@@ -67,7 +66,6 @@
 
                         <div class="row m-0 rounded-3 py-3 border rounded-3 shadow bg-body-tertiary">
                             <div class="form-outline row m-0 p-0">
-                                <label class="form-label mb-1 ms-1 fs-4 text-center">Login Credentials</label>
                                 <div class="col-12 col-lg-5">
                                     <label for="profile_username_input" class="form-label">Username</label>
                                     <input type="text" class="form-control" name="profile_username" id="profile_username_input" required>

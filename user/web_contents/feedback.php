@@ -66,6 +66,10 @@
     </div>
     <div class="feedback-footer d-flex h-15 justify-content-center align-items-center py-2">
         <button id="feedback_submit" class="feedback-submit btn btn-primary rounded-pill w-75">SUBMIT</button>
+        <button id="feedback_submit_processing" class="btn btn-primary w-75 d-none" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading</span>
+        </button>
     </div>
 </div>
 

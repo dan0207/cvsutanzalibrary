@@ -162,6 +162,9 @@ function studentNumberRestriction(event) {
 
 function checkPasswordStrength() {
     const result = zxcvbn(user_password_input.value);
+    user_password_checkMatch_feedback.classList.add('d-none');
+    user_password_Strength_feedback.classList.remove('d-none');
+    
     switch (result.score) {
         case 0:
         case 1:
@@ -170,21 +173,21 @@ function checkPasswordStrength() {
             user_password_Strength_feedback.classList.add('text-secondary');
             user_password_Strength_feedback.classList.remove('text-info');
             user_password_Strength_feedback.classList.remove('text-primary');
-            // user_password_input.setCustomValidity('invalid');
+            user_password_input.setCustomValidity('invalid');
             break;
         case 3:
             user_password_Strength_feedback.textContent = 'Moderate Password!';
             user_password_Strength_feedback.classList.add('text-info');
             user_password_Strength_feedback.classList.remove('text-secondary');
             user_password_Strength_feedback.classList.remove('text-primary');
-            // user_password_input.setCustomValidity('invalid');
+            user_password_input.setCustomValidity('invalid');
             break;
         case 4:
             user_password_Strength_feedback.textContent = 'Strong Password';
             user_password_Strength_feedback.classList.add('text-primary');
             user_password_Strength_feedback.classList.remove('text-secondary');
             user_password_Strength_feedback.classList.remove('text-info');
-            // user_password_input.setCustomValidity('');
+            user_password_input.setCustomValidity('');
             break;
         default:
             user_password_Strength_feedback.textContent = '';
@@ -195,6 +198,9 @@ function checkPasswordStrength() {
 function checkPasswordMatch() {
     const password = user_password_input.value;
     const repeatPassword = user_re_password_input.value;
+
+    user_password_Strength_feedback.classList.add('d-none');
+    user_password_checkMatch_feedback.classList.remove('d-none');
 
     if (password && repeatPassword && password === repeatPassword) {
         user_password_checkMatch_feedback.textContent = 'Password match.';
@@ -462,8 +468,6 @@ show_re_password_toggle.addEventListener("click", function () {
 user_middlename_input.addEventListener("input", middleIRestriction);
 user_student_number_input.addEventListener("input", studentNumberRestriction);
 user_password_input.addEventListener('input', checkPasswordStrength);
-user_password_input.addEventListener('input', checkPasswordStrength);
-user_password_input.addEventListener('input', checkPasswordMatch);
 user_re_password_input.addEventListener('input', checkPasswordMatch);
 // // Events for Input ////////////////////////////////////////////////////////
 

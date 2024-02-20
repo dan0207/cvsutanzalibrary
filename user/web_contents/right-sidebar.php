@@ -1,3 +1,20 @@
+<?php
+$quickLinks = [
+    "https://www.accessengineeringlibrary.com/" => "Access Engineering",
+    "https://search.ebscohost.com/Login.aspx" => "EBSCO Databases",
+    "https://link.gale.com/apps/menu?userGroupName=phslsu&prodId=MENU" => "Infotrac",
+    "http://ww7.engineeringstudymaterial.net/?usid=24&utid=4925535969" => "Engineering Study Material",
+    "https://web-archive.southampton.ac.uk/cogprints.org/" => "Cogprints",
+    "https://www.doabooks.org/" => "Directory of Open Access Books",
+    "https://www.getfreeebooks.com/" => "Get Free Books",
+    "https://www.gutenberg.org/" => "Project Gutenberg",
+    "https://www.intechopen.com/" => "Intechopen",
+];
+$cvsuLinks = [
+    "https://www.facebook.com/CvSUTC" => "Cavite State University - Tanza"
+];
+?>
+
 <div class="sticky-top py-lg-5 z-1 overflow-y-auto vh-100 mb-4 mb-lg-0 overflow-x-hidden">
     <div id="right_sidebar" class="container my-lg-5">
         <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -15,15 +32,15 @@
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                     <div class="accordion-body px-2">
                         <div class="d-flex justify-content-center">
-                            <div id="newly_books_carousel" class="carousel slide carousel-fade w-70" data-bs-ride="carousel">
-                                <div class="carousel-inner rounded-3 shadow">
+                            <div id="newly_books_carousel" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                <div class="carousel-inner py-4">
                                     <?php
-                                    for ($i = 1; $i <= 30; $i++) {
-                                        if ($i == 1) {
-                                            echo "<div class='carousel-item active' data-bs-interval='3000'><img src='../assets/img/new_books/newbk" . $i . ".png' class='d-block w-100 rounded-3 border border-3 border-white'></div>";
-                                        } else {
-                                            echo "<div class='carousel-item' data-bs-interval='3000'><img src='../assets/img/new_books/newbk" . $i . ".png' class='d-block w-100 border rounded-3 border-3 border-white'></div>";
-                                        }
+                                    $folderPath = '../assets/img/new_books/';
+                                    $files = glob($folderPath . '/*.png');
+                                    foreach ($files as $index => $file) {
+                                        $filename = pathinfo($file, PATHINFO_FILENAME);
+                                        $isActive = ($index == 0) ? 'active' : '';
+                                        echo "<div class='carousel-item $isActive' data-bs-interval='3000'><a class='book-container' href='../pages/books.php?opac_search=$filename'><div class='book'><img src='$file' class='d-block w-100'></div></a></div>";
                                     }
                                     ?>
                                 </div>
@@ -53,15 +70,11 @@
                 <div id="panelsStayOpen-collapsetwo" class="accordion-collapse collapse show">
                     <div class="accordion-body px-2">
                         <ul class="list-group">
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.accessengineeringlibrary.com/"></i><i class="fa-solid fa-share px-2"></i>Access Engineering</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://search.ebscohost.com/Login.aspx"></i><i class="fa-solid fa-share px-2"></i>EBSCO Databases</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://link.gale.com/apps/menu?userGroupName=phslsu&prodId=MENU"></i><i class="fa-solid fa-share px-2"></i>Infotrac</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="http://ww7.engineeringstudymaterial.net/?usid=24&utid=4925535969"></i><i class="fa-solid fa-share px-2"></i>Engineering Study Material</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://web-archive.southampton.ac.uk/cogprints.org/"></i><i class="fa-solid fa-share px-2"></i>Cogprints</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.doabooks.org/"></i><i class="fa-solid fa-share px-2"></i>Directory of Open Access Books</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.getfreeebooks.com/"></i><i class="fa-solid fa-share px-2"></i>Get Free Books</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.gutenberg.org/"></i><i class="fa-solid fa-share px-2"></i>Project Gutenberg</a></li>
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.intechopen.com/"></i><i class="fa-solid fa-share px-2"></i>Intechopen</a></li>
+                            <?php
+                            foreach ($quickLinks as $url => $label) {
+                                echo "<li class='list-group-item border border-0'><a class='text-onSurface link-offset-2 link-underline link-underline-opacity-0' target='_blank' href='$url'><i class='fa-solid fa-share px-2'></i>$label</a></li>";
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -79,7 +92,11 @@
                 <div id="panelsStayOpen-collapsethree" class="accordion-collapse collapse show">
                     <div class="accordion-body px-2">
                         <ul class="list-group">
-                            <li class="list-group-item border border-0"><a class="text-onSurface link-offset-2 link-underline link-underline-opacity-0" target="_blank" href="https://www.facebook.com/CvSUTC"><i class="fa-solid fa-share px-2"></i>Cavite State University - Tanza</a></li>
+                            <?php
+                            foreach ($cvsuLinks as $url => $label) {
+                                echo "<li class='list-group-item border border-0'><a class='text-onSurface link-offset-2 link-underline link-underline-opacity-0' target='_blank' href='$url'><i class='fa-solid fa-share px-2'></i>$label</a></li>";
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

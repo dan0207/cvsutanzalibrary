@@ -8,9 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category = isset($_POST['category']) ? mysqli_real_escape_string($db, $_POST['category']) : '';
     $subject = isset($_POST['subject']) ? mysqli_real_escape_string($db, $_POST['subject']) : '';
     $comments = isset($_POST['comments']) ? mysqli_real_escape_string($db, $_POST['comments']) : '';
+    $date = date('m/d/y');
+    $time = gmdate('h:i A', time() + 8 * 3600);
 
     if ($db && $result = mysqli_query($db, "SELECT * FROM ratings")) {
-        $insert = "INSERT INTO ratings (category, subject, rating, comments) VALUES ('$category', '$subject', '$rating', '$comments')";
+        $insert = "INSERT INTO ratings (category, subject, rating, comments, date, time) VALUES ('$category', '$subject', '$rating', '$comments', '$date','$time')";
         if (mysqli_query($db, $insert)) {
             mysqli_close($db);
             header('Location: ' . $_SERVER['HTTP_REFERER']);
