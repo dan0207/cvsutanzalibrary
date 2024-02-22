@@ -3,8 +3,8 @@
 </button>
 
 <div id="offcanvas_btn" class="me-3 z-1 d-none d-md-block">
-    <button id="chat_btn" class="chat-button btn btn-primary rounded-top-3 border border-2 border-bottom-0 border-onPrimary mx-1 fs-7 fs-lg-6">Chat</button>
-    <button id="feedback_btn" class="feedback-button btn btn-primary rounded-top-3 border border-2 border-bottom-0 border-onPrimary mx-1 fs-7 fs-lg-6">Feedback</button>
+    <button id="chat_btn" data-aos="fade-in" data-aos-duration="1000" class="chat-button btn btn-primary rounded-top-3 border border-2 border-bottom-0 border-onPrimary mx-1 fs-7 fs-lg-6">Chat</button>
+    <button id="feedback_btn" data-aos="fade-in" data-aos-duration="1000" class="feedback-button btn btn-primary rounded-top-3 border border-2 border-bottom-0 border-onPrimary mx-1 fs-7 fs-lg-6">Feedback</button>
 </div>
 
 <!-- <div id="offcanvas_btn_icon" class="offcanvas-btn-icon z-1">

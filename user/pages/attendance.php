@@ -66,7 +66,7 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
                             <div class="display-time text-center rounded-5 display-2 fw-bold" style="font-family: 'Lato', sans-serif;"></div>
                         </div>
                         <div class="log-btn text-center my-3">
-                            <a type="button" href="../web_contents/attendance_log.php" class="btn btn-lg btn-primary px-5">
+                            <a id="viewLogBook_btn" type="button" class="btn btn-lg btn-primary px-5">
                                 View Log book
                             </a>
                         </div>
@@ -132,15 +132,17 @@ $courseSection = isset($_GET['course']) && isset($_GET['year']) && isset($_GET['
     </div>
     <!-- Main -->
 
-
-    <!-- Footer -->
     <footer class="opac_footer bg-primary fixed-bottom">
         <div class="text-onPrimary text-center text-md-end px-1 fs-7 fs-md-6">
             <i class="fa-solid fa-chart-line"></i>
             27873 total views , 24 views today
         </div>
     </footer>
-    <!-- Footer -->
+
+    <!-- Modals -->
+    <?php include '../web_contents/modals.php'; ?>
+    <!-- Modals -->
+
 
     <!-- Script -->
     <script src="../assets/vendor/js/attendance.js" type="module"></script>

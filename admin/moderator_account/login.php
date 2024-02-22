@@ -1,5 +1,6 @@
 <?php
     include "../render/connection.php";
+    include "../assets/cdn/cdn_links.php";
 
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,9 +28,7 @@
             }
         }
 
-
-        // If credentials are incorrect, display an error message
-        echo "Invalid username or password. Please try again.";
+        header("Location: index.php?error=1");
 
         // Close prepared statement
         $stmt->close();

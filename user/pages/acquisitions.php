@@ -24,13 +24,13 @@ include '../php_script/main_script.php';
         <div id="acquisitions_contents" class="main-contents" data-aos="fade-in" data-aos-duration="1000">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-3 order-2 order-lg-1">
+                    <div class="col-12 col-lg-3 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                         <?php include '../web_contents/left-sidebar.php'; ?>
                     </div>
-                    <div class="col-12 col-lg-6 order-1 order-lg-2 px-0">
+                    <div class="col-12 col-lg-6 order-1 order-lg-2 px-0" data-aos="fade-in" data-aos-duration="1000">
                         <?php include '../web_contents/aquisitions-list.php'; ?>
                     </div>
-                    <div class="col-12 col-lg-3 order-3 order-lg-3">
+                    <div class="col-12 col-lg-3 order-3 order-lg-3" data-aos="fade-left" data-aos-duration="1000">
                         <?php include '../web_contents/right-sidebar.php'; ?>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ include '../php_script/main_script.php';
 
 
     <!-- Script -->
-    <script src="../assets/vendor/js/services.js" type="module"></script>
+    <script src="../assets/vendor/js/acquisitions.js" type="module"></script>
     <!-- Script -->
 
 </body>

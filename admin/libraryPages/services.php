@@ -38,38 +38,6 @@
                 <div class="col-lg-9">
                     <section>
                     <h1 id="pageHeader">Services</h1>
-                    <label class="ps-3 pt-4 fw-bold fs-4" for="accordionPanelsStay">Library Guide on how to navigate services</label>
-                    <div class="accordion p-3" id="accordionPanelsStay">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                Adding new Service
-                            </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                <div class="accordion-body">
-                                    <span>In <strong>adding new servces</strong> click the <strong>"+"</strong> button to open the text editor. Input the services in the text box provided.</span>
-                                    <span>Make sure to input the complete discription of the services before saving.</span>
-                                    <span>Here is some example of a full description of a service: </span>
-                                    <br><br>
-                                    <span>Example. <br><h2>Title of service</h2><span>description of the service.</span> <br> <h4 class="ps-3">Sub heading of the service</h4><span class="ps-5">description of the sub heading.</span> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                Editing/Updating Services
-                            </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                <div class="accordion-body">
-                                    <span>In <strong>Editing/Updating</strong> services click the <strong>Edit</strong> button above the service you want to edit to make the text box editable. After editing make sure to click the <strong>save</strong> button to make sure that the service will be edited/updated.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="container-fluid ps-5">
                         <h4>Add new Service <button id="addServiceBtn" class="btn m-3 border"><a class="nav-link" href="../render/add.php?id=0&page=services"><i class="fa-solid fa-plus"></i></a></button></h4>
                         <?php

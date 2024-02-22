@@ -70,7 +70,7 @@
                         
                         <div class="text-center mx-auto w-lg-40 ">
                             <button class="btn mt-2 mb-5 w-100" data-bs-toggle="modal" data-bs-target="#create_announcement_modal">
-                                <div class="shadow border rounded px-5">
+                                <div class="shadow border rounded">
                                     <div class="col-lg-10 my-1 mx-auto">
                                         <div class="row text-center pb-2">
                                             <span class="border border-dark rounded-pill p-2 post-text">CREATE ANNOUNCEMENT</span>

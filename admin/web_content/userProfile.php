@@ -7,7 +7,9 @@
                     if ($row['user_picture'] != NULL) {
                         $user_picture = $row['user_picture']; // Ensure $user_picture is properly assigned
                         ?>
-                        <img class="border border-dark rounded-circle shadow profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                        <div class="square-image-container">
+                            <img class="border border-dark rounded-circle shadow profile_picture" src="../moderator_account/moderator_profile_picture/<?php echo $user_picture; ?>" alt="">
+                        </div>
                         <?php
                     } else {
                         ?>
@@ -63,5 +65,5 @@
 </div>
 <!-- Button trigger modal -->
 <button type="button" class="nav-link bg-success text-light" data-bs-toggle="modal" data-bs-target="#update_profile">
-    Update Profile
+    Update Profile/Personal Information
 </button>

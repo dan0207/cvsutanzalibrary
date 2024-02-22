@@ -12,6 +12,7 @@
                 <thead class="table-success">
                     <tr>
                         <th>Action</th>
+                        <th>ID</th>
                         <th>Library Id</th>
                         <th>Name</th>
                         <th>Book Access No.</th>
@@ -66,6 +67,7 @@
                                             data-return="<?php echo $row["returnDate"]; ?>" data-bs-toggle="modal" data-bs-target="#deny_reservation">Decline
                                     </button>
                                 </td>
+                                <td><?php echo $row["id"]; ?></td>
                                 <td><?php echo $row["libraryid"]; ?></td>
                                 <td><?php echo $row["name"]; ?></td>
                                 <td><?php echo $row["bookAccessNo"]; ?></td>

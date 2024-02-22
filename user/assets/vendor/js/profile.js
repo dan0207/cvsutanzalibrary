@@ -139,6 +139,147 @@ $(document).ready(function () {
 });
 
 
+const profileDetailsForm = document.querySelector(".profile-details");
+
+const editProfileBtn = document.getElementById("edit_profile_btn");
+const saveProfileBtn = document.getElementById("save_profile_btn");
+const cancelProfileBtn = document.getElementById("cancel_profile_btn");
+const saveProfileBtnProcessing = document.getElementById("save_profile_btn_processing");
+
+const profileInputs = document.querySelectorAll(".update-profile");
+const showNewPasswordToggle = document.getElementById("show_new_password_toggle");
+const showOldPasswordToggle = document.getElementById("show_old_password_toggle");
+
+const profileUsernameInput = document.getElementById("profile_username_input");
+const profileNewPasswordInput = document.getElementById("profile_new_password_input");
+const profileOldPasswordInput = document.getElementById("profile_old_password_input");
+
+const updateProfileUsernameFeedback = document.getElementById("updateProfile_username_feedback");
+const updateProfilePasswordOldFeedback = document.getElementById("updateProfile_password_old_feedback");
+const updateProfilePasswordNewFeedback = document.getElementById("updateProfile_password_new_feedback");
+
+function toggleInputs(isEditing) {
+    profileInputs.forEach(element => {
+        element.disabled = isEditing;
+        element.classList.toggle("disabled", isEditing);
+    });
+}
+
+editProfileBtn.addEventListener('click', async function () {
+    toggleInputs(false);
+    [editProfileBtn, saveProfileBtn, cancelProfileBtn].forEach(btn => btn.classList.toggle("d-none"));
+});
+
+cancelProfileBtn.addEventListener('click', async function () {
+    toggleInputs(true);
+    [editProfileBtn, saveProfileBtn, cancelProfileBtn].forEach(btn => btn.classList.toggle("d-none"));
+    profileDetailsForm.reset();
+});
+
+saveProfileBtn.addEventListener('click', async function () {
+    toggleInputs(false);
+    const usernameValue = profileUsernameInput.value;
+    const oldPasswordValue = profileOldPasswordInput.value;
+    let verified = true;
+
+    if (!(profileOldPasswordInput.value === '' && profileNewPasswordInput.value === '' && profileUsernameInput.value === '')) {
+
+        try {
+            const response = await fetch('../php_script/check_oldCredentials_script.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    username: usernameValue,
+                    old_password: oldPasswordValue,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+
+
+            if (!data.isVerifiedUsername) {
+                profileUsernameInput.style.boxShadow = "0 0 1px 1px #ff0000";
+                updateProfileUsernameFeedback.textContent = "Incorrect Username";
+                verified = false;
+            } else {
+                profileUsernameInput.style.boxShadow = "0 0 1px 1px #007205";
+                updateProfileUsernameFeedback.textContent = "";
+            }
+            if (!data.isVerifiedPassword) {
+                profileOldPasswordInput.style.boxShadow = "0 0 1px 1px #ff0000";
+                updateProfilePasswordOldFeedback.textContent = "Incorrect Password";
+                verified = false;
+            } else {
+                profileOldPasswordInput.style.boxShadow = "0 0 1px 1px #007205";
+                updateProfilePasswordOldFeedback.textContent = "";
+            }
+            if (checkPasswordStrength(profileNewPasswordInput, updateProfilePasswordNewFeedback)) {
+                profileNewPasswordInput.style.boxShadow = "0 0 1px 1px #ff0000";
+                verified = false;
+            } else {
+                profileNewPasswordInput.style.boxShadow = "0 0 1px 1px #007205";
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Error checking old password. Please try again.");
+        }
+    }
+
+    if (verified) {
+        [saveProfileBtn, cancelProfileBtn, saveProfileBtnProcessing].forEach(btn => btn.classList.toggle("d-none"));
+        setTimeout(() => {
+            profileDetailsForm.submit();
+        }, 2000);
+    }
+});
+
+
+function checkPasswordStrength(password, label) {
+    const result = zxcvbn(password.value);
+
+    switch (result.score) {
+        case 0:
+        case 1:
+        case 2:
+            label.textContent = 'Weak Password!';
+            label.classList.add('text-secondary');
+            label.classList.remove('text-info');
+            label.classList.remove('text-primary');
+            return true;
+        case 3:
+            label.textContent = 'Moderate Password!';
+            label.classList.add('text-info');
+            label.classList.remove('text-secondary');
+            label.classList.remove('text-primary');
+            return true;
+        case 4:
+            label.textContent = 'Strong Password';
+            label.classList.add('text-primary');
+            label.classList.remove('text-secondary');
+            label.classList.remove('text-info');
+            return false;
+    }
+}
+
+
+showNewPasswordToggle.addEventListener('click', () => passwordToggle(profileNewPasswordInput, showNewPasswordToggle));
+showOldPasswordToggle.addEventListener('click', () => passwordToggle(profileOldPasswordInput, showOldPasswordToggle));
+
+function passwordToggle(password, toggle) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    toggle.classList.toggle('fa-eye', type === 'text');
+    toggle.classList.toggle('fa-eye-slash', type === 'password');
+}
+
+
 $(function () {
     $('#user_book_request_table tbody').on('click', '[id*=cancel_btn]', function () {
         let clickedRow = $(this).closest('tr');
@@ -167,6 +308,7 @@ $(function () {
         });
     });
 });
+
 
 let logout_btn = document.querySelectorAll(".logout-btn");
 logout_btn.forEach(function (e) {

@@ -132,6 +132,7 @@ const book_request_privacy_checkbox = document.getElementById("book_request_priv
 // $('#book_request_review_modal').modal('show'); // For Troubleshooting
 // $('#book_request_privacy_modal').modal('show'); // For Troubleshooting
 // $('#book_request_receipt_modal').modal('show'); // For Troubleshooting
+// $('#authentication_modal').modal('show'); // For Troubleshooting
 
 
 function middleIRestriction() {
@@ -162,9 +163,7 @@ function studentNumberRestriction(event) {
 
 function checkPasswordStrength() {
     const result = zxcvbn(user_password_input.value);
-    user_password_checkMatch_feedback.classList.add('d-none');
-    user_password_Strength_feedback.classList.remove('d-none');
-    
+
     switch (result.score) {
         case 0:
         case 1:
@@ -180,7 +179,7 @@ function checkPasswordStrength() {
             user_password_Strength_feedback.classList.add('text-info');
             user_password_Strength_feedback.classList.remove('text-secondary');
             user_password_Strength_feedback.classList.remove('text-primary');
-            user_password_input.setCustomValidity('invalid');
+            user_password_input.setCustomValidity('');
             break;
         case 4:
             user_password_Strength_feedback.textContent = 'Strong Password';
@@ -198,9 +197,6 @@ function checkPasswordStrength() {
 function checkPasswordMatch() {
     const password = user_password_input.value;
     const repeatPassword = user_re_password_input.value;
-
-    user_password_Strength_feedback.classList.add('d-none');
-    user_password_checkMatch_feedback.classList.remove('d-none');
 
     if (password && repeatPassword && password === repeatPassword) {
         user_password_checkMatch_feedback.textContent = 'Password match.';
@@ -281,11 +277,13 @@ function handle_UserFormModalBtn() {
     setupFormValidation(user_form.id, user_signup_modal_btn.id, function (e) {
         user_signup_modal_btn_processing.classList.remove('d-none');
         user_signup_modal_btn.classList.add('d-none');
-        setInterval(function (e) {
+
+        setTimeout(function (e) {
             showModal(user_review_modal.id, user_signup_modal.id);
         }, 5000);
     });
 }
+
 
 function handle_addNewEventModalBtn() {
 }

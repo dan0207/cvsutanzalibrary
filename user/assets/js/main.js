@@ -43,33 +43,39 @@ export function setupFormValidation(form_id, form_btn_id, handleValidFunction) {
 }
 
 export function activateTopSearch() {
-    function isIntersect(div1, div2) {
-        if (div2 === '') return true;
-        const rect1 = div1.getBoundingClientRect();
-        const rect2 = div2.getBoundingClientRect();
-        return rect1.bottom >= rect2.bottom;
-    }
+    // Get the current file name or path
+    const currentFileName = window.location.pathname.split('/').pop(); // Extract the file name from the path
 
-    const navbar = document.getElementById('navbar');
-    const header_book_search_top = document.getElementById('header_book_search_top');
-    const header_book_search_collapse_icon = document.getElementById('header_book_search_collapse_icon');
-    const header_book_search_top_collapse = document.getElementById('header_book_search_top_collapse');
-
-
-    const opac_search_input = document.getElementById('opac_search_input') ?? '';
-
-    window.addEventListener('scroll', function () {
-        if (isIntersect(navbar, opac_search_input)) {
-            header_book_search_top.style.visibility = 'visible';
-            header_book_search_collapse_icon.style.visibility = 'visible';
-            header_book_search_top_collapse.style.visibility = 'visible';
-        } else {
-            header_book_search_top.style.visibility = 'hidden';
-            header_book_search_collapse_icon.style.visibility = 'hidden';
-            header_book_search_top_collapse.style.visibility = 'hidden';
+    // Check if the current file is login.php
+    if (currentFileName !== 'login.php') {
+        function isIntersect(div1, div2) {
+            if (div2 === '') return true;
+            const rect1 = div1.getBoundingClientRect();
+            const rect2 = div2.getBoundingClientRect();
+            return rect1.bottom >= rect2.bottom;
         }
-    });
+
+        const navbar = document.getElementById('navbar');
+        const header_book_search_top = document.getElementById('header_book_search_top');
+        const header_book_search_collapse_icon = document.getElementById('header_book_search_collapse_icon');
+        const header_book_search_top_collapse = document.getElementById('header_book_search_top_collapse');
+
+        const opac_search_input = document.getElementById('opac_search_input') ?? '';
+
+        window.addEventListener('scroll', function () {
+            if (isIntersect(navbar, opac_search_input)) {
+                header_book_search_top.style.visibility = 'visible';
+                header_book_search_collapse_icon.style.visibility = 'visible';
+                header_book_search_top_collapse.style.visibility = 'visible';
+            } else {
+                header_book_search_top.style.visibility = 'hidden';
+                header_book_search_collapse_icon.style.visibility = 'hidden';
+                header_book_search_top_collapse.style.visibility = 'hidden';
+            }
+        });
+    }
 }
+
 
 export function getFormatCourseSection(course, year, section) {
     const yearToNumber = {
@@ -99,6 +105,18 @@ export function getformatDate(date) {
         year: 'numeric'
     });
     return formattedDate;
+}
+
+export function getformatTime(timeString) {
+    const [hours, minutes, seconds] = timeString.split(':');
+    let period = 'AM';
+
+    let hours12 = parseInt(hours, 10);
+    if (hours12 > 12) {
+        hours12 -= 12;
+        period = 'PM';
+    }
+    return `${hours12}:${minutes} ${period}`;
 }
 
 export function mask(text) {
@@ -199,34 +217,19 @@ function borrowPeriod(reservedDates) {
             };
         },
     }).on('changeDate', function (e) {
-        pickup_date = e.date;
+        pickup_date = $('#pickup_date').datepicker('getDate');
 
+        var maxReturnDate = new Date(e.date.getTime() + 7 * 24 * 60 * 60 * 1000);
         $('#return_date').datepicker('setStartDate', e.date);
+        $('#return_date').datepicker('setEndDate', maxReturnDate);
 
         $('#return_date_container').css("opacity", 1);
         $('#return_date_label').css("opacity", 1);
 
         $('#pickup_date_label').text(getformatDate(pickup_date));
         $('#pickup_date_input').val(pickup_date);
-
-        var maxReturnDate = new Date(e.date.getTime() + 7 * 24 * 60 * 60 * 1000);
-
-        for (let i = 0; i < reservedDates.length; i++) {
-            // var beforeReservedDate = new Date(reservedDates[i]);
-            // beforeReservedDate.setDate(beforeReservedDate.getDate()-1);
-
-            if (pickup_date < reservedDates[i]) {
-                console.log("Pickup: " + pickup_date)
-                console.log("LastDay: " + reservedDates[i])
-                $('#return_date').datepicker('setDate', reservedDates[i]);
-                break;
-            }
-
-            // if(i == reservedDates.length-1){
-            //     $('#return_date').datepicker('setDate', maxReturnDate);
-            // }
-        }
     });
+
 
 
     $('#return_date').datepicker({
@@ -301,7 +304,7 @@ export function confirmationModal(title, btnText, confirmationModal_function) {
         confirmationModal_btn.addClass('d-none');
         setInterval(function (e) {
             confirmationModal_function();
-        }, 5000)
+        }, 2000)
     }
     );
 

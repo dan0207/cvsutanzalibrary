@@ -1,3 +1,7 @@
+<?php
+    include "../assets/cdn/cdn_links.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,6 +15,11 @@
         <div class="container">
             <div class="wrapper">
                 <div class="title"><img class="login_logo" src="../assets/image/cvsu_library.png" alt=""></div>
+                <?php
+                    if(isset($_GET['error']) && $_GET['error'] == 1) {
+                        echo "<p id='errorMessage' class='text-danger text-center'>Invalid username or password. Please try again.</p>";
+                    }
+                ?>
                 <form action="login.php" method="post">
                     <div class="row">
                         <i class="fas fa-user"></i>
@@ -28,6 +37,7 @@
                 </form>
             </div>
         </div>
+
         <script>
             // JavaScript to toggle password visibility
             const togglePassword = document.querySelector('.toggle-password');
@@ -39,6 +49,13 @@
                 this.classList.toggle('fa-eye');
                 this.classList.toggle('fa-eye-slash');
             });
+
+            setTimeout(function() {
+                var errorMessage = document.getElementById('errorMessage');
+                if(errorMessage) {
+                    errorMessage.style.display = 'none';
+                }
+            }, 3000); // 3000 milliseconds = 3 seconds
         </script>
     </body>
 </html>

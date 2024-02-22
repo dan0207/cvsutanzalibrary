@@ -3,11 +3,7 @@ session_start();
 
 require_once('db_local_connection.php');
 
-$sql = "SELECT * FROM users WHERE user_token = '$user_token'";
-$result = mysqli_query($db, $sql);
-
-$user = $result->fetch_assoc();
-$update = "UPDATE users SET user_status = 'Offline'";
+$update = "UPDATE users SET user_status = 'Offline' WHERE user_token = '" . $_SESSION['user_token'] . "'";
 mysqli_query($db, $update);
 mysqli_close($db);
 

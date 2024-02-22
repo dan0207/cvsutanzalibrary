@@ -116,6 +116,7 @@
                 <p><strong>Tittle:</strong> <span id="damage_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="damage_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="damage_modalPickUpDate"></span></p>
+                <p><strong>Due Date:</strong> <span id="damage_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="damage_modalReturnDate"></span></p>
                 <p><strong>Fine:</strong> <span id="damage_modalfine"></span></p>
             </div>
@@ -146,6 +147,7 @@
                 <p><strong>Tittle:</strong> <span id="missing_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="missing_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="missing_modalPickUpDate"></span></p>
+                <p><strong>Due Date:</strong> <span id="missing_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="missing_modalReturnDate"></span></p>
                 <p><strong>Fine:</strong> <span id="missing_modalfine"></span></p>
             </div>
@@ -176,6 +178,7 @@
                 <p><strong>Tittle:</strong> <span id="return_modalTittle"></span></p>
                 <p><strong>Call No.:</strong> <span id="return_modalCallNo"></span></p>
                 <p><strong>Pick up Date:</strong> <span id="return_modalPickUpDate"></span></p>
+                <p><strong>Due Date:</strong> <span id="return_modalDueDate"></span></p>
                 <p><strong>Return Date:</strong> <span id="return_modalReturnDate"></span></p>
                 <p><strong>Fine:</strong> <span id="return_modalfine"></span></p>
             </div>
@@ -954,7 +957,7 @@
                 <h2 class="text-center">Upload Form</h2>
                 <form action="../assets/script/php_script/create_announcement.php" method="post" enctype="multipart/form-data">
                     <!-- Textbox -->
-                    <input class="form-control" type="text" name="text" id="text" placeholder="Title/Caption" autocomplete="off">
+                    <input class="form-control" type="text" name="text" id="text" placeholder="Title/Caption" autocomplete="off" required>
 
                     <br>
 
@@ -987,3 +990,40 @@
     </div>
 </div>
 <!-- Create announcemnet Modal -->
+
+<!-- Acquisition Modal -->
+<div class="modal fade" id="acquisition_modal" tabindex="-1" aria-labelledby="acquisition_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="acquisition_modal_label">Add new acquisition</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="acquisition_form" action="../assets/script/php_script/add_acquisition.php" method="post">
+                    <div class="mb-3">
+                        <label for="author_input" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="author_input" name="author" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year_publish_input" class="form-label">Year Published</label>
+                        <input type="number" class="form-control" id="year_publish_input" name="year_publish" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year_acquired_input" class="form-label">Year Acquired</label>
+                        <input type="number" class="form-control" id="year_acquired_input" name="year_acquired" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title_input" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title_input" name="title" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Acquisition Modal -->

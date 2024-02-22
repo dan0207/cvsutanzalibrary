@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['user_status'] = 'Online';
 
     $username = $_SESSION['user_username'];
-    $password = $_SESSION['user_password'];
+    $password = password_hash($_SESSION['user_password'], PASSWORD_DEFAULT);
     $name = $_SESSION['user_name'];
     $surname = $_SESSION['user_surname'];
     $middle_I = $_SESSION['user_middle_I'];
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $faculty_department = $_SESSION['user_faculty_department'];
     $member_type = $_SESSION['user_member_type'];
     $status = $_SESSION['user_status'];
-    
+
 
     $sql = "SELECT * FROM users WHERE user_token = '$token'";
     $result = mysqli_query($db, $sql);

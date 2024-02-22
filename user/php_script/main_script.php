@@ -60,7 +60,7 @@ function emailRemider()
     // $pickupReminder = [];
     $returnReminder = [];
 
-    $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()-1";
+    $sql = "SELECT * FROM bookreserve WHERE returnDate = CURDATE()+1";
     $result = mysqli_query($db, $sql);
 
     while ($row = $result->fetch_assoc()) {

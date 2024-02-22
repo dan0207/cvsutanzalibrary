@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// FOR INPUT LOGIN
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     require_once('db_local_connection.php');
@@ -9,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Retrieve the user's information from the database
     $stmt = $db->prepare("SELECT * FROM users WHERE user_username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -17,7 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        if ($user['user_password'] === $password) {
+        if (password_verify($password, $user['user_password'])) {
+            $update = $db->prepare("UPDATE users SET user_status = 'Online' WHERE user_token = ?");
+            $update->bind_param("s", $user['user_token']);
+            $update->execute();
+
             $_SESSION['user_token'] = $user['user_token'];
             $_SESSION['user_username'] = $user['user_username'];
             $_SESSION['user_password'] = $user['user_password'];
@@ -36,11 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
             $_SESSION['user_member_type'] = $user['user_member_type'];
-            $_SESSION['user_status'] = 'Online';
-
-            $update = "UPDATE users SET user_status = 'Online'";
-            mysqli_query($db, $update);
-            mysqli_close($db);
+            $_SESSION['user_bio'] = $user['user_bio'];
+            $_SESSION['user_age'] = $user['user_age'];
+            $_SESSION['user_gender'] = $user['user_gender'];
+            $_SESSION['user_birthday'] = $user['user_birthday'];
 
             header("Location: ../pages/profile.php");
             exit();
@@ -50,5 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "User not found.";
     }
+
+    $stmt->close();
+    $update->close();
+    mysqli_close($db);
 }
-// FOR INPUT LOGIN

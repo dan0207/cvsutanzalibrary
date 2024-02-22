@@ -11,18 +11,19 @@
         $title = $_GET['title'];
         $callno = $_GET['callno'];
         $pickupDate = $_GET['pickupDate'];
+        $dueDate = $_GET['dueDate'];
         $returnDate = $_GET['returnDate'];
         $fine = $_GET['fine'];
         
         // Insert the data into the booktransaction table when the button is clicked
-        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $fine);
+        insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $dueDate, $returnDate, $fine);
     }
 
     // Function to insert data into the booktransaction table
-    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $returnDate, $fine)
+    function insertIntoBookTransaction($conn, $id, $libraryId, $name, $course, $email, $accessNo, $title, $callno, $pickupDate, $dueDate, $returnDate, $fine)
     {
-        $sql = "INSERT INTO booktransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookCallNo, pickupDate, returnDate, remarks, fine) 
-                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$callno', '$pickupDate', '$returnDate', 'Damaged', '$fine')";
+        $sql = "INSERT INTO booktransaction (id, libraryid, name, courseSection, email, bookAccessNo, bookTitle, bookCallNo, pickupDate, dueDate, returnDate, remarks, fine) 
+                VALUES ('$id', '$libraryId', '$name', '$course', '$email', '$accessNo', '$title', '$callno', '$pickupDate', '$dueDate', '$returnDate', 'Damaged', '$fine')";
 
         if ($conn->query($sql) === TRUE) {
             // Delete the record from the bookreserve table

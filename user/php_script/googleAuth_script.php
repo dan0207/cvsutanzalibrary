@@ -62,9 +62,12 @@ if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
             $_SESSION['user_created'] = $user['user_created'];
             $_SESSION['user_modified'] = $user['user_modified'];
             $_SESSION['user_member_type'] = $user['user_member_type'];
-            $_SESSION['user_status'] = 'Online';
+            $_SESSION['user_bio'] = $user['user_bio'];
+            $_SESSION['user_age'] = $user['user_age'];
+            $_SESSION['user_gender'] = $user['user_gender'];
+            $_SESSION['user_birthday'] = $user['user_birthday'];
 
-            $update = "UPDATE users SET user_status = 'Online'";
+            $update = "UPDATE users SET user_status = 'Online' WHERE user_token = '$user_token'";
             mysqli_query($db, $update);
             mysqli_close($db);
         }

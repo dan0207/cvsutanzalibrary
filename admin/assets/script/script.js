@@ -33,3 +33,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 // admin sidebar show drowpdown on current page
+
+document.getElementById("notificationButton").addEventListener("click", function(event) {
+    var notificationContainer = document.getElementById("notificationContainer");
+    if (notificationContainer.style.display === "none" || notificationContainer.style.display === "") {
+        // Make the notification container visible
+        notificationContainer.style.display = "block";
+    } else {
+        // Hide the notification container
+        notificationContainer.style.display = "none";
+    }
+    // Prevent propagation of the click event to the body element
+    event.stopPropagation();
+});
+
+document.body.addEventListener("click", function(event) {
+    var notificationContainer = document.getElementById("notificationContainer");
+    var notificationButton = document.getElementById("notificationButton");
+    var target = event.target;
+    if (target !== notificationContainer && target !== notificationButton) {
+        // Click occurred outside of the notification container and button, hide the container
+        notificationContainer.style.display = "none";
+    }
+});

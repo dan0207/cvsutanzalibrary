@@ -1,26 +1,42 @@
-.nav-link, .dropdown-item {
-    color: #000000 !important;
+.nav-link,
+.dropdown-item {
+  color: #000000 !important;
 }
 
-.nav-link.active, .dropdown-item.active, .dropdown-item.focus {
-    background-color: #007205 !important;
-    color: #ffffff !important;
+.nav-link.active,
+.dropdown-item.active,
+.dropdown-item.focus {
+  background-color: #007205 !important;
+  color: #ffffff !important;
 }
 
 .card-img-top {
-    height: 150px;
+  height: 150px;
 }
 
 .profile-picture {
-    margin-top: -85px;
+  margin-top: -85px;
 }
 
 .profile-picture #profile_picture {
-    width: 130px;
+  width: 130px;
+}
+
+.update-profile:disabled,
+.profile-details span.disabled{
+  background-color: #f8f9fa !important;
+  resize: none !important;
+  opacity: 0.7 !important;
+}
+
+.update-profile:not([disabled]),
+.update-profile:not([disabled]) .input-group span {
+  background-color: #fff ;
+  box-shadow: 0 0 0 0.1rem rgb(0, 114, 5, 0.5);
 }
 
 @media screen and (min-width: 992px) {
-    #profile_sidebar .card {
-        height: 80vh;
-    }
+  #profile_sidebar .card {
+    height: 80vh;
+  }
 }

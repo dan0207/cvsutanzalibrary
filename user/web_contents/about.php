@@ -34,8 +34,6 @@ if ($result->num_rows > 0) {
                                 echo '<div class="carousel-item ' . $isActive . '"><img src="../../admin/render/uploads/images/' . $url  . '" class="d-block w-100" alt="..."><div class="announcement-overlay"><div class="overlay-text fw-semibold">' . $text . '</div></div></div>';
                             } elseif (in_array($fileExtension, ['mp4', 'webm', 'ogg'])) {
                                 echo '<div class="carousel-item ' . $isActive . '"><video control autoplay loop class="d-block w-100"><source src="../../admin/render/uploads/videos/' . $url  . '" type="video/' . $fileExtension . '">Your browser does not support the video tag.</video><div class="announcement-overlay"><div class="overlay-text fw-semibold">' . $text . '</div></div></div>';
-                            }else{
-                                echo '<div class="carousel-item ' . $isActive . '">'.$url.'</div>';
                             }
                         }
                         ?>

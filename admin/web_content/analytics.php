@@ -11,7 +11,7 @@
                 <p>Total Borrow Request</p>
                 <?php
                     $currentMonth = date('m');
-                    $sql = "SELECT COUNT(*) as total_rows FROM booktransaction WHERE MONTH(pickupDate) = $currentMonth";
+                    $sql = "SELECT COUNT(*) as total_rows FROM booktransaction WHERE MONTH(returnDate) = $currentMonth";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
@@ -146,32 +146,47 @@
                     <div class="col">
                         <p class="fs-small">Fine<br>Collected</p>
                         <?php
-                            $currentDay = date('d');
-                            $currentMonth = date('m');
+                            // Initialize total fine
                             $totalFine = 0;
 
-                            // Construct the SQL query to fetch data for the current month
-                            $sql = "SELECT * FROM booktransaction WHERE DAY(returnDate) = $currentDay AND MONTH(returnDate) = $currentMonth";
+                            // Set the default timezone to Asia/Manila
+                            date_default_timezone_set('Asia/Manila');
+                            // Get the current date
+                            $currentDate = date('Y-m-d');
 
-                            $result = $conn->query($sql);
+                            // Construct the SQL query using prepared statements
+                            $sql = "SELECT fine FROM booktransaction WHERE returnDate = ?";
+                            $stmt = $conn->prepare($sql);
 
-                            if ($result->num_rows > 0) {
-                                // Output data of each row
-                                while ($row = $result->fetch_assoc()) {
+                            if ($stmt) {
+                                // Bind parameters
+                                $stmt->bind_param("s", $currentDate);
+                                
+                                // Execute query
+                                $stmt->execute();
+                                
+                                // Bind result variables
+                                $stmt->bind_result($fine);
+                                
+                                // Fetch results
+                                while ($stmt->fetch()) {
                                     // Check if 'fine' is a valid number
-                                    if (is_numeric($row['fine'])) {
+                                    if (is_numeric($fine)) {
                                         // Cast 'fine' to an integer before adding to totalFine
-                                        $totalFine += (int)$row['fine'];
+                                        $totalFine += (int)$fine;
                                     }
                                 }
                                 
+                                // Close statement
+                                $stmt->close();
+                                
                                 // Display the total fine after processing all rows
-                                echo "<h2>" . $totalFine . "</h2>";
+                                echo "<h2>$totalFine</h2>";
                             } else {
-                                echo "<h2>0</h2>";
+                                // Display error if query preparation fails
+                                echo "Error preparing statement: " . $conn->error;
                             }
                         ?>
-
                     </div>
                 </div>
                 

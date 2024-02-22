@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th class="fs-8">Access No.: </th> <!--(ITEM NUMBER) Items -->
-            <th>Book Title: </th> <!-- (TITLE) Biblio -->
+            <th>Title: </th> <!-- (TITLE) Biblio -->
             <th>Author: </th> <!-- (AUTHOR) Biblio -->
             <th>Call No.: </th> <!--(ITEM CALL NUMBER) Items -->
             <th class="fs-8">Material type: </th> <!--(ITYPE) Items -->

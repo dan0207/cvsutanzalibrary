@@ -34,26 +34,30 @@ include '../php_script/main_script.php';
                 <hr class="hr_login_text" data-content="or continue with username & password">
 
                 <form id="login_form" action="../php_script/login_script.php" class="needs-validation m-0" method="POST" novalidate>
-
                     <div class="form-outline text-start mb-2">
                         <label class="form-label mb-0">Username</label>
-                        <input type="text" name="username" class="form-control form-control-md" required />
-                        <div id="username_feedback" class="text-secondary fs-8"></div>
+                        <input id="login_username" type="text" name="username" class="form-control form-control-md" required />
+                        <div id="validationUsernameFeedback" class="invalid-feedback fs-7">
+                            Please enter username.
+                        </div>
                     </div>
 
                     <div class="form-outline text-start">
                         <label class="form-label mb-0">Password</label>
-                        <input type="password" name="password" class="form-control form-control-md" required />
-                        <div id="password_feedback" class="text-secondary fs-8"></div>
+                        <input id="login_password" type="password" name="password" class="form-control form-control-md" required />
+                        <div id="validationPasswordFeedback" class="invalid-feedback fs-7">
+                            Please enter the password.
+                        </div>
                     </div>
 
-                    <!-- Checkbox -->
                     <div class="form-check d-flex justify-content-start mb-2">
-                        <input class="form-check-input" type="checkbox" />
-                        <label class="form-check-label ms-2"> Remember password </label>
+                        <input class="form-check-input" type="checkbox" id="rememberCheckbox" />
+                        <label class="form-check-label ms-2" for="rememberCheckbox"> Remember password </label>
                     </div>
 
-                    <button id="login_form_btn" class="btn btn-primary btn-md w-100 mb-3"> Login </button>
+                    <div id="login_feedback" class="text-danger mb-2 fs-7"></div>
+
+                    <button id="login_form_btn" type="button" class="btn btn-primary btn-md w-100 mb-3"> Login </button>
                 </form>
 
                 <div class="d-flex align-items-center">
@@ -70,7 +74,7 @@ include '../php_script/main_script.php';
     <script src="../assets/vendor/js/googleAuth.js" type="text/javascript"></script>
     <script src="../assets/vendor/js/login.js" type="module"></script>
     <!-- Scripts -->
-    
+
 
     <!-- Modals -->
     <?php include '../web_contents/modals.php'; ?>

@@ -2,6 +2,7 @@
     include '../render/connection.php';
     include '../assets/cdn/cdn_links.php';
     include '../assets/fonts/fonts.php';
+    include '../assets/script/php_script/dashboard_chart.php';
     
     session_start();
     if (!isset($_SESSION['username'])) {
@@ -74,17 +75,17 @@
             new Chart(ctx, {
                 type: 'pie',
                 data: {
-                labels: ['BEE', 'BSE', 'BSBM', 'BSHM', 'BSTM', 'BSIT', 'BSP'],
-                datasets: [{
-                    data: [12, 19, 33, 15, 21, 23, 10],
-                    borderWidth: 1,
+                    labels: <?php echo json_encode($labels1); ?>,
+                    datasets: [{
+                        data: <?php echo json_encode($data1); ?>,
+                        borderWidth: 1,
                         backgroundColor: [
-                            'rgba(100, 50, 132, 1)',
                             'rgba(255, 159, 64, 1)',
                             'rgba(255, 205, 86, 1)',
                             'rgba(75, 192, 192, 1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(175, 192, 192, 1)',
+                            'rgba(100, 50, 132, 1)',
                             'rgba(54, 62, 135, 1)',
                         ],
                         borderColor: [
@@ -96,37 +97,34 @@
                             'rgba(175, 192, 192, 1)',
                             'rgba(54, 62, 135, 1)',
                         ]
-                }]
+                    }]
                 },
                 options: {
-                scales: {
-                    y: {
-                    beginAtZero: true
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
-                }
                 }
             });
 
+            
             const ctxa = document.getElementById('barGraph');
 
             new Chart(ctxa, {
                 type: 'bar',
                 data: {
-                    labels: ['Diverse Fiction', 
-                    'Multicultural Tales', 
-                    'Automata and Computability', 
-                    'A Beginners Guide to Python 4', 
-                    'Global Nonfiction'],
+                    labels: <?php echo json_encode($labels); ?>,
                     datasets: [{
                         label: '# of books',
-                        data: [32, 19, 43, 35, 62],
+                        data: <?php echo json_encode($data); ?>,
                         borderWidth: 1,
                         backgroundColor: [
+                            'rgba(54, 162, 235, 1)',
                             'rgba(100, 50, 132, 1)',
                             'rgba(255, 159, 64, 1)',
                             'rgba(255, 205, 86, 1)',
                             'rgba(75, 192, 192, 1)',
-                            'rgba(54, 162, 235, 1)',
                         ],
                         borderColor: [
                             'rgb(255, 99, 132)',
@@ -140,13 +138,11 @@
                 options: {
                     scales: {
                         y: {
-                        beginAtZero: true
+                            beginAtZero: true
                         }
                     }
                 }
             });
-
-
         </script>
 
     </body>

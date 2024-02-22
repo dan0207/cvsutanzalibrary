@@ -18,6 +18,20 @@
         <title>Account Settings</title>
 
         <link rel="stylesheet" href="../assets/style/style.css">
+        <style>
+    .square-image-container {
+        width: 300px; /* Adjust this value to set the desired size of the square */
+        height: 300px; /* Adjust this value to set the desired size of the square */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .square-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
     </head>
     
     <body>

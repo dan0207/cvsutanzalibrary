@@ -643,6 +643,51 @@
 </div>
 <!-- Create Post Modal -->
 
+<!-- Authentication Modal -->
+<div class="modal fade" id="authentication_modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center bg-tertiary border-2 border-bottom border-teriary">
+                <img src="../assets/img/logo.png" alt="CAVITE STATE UNIVERSITY TANZA CAMPUS LIBRARY LOGO" class="img-responsive">
+                <button type="button" class="btn-close z-3 position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4">
+                <h4 class="modal-title text-center mb-4">Authentication Required</h4>
+                <form id="authentication_form" action="../web_contents/attendance_log.php" method="post" enctype="multipart/form-data">
+                    <div class="row g-2">
+                        <div class="input-group col-12 mb-1">
+                            <span class="input-group-text border fw-semibold">Username:</span>
+                            <input id="authentication_username" type="text" class="form-control rounded-end-2" required>
+                            <div class="invalid-feedback fs-7">
+                                Please enter username.
+                            </div>
+                        </div>
+                        <div class="input-group col-12 mb-1">
+                            <span class="input-group-text border fw-semibold">Password:</span>
+                            <input id="authentication_password" type="password" class="form-control rounded-end-2" required>
+                            <div class="invalid-feedback fs-7">
+                                Please enter password.
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <div id="authentication_feedback" class="text-danger mb-2 text-center mt-2"></div>
+
+            </div>
+            <div class="modal-footer bg-tertiary border-2 border-top border-teriary">
+                <button type="button" class="btn btn-secondary text-onSecondary" data-bs-dismiss="modal">Close</button>
+                <button id="authentication_modal_btn" class="btn btn-primary w-40"> Login </button>
+                <button id="authentication_modal_btn_processing" class="btn btn-primary w-40 d-none" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Processing...</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Authentication Modal -->
+
 
 <!-- Toast -->
 <div class="toast-container position-absolute top-50 start-50 translate-middle p-3 rounded-3 w-35">

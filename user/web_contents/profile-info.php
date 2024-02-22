@@ -20,82 +20,92 @@
                                     <div class="fs-4">
                                         Profile
                                     </div>
-                                    <div class="profile-type fs-6 ms-auto"><?php echo $_SESSION['user_member_type']; ?></div>
+                                    <div class="profile-type fs-6 ms-auto"><?php echo $_SESSION['user_member_type'] ?? ''; ?></div>
                                 </div>
-                                <p class="profile-name fs-2 px-4 py-2 mt-3 mb-0"><?php echo $_SESSION['user_fullname']; ?></p>
-                                <p class="profile-student-courseSection px-4 py-0  mt-0 mb-1"><?php echo getFormatCourseSection($_SESSION['user_student_course'], $_SESSION['user_student_year'], $_SESSION['user_student_section']); ?></p>
-                                <p class="profile-student-number px-4 py-0 mb-1"><?php echo $_SESSION['user_student_number']; ?></p>
-                                <p class="profile-email px-4 py-0 mb-1"><?php echo $_SESSION['user_email']; ?></p>
+                                <p class="profile-name fs-2 px-4 py-2 mt-3 mb-0"><?php echo $_SESSION['user_fullname'] ?? ''; ?></p>
+                                <p class="profile-student-courseSection px-4 py-0  mt-0 mb-1"><?php echo getFormatCourseSection($_SESSION['user_student_course'] ?? '', $_SESSION['user_student_year'] ?? '', $_SESSION['user_student_section'] ?? ''); ?></p>
+                                <p class="profile-student-number px-4 py-0 mb-1"><?php echo $_SESSION['user_student_number'] ?? ''; ?></p>
+                                <p class="profile-email px-4 py-0 mb-1"><?php echo $_SESSION['user_email'] ?? ''; ?></p>
                             </div>
                             <div class="col-12 col-lg-3 p-3">
                                 <div id="profile_qr_code_container" class="text-center w-100 w-xl-80 mx-auto">
-                                    <img src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                    <img src="<?php echo generateQRCode($_SESSION['user_token'] ?? '', 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
                                     <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
-                                    <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8"><?php echo mask($_SESSION['user_token']); ?></p>
+                                    <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8"><?php echo mask($_SESSION['user_token'] ?? ''); ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="profile-details">
+
+                    <form action="../php_script/update_profile_script.php" class="profile-details" method="POST" novalidate>
                         <div class="row m-0 border-bottom py-3 mb-3 border rounded-3 shadow bg-body-tertiary">
                             <div class="col-12 col-lg-6">
                                 <label for="" class="form-label">Bio</label>
-                                <textarea type="text" class="form-control" rows="4"></textarea>
+                                <textarea name="updateProfile_bio" type="text" class="update-profile form-control" rows="4" disabled><?php echo $_SESSION['user_bio'] ?? ''; ?></textarea>
                             </div>
                             <div class="row m-0 p-0 col-12 col-lg-6">
                                 <div class="col-6 col-lg-6">
                                     <label for="" class="form-label">Age</label>
-                                    <input type="text" class="form-control">
+                                    <input name="updateProfile_age" type="text" class="update-profile form-control" value="<?= $_SESSION['user_age'] ?? '' ?>" disabled>
                                 </div>
                                 <div class="col-6 col-lg-6">
-                                    <label for="" class="form-label">Gender</label>
-                                    <select class="form-select" required>
-                                        <option value="" selected hidden></option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select name="updateProfile_gender" class="update-profile form-select" disabled>
+                                        <?php
+                                        $genders = ['Male', 'Female'];
+                                        foreach ($genders as $option) {
+                                            echo '<option value="' . $option . '" ' . ($_SESSION['user_gender'] == $option ? 'selected' : '') . '>' . $option . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-12">
                                     <label for="" class="form-label">Birthday</label>
-                                    <input type="date" class="form-control">
+                                    <input name="updateProfile_birthday" type="date" class="update-profile form-control" placeholder=" " value="<?= $_SESSION['user_birthday'] ?? '' ?>" disabled>
                                 </div>
                             </div>
                         </div>
-
-
 
                         <div class="row m-0 rounded-3 py-3 border rounded-3 shadow bg-body-tertiary">
                             <div class="form-outline row m-0 p-0">
                                 <div class="col-12 col-lg-5">
                                     <label for="profile_username_input" class="form-label">Username</label>
-                                    <input type="text" class="form-control" name="profile_username" id="profile_username_input" required>
-                                    <div id="profile_username_feedback" class="text-secondary fs-8"></div>
+                                    <input type="text" class="update-profile form-control" name="updateProfile_username" id="profile_username_input" required disabled>
+                                    <div id="updateProfile_username_feedback" class="text-secondary fs-8"></div>
                                 </div>
                                 <div class="col-12 col-lg-3">
                                     <label for="profile_password_input" class="form-label">Old Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control border border-end-0" name="profile_password" id="profile_password_input" required>
-                                        <span class="input-group-text border border-start-0 bg-surface"><i id="show_password_toggle" class="fa fa-eye-slash"></i></span>
+                                        <input type="password" class="update-profile form-control border border-end-0" name="updateProfile_old_password" id="profile_old_password_input" required disabled>
+                                        <span class="update-profile input-group-text border border-start-0 bg-surface disabled"><i id="show_old_password_toggle" class="fa fa-eye-slash"></i></span>
                                     </div>
-                                    <div id="profile_password_Strength_feedback" class="text-secondary fs-8"></div>
+                                    <div id="updateProfile_password_old_feedback" class="text-secondary fs-8"></div>
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <label for="profile_re_password_input" class="form-label">New Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control border border-end-0" name="profilere_password" id="profile_re_password_input" required>
-                                        <span class="input-group-text border border-start-0 bg-surface"><i id="show_re_password_toggle" class="fa fa-eye-slash"></i></span>
+                                        <input type="password" class="update-profile form-control border border-end-0" name="updateProfile_new_password" id="profile_new_password_input" required disabled>
+                                        <span class="update-profile input-group-text border border-start-0 bg-surface disabled"><i id="show_new_password_toggle" class="fa fa-eye-slash"></i></span>
                                     </div>
-                                    <div id="profile_password_checkMatch_feedback" class="text-secondary fs-8"></div>
+                                    <div id="updateProfile_password_new_feedback" class="text-secondary fs-8"></div>
                                 </div>
 
-                                <button id="profile_form_btn" class="btn btn-primary rounded-pill w-50 mx-auto fs-7 mt-3">Update Information</button>
+                                <div class="update_buttons d-flex justify-content-center">
+                                    <button id="edit_profile_btn" type="button" class="btn btn-tertiary border shadow-sm rounded-3 w-20 mt-3">Edit</button>
+                                    <button id="save_profile_btn" type="button" class="btn btn-primary border shadow-sm rounded-3 w-15 mt-3 d-none">Save</button>
+                                    <button id="cancel_profile_btn" type="button" class="btn btn-secondary text-white border shadow-sm rounded-3 w-10 ms-2 mt-3 d-none">Cancel</button>
+                                    <button id="save_profile_btn_processing" class="btn btn-primary shadow-sm rounded-3 w-20 mx-auto mt-3 d-none" type="button" disabled>
+                                        <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                        <span role="status">Saving...</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <div class="border d-lg-none rounded-3 shadow bg-body-tertiary my-3 p-3 d-flex justify-content-center align-items-center">
                             <button class="logout-btn btn btn-primary fs-7 rounded-0 w-100 rounded-3" type="button">Logout</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="tab-pane fade" id="book_transaction_tab">
                     <div class="border p-2 p-lg-4 rounded-3 shadow bg-body-tertiary">

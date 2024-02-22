@@ -144,10 +144,10 @@
                     scrollX: (window.innerWidth <= 1500) ? true : false
                 });
                 var satisfactionTable =  $('#userList').DataTable({
-                    scrollX: (window.innerWidth <= 1400) ? true : false
+                    scrollX: (window.innerWidth <= 1500) ? true : false
                 });
                 var satisfactionTable =  $('#userView').DataTable({
-                    scrollX: (window.innerWidth <= 1400) ? true : false
+                    scrollX: (window.innerWidth <= 1500) ? true : false
                 });
             });
 

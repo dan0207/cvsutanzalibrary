@@ -52,14 +52,57 @@
         <script src="../assets/script/script.js"></script>
 
         <script>
+            $(document).ready(function() {
+                // Perform initial search based on URL parameter
+                searchBasedOnName();
+
+                // Listen for changes in the URL
+                $(window).on('popstate', function() {
+                    // Perform search when the URL changes
+                    searchBasedOnName();
+                });
+            });
+
+            // Function to get URL parameter by name
+            function getUrlParameter(url, name) {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+
+            // Function to perform search based on name parameter in URL
+            function searchBasedOnName() {
+                var url = window.location.href;
+                var name = getUrlParameter(url, 'name');
+
+                console.log("Name parameter:", name); // Check if the name parameter is retrieved correctly
+
+                // Initialize DataTable if it's not already initialized and name parameter is null
+                if (name === null) {
+                    if (!$.fn.DataTable.isDataTable('#bookReserveTable')) {
+                        $('#bookReserveTable').DataTable({
+                            scrollX: true
+                        });
+                    }
+                } else {
+                    // Check if DataTable is already initialized
+                    var table = $('#bookReserveTable').DataTable();
+                    if (table) {
+                        // Perform search if DataTable is already initialized
+                        console.log("Datatable instance:", table); // Check if the DataTable instance is retrieved
+                        table.search(name).draw();
+                        console.log("Search performed for:", name); // Log that the search is performed
+                    }
+                }
+            }
+
 
             // loading datatable | handle circulation
             $(document).ready(function () {
                 // DataTable initialization for bookReserveTable
-                var dataTableReserve = $('#bookReserveTable').DataTable({
-                    scrollX: true
-                });
-
                 // DataTable initialization for bookBorrowedTable
                 var dataTableBorrowed = $('#bookBorrowedTable').DataTable({
                     scrollX: true
@@ -194,6 +237,7 @@
                     var title = $(this).data('title');
                     var callNo = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
+                    var dueDate = $(this).data('due');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
 
@@ -207,6 +251,7 @@
                     $('#return_modalTittle').text(title);
                     $('#return_modalCallNo').text(callNo);
                     $('#return_modalPickUpDate').text(pickupDate);
+                    $('#return_modalDueDate').text(dueDate);
                     $('#return_modalReturnDate').text(returnDate);
                     $('#return_modalfine').text(fine);
 
@@ -226,6 +271,7 @@
                             '&title=' + encodeURIComponent(title) +
                             '&callno=' + encodeURIComponent(callNo) +
                             '&pickupDate=' + encodeURIComponent(pickupDate) +
+                            '&dueDate=' + encodeURIComponent(dueDate) +
                             '&returnDate=' + encodeURIComponent(returnDate) +
                             '&fine='+ encodeURIComponent(fine);
 
@@ -246,6 +292,7 @@
                     var title = $(this).data('title');
                     var callNo = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
+                    var dueDate = $(this).data('due');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
                     
@@ -259,6 +306,7 @@
                     $('#damage_modalTittle').text(title);
                     $('#damage_modalCallNo').text(callNo);
                     $('#damage_modalPickUpDate').text(pickupDate);
+                    $('#damage_modalDueDate').text(dueDate);
                     $('#damage_modalReturnDate').text(returnDate);
                     $('#damage_modalfine').text(fine);
 
@@ -278,6 +326,7 @@
                             '&title=' + encodeURIComponent(title) +
                             '&callno=' + encodeURIComponent(callNo) +
                             '&pickupDate=' + encodeURIComponent(pickupDate) +
+                            '&dueDate=' + encodeURIComponent(dueDate) +
                             '&returnDate=' + encodeURIComponent(returnDate) +
                             '&fine='+ encodeURIComponent(fine);
 
@@ -298,6 +347,7 @@
                     var title = $(this).data('title');
                     var callNo = $(this).data('callno');
                     var pickupDate = $(this).data('pickup');
+                    var dueDate = $(this).data('due');
                     var returnDate = $(this).data('return');
                     var fine = $(this).data('fine');
                     
@@ -311,6 +361,7 @@
                     $('#missing_modalTittle').text(title);
                     $('#missing_modalCallNo').text(callNo);
                     $('#missing_modalPickUpDate').text(pickupDate);
+                    $('#missing_modalDueDate').text(dueDate);
                     $('#missing_modalReturnDate').text(returnDate);
                     $('#missing_modalfine').text(fine);
 
@@ -330,6 +381,7 @@
                             '&title=' + encodeURIComponent(title) +
                             '&callno=' + encodeURIComponent(callNo) +
                             '&pickupDate=' + encodeURIComponent(pickupDate) +
+                            '&dueDate=' + encodeURIComponent(dueDate) +
                             '&returnDate=' + encodeURIComponent(returnDate) +
                             '&fine='+ encodeURIComponent(fine);
 
@@ -339,7 +391,6 @@
                 });
             });
             // loading datatable | handle circulation
- 
         </script>
     </body>
 </html>

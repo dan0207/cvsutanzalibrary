@@ -43,9 +43,7 @@ include '../php_script/main_script.php';
     <!-- Main -->
 
     <!-- Footer -->
-    <div class="mt-auto">
-        <?php include '../web_contents/footer.php'; ?>
-    </div>
+    <?php include '../web_contents/footer.php'; ?>
     <!-- Footer -->
 
     <!-- Script -->

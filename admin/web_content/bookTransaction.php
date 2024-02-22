@@ -13,12 +13,14 @@
                 <thead class="table-success">
                     <tr>
                         <th>Remarks</th>
+                        <th>ID</th>
                         <th>Library ID</th>
                         <th>Name</th>
                         <th>Book Access No.</th>
                         <th>Book Title</th>
                         <th>Book Call No.</th>
                         <th>Pickup Date</th>
+                        <th>Due Date</th>
                         <th>Return Date</th>
                         <th>Fine</th>
                         <th>Course & Section</th>
@@ -46,12 +48,14 @@
                         ?>
                         <tr>
                             <td class="<?php echo $remarksClass; ?>"><?php echo $rowBorrowed["remarks"]; ?></td>
+                            <td><?php echo $rowBorrowed["id"]; ?></td>
                             <td><?php echo $rowBorrowed["libraryid"]; ?></td>
                             <td><?php echo $rowBorrowed["name"]; ?></td>
                             <td><?php echo $rowBorrowed["bookAccessNo"]; ?></td>
                             <td><?php echo $rowBorrowed["bookTitle"]; ?></td>
                             <td><?php echo $rowBorrowed["bookCallNo"]; ?></td>
                             <td><?php echo $rowBorrowed["pickupDate"]; ?></td>
+                            <td><?php echo $rowBorrowed["dueDate"]; ?></td>
                             <td><?php echo $rowBorrowed["returnDate"]; ?></td>
                             <td><?php echo ('₱'), empty($rowBorrowed["fine"]) ? 0 : $rowBorrowed["fine"]; ?></td>
                             <td><?php echo $rowBorrowed["courseSection"]; ?></td>

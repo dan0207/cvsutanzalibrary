@@ -28,7 +28,7 @@
         <li><a class="nav_bar nav-link" href="../libraryPages/books.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Books</a></li>
         <li><a class="nav_bar nav-link" href="../libraryPages/services.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Services</a></li>
         <li><a class="nav_bar nav-link" href="../libraryPages/acquisition.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Acquisition</a></li>
-        <li><a class="nav_bar nav-link" href="../libraryPages/tutorials.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Tutorials</a></li>
+        <li><a class="nav_bar nav-link" href="../libraryPages/tutorials.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Documentation</a></li>
         <li><a class="nav_bar nav-link" href="../libraryPages/eventActivities.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Calendar of Events</a></li>
         <li><a class="nav_bar nav-link" href="../libraryPages/about.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> About</a></li>
         <li><a class="nav_bar nav-link" href="../libraryPages/links.php"><i class="fa-solid fa-arrow-right fa-2xs"></i> Quick Links</a></li>

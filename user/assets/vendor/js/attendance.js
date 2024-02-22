@@ -1,5 +1,5 @@
 // Import Javascript Files ////////////////////////////////////////////////////////
-import { mask } from '../../js/main.js';
+import { mask, showModal, setupFormValidation } from '../../js/main.js';
 // Import Javascript Files ////////////////////////////////////////////////////////
 
 
@@ -98,6 +98,59 @@ function updateDate() {
 
 updateDate();
 
+const viewLogBook_btn = document.getElementById("viewLogBook_btn");
+const authentication_modal = document.getElementById("authentication_modal");
+const authentication_form = document.getElementById("authentication_form");
+const authentication_modal_btn = document.getElementById("authentication_modal_btn");
+const authentication_modal_btn_processing = document.getElementById("authentication_modal_btn_processing");
+
+function handle_authenticationForm() {
+    let authentication_username = document.getElementById('authentication_username').value;
+    let authentication_password = document.getElementById('authentication_password').value;
+    checkAdminData(authentication_username, authentication_password)
+        .then(user_scan_valid => {
+            if (user_scan_valid) {
+                document.getElementById('authentication_feedback').textContent = '';
+                authentication_modal_btn.classList.toggle('d-none');
+                authentication_modal_btn_processing.classList.toggle('d-none');
+                setTimeout(function () {
+                    authentication_form.submit();
+                }, 2000);
+            } else {
+                document.getElementById('authentication_feedback').textContent = 'Incorrect Username or Password';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+async function checkAdminData(authentication_username, authentication_password) {
+    try {
+        const response = await fetch('../php_script/check_adminCredentials_script.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                username: authentication_username,
+                password: authentication_password
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+        return data.status;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+
+
+viewLogBook_btn.addEventListener('click', () => {
+    showModal(authentication_modal.id, '')
+});
+
+
 $('#qrForm').submit(function (event) {
     event.preventDefault();
 });
@@ -138,4 +191,8 @@ function checkUserData(qr_scanner_input_value) {
             throw error;
         });
 }
+
+
+setupFormValidation(authentication_form.id, authentication_modal_btn.id, handle_authenticationForm)
+
 

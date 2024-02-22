@@ -209,7 +209,7 @@
                         <img src="../assets/img/service4.png" class="rounded-3" alt="Service 2 Image">
                         <div class="card-body d-flex flex-column">
                             <h6 class="card-title fw-semibold fs-7 fs-lg-5">CATEGORIZED BOOK</h6>
-                            <p class="card-text my-auto fs-8 fs-lg-7">We have excellent collection of books categorized under children, fiction, cookbooks etc for easy access.</p>
+                            <p class="card-text my-auto fs-8 fs-lg-7">We have excellent collection of books categorized under Filipiniana, Circulation, Narative, Theses, Reserve, Reference section etc for easy access.</p>
                             <p class="full-details"></p>
                             <button class="animation-service-btn btn btn-sm btn-primary mt-auto mx-auto">Learn More</button>
                             <button class="animation-service-closebtn btn btn-sm btn-secondary text-onSecondary my-5 mx-auto d-none">Back</button>

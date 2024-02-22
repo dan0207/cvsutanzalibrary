@@ -105,11 +105,12 @@
         </div>
     </div>
     
-    <div class="row">
+    <!-- <div class="row">
         <div class="row-sm-10 row-lg-4"> <br>
             <div class="m-sm-5 p-sm-5 m-lg-1 p-lg-3 border shadow">
                 <h3>TOTAL COLLECTION BY COURSE</h3>
             </div>
         </div>
-    </div> <br>
+    </div> -->
+    <br>
 </div>

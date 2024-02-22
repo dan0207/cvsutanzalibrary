@@ -94,6 +94,9 @@ textarea {
 .fs-small {
     font-size: .7rem;
 }
+.fs-smallest {
+    font-size: .6rem;
+}
 
 .admin-profile {
     height: 100% !important;
@@ -102,7 +105,17 @@ textarea {
 .profile_picture {
     width: 20vw ;
 }
-
+.bg-green {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px;
+    padding: 2px;
+}
+.btn-white {
+    background: var(--text-color);
+    border: 1px solid var(--text-color-secondary);
+    padding: 2px;
+}
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
@@ -269,7 +282,40 @@ section {
 }
 /* admin transaction | remarks change of colors */
 
+/* documentaion */
+#documentaion {
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+#documentaion_nav {
+    position: fixed;
+    top: 150;
+    height: 70%;
+    width: 15%;
+    overflow-y: scroll;
+}
+#documentaion_content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+/* documentaion */
 
+/* admin notification display */
+#notificationContainer {
+    display: none;
+    position: fixed;
+    top: 54; 
+    right: 10;
+    width: 300px;
+    z-index: 5000;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    border-left: 1px solid rgb(211, 211, 211);
+    border-right: 1px solid rgb(211, 211, 211);
+    padding: 10px;
+}
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------- */

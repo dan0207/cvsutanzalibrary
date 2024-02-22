@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="../assets/vendor/css/home.css">
 <link rel="stylesheet" href="../assets/vendor/css/about.css">
 <link rel="stylesheet" href="../assets/vendor/css/services.css">
+<link rel="stylesheet" href="../assets/vendor/css/acquisitions.css">
+<link rel="stylesheet" href="../assets/vendor/css/documentation.css">
 <link rel="stylesheet" href="../assets/vendor/css/footer.css">
 <link rel="stylesheet" href="../assets/vendor/css/login.css">
 <link rel="stylesheet" href="../assets/vendor/css/profile.css">
@@ -64,15 +66,16 @@
 <script defer src="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.js" type="text/javascript"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/zxcvbn/dist/zxcvbn.js" type="text/javascript"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
 <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script defer src="https://smtpjs.com/v3/smtp.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
 <script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
 <script defer src="https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReorder.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js"></script>
 <script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
 <script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <!-- SCRIPT -->
