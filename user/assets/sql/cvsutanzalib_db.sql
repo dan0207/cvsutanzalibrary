@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 03:53 PM
+-- Generation Time: Jun 16, 2024 at 08:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE PROCEDURE `UpdateBookStatus` ()   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateBookStatus` ()   BEGIN
     UPDATE books
     SET book_status = 
         CASE
@@ -35,7 +35,7 @@ CREATE PROCEDURE `UpdateBookStatus` ()   BEGIN
         END;
 END$$
 
-CREATE PROCEDURE `UpdateReservationStatus` ()   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateReservationStatus` ()   BEGIN
     UPDATE bookreserve
     SET status = 'to pickup'
     WHERE status = 'hold'
@@ -376,14 +376,6 @@ CREATE TABLE `users` (
   `user_birthday` date NOT NULL,
   `user_bio` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `user_fullname`, `user_username`, `user_password`, `user_givenName`, `user_middleI`, `user_familyName`, `user_email`, `user_student_number`, `user_student_course`, `user_student_section`, `user_student_year`, `user_faculty_number`, `user_faculty_department`, `user_picture`, `user_created`, `user_modified`, `user_status`, `user_member_type`, `user_token`, `user_age`, `user_gender`, `user_birthday`, `user_bio`) VALUES
-(10, 'Erika Navarro', 'qwe', '123', 'Erika', 'B', 'Navarro', 'erika.navarro@cvsu.edu.ph', '202013150', 'BSHM', 'ONE', 'SECOND', '', '', '../assets/img/profile_pictures/64066905_profile_picture.png', '2024-01-23 17:01:55', '2024-01-24 17:23:35', 'Offline', 'Student', '64066905', 0, '', '0000-00-00', ''),
-(11, 'Danilo Jr. Abancia', 'asd', '123', 'Danilo', 'D', 'Abancia', 'danilojr.abancia@cvsu.edu.ph', '', '', '', '', '201910150', 'IT Department', '../assets/img/profile_pictures/12909995_profile_picture.png', '2024-01-24 03:50:38', '2024-01-24 17:23:35', 'Offline', 'Faculty', '12909995', 22, 'Male', '0000-00-00', '');
 
 --
 -- Indexes for dumped tables
