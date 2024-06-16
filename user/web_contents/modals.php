@@ -570,7 +570,7 @@
                             <div class="col-5">
 
                                 <div id="book_receipt_qr_code_container" class="text-center">
-                                    <img id="book_receipt_qr_Code_img" alt="QR Code" class="img-responsive ms-auto w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                    <img id="book_receipt_qr_Code_img" alt="QR Code" class="img-responsive ms-auto w-100 border border-5 border-primary rounded-4 p-3 mb-2 shadow bg-body-surface">
                                     <p class="fs-6 text-center m-0 p-0 mx-auto">Library ID:</p>
                                     <input id="book_receipt_library_id" type="text" class="form-control text-center pb-3 fs-7 border-0 fw-semibold" name="library_id" readonly hidden>
                                 </div>

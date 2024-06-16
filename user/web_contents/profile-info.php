@@ -29,7 +29,8 @@
                             </div>
                             <div class="col-12 col-lg-3 p-3">
                                 <div id="profile_qr_code_container" class="text-center w-100 w-xl-80 mx-auto">
-                                    <img src="<?php echo generateQRCode($_SESSION['user_token'] ?? '', 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface">
+                                    <img src="<?php echo generateQRCode($_SESSION['user_token'], 500); ?>" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 p-3 shadow bg-body-surface">
+                                    <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" id="profile_qr_code_image" alt="QR Code" class="profile-qr-code-img img-responsive w-100 border border-5 border-primary rounded-4 mb-2 shadow bg-body-surface"> -->
                                     <p class="text-center m-0 p-0 mx-auto">Library ID:</p>
                                     <p id="library_id" class="library-id text-center m-0 p-0 mx-auto fs-8"><?php echo mask($_SESSION['user_token'] ?? ''); ?></p>
                                 </div>

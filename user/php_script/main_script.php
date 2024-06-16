@@ -49,7 +49,7 @@ function checkAttendanceStatus($status)
 
 function generateQRCode($qr_text, $qr_size)
 {
-    $googleChartApiUrl = "https://chart.googleapis.com/chart?chs=" . $qr_size . "x" . $qr_size . "&cht=qr&chl=" . $qr_text . "&choe=UTF-8";
+    $googleChartApiUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . $qr_text . "&amp;size=" . $qr_size . "x" . $qr_size;;
     return $googleChartApiUrl;
 }
 
